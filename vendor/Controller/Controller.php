@@ -6,15 +6,8 @@ namespace Controller;
 
 class Controller{
     
+    protected $msg;
     protected $table;
-    /*public function getRepository(){
-        $ex = explode('\\',get_called_class());
-        $class = str_replace('Controller','',$ex[2]);
-        if(!isset($this->table)){
-            $this->table = new $class;
-        }
-        return $this->table;
-    }*/
     
     public function getRepository($table){
 //va servir à instancier ClassxxRepository
@@ -57,6 +50,21 @@ class Controller{
                 clean($data);
             }
         }
+    }
+    
+/*
+ * Check for empty fields
+ * 
+ */
+    public function checkForEmptyFields(&$args){
+        foreach($args as $key=>$value){
+            $newValue = trim($value);
+            if($newValue==''){
+                $this->msg = "Le champ ".$key." est obligatoire<br/>";
+                echo $this->msg;
+            }
+        }
+        return $this->msg;
     }
     
     

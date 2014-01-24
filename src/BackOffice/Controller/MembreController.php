@@ -5,7 +5,6 @@ USE Controller\Controller;
 class MembreController extends Controller{
     
     public $isConnected = false;
-    protected $msg;
     public $user;
     
 //initialise le panier à l'instanciation
@@ -72,15 +71,18 @@ class MembreController extends Controller{
  */
 
     public function signUpController($data =array()){
-        $this->clean($data);
-        $queryTable = $this->getRepository('Membre');
-        $myResult = $queryTable->signUpQuery($data);
-        if($myResult == false){
-            echo "perdu! ";
-        }
-        else{
+        $this->checkForEmptyFields($data);
+        if($this->msg ==''){
+            $this->clean($data);
+            $queryTable = $this->getRepository('Membre');
+            $myResult = $queryTable->signUpQuery($data);
+            if($myResult == false){
+                echo "perdu! ";
+            }
+            else{
             echo "gagné!";
-        }
+            }
+        } 
     }
 
 
