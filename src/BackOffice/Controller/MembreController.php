@@ -69,8 +69,7 @@ class MembreController extends Controller{
              //var_dump($_SESSION);
          }
          $this->initializeCart();
-         //return $this->user;  
-            
+         //return $this->user; 
       }
       
     public function initializeCart(){
