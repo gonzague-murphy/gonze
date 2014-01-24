@@ -1,8 +1,8 @@
 <?php
 namespace Repository;
 USE Manager\EntityRepository;
-USE Manager\PDOManager;
-USE Entity\Membre;
+USE PDO;
+
 
 class MembreRepository extends EntityRepository{
 
@@ -28,7 +28,26 @@ class MembreRepository extends EntityRepository{
  * et arrivent propres chez le model
  */
 
-
+     public function loginQuery($arg1,$arg2){
+        $query = $this->getDb()->prepare("SELECT id_membre, pseudo, nom, prenom, email, ville, cp, adresse, statut FROM ".$this->getTableName()." WHERE pseudo='".$arg1."' AND mdp='".$arg2."'");
+        //$query->execute();
+        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Membre');
+        $query->execute();
+        $myObject= $query->fetch();
+       
+/*
+ * Si la query ne passe pas, on fait une erreur propre
+ */
+        if(!$query){
+           return false;
+        }
+/*
+ * Sinon on attribue true à la variable témoin
+ */
+        else{           
+            return $myObject;
+        }
+    }
 
 }
 

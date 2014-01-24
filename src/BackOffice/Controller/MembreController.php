@@ -8,20 +8,10 @@ class MembreController extends Controller{
     protected $msg;
     public $user;
     
+//initialise le panier à l'instanciation
+    
     public function __construct(){
         $this->initializeCart();
-    }
-    
-    public function displayMembres(){
-        
-        $membre = $this->getRepository('Membre');
-        $membres = $membre->getAllMembers();
-        
-            $this->render('layout.php','membre.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-            'membres'=>$membres
-        ));
     }
     
     
@@ -50,14 +40,8 @@ class MembreController extends Controller{
          }
         return $this->user;
     }
-
-    public function defaultDisplay(){
-        $this->render('template_accueil.php','membre.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-
-        ));
-    }
+    
+//Session et panier
     
      public function initializeSession(){
          if($this->isConnected == true){
@@ -82,12 +66,43 @@ class MembreController extends Controller{
 		}
 	return true;
 }
-      
-        
-   
-    
-        
-    
-    
 
+/*
+ * Fonction d'inscription
+ */
+
+
+/*
+ * Fonction d'update
+ */
+
+/*
+ * Fonction de suppression
+ */
+      
+    
+//fonction de test
+
+    public function defaultDisplay(){
+        $this->render('template_accueil.php','membre.php',array(
+            'title'=>'Youpi-Coinz!',
+            'subtitle'=>'juste pour etre sur',
+
+        ));
+    }
+    
+//fonction de test
+    public function displayMembres(){
+        
+        $membre = $this->getRepository('Membre');
+        $membres = $membre->getAllMembers();
+        
+            $this->render('layout.php','membre.php',array(
+            'title'=>'Youpi-Coinz!',
+            'subtitle'=>'juste pour etre sur',
+            'membres'=>$membres
+        ));
+    }
+    
+    
 }
