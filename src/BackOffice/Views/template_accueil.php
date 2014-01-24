@@ -45,13 +45,13 @@
       <div id="gallery_image">
           <!--<img alt ="gallerie1" title="premiere_offre" src="../src/BackOffice/Views/img/gallerie_baleines.png"/>-->
       </div>
-         <form method="post" action="">
+         <!--<form method="post" action="">
             <label>Pseudo :</label>
             <input type="text" name="pseudo" /><br/>
             <label>Password :</label>
             <input type="password" name="mdp" /><br/>
             <input type="submit" value="send"/>
-        </form>
+        </form>-->
      </div><!--fin div #main_wrapper -->
 </body>
 </html>

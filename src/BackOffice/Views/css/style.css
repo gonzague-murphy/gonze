@@ -22,6 +22,17 @@ and open the template in the editor.
 
 /* For modern browsers */
 
+.error{
+    width : 15%;
+    background-color : red;
+    color : white;
+}
+
+.valide{
+    background-color: green;
+    color : white;
+}
+
 
 #wrapper_logo_menu{
     background-color: black;

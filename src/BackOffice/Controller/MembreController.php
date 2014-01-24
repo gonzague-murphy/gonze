@@ -26,7 +26,7 @@ class MembreController extends Controller{
         $myObj = $queryTable->loginQuery($dataInput['pseudo'],$dataInput['mdp']);
         //var_dump($myObj);
         if($myObj == false){
-            echo $this->msg = "<div class='erreur'>Mauvaise combinaison de login/mot de passe</div>";
+            echo $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
         }
         else{
             $this->isConnected = true;
@@ -80,7 +80,7 @@ class MembreController extends Controller{
                 echo "perdu! ";
             }
             else{
-            echo "gagné!";
+                echo "gagné!";
             }
         } 
     }
@@ -98,7 +98,7 @@ class MembreController extends Controller{
 //fonction de test
 
     public function defaultDisplay(){
-        $this->render('form.html','membre.php',array(
+        $this->render('template_accueil.php','form.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 

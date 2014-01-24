@@ -60,7 +60,7 @@ class Controller{
         foreach($args as $key=>$value){
             $newValue  = trim($value);
             if(empty($newValue)){
-                $this->msg = "Le champ ".$key." est obligatoire<br/>";
+                $this->msg = "<div class='error'>Le champ ".$key." est obligatoire</div>";
                 echo $this->msg;
             }
         }
