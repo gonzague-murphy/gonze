@@ -11,27 +11,35 @@ and open the template in the editor.
 </head>
 <body>
     <form method="post" action="">
-        <label>Pseudo :</label>
-        <input type="text" name="pseudo" /><br/>
-        <label>Password :</label>
-        <input type="password" name="mdp" /><br/>
-        <label>Nom :</label>
-        <input type="text" name="nom" /><br/>
-        <label>Prenom :</label>
-        <input type="text" name="prenom" /><br/>
-        <label>Email :</label>
-        <input type="text" name="email" /><br/>
-        <label>Sexe :</label>
-        <input type="radio" name="sex" value="m" checked>Male<br/>
-        <input type="radio" name="sex" value="f">Female<br/>
-        <label>Ville :</label>
-        <input type="text" name="ville" /><br/>
-        <label>Code Postal :</label>
-        <input type="text" name="cp" /><br/>
-        <label>Adresse :</label>
-        <input type="text" name="adresse" /><br/>
-        <input type="submit" id="submit" name="submit" value="submit" />
-
+        <label>Pseudo :
+            <input type="text" name="pseudo" />
+        </label>
+        <label>Password :
+            <input type="password" name="mdp" />
+        </label>
+        <label>Nom :
+            <input type="text" name="nom" />
+        </label>
+        <label>Prenom :
+            <input type="text" name="prenom" />
+        </label>
+        <label>Email :
+            <input type="text" name="email" />
+        </label>
+        <label for="sex">Sexe :
+            <input type="radio" name="sex" value="m" checked />Male
+            <input type="radio" name="sex" value="f" />Female
+        </label>
+        <label for="ville">Ville :
+            <input type="text" name="ville" />
+        </label>
+        <label for="cp">Code Postal :
+            <input type="text" name="cp" />
+        </label>
+        <label>Adresse :
+            <input type="text" name="adresse" />
+        </label>
+            <input type="submit" id="submit" name="submit" value="submit" />
     </form>
 </body>
 </html>

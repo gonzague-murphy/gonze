@@ -67,6 +67,15 @@ class Controller{
         return $this->msg;
     }
     
+    public function userIsAdmin(){
+        if($this->user->statut == 2 || $this->user == ''){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
     
     
 }

@@ -27,7 +27,6 @@ class EntityRepository{
     public function findAll(){
         
         $query = $this->getDb()->prepare("SELECT * FROM ".$this->getTableName());
-        
         $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.$this->getTableName());
         $query->execute();
         $result = $query->fetchAll();
@@ -36,9 +35,14 @@ class EntityRepository{
         }
         else{
             return $result;
-        }
-        
+        } 
      }
+     
+/*
+ * Fonction recherche par id
+ */
+     
+    public function findAllById(){}
      
 /*
  * Fonction d'insert générale
