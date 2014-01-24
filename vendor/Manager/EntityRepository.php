@@ -40,6 +40,9 @@ class EntityRepository{
         
      }
      
+/*
+ * Fonction d'insert générale
+ */
      
 
 

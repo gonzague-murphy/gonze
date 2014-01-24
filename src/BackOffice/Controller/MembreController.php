@@ -71,6 +71,18 @@ class MembreController extends Controller{
  * Fonction d'inscription
  */
 
+    public function signUpController($data =array()){
+        $this->clean($data);
+        $queryTable = $this->getRepository('Membre');
+        $myResult = $queryTable->signUpQuery($data);
+        if($myResult == false){
+            echo "perdu! ";
+        }
+        else{
+            echo "gagné!";
+        }
+    }
+
 
 /*
  * Fonction d'update
@@ -84,7 +96,7 @@ class MembreController extends Controller{
 //fonction de test
 
     public function defaultDisplay(){
-        $this->render('template_accueil.php','membre.php',array(
+        $this->render('form.html','membre.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 

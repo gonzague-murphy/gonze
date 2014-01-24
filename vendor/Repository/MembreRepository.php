@@ -13,13 +13,20 @@ class MembreRepository extends EntityRepository{
             return $this->findAll();
         }
 /*
- * Il va falloir hardcoder tout ça
- * edit*:il va quand meme falloir hardcoder T.T
+ * Fonction d'inscription 
  */
 
-        public function signUpquery($userData=array()){
-            $query = $this->getDb()->prepare("INSERT INTO membre (pseudo, mdp, nom, prenom)VALUES ('$userData[pseudo]','$userData[mdp]','$userData[nom]','$userData[prenom]')");
+        public function signUpQuery(&$userData){
+            $query = $this->getDb()->prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, email, sexe, ville, cp, adresse)VALUES (:pseudo,:mdp,:nom,:prenom,:email,:sex,:ville,:cp,:adresse)");
+             foreach($userData as $key => $value){
+                 if($key !='submit'){
+                    $query->bindValue(":$key",$value);
+                 }
+             }
             $query->execute();
+            if(!$query){
+                return false;
+            }
          }
         
 /*
