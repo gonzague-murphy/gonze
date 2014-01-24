@@ -58,8 +58,8 @@ class Controller{
  */
     public function checkForEmptyFields(&$args){
         foreach($args as $key=>$value){
-            $newValue = trim($value);
-            if($newValue==''){
+            $newValue  = trim($value);
+            if(empty($newValue)){
                 $this->msg = "Le champ ".$key." est obligatoire<br/>";
                 echo $this->msg;
             }

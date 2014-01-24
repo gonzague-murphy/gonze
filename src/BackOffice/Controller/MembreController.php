@@ -70,7 +70,7 @@ class MembreController extends Controller{
  * Fonction d'inscription
  */
 
-    public function signUpController($data =array()){
+    public function signUp($data =array()){
         $this->checkForEmptyFields($data);
         if($this->msg ==''){
             $this->clean($data);

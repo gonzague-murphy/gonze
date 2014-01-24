@@ -23,8 +23,8 @@ class MembreRepository extends EntityRepository{
                     $query->bindValue(":$key",$value);
                  }
              }
-            $result = $query->execute();
-            return $result;
+            $query->execute();
+           
          }
         
 /*
