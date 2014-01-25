@@ -31,11 +31,17 @@
     <h1>LokiSalle</h1>
         <h2></h2>
         <nav>
-            <ul class="main_menu">
-                <li><a href="#">about</a></li>
-                <li><a href="#">nos salles</a></li>
-                <li><a href="#">connexion |</a></li>
+            <ul class="user_menu">
+                <li><a href="#">connexion</a></li>
                 <li><a href="#"> inscription</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul class="main_menu">
+                <li><a href="#">Nos Salles</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
       </div><!-- fin de la div #wrapper_logo_menu-->
@@ -46,13 +52,13 @@
       <div id="gallery_image">
           <!--<img alt ="gallerie1" title="premiere_offre" src="../src/BackOffice/Views/img/gallerie_baleines.png"/>-->
       </div>
-         <!--<form method="post" action="">
+         <form method="post" action="">
             <label>Pseudo :</label>
             <input type="text" name="pseudo" /><br/>
             <label>Password :</label>
             <input type="password" name="mdp" /><br/>
             <input type="submit" value="send"/>
-        </form>-->
+        </form>
      </div><!--fin div #main_wrapper -->
 </body>
 </html>

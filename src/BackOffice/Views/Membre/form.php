@@ -11,34 +11,28 @@ and open the template in the editor.
 </head>
 <body>
     <form method="post" action="">
-        <label>Pseudo :
+        <label>Pseudo :</label>
             <input type="text" name="pseudo" />
-        </label>
-        <label>Password :
+        <label>Password :</label>
             <input type="password" name="mdp" />
-        </label>
-        <label>Nom :
+        <label>Nom :</label>
             <input type="text" name="nom" />
-        </label>
-        <label>Prenom :
+        <label>Prenom :</label>
             <input type="text" name="prenom" />
-        </label>
-        <label>Email :
+        <label>Email :</label>
             <input type="text" name="email" />
-        </label>
-        <label for="sex">Sexe :
+        <label for="sex">Sexe :</label>
             <input type="radio" name="sex" value="m" checked />Male
             <input type="radio" name="sex" value="f" />Female
-        </label>
-        <label for="ville">Ville :
+        <label for="ville">Ville :</label>
             <input type="text" name="ville" />
-        </label>
-        <label for="cp">Code Postal :
+     
+        <label for="cp">Code Postal :</label>
             <input type="text" name="cp" />
-        </label>
-        <label>Adresse :
+       
+        <label>Adresse :</label>
             <input type="text" name="adresse" />
-        </label>
+        
             <input type="submit" id="submit" name="submit" value="submit" />
     </form>
 </body>

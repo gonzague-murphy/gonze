@@ -17,15 +17,12 @@ class MembreRepository extends EntityRepository{
  */
 
         public function signUpQuery(&$userData){
+            $myArray = array_slice($userData, 0,2);
             $query = $this->getDb()->prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, email, sexe, ville, cp, adresse)VALUES (:pseudo,:mdp,:nom,:prenom,:email,:sex,:ville,:cp,:adresse)");
-             foreach($userData as $key => $value){
-                 if($key !='submit'){
-                    $query->bindValue(":$key",$value);
-                 }
-             }
+            $this->binder($query,$userData);
             $query->execute();
-           
-         }
+            return $myArray;
+            }
         
 /*
  * La fonction query nécessaire pour un login (pseudo/mdp)
@@ -33,13 +30,15 @@ class MembreRepository extends EntityRepository{
  * et arrivent propres chez le model
  */
 
-     public function loginQuery($arg1,$arg2){
-        $query = $this->getDb()->prepare("SELECT id_membre, pseudo, nom, prenom, email, ville, cp, adresse, statut FROM ".$this->getTableName()." WHERE pseudo='".$arg1."' AND mdp='".$arg2."'");
+     public function loginQuery($userData = array()){
+        //var_dump($userData);
+        $query = $this->getDb()->prepare("SELECT id_membre, pseudo, nom, prenom, email, ville, cp, adresse, statut FROM ".$this->getTableName()." WHERE pseudo=:pseudo AND mdp=:mdp");
+        $this->binder($query,$userData);
         $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Membre');
         $query->execute();
         $myObject= $query->fetch();
 //Si la query ne passe pas, on fait une erreur propre
-        if(!$query){
+        if($query == false){
            return false;
         }
 //Sinon on attribue true à la variable témoin
@@ -47,5 +46,6 @@ class MembreRepository extends EntityRepository{
             return $myObject;
         }
     }
+    
 }
 

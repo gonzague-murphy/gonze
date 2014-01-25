@@ -38,6 +38,20 @@ class EntityRepository{
         } 
      }
      
+     
+     public function binder($query, $userData = array()){
+        if(!empty($userData) && is_array($userData)){
+            foreach($userData as $key=>$value){
+                 if($key !='submit'){
+                    $query->bindValue(":$key",$value);
+                 }
+            }
+        }
+            else{
+             echo "Rien à bind!";
+         }       
+    }
+     
 /*
  * Fonction recherche par id
  */

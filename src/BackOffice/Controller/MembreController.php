@@ -23,7 +23,7 @@ class MembreController extends Controller{
     public function loginUser($dataInput=array()){
         $this->clean($dataInput);
         $queryTable = $this->getRepository('Membre');
-        $myObj = $queryTable->loginQuery($dataInput['pseudo'],$dataInput['mdp']);
+        $myObj = $queryTable->loginQuery($dataInput);
         //var_dump($myObj);
         if($myObj == false){
             echo $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
@@ -31,8 +31,8 @@ class MembreController extends Controller{
         else{
             $this->isConnected = true;
             $this->user = $myObj;
-            echo $this->msg = "<h1>Hello</h1>";
-            //var_dump($this->user);
+            //echo $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
+            var_dump($this->user);
             $this->initializeSession();
             return $this->user;
         
@@ -76,11 +76,11 @@ class MembreController extends Controller{
             $this->clean($data);
             $queryTable = $this->getRepository('Membre');
             $myResult = $queryTable->signUpQuery($data);
-            if($myResult == false){
-                echo "perdu! ";
+            if(!$myResult){
+                echo "perdu!";
             }
             else{
-                echo "gagné!";
+                echo "Welcome ".$this->user->pseudo;
             }
         } 
     }
@@ -98,7 +98,7 @@ class MembreController extends Controller{
 //fonction de test
 
     public function defaultDisplay(){
-        $this->render('template_accueil.php','form.php',array(
+        $this->render('template_accueil.php','membre.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 
