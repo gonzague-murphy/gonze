@@ -31,6 +31,7 @@ class MembreRepository extends EntityRepository{
 
      public function loginQuery($userData = array()){
         $myArray = array_slice($userData,0,2);
+        //var_dump($myArray);
         $query = $this->getDb()->prepare("SELECT id_membre, pseudo, nom, prenom, email, ville, cp, adresse, statut FROM ".$this->getTableName()." WHERE pseudo=:pseudo AND mdp=:mdp");
         $this->binder($query,$myArray);
         $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Membre');

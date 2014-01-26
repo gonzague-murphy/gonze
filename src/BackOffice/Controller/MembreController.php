@@ -31,7 +31,7 @@ class MembreController extends Controller{
         else{
             $this->initUser($myObj);
          }
-         var_dump($_SESSION);
+         //var_dump($_SESSION);
         return $this->user;
     }
     
@@ -46,16 +46,15 @@ class MembreController extends Controller{
             $this->checkForEmptyFields($data);
             if($this->msg ==''){    
                 $this->clean($data);
-                $queryTable = $this->getRepository('Membre');
-                $myResult = $queryTable->signUpQuery($data);
-                if($myResult == false){
-                    echo "perdu!";
+                $testDoubles = $this->checkDoubleEntry($data);
+                if($testDoubles == 0){
+                    $this->allowInsert($data);
                 }
+                
                 else{
-                    $myObject = $queryTable->loginQuery($data);
-                    $this->initUser($myObject);
+                    echo "Pseudo deja pris!";
+                }
             }
-        }
             else{
                 echo $this->msg;
             }
@@ -102,6 +101,33 @@ class MembreController extends Controller{
 }
 
 /*
+ * Select query
+ */
+    public function checkDoubleEntry($data = array()){
+        $queryTable = $this->getRepository('Membre');
+        $test = $queryTable->findAllByPseudo($data);
+                
+                //var_dump($test);
+        return $test;
+    }
+    
+/*
+ * Gère l'insertion et l'initialisation de $this->user
+ */
+    
+    public function allowInsert($data = array()){
+        $queryTable = $this->getRepository('Membre');
+        $myResult = $queryTable->signUpQuery($data);
+        if($myResult == false){
+            echo "perdu!";
+                }
+        else{
+            $myObject = $queryTable->loginQuery($data);
+            $this->initUser($myObject);
+            }
+    }
+
+/*
  * Fonction d'update
  */
 
@@ -113,7 +139,7 @@ class MembreController extends Controller{
 //fonction de test
 
     public function defaultDisplay(){
-        $this->render('template_accueil.php','membre.php',array(
+        $this->render('template_accueil.php','form.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 
