@@ -48,11 +48,12 @@ class MembreController extends Controller{
                 $this->clean($data);
                 $testDoubles = $this->checkDoubleEntry($data);
                 if($testDoubles == 0){
+                    $this->clean($data);
                     $this->allowInsert($data);
                 }
                 
                 else{
-                    echo "Pseudo deja pris!";
+                    echo "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
                 }
             }
             else{
@@ -105,9 +106,7 @@ class MembreController extends Controller{
  */
     public function checkDoubleEntry($data = array()){
         $queryTable = $this->getRepository('Membre');
-        $test = $queryTable->findAllByPseudo($data);
-                
-                //var_dump($test);
+        $test = $queryTable->checkForDoubles($data);
         return $test;
     }
     
@@ -120,11 +119,11 @@ class MembreController extends Controller{
         $myResult = $queryTable->signUpQuery($data);
         if($myResult == false){
             echo "perdu!";
-                }
+          }
         else{
             $myObject = $queryTable->loginQuery($data);
             $this->initUser($myObject);
-            }
+          }
     }
 
 /*

@@ -59,28 +59,12 @@ class EntityRepository{
 /*
  * Fonction recherche par id
  */
-     
-        public function findAllByPseudo($userData = array()){
-            $pseudo = $this->findByKey('pseudo', $userData);
-            $query = $this->getDb()->prepare("SELECT * FROM ".$this->getTableName()." WHERE pseudo='$pseudo'");
-            $query->execute();
-            $result = $query->rowCount();
-            if(!$query){
-                return false;
-            }
-            else{
-                return $result;
-            } 
-        }
         
-        public function findByKey($keyString,$userData = array()){
+        public function findByKey($keyString = string,$userData = array()){
             foreach($userData as $key=>$value){
                 if($key == $keyString){
                     $pseudo = $value;
                     return $pseudo;
-                }
-                else{
-                    echo "No such key!";
                 }
             }
         }
