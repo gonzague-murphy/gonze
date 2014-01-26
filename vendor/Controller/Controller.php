@@ -54,6 +54,8 @@ class Controller{
     
 /*
  * Check for empty fields
+ * @params array($dataInput) tous les $_POST
+ * @return string $this->msg
  * 
  */
     public function checkForEmptyFields($args = array()){
@@ -68,7 +70,7 @@ class Controller{
     }
     
     public function userIsAdmin(){
-        if($this->user->statut == 2 || $this->user == ''){
+        if($this->user->statut == 2 || is_numeric($this->user)){
             return false;
         }
         else{

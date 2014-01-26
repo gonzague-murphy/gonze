@@ -25,20 +25,54 @@ class MembreController extends Controller{
         $this->clean($dataInput);
         $queryTable = $this->getRepository('Membre');
         $myObj = $queryTable->loginQuery($dataInput);
-        //var_dump($myObj);
         if($myObj == false){
             echo $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
         }
         else{
+            $this->initUser($myObj);
+         }
+         var_dump($_SESSION);
+        return $this->user;
+    }
+    
+    
+/*
+ * Fonction d'inscription
+ * @params array($dataInput) tous les $_POST
+ * @return object $this->user instance de la Classe Membre
+ */
+
+    public function signUp($data =array()){
+            $this->checkForEmptyFields($data);
+            if($this->msg ==''){    
+                $this->clean($data);
+                $queryTable = $this->getRepository('Membre');
+                $myResult = $queryTable->signUpQuery($data);
+                if($myResult == false){
+                    echo "perdu!";
+                }
+                else{
+                    $myObject = $queryTable->loginQuery($data);
+                    $this->initUser($myObject);
+            }
+        }
+            else{
+                echo $this->msg;
+            }
+    }
+ 
+/*
+ * Check le retour de la query, initialise $this->user 
+ * et $_SESSION
+ */
+    
+    public function initUser($varObject){
             $this->isConnected = true;
-            $this->user = $myObj;
+            $this->user = $varObject;
             $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
-            var_dump($this->user);
+            //var_dump($this->user);
             $this->initializeSession();
             return $this->user;
-        
-         }
-        return $this->user;
     }
     
 //Session et panier
@@ -52,7 +86,7 @@ class MembreController extends Controller{
              }
              //var_dump($_SESSION);
          }
-         $this->initializeCart();
+         //$this->initializeCart();
          //return $this->user; 
       }
       
@@ -68,32 +102,6 @@ class MembreController extends Controller{
 }
 
 /*
- * Fonction d'inscription
- */
-
-    public function signUp($data =array()){
-            //var_dump($data);
-            $this->checkForEmptyFields($data);
-            //var_dump($data);
-            if($this->msg ==''){    
-            $this->clean($data);
-            $queryTable = $this->getRepository('Membre');
-            $myResult = $queryTable->signUpQuery($data);
-            //var_dump($queryLogin);
-            if($myResult == false){
-                echo "perdu!";
-            }
-            else{
-               //$result = $queryTable->findAllAtSignUp($data);
-               $myObject = $queryTable->loginQuery($data);
-               var_dump($myObject);
-               return $myObject;
-            }
-        }
-    }
-
-
-/*
  * Fonction d'update
  */
 
@@ -105,7 +113,7 @@ class MembreController extends Controller{
 //fonction de test
 
     public function defaultDisplay(){
-        $this->render('template_accueil.php','form.php',array(
+        $this->render('template_accueil.php','membre.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 

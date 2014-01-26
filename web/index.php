@@ -16,7 +16,7 @@ $membre = new MembreController;
 $membre->defaultDisplay();
 //$session = Entity\mySession::getSession();
 if(isset($_POST) && !empty($_POST)){
-  $membre->signUp($_POST);
+  $membre->loginUser($_POST);
 }
 //var_dump($membre->user);
 
