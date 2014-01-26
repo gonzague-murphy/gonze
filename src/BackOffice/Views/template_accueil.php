@@ -10,7 +10,7 @@
                 <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/logo.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/GGS.css"/>
-		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>
+		<!--<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>-->
 		<!-- Here's Golden Gridlet, the grid overlay script. -->
 		<script src="../src/BackOffice/Views/js/GGS.js"></script>
 		
@@ -52,13 +52,13 @@
       <div id="gallery_image">
           <!--<img alt ="gallerie1" title="premiere_offre" src="../src/BackOffice/Views/img/gallerie_baleines.png"/>-->
       </div>
-         <form method="post" action="">
+         <!--<form method="post" action="">
             <label>Pseudo :</label>
             <input type="text" name="pseudo" /><br/>
             <label>Password :</label>
             <input type="password" name="mdp" /><br/>
             <input type="submit" value="send"/>
-        </form>
+        </form>-->
      </div><!--fin div #main_wrapper -->
 </body>
 </html>

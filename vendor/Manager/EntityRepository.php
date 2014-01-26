@@ -15,6 +15,10 @@ class EntityRepository{
             
             return  $this->db = PDOManager::getInstance()->getPdo();
         }
+        
+        else{
+            return $this->db;
+        }
     }
     
     public function getTableName(){
@@ -56,7 +60,7 @@ class EntityRepository{
  * Fonction recherche par id
  */
      
-    public function findAllById(){}
+ 
      
 /*
  * Fonction d'insert générale

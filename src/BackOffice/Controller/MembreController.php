@@ -2,6 +2,7 @@
 namespace Backoffice\Controller;
 USE Controller\Controller;
 
+
 class MembreController extends Controller{
     
     public $isConnected = false;
@@ -31,7 +32,7 @@ class MembreController extends Controller{
         else{
             $this->isConnected = true;
             $this->user = $myObj;
-            //echo $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
+            $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
             var_dump($this->user);
             $this->initializeSession();
             return $this->user;
@@ -71,18 +72,24 @@ class MembreController extends Controller{
  */
 
     public function signUp($data =array()){
-        $this->checkForEmptyFields($data);
-        if($this->msg ==''){
+            //var_dump($data);
+            $this->checkForEmptyFields($data);
+            //var_dump($data);
+            if($this->msg ==''){    
             $this->clean($data);
             $queryTable = $this->getRepository('Membre');
             $myResult = $queryTable->signUpQuery($data);
-            if(!$myResult){
+            //var_dump($queryLogin);
+            if($myResult == false){
                 echo "perdu!";
             }
             else{
-                echo "Welcome ".$this->user->pseudo;
+               //$result = $queryTable->findAllAtSignUp($data);
+               $myObject = $queryTable->loginQuery($data);
+               var_dump($myObject);
+               return $myObject;
             }
-        } 
+        }
     }
 
 
@@ -98,7 +105,7 @@ class MembreController extends Controller{
 //fonction de test
 
     public function defaultDisplay(){
-        $this->render('template_accueil.php','membre.php',array(
+        $this->render('template_accueil.php','form.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 

@@ -33,7 +33,6 @@ class PDOManager{
 
 }
 //-----------------------------------------------------------
-$pdo = PDOManager::getInstance()->getPDO();  
+//$pdo = PDOManager::getInstance()->getPDO();  
 //var_dump($pdo);
 
-?>

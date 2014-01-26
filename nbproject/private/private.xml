@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/css/style.css</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Manager/EntityRepository.php</file>
-            <file>file:/C:/wamp/www/lokisalle/vendor/Manager/PDOManager.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Controller/MembreController.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Repository/MembreRepository.php</file>
-            <file>file:/C:/wamp/www/lokisalle/vendor/autoload.php</file>
-            <file>file:/C:/wamp/www/lokisalle/vendor/Entity/Membre.php</file>
+            <file>file:/C:/wamp/www/lokisalle/vendor/Controller/Controller.php</file>
+            <file>file:/C:/wamp/www/lokisalle/web/index.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/template_accueil.php</file>
         </group>
     </open-files>

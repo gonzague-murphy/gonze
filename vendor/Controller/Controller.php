@@ -56,7 +56,7 @@ class Controller{
  * Check for empty fields
  * 
  */
-    public function checkForEmptyFields(&$args){
+    public function checkForEmptyFields($args = array()){
         foreach($args as $key=>$value){
             $newValue  = trim($value);
             if(empty($newValue)){
