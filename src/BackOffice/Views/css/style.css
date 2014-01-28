@@ -105,7 +105,20 @@ input[type="radio"]{
     vertical-align: baseline;
 }
 
-
+table{
+    width : 100%;
+    position : absolute;
+    top : 50%;
+    border: solid 1px;
+}
+/*
+tr, td, th{
+    width : 100%;
+    padding : 8px;
+}
+th{
+ 
+}*/
 
 
 

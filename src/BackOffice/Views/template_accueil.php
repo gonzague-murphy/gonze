@@ -32,13 +32,13 @@
         <h2></h2>
         <nav>
             <ul class="user_menu">
-                <li><a href="#">connexion</a></li>
-                <li><a href="#"> inscription</a></li>
+                <li><a href="?controller=MembreController&action=loginDisplay">connexion</a></li>
+                <li><a href="?controller=MembreController&action=defaultDisplay"> inscription</a></li>
             </ul>
         </nav>
         <nav>
             <ul class="main_menu">
-                <li><a href="#">Nos Salles</a></li>
+                <li><a href="?controller=SalleController&action=listeAllAdmin">Nos Salles</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Support</a></li>
                 <li><a href="#">Contact</a></li>
@@ -52,13 +52,7 @@
       <div id="gallery_image">
           <!--<img alt ="gallerie1" title="premiere_offre" src="../src/BackOffice/Views/img/gallerie_baleines.png"/>-->
       </div>
-         <!--<form method="post" action="">
-            <label>Pseudo :</label>
-            <input type="text" name="pseudo" /><br/>
-            <label>Password :</label>
-            <input type="password" name="mdp" /><br/>
-            <input type="submit" value="send"/>
-        </form>-->
+         <!---->
      </div><!--fin div #main_wrapper -->
 </body>
 </html>

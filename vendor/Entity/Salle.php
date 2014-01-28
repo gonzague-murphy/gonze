@@ -28,6 +28,10 @@ class Salle{
         return $this->titre;
     }
     
+    public function getPhoto(){
+        return $this->photo;
+    }
+    
 //::::::::::SETTERS::::::::::::
     
     public function setPays($pays){

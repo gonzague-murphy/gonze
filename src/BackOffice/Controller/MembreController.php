@@ -1,5 +1,5 @@
 <?php
-namespace Backoffice\Controller;
+namespace BackOffice\Controller;
 USE Controller\Controller;
 
 
@@ -22,6 +22,7 @@ class MembreController extends Controller{
  * @return object $this->user instance de la Classe Membre
  */
     public function loginUser($dataInput=array()){
+        $this->loginDisplay();
         $this->clean($dataInput);
         $queryTable = $this->getRepository('Membre');
         $myObj = $queryTable->loginQuery($dataInput);
@@ -139,6 +140,14 @@ class MembreController extends Controller{
 
     public function defaultDisplay(){
         $this->render('template_accueil.php','form.php',array(
+            'title'=>'Youpi-Coinz!',
+            'subtitle'=>'juste pour etre sur',
+
+        ));
+    }
+    
+    public function loginDisplay(){
+        $this->render('template_accueil.php','loginform.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 

@@ -2,11 +2,13 @@
 class Autoload{
 
 	public static function className($className){
-		$ex = explode('\\', $className);
+		$ex = explode('\\', $className);   
+                //var_dump($ex);
+                
 //"si le module qu'on me demande est dans le Backoffice":
                 if($ex[0] == 'Backoffice'){
 //"alors remonte dans le repertoire src"
-                    $path = __DIR__ . '/../src/'.  implode('/', $ex).'.php';
+                    $path = __DIR__ . '/../src/'.implode('/', $ex).'.php';
                 }
                 
                 elseif($ex[0] == 'Membre'){
@@ -15,8 +17,9 @@ class Autoload{
 
 			
 		else{
-			$path = __DIR__ . '/' . implode('/', $ex).'.php';
+			$path = __DIR__ . '/' .implode('/', $ex).'.php';
                 }
+                //var_dump($path);
 		require $path;
 	}
 
@@ -27,4 +30,4 @@ class Autoload{
 
 //si jamais tu croises un "new", va dans cette classe là, appeller cette méthode là
 spl_autoload_register(array('Autoload', 'className'));
-require_once(__DIR__.'/../vendor/Entity/Membre.php');
+//require_once(__DIR__.'/../vendor/Entity/Membre.php');

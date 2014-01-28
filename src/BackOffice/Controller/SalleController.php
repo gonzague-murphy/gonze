@@ -1,6 +1,6 @@
 <?php
 
-namespace Backoffice\Controller;
+namespace BackOffice\Controller;
 USE Controller\Controller;
 
 
