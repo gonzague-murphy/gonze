@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 19, 2014 at 12:24 PM
+-- Generation Time: Jan 28, 2014 at 06:12 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -83,20 +83,28 @@ CREATE TABLE IF NOT EXISTS `membre` (
   `nom` varchar(20) NOT NULL,
   `prenom` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `sexe` varchar(45) NOT NULL,
+  `sexe` enum('m','f','','') NOT NULL,
   `ville` varchar(20) NOT NULL,
   `cp` int(5) NOT NULL,
   `adresse` varchar(30) NOT NULL,
-  `statut` int(1) NOT NULL,
+  `statut` int(1) NOT NULL DEFAULT '2',
   PRIMARY KEY (`id_membre`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=118 ;
 
 --
 -- Dumping data for table `membre`
 --
 
 INSERT INTO `membre` (`id_membre`, `pseudo`, `mdp`, `nom`, `prenom`, `email`, `sexe`, `ville`, `cp`, `adresse`, `statut`) VALUES
-(1, 'LaGlibette', 'starcraft', 'Wurst', 'Mina', 'admin@oncesbo.com', 'f', 'Paris', 75008, '7, Easy Street', 1);
+(1, 'LaGlibette', 'starcraft', 'Wurst', 'Mina', 'admin@oncesbo.com', 'f', 'Paris', 75008, '7, Easy Street', 1),
+(109, 'sdf', 'sdf', 'sdf', 'sdf', 'df', 'm', 'dsf', 0, 'sfd', 2),
+(110, 'dsf', 'sfq', 'sfq', 'dqsf', 'sf', 'm', 'sqf', 0, 'sfq', 2),
+(111, 'LaGlibette', 'SDF', 'SDF', 'SDF', 'qSD', 'm', 'DSF', 0, 'SDF', 2),
+(112, 'dvdqf', 'qsdf', 'qsdf', 'qsdf', 'sqdf', 'm', 'qsdf', 0, 'qsdf', 2),
+(113, 'dvdqf', 'qsdf', 'qsdf', 'qsdf', 'sqdf', 'm', 'qsdf', 0, 'qsdf', 2),
+(114, 'sqf', 'qsef', 'qsef', 'qfe', 'esqf', 'm', 'qsef', 0, 'sqf', 2),
+(116, 'jlb', 'jnb', 'jb', 'nb', 'nb', 'm', 'jhb', 0, 'jnb', 2),
+(117, 'sfghg', 'sgfh', 'sgh', 'sgh', 'sgfh', 'm', 'sfgh', 0, 'sgh', 2);
 
 -- --------------------------------------------------------
 
@@ -167,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `salle` (
 --
 
 INSERT INTO `salle` (`id_salle`, `pays`, `ville`, `adresse`, `cp`, `titre`, `description`, `photo`, `capacite`) VALUES
-(1, 'France', 'Paris', '11 rue Alibert', '75011', 'Salle Balkins', 'Lorem the bizzle my shizz sit mammasay mammasa mamma oo sa, away adipiscing dope. Nullam sapizzle velizzle, for sure volutpizzle, check it out ma nizzle, we gonna chung i''m in the shizzle, ma nizzle. Pellentesque tellivizzle tortizzle. Sed eros. Fizzle fo shizzle dope dapibizzle you son of a bizzle fo shizzle fizzle. I''m in the shizzle stuff nibh izzle turpizzle. Stuff izzle boofron. Pellentesque bizzle rhoncizzle shut the shizzle up. In hac dang platea dictumst. Nizzle dapibizzle. Bow wow wow fo shizzle urna, pretizzle dizzle, check out this izzle, that''s the shizzle vitae, nunc. Mofo suscipizzle. Uhuh ... yih! fo shizzle my nizzle velizzle get down get down mah nizzle.', NULL, 50),
+(1, 'France', 'Paris', '11 rue Alibert', '75011', 'Salle Balkins', 'Lorem the bizzle my shizz sit mammasay mammasa mamma oo sa, away adipiscing dope. Nullam sapizzle velizzle, for sure volutpizzle, check it out ma nizzle, we gonna chung i''m in the shizzle, ma nizzle. Pellentesque tellivizzle tortizzle. Sed eros. Fizzle fo shizzle dope dapibizzle you son of a bizzle fo shizzle fizzle. I''m in the shizzle stuff nibh izzle turpizzle. Stuff izzle boofron. Pellentesque bizzle rhoncizzle shut the shizzle up. In hac dang platea dictumst. Nizzle dapibizzle. Bow wow wow fo shizzle urna, pretizzle dizzle, check out this izzle, that''s the shizzle vitae, nunc. Mofo suscipizzle. Uhuh ... yih! fo shizzle my nizzle velizzle get down get down mah nizzle.', 'lokisalle/img/thumbnail_balkins.jpg', 50),
 (2, 'France', 'Paris', '8, boulevard des Filles du Calvaire', '75003', 'Salle Dewitt Yancey', 'Lorem the bizzle my shizz sit mammasay mammasa mamma oo sa, away adipiscing dope. Nullam sapizzle velizzle, for sure volutpizzle, check it out ma nizzle, we gonna chung i''m in the shizzle, ma nizzle. Pellentesque tellivizzle tortizzle. Sed eros. Fizzle fo shizzle dope dapibizzle you son of a bizzle fo shizzle fizzle. I''m in the shizzle stuff nibh izzle turpizzle. Stuff izzle boofron. Pellentesque bizzle rhoncizzle shut the shizzle up. In hac dang platea dictumst. Nizzle dapibizzle. Bow wow wow fo shizzle urna, pretizzle dizzle, check out this izzle, that''s the shizzle vitae, nunc. Mofo suscipizzle. Uhuh ... yih! fo shizzle my nizzle velizzle get down get down mah nizzle.', NULL, 75);
 
 --
