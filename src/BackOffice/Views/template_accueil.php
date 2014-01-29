@@ -10,7 +10,7 @@
                 <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/logo.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/GGS.css"/>
-		<!--<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>--<
+		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>
 		<!-- Here's Golden Gridlet, the grid overlay script. -->
 		<script src="../src/BackOffice/Views/js/GGS.js"></script>
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
@@ -28,7 +28,7 @@
 <body>
     <div id="main_wrapper">
     <div id = "wrapper_logo_menu" class="clearfix">
-    <h1>LokiSalle</h1>
+        <a href="index.php"><h1>LokiSalle</h1></a>
         <h2></h2>
         <nav>
             <ul class="user_menu">
@@ -57,7 +57,9 @@
      <script>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
-                CKEDITOR.replace( 'description' );
+                CKEDITOR.replace( 'description', {
+                    uiColor: '#de6f40'
+                    } );
      </script>
 </body>
 </html>
