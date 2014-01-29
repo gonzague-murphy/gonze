@@ -6,7 +6,6 @@ USE Controller\Controller;
 class MembreController extends Controller{
     
     public $isConnected = false;
-    public $user;
     
 //initialise le panier à l'instanciation
     
@@ -29,8 +28,8 @@ class MembreController extends Controller{
     public function lanceLogin(){
        if(isset($_POST)){
             $this->loginUser($_POST);
+            //$this->defaultDisplay();
         }
-       //$this->defaultDisplay();
     }
     
 /*

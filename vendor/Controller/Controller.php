@@ -2,12 +2,11 @@
 
 namespace Controller;
 
-
-
 class Controller{
     
     protected $msg;
     protected $table;
+    public $user;
     
     public function getRepository($table){
 //va servir à instancier ClassxxRepository
