@@ -39,6 +39,7 @@ class MembreController extends Controller{
     public function lanceSignUp(){
        if(isset($_POST)){
             $this->signUp($_POST);
+            $this->defaultDisplay();
         }
     }
     
@@ -50,10 +51,6 @@ class MembreController extends Controller{
  */
 
     public function signUp($data =array()){
-        //var_dump($data);
-        if(!empty($data)){
-        //$this->defaultDisplay();
-        var_dump($data);
             $this->checkForEmptyFields($data);
             if($this->msg ==''){    
                 $this->clean($data);
@@ -70,10 +67,6 @@ class MembreController extends Controller{
             else{
                 echo $this->msg;
             }
-        }
-        else{
-            echo "formulaire vide!";
-        }
     }
  
 /*
@@ -164,6 +157,14 @@ class MembreController extends Controller{
 //fonction de test
 
     public function defaultDisplay(){
+        $this->render('template_accueil.php','defaultPlaceholder.php',array(
+            'title'=>'Youpi-Coinz!',
+            'subtitle'=>'juste pour etre sur',
+
+        ));
+    }
+    
+     public function signUpDisplay(){
         $this->render('template_accueil.php','form.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',

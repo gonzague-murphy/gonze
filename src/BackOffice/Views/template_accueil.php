@@ -33,7 +33,7 @@
         <nav>
             <ul class="user_menu">
                 <li><a href="?controller=MembreController&action=loginDisplay">connexion</a></li>
-                <li><a href="?controller=MembreController&action=defaultDisplay"> inscription</a></li>
+                <li><a href="?controller=MembreController&action=signUpDisplay"> inscription</a></li>
             </ul>
         </nav>
         <nav>
