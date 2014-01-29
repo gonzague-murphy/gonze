@@ -10,10 +10,10 @@
                 <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/logo.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/GGS.css"/>
-		<!--<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>-->
+		<!--<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>--<
 		<!-- Here's Golden Gridlet, the grid overlay script. -->
 		<script src="../src/BackOffice/Views/js/GGS.js"></script>
-		
+		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
 
 		
@@ -54,5 +54,10 @@
       </div>
          <!---->
      </div><!--fin div #main_wrapper -->
+     <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'description' );
+     </script>
 </body>
 </html>

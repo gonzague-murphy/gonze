@@ -21,17 +21,7 @@ function dispatcher(){
          $cont->$action();
                
     }
-    
-    /*if(!empty($controller) && !empty($action) && isset($_POST)){
-        $controller = "Backoffice\Controller\\".$controller;
-	 $cont = new $controller; // elle existe, on l'inclue
-         //var_dump($cont);
-         $cont->$action($_POST);
-    }*/
-    
+    //unset($_GET);
 }
 dispatcher();
-/*if(isset($_POST['submit'])){
-    $membre = new Backoffice\Controller\MembreController;
-    $membre->signUp($_POST);
-}*/
+

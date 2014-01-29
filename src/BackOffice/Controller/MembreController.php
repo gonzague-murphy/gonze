@@ -16,6 +16,24 @@ class MembreController extends Controller{
     
     
 /*
+ * Fonctions de lancement
+ */
+    
+   public function lanceSignUp(){
+       if(isset($_POST)){
+            $this->signUp($_POST);
+        }
+       $this->defaultDisplay();
+    }
+    
+    public function lanceLogin(){
+       if(isset($_POST)){
+            $this->loginUser($_POST);
+        }
+       //$this->defaultDisplay();
+    }
+    
+/*
  * Login : on nettoie, on lance la query, on fait l'erreur
  * propre si besoin
  * @params array($dataInput) tous les $_POST
@@ -31,18 +49,12 @@ class MembreController extends Controller{
         }
         else{
             $this->initUser($myObj);
+            echo "Hello, ".$this->user->pseudo;
          }
          //var_dump($_SESSION);
         return $this->user;
     }
-    
-    public function lanceSignUp(){
-       if(isset($_POST)){
-            $this->signUp($_POST);
-            $this->defaultDisplay();
-        }
-    }
-    
+        
     
 /*
  * Fonction d'inscription

@@ -30,5 +30,19 @@ class SalleRepository extends EntityRepository{
          $query = $this->getDb()->prepare("DELETE FROM salle WHERE id_salle='$id_salle'");
          $query->execute();
      }
+     
+     public function findById($id){
+        $query = $this->getDb()->prepare("SELECT * FROM salle WHERE id_salle=$id");
+        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Salle');
+        $query->execute();
+        $result = $query->fetch();
+        //var_dump($result);
+        if(!$query){
+            return false;
+        }
+        else{
+            return $result;
+        } 
+     }
 }
 

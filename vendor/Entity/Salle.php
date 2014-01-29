@@ -24,12 +24,36 @@ class Salle{
         return $this->id_salle;
     }
     
+    public function getPays(){
+        return $this->pays;
+    }
+    
+    public function getVille(){
+        return $this->ville;
+    }
+    
+    public function getAdresse(){
+        return $this->adresse;
+    }
+    
+    public function getCp(){
+        return $this->cp;
+    }
+    
     public function getTitre(){
         return $this->titre;
     }
     
+    public function getDescription(){
+        return $this->description;
+    }
+    
     public function getPhoto(){
         return $this->photo;
+    }
+    
+    public function getCapacite(){
+        return $this->capacite;
     }
     
 //::::::::::SETTERS::::::::::::

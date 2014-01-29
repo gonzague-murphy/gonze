@@ -26,6 +26,9 @@ and open the template in the editor.
     width : 25%;
     color : #de6f40;
     font-family : arial;
+    position : absolute;
+    top : 50%;
+    right : 0;
 }
 
 .valide{
@@ -123,6 +126,10 @@ th{
  
 }
 
-
+.placeholder{
+    width : 100%;
+    position : absolute;
+    top : 50%;
+}
 
 
