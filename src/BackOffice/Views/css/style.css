@@ -111,14 +111,17 @@ table{
     top : 50%;
     border: solid 1px;
 }
-/*
-tr, td, th{
-    width : 100%;
+
+td{
+    width : 20%;
     padding : 8px;
+}
+td a, td img{
+    width : 20%;
 }
 th{
  
-}*/
+}
 
 
 

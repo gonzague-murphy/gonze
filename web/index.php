@@ -22,6 +22,16 @@ function dispatcher(){
                
     }
     
+    /*if(!empty($controller) && !empty($action) && isset($_POST)){
+        $controller = "Backoffice\Controller\\".$controller;
+	 $cont = new $controller; // elle existe, on l'inclue
+         //var_dump($cont);
+         $cont->$action($_POST);
+    }*/
+    
 }
 dispatcher();
-                
+/*if(isset($_POST['submit'])){
+    $membre = new Backoffice\Controller\MembreController;
+    $membre->signUp($_POST);
+}*/

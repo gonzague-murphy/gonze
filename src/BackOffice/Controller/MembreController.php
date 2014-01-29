@@ -36,6 +36,12 @@ class MembreController extends Controller{
         return $this->user;
     }
     
+    public function lanceSignUp(){
+       if(isset($_POST)){
+            $this->signUp($_POST);
+        }
+    }
+    
     
 /*
  * Fonction d'inscription
@@ -44,6 +50,10 @@ class MembreController extends Controller{
  */
 
     public function signUp($data =array()){
+        //var_dump($data);
+        if(!empty($data)){
+        //$this->defaultDisplay();
+        var_dump($data);
             $this->checkForEmptyFields($data);
             if($this->msg ==''){    
                 $this->clean($data);
@@ -60,6 +70,10 @@ class MembreController extends Controller{
             else{
                 echo $this->msg;
             }
+        }
+        else{
+            echo "formulaire vide!";
+        }
     }
  
 /*
@@ -125,6 +139,17 @@ class MembreController extends Controller{
             $myObject = $queryTable->loginQuery($data);
             $this->initUser($myObject);
           }
+    }
+    
+    public function isPostSet($data = array()){
+       foreach($data as $key=>$value){
+           if($key == 'submit' && $value !== ''){
+               return true;
+           }
+           else{
+               return false;
+           }
+       }
     }
 
 /*

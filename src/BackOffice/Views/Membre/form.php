@@ -10,7 +10,7 @@ and open the template in the editor.
     <title></title>
 </head>
 <body>
-    <form method="post" action="">
+    <form method="post" action="?controller=MembreController&action=lanceSignUp">
         <label>Pseudo :</label>
             <input type="text" name="pseudo" />
         <label>Password :</label>
