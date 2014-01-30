@@ -1,4 +1,7 @@
 <!doctype html>
+<?php 
+header('location : index.php');
+?>
 <!--[if lt IE 9]><html class="ie"><![endif]-->
 <!--[if gte IE 9]><!--><html><!--<![endif]-->
 
@@ -10,7 +13,7 @@
                 <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/logo.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/GGS.css"/>
-		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>
+		<!--<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>-->
 		<!-- Here's Golden Gridlet, the grid overlay script. -->
 		<script src="../src/BackOffice/Views/js/GGS.js"></script>
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
@@ -27,23 +30,24 @@
 	</head>
 <body>
     <div id="main_wrapper">
-    <div id = "wrapper_logo_menu" class="clearfix">
+    <div id = "wrapper_logo_menu">
         <a href="index.php"><h1>LokiSalle</h1></a>
         <h2></h2>
-        <nav>
-            <ul class="user_menu">
-                <li><a href="?controller=MembreController&action=loginDisplay">connexion</a></li>
-                <li><a href="?controller=MembreController&action=signUpDisplay"> inscription</a></li>
-            </ul>
-        </nav>
-        <nav>
-            <ul class="main_menu">
-                <li><a href="?controller=SalleController&action=listeAllAdmin">Nos Salles</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        
+<!--<nav>
+   <ul class="user_menu">
+        <li><a href="?controller=MembreController&action=loginDisplay">connexion</a></li>
+        <li><a href="?controller=MembreController&action=signUpDisplay"> inscription</a></li>
+   </ul>
+</nav>
+<nav>
+   <ul class="main_menu">
+       <li><a href="?controller=SalleController&action=listeAllAdmin">Nos Salles</a></li>
+       <li><a href="?controller=ProduitController&action=listeAllSalle">About</a></li>
+       <li><a href="#">Support</a></li>
+       <li><a href="#">Contact</a></li>
+    </ul>
+</nav>-->
       </div><!-- fin de la div #wrapper_logo_menu-->
         <?php
         

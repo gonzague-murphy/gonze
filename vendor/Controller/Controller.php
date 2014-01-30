@@ -6,7 +6,7 @@ class Controller{
     
     protected $msg;
     protected $table;
-    public $user;
+    
     
     public function getRepository($table){
 //va servir à instancier ClassxxRepository
@@ -24,10 +24,12 @@ class Controller{
         $dirFile = str_replace('Controller', '', $ex[2]);
         $template = $dirViews.'/'.$dirFile.'/'.$template;
         $layout = $dirViews.'/'.$layout;
-        
+        $menu = $dirViews.'/'.'menu.php';
+        //var_dump($_SESSION);
         extract($parameters);
         
         ob_start();
+            require $menu;
             require $template;
             $content = ob_get_clean();
             require $layout;
@@ -68,8 +70,8 @@ class Controller{
         return $this->msg;
     }
     
-    public function userIsAdmin(){
-        if($this->user->statut == 2 || is_numeric($this->user)){
+    public function userIsConnected(){
+        if(empty($_SESSION['user']) && isset($_POST)){
             return false;
         }
         else{

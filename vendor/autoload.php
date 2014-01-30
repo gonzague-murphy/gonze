@@ -6,7 +6,7 @@ class Autoload{
                 //var_dump($ex);
                 
 //"si le module qu'on me demande est dans le Backoffice":
-                if($ex[0] == 'Backoffice'){
+                if($ex[0] == 'Backoffice' || $ex[0] == 'BackOffice'){
 //"alors remonte dans le repertoire src"
                     $path = __DIR__ . '/../src/'.implode('/', $ex).'.php';
                 }

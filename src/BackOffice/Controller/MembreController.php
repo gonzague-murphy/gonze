@@ -1,10 +1,11 @@
 <?php
-namespace BackOffice\Controller;
+namespace Backoffice\Controller;
 USE Controller\Controller;
 
 
 class MembreController extends Controller{
     
+    public $user;
     public $isConnected = false;
     
 //initialise le panier à l'instanciation
@@ -22,13 +23,15 @@ class MembreController extends Controller{
        if(isset($_POST)){
             $this->signUp($_POST);
         }
-       $this->defaultDisplay();
+       //$this->defaultDisplay();
     }
     
     public function lanceLogin(){
        if(isset($_POST)){
             $this->loginUser($_POST);
-            //$this->defaultDisplay();
+            $this->initializeSession();
+            $this->defaultDisplay();
+
         }
     }
     
@@ -36,21 +39,20 @@ class MembreController extends Controller{
  * Login : on nettoie, on lance la query, on fait l'erreur
  * propre si besoin
  * @params array($dataInput) tous les $_POST
- * @return object $this->user instance de la Classe Membre
+ * @return object self:$user instance de la Classe Membre
  */
     public function loginUser($dataInput=array()){
-        $this->loginDisplay();
         $this->clean($dataInput);
         $queryTable = $this->getRepository('Membre');
         $myObj = $queryTable->loginQuery($dataInput);
+        //var_dump($myObj);
         if($myObj == false){
             echo $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
         }
         else{
-            $this->initUser($myObj);
+            $this->user = $myObj;
             echo "Hello, ".$this->user->pseudo;
          }
-         //var_dump($_SESSION);
         return $this->user;
     }
         
@@ -86,25 +88,29 @@ class MembreController extends Controller{
  */
     
     public function initUser($varObject){
-            $this->isConnected = true;
-            $this->user = $varObject;
-            $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
             //var_dump($this->user);
+            //$this->isConnected = true;
+            /*if(empty($this->user)){
+                return $this->user = $varObject;
+            }
+            else{
+                return $this->user;
+            }*/
+            $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
             $this->initializeSession();
-            return $this->user;
+            //return $this->user;
     }
     
 //Session et panier
     
      public function initializeSession(){
-         if($this->isConnected == true){
              $array = get_object_vars($this->user);
              $this->clean($array);
              foreach($array as $key=>$value){
                  $_SESSION['user'][$key] = $value;
              }
              //var_dump($_SESSION);
-         }
+         
          //$this->initializeCart();
          //return $this->user; 
       }
@@ -184,11 +190,18 @@ class MembreController extends Controller{
     }
     
     public function loginDisplay(){
+        /*var_dump($_POST);
+        if($this->userIsConnected() == false){
+        header('location:index.php');
+            
+        }*/
+       
         $this->render('template_accueil.php','loginform.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 
         ));
+        
     }
     
 //fonction de test

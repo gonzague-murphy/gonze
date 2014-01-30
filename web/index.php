@@ -24,4 +24,4 @@ function dispatcher(){
     //unset($_GET);
 }
 dispatcher();
-
+//var_dump(\Backoffice\Controller\MembreController::$user);
