@@ -1,5 +1,4 @@
 <?php 
-//var_dump($salles);
 echo '<form method="post" action="?controller=ProduitController&action=lanceSaveProduct">
 ';
 echo '<label>Salle</label>';
@@ -10,23 +9,23 @@ foreach($salles as $unit){
 
 }
 echo "</select>";
-/*echo '<label>Date d\'arrivée</label>';
-echo '<input type="text" name="date_arrivee"/>';*/
+echo '<label>Date d\'arrivée</label>';
+echo '<input type="text" name="date_arrivee"/>';
 echo '<label>Date de départ</label>';
 echo '<input type="text" name="date_depart"/>';
 echo '<label>Prix</label>';
 echo '<input type="text" name="prix"/>';
 echo '<label>Code promo</label>';
 echo '<select name="promo">';
-foreach($codePromo as $unit){
-    echo '<option value="'.$unit->getIdPromo().'">'.$unit->getCodePromo().'</option>';
+foreach($promotion as $value){
+    echo '<option value="'.$value->getIdPromo().'">'.$value->getCodePromo().'</option>';
 }
 echo '</select>';
 echo '<label>Etat de la salle</label>';
 echo '<input type="text" name="etat"/>';
 echo '<input type="submit" id="submit" name="submit" value="submit" />';
 echo "</form>";
-
+//var_dump($promotion);
     
 
 

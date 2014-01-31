@@ -13,7 +13,7 @@ class PromotionController extends Controller{
         else{
             return $promo;
         }
-        echo $this->msg;
+        //echo $this->msg;
     }
 }
 

@@ -29,8 +29,8 @@ class Controller{
         extract($parameters);
         
         ob_start();
-            require $menu;
             require $template;
+            require $menu;
             $content = ob_get_clean();
             require $layout;
         return ob_end_flush();

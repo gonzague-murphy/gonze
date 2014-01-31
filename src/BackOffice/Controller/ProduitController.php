@@ -57,14 +57,14 @@ class ProduitController extends Controller{
     public function displayForm(){
         $sallecont = new SalleController;
         $salles = $sallecont->listeAllForProducts();
-        $promocont = new PromoController;
-        $codePromo = $promocont->listeAllForProducts();
-        //var_dump($salles);
+        $promocont = new PromotionController;
+        $promotion = $promocont->listeAllForProducts();
+        //$test ='hello';
         $this->render('template_accueil.php', 'produitform.php',array(
             'title' => 'ohé',
-            'salles' => $salles,
-            'promotion'=>$codePromo   
-        ));
+            'promotion' => $promotion,
+            'salles' => $salles));
+        //var_dump($promo);
     }
     
     public function displaySalleHasProduct(){
