@@ -22,7 +22,10 @@ foreach($promotion as $value){
 }
 echo '</select>';
 echo '<label>Etat de la salle</label>';
-echo '<input type="text" name="etat"/>';
+echo '<select>';
+echo '<option value="0">Libre</option>';
+echo '<option value="1">Reservée</option>';
+echo '</select>';
 echo '<input type="submit" id="submit" name="submit" value="submit" />';
 echo "</form>";
 //var_dump($promotion);
