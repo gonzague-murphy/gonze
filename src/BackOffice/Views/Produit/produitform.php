@@ -17,7 +17,11 @@ echo '<input type="text" name="date_depart"/>';
 echo '<label>Prix</label>';
 echo '<input type="text" name="prix"/>';
 echo '<label>Code promo</label>';
-echo '<select name="promo"></select>';
+echo '<select name="promo">';
+foreach($codePromo as $unit){
+    echo '<option value="'.$unit->getIdPromo().'">'.$unit->getCodePromo().'</option>';
+}
+echo '</select>';
 echo '<label>Etat de la salle</label>';
 echo '<input type="text" name="etat"/>';
 echo '<input type="submit" id="submit" name="submit" value="submit" />';

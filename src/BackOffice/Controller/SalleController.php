@@ -74,5 +74,11 @@ class SalleController extends Controller{
         }
     
     }
+    
+    public function salleHasProduct(){
+        $querytable = $this->getRepository('Salle');
+        $liste = $querytable->selectHasProduct();
+        return $liste;
+    }
 
 }
