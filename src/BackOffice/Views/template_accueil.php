@@ -10,7 +10,7 @@ header('location : index.php');
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<title><?php echo $title;?></title>
-                <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/logo.png" />
+                <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/GGS.css"/>
 		<!--<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>-->

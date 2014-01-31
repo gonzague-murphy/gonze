@@ -1,5 +1,5 @@
 
-<form method="post" action="?controller=MembreController&action=lanceSaveSalle">
+<form method="post" action="">
         <label>Pays</label>
             <input type="text" name="pays" value="<?php echo $salles->getPays();?>"/>
         <label>Ville</label>
@@ -21,5 +21,3 @@
             <input type="submit" id="submit" name="submit" value="submit" />
             
     </form>
-
-

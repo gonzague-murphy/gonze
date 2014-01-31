@@ -8,6 +8,7 @@ class Produit{
     public $prix;
     public $id_salle;
     public $id_promo;
+    public $etat;
     
     public function __get($property) {
         if (property_exists($this, $property)) {

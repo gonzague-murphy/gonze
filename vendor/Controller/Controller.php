@@ -71,7 +71,7 @@ class Controller{
     }
     
     public function userIsConnected(){
-        if(empty($_SESSION['user']) && isset($_POST)){
+        if(empty($_SESSION['user'])){
             return false;
         }
         else{
