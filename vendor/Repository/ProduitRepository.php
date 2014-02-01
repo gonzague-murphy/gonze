@@ -12,7 +12,8 @@ class ProduitRepository extends EntityRepository{
     
     public function checkForDoubles($userData = array()){
             $date_arrivee = $this->findByKey('date_arrivee', $userData);
-            $query = $this->getDb()->prepare("SELECT * FROM ".$this->getTableName()." WHERE date_arrivee='$date_arrivee'");
+            $id_salle = $this->findByKey('salle', $userData);
+            $query = $this->getDb()->prepare("SELECT * FROM ".$this->getTableName()." WHERE date_arrivee='$date_arrivee' AND id_salle='$id_salle'");
             $query->execute();
             $result = $query->rowCount();
             if($result <=0){
@@ -29,7 +30,7 @@ class ProduitRepository extends EntityRepository{
  */
         
     public function addProduit(&$userData){
-         $query = $this->getDb()->prepare("INSERT INTO ".$this->getTableName()." (date_arrivee, date_depart, prix, id_salle, id_promo, etat) VALUES (".date('d-m-Y', strtotime(":date_arrivee")).", ".date('d-m-Y', strtotime(":date_depart")).", :prix, :id_salle, :id_promo, :etat)");
+         $query = $this->getDb()->prepare("INSERT INTO ".$this->getTableName()." (date_arrivee, date_depart, prix, id_salle, id_promo, etat) VALUES (:date_arrivee, :date_depart, :prix, :salle, :promo, :etat)");
          $this->binder($query,$userData);
          $result = $query->execute();
          return $result;

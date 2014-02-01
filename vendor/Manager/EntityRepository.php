@@ -46,7 +46,7 @@ class EntityRepository{
      public function binder($query, $userData = array()){
         if(!empty($userData) && is_array($userData)){
             foreach($userData as $key=>$value){
-                 if($key !='submit'){
+                 if($key != 'submit'){
                     $query->bindValue(":$key",$value);
                  }
             }

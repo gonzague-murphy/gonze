@@ -19,9 +19,15 @@ class MembreRepository extends EntityRepository{
         public function signUpQuery(&$userData){
             $query = $this->getDb()->prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, email, sexe, ville, cp, adresse)VALUES (:pseudo,:mdp,:nom,:prenom,:email,:sex,:ville,:cp,:adresse)");
             $this->binder($query,$userData);
+            //var_dump($userData);
             $result = $query->execute();
-            return $result;
+            if(!$result){
+                return false;
             }
+            else{
+                return true;
+            }
+         }
         
 /*
  * La fonction query nécessaire pour un login (pseudo/mdp)
@@ -38,7 +44,7 @@ class MembreRepository extends EntityRepository{
         $query->execute();
         $myObject= $query->fetch();
 //Si la query ne passe pas, on fait une erreur propre
-        if($query == false){
+        if(!$query){
            return false;
         }
 //Sinon on attribue true à la variable témoin

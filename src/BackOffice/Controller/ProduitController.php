@@ -17,9 +17,7 @@ class ProduitController extends Controller{
         }
     }
     
-    /*public function listeAllPromo(){
-        $promoController = new PromoController;
-    }*/
+   
     
 //::::::::::::::::::::::::::::::::::::::::::::::::::::
 //::::::::::::ATTENTION REQUETE DE PULL!!!!!::::::::::
@@ -54,6 +52,12 @@ class ProduitController extends Controller{
           }
     }
     
+    public function lanceSaveProduct(){
+        if(isset($_POST)){
+            $this->allowInsert($_POST);
+        }
+    }
+    
     public function displayForm(){
         $sallecont = new SalleController;
         $salles = $sallecont->listeAllForProducts();
@@ -61,7 +65,7 @@ class ProduitController extends Controller{
         $promotion = $promocont->listeAllForProducts();
         //$test ='hello';
         $this->render('template_accueil.php', 'produitform.php',array(
-            'title' => 'ohé',
+            'title' => 'Lokisalle',
             'promotion' => $promotion,
             'salles' => $salles));
         //var_dump($promo);

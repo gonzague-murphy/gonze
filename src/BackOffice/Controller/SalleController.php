@@ -6,6 +6,7 @@ USE Controller\Controller;
 
 class SalleController extends Controller{
     
+    
 /*
  * Fonctions de display
  * 

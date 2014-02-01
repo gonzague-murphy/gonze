@@ -22,8 +22,9 @@ class MembreController extends Controller{
    public function lanceSignUp(){
        if(isset($_POST)){
             $this->signUp($_POST);
+            $this->defaultDisplay();
+            //var_dump($_SESSION);
         }
-       //$this->defaultDisplay();
     }
     
     public function lanceLogin(){
@@ -81,6 +82,25 @@ class MembreController extends Controller{
                 echo $this->msg;
             }
     }
+    
+    public function allowInsert($data = array()){
+        $queryTable = $this->getRepository('Membre');
+        $myResult = $queryTable->signUpQuery($data);
+        if($myResult == false){
+            echo "perdu!";
+          }
+        else{
+            $myObject = $queryTable->loginQuery($data);
+            var_dump($myObject);
+            if($myObject == false){
+                echo "non";
+            }
+            else{
+            //var_dump($myObject);
+            $this->initUser($myObject);
+            }
+          }
+    }
  
 /*
  * Check le retour de la query, initialise $this->user 
@@ -88,14 +108,7 @@ class MembreController extends Controller{
  */
     
     public function initUser($varObject){
-            //var_dump($this->user);
-            //$this->isConnected = true;
-            /*if(empty($this->user)){
-                return $this->user = $varObject;
-            }
-            else{
-                return $this->user;
-            }*/
+            $this->user = $varObject;
             $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
             $this->initializeSession();
             //return $this->user;
@@ -139,17 +152,6 @@ class MembreController extends Controller{
  * Gère l'insertion et l'initialisation de $this->user
  */
     
-    public function allowInsert($data = array()){
-        $queryTable = $this->getRepository('Membre');
-        $myResult = $queryTable->signUpQuery($data);
-        if($myResult == false){
-            echo "perdu!";
-          }
-        else{
-            $myObject = $queryTable->loginQuery($data);
-            $this->initUser($myObject);
-          }
-    }
     
     public function isPostSet($data = array()){
        foreach($data as $key=>$value){
@@ -182,7 +184,7 @@ class MembreController extends Controller{
     }
     
      public function signUpDisplay(){
-        $this->render('template_accueil.php','form.php',array(
+        $this->render('template_accueil.php','formsignup.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
 
@@ -215,6 +217,11 @@ class MembreController extends Controller{
             'subtitle'=>'juste pour etre sur',
             'membres'=>$membres
         ));
+    }
+    
+    public function deconnexion(){
+        \session_destroy();
+        $this->defaultDisplay();
     }
     
     
