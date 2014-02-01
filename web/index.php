@@ -21,6 +21,7 @@ function dispatcher(){
          $cont->$action();
                
     }
+
     //unset($_GET);
 }
 dispatcher();

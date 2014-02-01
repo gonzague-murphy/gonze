@@ -1,5 +1,7 @@
-
-<form method="post" action="">
+<?php
+echo "<form method='post' action='?controller=SalleController&action=modifySalle&id=".$_GET['id']."'>
+"
+?>
         <label>Pays</label>
             <input type="text" name="pays" value="<?php echo $salles->getPays();?>"/>
         <label>Ville</label>

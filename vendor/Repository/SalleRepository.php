@@ -26,6 +26,13 @@ class SalleRepository extends EntityRepository{
          return $result;
      }
      
+     public function updateSalle(&$userData, $id){
+         $query = $this->getDb()->prepare("UPDATE salle SET pays=:pays, ville=:ville, adresse=:adresse, cp=:cp, titre=:titre, description=:description, photo=:photo, capacite=:capacite WHERE id_salle='$id'");
+         $this->binder($query,$userData);
+         $result = $query->execute();
+         return $result;
+     }
+     
      public function deleteSalle($id_salle){
          $query = $this->getDb()->prepare("DELETE FROM salle WHERE id_salle='$id_salle'");
          $query->execute();

@@ -61,9 +61,7 @@ header('location : index.php');
      <script>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
-                CKEDITOR.replace( 'description', {
-                    uiColor: '#de6f40'
-                    } );
+                CKEDITOR.replace( 'description');
      </script>
 </body>
 </html>

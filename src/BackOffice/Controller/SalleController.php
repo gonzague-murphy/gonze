@@ -8,6 +8,18 @@ class SalleController extends Controller{
     
     
 /*
+ * Insert
+ * 
+ */
+   public function modifySalle(){
+       var_dump($_GET);
+       if(isset($_POST)){
+       $queryTable = $this->getRepository('Salle');
+       $queryTable->updateSalle($_POST, $_GET['id']);
+       }
+   }
+    
+/*
  * Fonctions de display
  * 
  */
