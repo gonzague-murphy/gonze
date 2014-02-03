@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<a href="">Ajouter une Salle</a>
    <table>
    <!--<tr>
    <th colspan="3">Aperçu</th>

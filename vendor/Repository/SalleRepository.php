@@ -53,8 +53,8 @@ class SalleRepository extends EntityRepository{
      }
      
      public function selectHasProduct(){
-         $query = $this->getDb()->prepare("SELECT s.titre from salle s INNER JOIN produit p ON s.id_salle=p.id_salle GROUP BY p.id_salle");
-         $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Salle');
+         $query = $this->getDb()->prepare("SELECT s.titre, p.id_produit from salle s, produit p WHERE s.id_salle=p.id_salle");
+         $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
          return $result;
