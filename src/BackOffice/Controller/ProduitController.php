@@ -55,6 +55,7 @@ class ProduitController extends Controller{
     public function lanceSaveProduct(){
         if(isset($_POST)){
             $this->allowInsert($_POST);
+            $this->displaySalleHasProduct();
         }
     }
     
@@ -63,12 +64,10 @@ class ProduitController extends Controller{
         $salles = $sallecont->listeAllForProducts();
         $promocont = new PromotionController;
         $promotion = $promocont->listeAllForProducts();
-        //$test ='hello';
         $this->render('template_accueil.php', 'produitform.php',array(
             'title' => 'Lokisalle',
             'promotion' => $promotion,
             'salles' => $salles));
-        //var_dump($promo);
     }
     
     public function displaySalleHasProduct(){

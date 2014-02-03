@@ -10,7 +10,7 @@
 //var_dump($liste);
 echo "<a href='?controller=ProduitController&action=displayForm'>Ajouter un produit</a><br/>";
 foreach($liste as $salle=>$unit){
-     echo "<td>";
+     echo "<td border>";
     echo "<h4>".$unit['titre']."</h4>";
     echo "<a href='?modif=delete&id=".$unit['id_produit']."'>X---</a>";
     echo "<a href='index.php?controller=ProduitController&action=displayForm&id=".$unit['id_produit']."'>Update</a>";
