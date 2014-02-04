@@ -6,16 +6,42 @@ USE Controller\Controller;
 
 class SalleController extends Controller{
     
-    
+
 /*
  * Insert
+ */    
+    public function addSalle(){
+        if(isset($_POST)){
+            $queryTable = $this->getRepository('Salle');
+            $queryTable->addSalle($_POST);
+            $this->listeAllAdmin();
+        }
+    }
+    
+    
+    
+/*
+ * Update
  * 
  */
    public function modifySalle(){
-       var_dump($_GET);
+       //var_dump($_GET);
        if(isset($_POST)){
        $queryTable = $this->getRepository('Salle');
        $queryTable->updateSalle($_POST, $_GET['id']);
+       }
+   }
+   
+/*
+ * Delete
+ */
+   
+   public function deleteSalle(){
+       if(isset($_GET['id'])){
+           $queryTable = $this->getRepository('Salle');
+           $queryTable->deleteSalle($_GET['id']);
+           $this->listeAllAdmin();
+           
        }
    }
     
@@ -52,6 +78,10 @@ class SalleController extends Controller{
     
     }
     
+/*
+ * Update display
+ */
+    
     public function displaySalleForm(){
         if(isset($_GET['id'])){
             $id = htmlentities($_GET['id'], ENT_QUOTES);
@@ -72,6 +102,15 @@ class SalleController extends Controller{
             'title'=>'Bienvenue, Admin',
         ));
         }
+    }
+/*
+ * Insert display
+ */
+    
+    public function displaySalleFormAdd(){
+        $this->render('template_accueil.php', 'salleformadd.php', array(
+            'title'=> 'Lokisalle'
+        ));
     }
     
     public function findAllById(){
