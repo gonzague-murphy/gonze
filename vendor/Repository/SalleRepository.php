@@ -40,7 +40,7 @@ class SalleRepository extends EntityRepository{
      
      public function findById($id){
         $query = $this->getDb()->prepare("SELECT * FROM salle WHERE id_salle=$id");
-        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Salle');
+        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.$this->getTableName());
         $query->execute();
         $result = $query->fetch();
         //var_dump($result);

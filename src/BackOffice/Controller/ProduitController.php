@@ -16,9 +16,6 @@ class ProduitController extends Controller{
             return $objects;
         }
     }
-    
-   
-    
 //::::::::::::::::::::::::::::::::::::::::::::::::::::
 //::::::::::::ATTENTION REQUETE DE PULL!!!!!::::::::::
 //SELECT s.titre FROM salle s, produit p WHERE s.id_salle=p.id_salle;
@@ -68,6 +65,20 @@ class ProduitController extends Controller{
             'title' => 'Lokisalle',
             'promotion' => $promotion,
             'salles' => $salles));
+    }
+    
+    public function displayUpdateProduit(){
+        if(isset($_GET['id'])){
+            $queryTable = $this->getRepository('Produit');
+            $result = $queryTable->findById($_GET['id']);
+            $sallecont = new SalleController;
+            $resultSalle = $sallecont->findSalleId($result->id_salle);
+            $this->render('template_accueil.php', 'produitupdateform.php',array(
+                'title'=>'Lokisalle',
+                'produit'=>$result,
+                'salle' =>$resultSalle
+            ));
+        }
     }
     
     public function displaySalleHasProduct(){

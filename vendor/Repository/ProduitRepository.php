@@ -1,6 +1,7 @@
 <?php
 namespace Repository;
 USE Manager\EntityRepository;
+USE PDO;
 
 class ProduitRepository extends EntityRepository{
     
@@ -48,6 +49,22 @@ class ProduitRepository extends EntityRepository{
  * 
  */
   
-
+/*
+ * Find by id
+ * 
+ */
+     public function findById($id){
+        $query = $this->getDb()->prepare("SELECT * FROM produit WHERE id_produit=$id");
+        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Produit');
+        $query->execute();
+        $result = $query->fetch();
+        //var_dump($result);
+        if(!$query){
+            return false;
+        }
+        else{
+            return $result;
+        } 
+     }
      
 }

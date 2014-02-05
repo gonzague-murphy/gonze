@@ -44,6 +44,16 @@ class SalleController extends Controller{
            
        }
    }
+/*
+ * Find by ID
+ * 
+ */
+   
+   public function findSalleId($id){
+       $queryTable = $this->getRepository('Salle');
+       $result = $queryTable->findById($id);
+       return $result;
+   }
     
 /*
  * Fonctions de display
