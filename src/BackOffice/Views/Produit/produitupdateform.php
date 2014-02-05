@@ -13,7 +13,7 @@ var_dump($salle->getTitre());
 <input type="text" name="date_depart" value="<?php echo $produit->getDateDepart()?>"/>
 <label>Prix</label>
 <input type="text" name="prix" value="<?php $produit->getPrix()?>"/>
-<label>Salle</label>
+<label>Salle (actuellement : <?php $salle->getTitre()?></label>
 <select name="salle">
 <option value="<?php $salle->getIdSalle()?>"><?php echo $salle->getTitre() ?></option>
 </select>
