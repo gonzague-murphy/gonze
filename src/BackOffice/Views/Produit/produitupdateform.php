@@ -1,6 +1,6 @@
-<?php 
-echo '<form method="post" action="?controller=ProduitController&action=lanceSaveProduct">
-';
+<?php
+echo "<form method='post' action='?controller=ProduitController&action=lanceUpdate&id=".$_GET['id']."'>
+";
 echo '<label>Date d\'arrivée</label>';
 echo '<input type="text" name="date_arrivee" value="'.$produit->getDateArrivee().'"/>';
 echo '<label>Date de départ</label>';
@@ -27,7 +27,8 @@ echo '<option value="0" selected="selected">Libre</option>';
 echo '<option value="1">Reservée</option>';
 echo '</select>';
 echo '<input type="submit" id="submit" name="submit" value="submit" />';
-echo "</form>";
+?>
+</form>
     
 
 

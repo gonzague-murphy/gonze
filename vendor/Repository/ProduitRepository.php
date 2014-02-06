@@ -41,8 +41,13 @@ class ProduitRepository extends EntityRepository{
  * Update query qui va se charger de 
  * changer l'état des salles au moment de
  * la commande
- * 
  */
+     public function updateProduit(&$userData, $id){
+         $query = $this->getDb()->prepare("UPDATE produit SET date_arrivee=:date_arrivee, date_depart=:date_depart, prix=:prix, id_salle=:salle, id_promo=:promo, etat=:etat WHERE id_produit='$id'");
+         $this->binder($query,$userData);
+         $result = $query->execute();
+         return $result;
+     }
     
 /*
  * DELETE query

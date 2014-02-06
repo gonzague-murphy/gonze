@@ -46,7 +46,17 @@ class ProduitController extends Controller{
 /*
  * Update
  * 
- */   
+ */   public function allowUpdate($data=array(), $id){
+            $queryTable= $this->getRepository('Produit');
+            $retour = $queryTable->updateProduit($data, $id);
+ }
+ 
+        public function lanceUpdate(){
+            if(isset($_POST) && isset($_GET['id'])){
+                $this->allowUpdate($_POST, $_GET['id']);
+                $this->displaySalleHasProduct();
+            }
+        }
     
 
 /*
