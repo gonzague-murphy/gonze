@@ -18,7 +18,7 @@ and open the template in the editor.
  *  _Newsletter (botte toi le cul ça prend 2secondes)
  ***_Gestion des avis sur les salles
  *  _ Gestion des codes promo
- *  _ Update/Delete Membre
+ *  _ Update Membre
  */
         ?>
     </body>

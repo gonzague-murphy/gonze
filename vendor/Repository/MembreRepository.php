@@ -13,7 +13,7 @@ class MembreRepository extends EntityRepository{
             return $this->findAll();
         }
 /*
- * Fonction d'inscription 
+ * Insert
  */
 
         public function signUpQuery(&$userData){
@@ -27,6 +27,17 @@ class MembreRepository extends EntityRepository{
             else{
                 return true;
             }
+         }
+/*
+ * Update
+ */
+         
+/*
+ * Delete
+ */
+         public function deleteMembre($id){
+             $query = $this->getDb()->prepare("DELETE FROM membre WHERE id_membre=$id");
+             $query->execute();
          }
         
 /*
@@ -66,6 +77,20 @@ class MembreRepository extends EntityRepository{
                 return $result;
             } 
         }
+        
+        public function findById($id){
+        $query = $this->getDb()->prepare("SELECT * FROM membre WHERE id_membre=$id");
+        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Membre');
+        $query->execute();
+        $result = $query->fetch();
+        //var_dump($result);
+        if(!$query){
+            return false;
+        }
+        else{
+            return $result;
+        } 
+     }
     
 }
 

@@ -180,7 +180,20 @@ class MembreController extends Controller{
 /*
  * Fonction de suppression
  */
-      
+     public function allowDelete(){
+         //if(isset($_GET['id'])){
+             $queryTable = $this->getRepository('Membre');
+             /*$result = $queryTable->findById($_GET['id']);
+             if($result !== false){*/
+                 $queryTable->deleteMembre($_GET['id']);
+                 $this->listeAllAdmin();
+             /*}
+             else{
+                 $this->msg = "Ce membre n'existe pas!";
+             }
+         }
+         echo $this->msg;*/
+     } 
     
 //fonction de test
 
