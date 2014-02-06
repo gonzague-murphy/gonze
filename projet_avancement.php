@@ -13,14 +13,12 @@ and open the template in the editor.
         <?php
 /*
  *A faire:
- *  _modifier produit
  ***_Commande = gestion panier(oui à priori)
  *  _Statistiques
  *  _Newsletter (botte toi le cul ça prend 2secondes)
- *  _Display des membres pour l'admin
  ***_Gestion des avis sur les salles
  *  _ Gestion des codes promo
- * 
+ *  _ Update/Delete Membre
  */
         ?>
     </body>

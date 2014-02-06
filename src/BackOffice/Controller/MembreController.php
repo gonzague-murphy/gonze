@@ -163,6 +163,15 @@ class MembreController extends Controller{
            }
        }
     }
+    
+    public function listeAllAdmin(){
+        $queryTable = $this->getRepository('Membre');
+        $result = $queryTable->findAll();
+        $this->render('template_accueil.php', 'membre.php', array(
+            'title'=>'Lokisalle',
+            'membres'=>$result
+        ));
+    }
 
 /*
  * Fonction d'update

@@ -1,7 +1,7 @@
 <?php
+//var_dump($membres);
 
-
-/*foreach($membres as $user){
-    echo $user->getPseudo().' | '.$user->getEmail().'<br/>';
+foreach($membres as $user=>$unit){
+    echo $unit->getPseudo().' | '.$unit->getEmail().'<br/>';
 }
-*/
+

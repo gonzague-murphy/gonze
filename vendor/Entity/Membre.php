@@ -79,9 +79,19 @@ class Membre{
         return $this->statut = $statut; 
     }
     
+//:::::::::::::GETTERS::::::::::::
+    
       public function getIdMembre(){
        
         return $this->id_membre; 
+    }
+    
+    public function getPseudo(){
+        return $this->pseudo;
+    }
+    
+    public function getEmail(){
+        return $this->email;
     }
 
 
