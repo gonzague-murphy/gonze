@@ -39,7 +39,7 @@ elseif(!isset($_SESSION['user'])){
 </nav>
 <nav>
    <ul class="main_menu">
-       <li><a href="?controller=ProduitController&action=displaySalleHasProduct">Nos Salles</a></li>
+       <li><a href="?controller=ProduitController&action=displaySalleHasProductMembre">Nos Salles</a></li>
        <li><a href="">About</a></li>
        <li><a href="#">Support</a></li>
        <li><a href="#">Contact</a></li>

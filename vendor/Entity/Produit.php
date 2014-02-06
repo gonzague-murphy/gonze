@@ -41,4 +41,8 @@ class Produit{
     public function getIdPromo(){
         return $this->id_promo;
     }
+    
+    public function getEtat(){
+        return $this->etat;
+    }
 }

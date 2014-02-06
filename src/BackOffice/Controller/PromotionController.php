@@ -15,5 +15,11 @@ class PromotionController extends Controller{
         }
         //echo $this->msg;
     }
+    
+    public function findPromoId($id){
+       $queryTable = $this->getRepository('Promotion');
+       $result = $queryTable->findById($id);
+       return $result;
+   }
 }
 

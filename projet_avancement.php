@@ -12,12 +12,15 @@ and open the template in the editor.
     <body>
         <?php
 /*
- * Reussi à récupérer la requete login sous forme $session instance de mySession
- * Need singleton (1 seule session ouverte)
- * Need pouvoir instancier la classe indépendamment du login
- * Puis écraser $_SESSION[user] sans écraser $_SESSION[user][panier] 
- * Faire de $session une propriété ($this->user) de la classe MembreController?
- * Ou en faire un objet indépendant instanciable seulement depuis MembreController?
+ *A faire:
+ *  _modifier produit
+ ***_Commande = gestion panier(oui à priori)
+ *  _Statistiques
+ *  _Newsletter (botte toi le cul ça prend 2secondes)
+ *  _Display des membres pour l'admin
+ ***_Gestion des avis sur les salles
+ *  _ Gestion des codes promo
+ * 
  */
         ?>
     </body>

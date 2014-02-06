@@ -48,6 +48,10 @@ class ProduitRepository extends EntityRepository{
  * DELETE query
  * 
  */
+     public function deleteProduit($id){
+         $query = $this->getDb()->prepare("DELETE FROM produit WHERE id_produit=$id");
+         $query->execute();
+     }
   
 /*
  * Find by id

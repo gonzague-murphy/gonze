@@ -1,27 +1,23 @@
-<?php
-var_dump($salle->getTitre());
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
-<form>
-<label>Date d'arrivée</label>
-<input type="text" name="date_arrivee" value="<?php echo $produit->getDateArrivee()?>"/>
-<label>Date de départ</label>
-<input type="text" name="date_depart" value="<?php echo $produit->getDateDepart()?>"/>
-<label>Prix</label>
-<input type="text" name="prix" value="<?php $produit->getPrix()?>"/>
-<label>Salle (actuellement : <?php $salle->getTitre()?></label>
-<select name="salle">
-<option value="<?php $salle->getIdSalle()?>"><?php echo $salle->getTitre() ?></option>
-</select>
-<?php
-/*
-echo '<label>Code promo</label>';
+<?php 
+echo '<form method="post" action="?controller=ProduitController&action=lanceSaveProduct">
+';
+echo '<label>Date d\'arrivée</label>';
+echo '<input type="text" name="date_arrivee" value="'.$produit->getDateArrivee().'"/>';
+echo '<label>Date de départ</label>';
+echo '<input type="text" name="date_depart" value="'.$produit->getDateDepart().'"/>';
+echo '<label>Prix</label>';
+echo '<input type="text" name="prix" value="'.$produit->getPrix().'"/>';
+echo '<label>Salle (actuellement : '.$salle->getTitre().')</label>';
+echo '<select name="salle">';
+foreach($allSalles as $unit){
+    //var_dump($unit);
+   echo '<option value="'.$unit->getIdSalle().'">'.$unit->getTitre().'</option>';
+
+}
+echo "</select>";
+echo '<label>Code promo (actuellement :'.$promo->getCodePromo().')</label>';
 echo '<select name="promo">';
-foreach($promotion as $value){
+foreach($allPromo as $value){
     echo '<option value="'.$value->getIdPromo().'">'.$value->getCodePromo().'</option>';
 }
 echo '</select>';
@@ -31,4 +27,7 @@ echo '<option value="0" selected="selected">Libre</option>';
 echo '<option value="1">Reservée</option>';
 echo '</select>';
 echo '<input type="submit" id="submit" name="submit" value="submit" />';
-echo "</form>";*/
+echo "</form>";
+    
+
+
