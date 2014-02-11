@@ -54,6 +54,7 @@ class MembreController extends Controller{
             $this->user = $myObj;
             echo "Hello, ".$this->user->pseudo;
          }
+        //var_dump($this->user);
         return $this->user;
     }
         
@@ -91,7 +92,7 @@ class MembreController extends Controller{
           }
         else{
             $myObject = $queryTable->loginQuery($data);
-            var_dump($myObject);
+            //var_dump($myObject);
             if($myObject == false){
                 echo "non";
             }
@@ -108,10 +109,12 @@ class MembreController extends Controller{
  */
     
     public function initUser($varObject){
+        if(!isset($this->user)){
             $this->user = $varObject;
+        }
             $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
             $this->initializeSession();
-            //return $this->user;
+            var_dump($this->user);
     }
     
 //Session et panier
@@ -125,7 +128,7 @@ class MembreController extends Controller{
              //var_dump($_SESSION);
          
          //$this->initializeCart();
-         //return $this->user; 
+         return $this->user; 
       }
       
     public function initializeCart(){
@@ -226,6 +229,16 @@ class MembreController extends Controller{
 
         ));
         
+    }
+    
+    public function displayMe(){
+        $me = $this->getRepository('Membre');
+        //var_dump($_SESSION);
+        $myProfil = $me->findById($_SESSION['user']['id_membre']);
+        $this->render('template_accueil.php', 'profil.php', array(
+            'title'=>'Mon Profil',
+            'mesInfos'=>$myProfil
+        ));
     }
     
 //fonction de test

@@ -29,6 +29,7 @@ class SalleController extends Controller{
        if(isset($_POST)){
        $queryTable = $this->getRepository('Salle');
        $queryTable->updateSalle($_POST, $_GET['id']);
+       $this->listeAllAdmin();
        }
    }
    

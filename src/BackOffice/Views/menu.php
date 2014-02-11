@@ -2,7 +2,7 @@
 if(isset($_SESSION['user'])){
     echo "<nav>";
     echo "<ul class='user_menu'>";
-    echo "<li><a href=#>Mon profil</a></li>";
+    echo "<li><a href='?controller=MembreController&action=displayMe'>Mon profil</a></li>";
     echo "<li><a href=#> Mon panier</a></li>";
     echo "<li><a href='?controller=MembreController&action=deconnexion'> Deconnexion</a></li>";
     echo "</ul>";
