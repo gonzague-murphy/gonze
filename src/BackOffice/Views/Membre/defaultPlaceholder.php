@@ -1,4 +1,4 @@
 <?php
 
-echo "<p class='placeholder'>Bienvenue sur mon site salope</p>";
+echo "<p class='placeholder'>Bienvenue sur mon site</p>";
 

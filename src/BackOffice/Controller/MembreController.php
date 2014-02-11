@@ -22,7 +22,13 @@ class MembreController extends Controller{
    public function lanceSignUp(){
        if(isset($_POST)){
             $this->signUp($_POST);
+            //var_dump($this->msg);
+            if(empty($this->msg)){
             $this->defaultDisplay();
+            }
+            else{
+                $this->loginDisplay();
+            }
             //var_dump($_SESSION);
         }
     }
@@ -67,7 +73,7 @@ class MembreController extends Controller{
 
     public function signUp($data =array()){
             $this->checkForEmptyFields($data);
-            if($this->msg ==''){    
+            if(empty($this->msg)){    
                 $this->clean($data);
                 $testDoubles = $this->checkDoubleEntry($data);
                 if($testDoubles == 0){
@@ -76,12 +82,10 @@ class MembreController extends Controller{
                 }
                 
                 else{
-                    echo "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
+                    $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
                 }
             }
-            else{
-                echo $this->msg;
-            }
+            echo $this->msg;
     }
     
     public function allowInsert($data = array()){
@@ -114,7 +118,7 @@ class MembreController extends Controller{
         }
             $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
             $this->initializeSession();
-            var_dump($this->user);
+            //var_dump($this->user);
     }
     
 //Session et panier
