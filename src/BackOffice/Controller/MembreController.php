@@ -1,7 +1,7 @@
 <?php
 namespace Backoffice\Controller;
 USE Controller\Controller;
-//un commentaire
+//un comment
 
 class MembreController extends Controller{
     
