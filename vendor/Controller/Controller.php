@@ -18,9 +18,11 @@ class Controller{
 	}
     
     public function render($layout, $template, $parameters = array()){
+        //var_dump(\Component\SessionHandler::$user);
 //Prend en compte le fait que la classe fille va utiliser la fonction dans Backoffice\Controller\ClassxxController
         $dirViews = __DIR__.'/../../src/'.str_replace('\\','/', get_called_class().'/../../Views');
         $ex = explode('\\',get_called_class());
+        //var_dump($ex);
         $dirFile = str_replace('Controller', '', $ex[2]);
         $template = $dirViews.'/'.$dirFile.'/'.$template;
         $layout = $dirViews.'/'.$layout;
@@ -53,12 +55,6 @@ class Controller{
         }
     }
     
-/*
- * Check for empty fields
- * @params array($dataInput) tous les $_POST
- * @return string $this->msg
- * 
- */
     public function checkForEmptyFields($args = array()){
         foreach($args as $key=>$value){
             $newValue  = trim($value);
@@ -69,6 +65,20 @@ class Controller{
         }
         return $this->msg;
     }
+    
+    public function checkDoubleEntry($table, $data = array()){
+        $queryTable = $this->getRepository($table);
+        $test = $queryTable->checkForDoubles($data);
+        return $test;
+    }
+    
+/*
+ * Check for empty fields
+ * @params array($dataInput) tous les $_POST
+ * @return string $this->msg
+ * 
+ */
+
     
     public function userIsConnected(){
         if(empty($_SESSION['user'])){

@@ -51,7 +51,7 @@ class MembreRepository extends EntityRepository{
         //var_dump($myArray);
         $query = $this->getDb()->prepare("SELECT id_membre, pseudo, nom, prenom, email, ville, cp, adresse, statut FROM ".$this->getTableName()." WHERE pseudo=:pseudo AND mdp=:mdp");
         $this->binder($query,$myArray);
-        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Membre');
+        $query->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Entity\\'.'User');
         $query->execute();
         $myObject= $query->fetch();
 //Si la query ne passe pas, on fait une erreur propre

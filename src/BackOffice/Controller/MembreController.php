@@ -1,17 +1,18 @@
 <?php
 namespace Backoffice\Controller;
 USE Controller\Controller;
-//un comment
+USE Component\UserSessionHandler;
 
 class MembreController extends Controller{
-    
-    public $user;
+
+    public static $counter = 0;
     public $isConnected = false;
+    public $userHandler;
+    public $user;
     
 //initialise le panier à l'instanciation
-    
     public function __construct(){
-        $this->initializeCart();
+        self::$counter++;
     }
     
     
@@ -36,7 +37,7 @@ class MembreController extends Controller{
     public function lanceLogin(){
        if(isset($_POST)){
             $this->loginUser($_POST);
-            $this->initializeSession();
+            //$this->initializeSession();
             $this->defaultDisplay();
 
         }
@@ -52,16 +53,16 @@ class MembreController extends Controller{
         $this->clean($dataInput);
         $queryTable = $this->getRepository('Membre');
         $myObj = $queryTable->loginQuery($dataInput);
-        //var_dump($myObj);
         if($myObj == false){
             echo $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
         }
         else{
-            $this->user = $myObj;
-            echo "Hello, ".$this->user->pseudo;
+            $this->userHandler = new UserSessionHandler;
+            $this->userHandler->initUser($myObj);
+            echo "Hello, ".UserSessionHandler::$user->pseudo;
          }
-        //var_dump($this->user);
-        return $this->user;
+         var_dump($this->user);
+         return $this->user;
     }
         
     
@@ -72,10 +73,10 @@ class MembreController extends Controller{
  */
 
     public function signUp($data =array()){
-            $this->checkForEmptyFields($data);
+            $this->msg = $this->checkForEmptyFields($data);
             if(empty($this->msg)){    
                 $this->clean($data);
-                $testDoubles = $this->checkDoubleEntry($data);
+                $testDoubles = $this->checkDoubleEntry('Membre',$data);
                 if($testDoubles == 0){
                     $this->clean($data);
                     $this->allowInsert($data);
@@ -101,58 +102,9 @@ class MembreController extends Controller{
                 echo "non";
             }
             else{
-            //var_dump($myObject);
-            $this->initUser($myObject);
+            $this->userHandler->initUser($myObject);
             }
           }
-    }
- 
-/*
- * Check le retour de la query, initialise $this->user 
- * et $_SESSION
- */
-    
-    public function initUser($varObject){
-        if(!isset($this->user)){
-            $this->user = $varObject;
-        }
-            $this->msg = "<h1>Hello ".$this->user->pseudo."</h1>";
-            $this->initializeSession();
-            //var_dump($this->user);
-    }
-    
-//Session et panier
-    
-     public function initializeSession(){
-             $array = get_object_vars($this->user);
-             $this->clean($array);
-             foreach($array as $key=>$value){
-                 $_SESSION['user'][$key] = $value;
-             }
-             //var_dump($_SESSION);
-         
-         //$this->initializeCart();
-         return $this->user; 
-      }
-      
-    public function initializeCart(){
-        if(!isset($_SESSION['panier'])){
-            $_SESSION['panier'] = array();
-            $_SESSION['panier']['titre'] = array();
-            $_SESSION['panier']['id_article'] = array();
-            $_SESSION['panier']['quantite'] = array();
-            $_SESSION['panier']['prix'] = array();
-		}
-	return true;
-}
-
-/*
- * Select query
- */
-    public function checkDoubleEntry($data = array()){
-        $queryTable = $this->getRepository('Membre');
-        $test = $queryTable->checkForDoubles($data);
-        return $test;
     }
     
 /*
@@ -172,6 +124,7 @@ class MembreController extends Controller{
     }
     
     public function listeAllAdmin(){
+        var_dump($this->userHandler);
         $queryTable = $this->getRepository('Membre');
         $result = $queryTable->findAll();
         $this->render('template_accueil.php', 'membre.php', array(
@@ -179,27 +132,13 @@ class MembreController extends Controller{
             'membres'=>$result
         ));
     }
-
-/*
- * Fonction d'update
- */
-
 /*
  * Fonction de suppression
  */
      public function allowDelete(){
-         //if(isset($_GET['id'])){
              $queryTable = $this->getRepository('Membre');
-             /*$result = $queryTable->findById($_GET['id']);
-             if($result !== false){*/
                  $queryTable->deleteMembre($_GET['id']);
                  $this->listeAllAdmin();
-             /*}
-             else{
-                 $this->msg = "Ce membre n'existe pas!";
-             }
-         }
-         echo $this->msg;*/
      } 
     
 //fonction de test
@@ -221,12 +160,6 @@ class MembreController extends Controller{
     }
     
     public function loginDisplay(){
-        /*var_dump($_POST);
-        if($this->userIsConnected() == false){
-        header('location:index.php');
-            
-        }*/
-       
         $this->render('template_accueil.php','loginform.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
@@ -236,12 +169,11 @@ class MembreController extends Controller{
     }
     
     public function displayMe(){
-        $me = $this->getRepository('Membre');
-        //var_dump($_SESSION);
-        $myProfil = $me->findById($_SESSION['user']['id_membre']);
+        $me = UserSessionHandler::getUserSession();
+        var_dump($me);
         $this->render('template_accueil.php', 'profil.php', array(
             'title'=>'Mon Profil',
-            'mesInfos'=>$myProfil
+            'mesInfos'=>$me
         ));
     }
     
@@ -260,6 +192,7 @@ class MembreController extends Controller{
     
     public function deconnexion(){
         \session_destroy();
+        unset($_SESSION['user']);
         $this->defaultDisplay();
     }
     

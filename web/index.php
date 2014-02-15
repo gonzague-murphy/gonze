@@ -4,8 +4,8 @@ session_start();
 
 function dispatcher(){
     if(empty($_GET)){
-        $_GET['controller'] = 'MembreController';
-        $_GET['action'] = 'defaultDisplay';
+        $_GET['controller'] = 'DefaultController';
+        $_GET['action'] = 'indexDisplay';
     }
     
     if(!isset($controller) && !isset($action)){
@@ -15,8 +15,21 @@ function dispatcher(){
     
      if(!empty($controller) && !empty($action)){
          $controller = "Backoffice\Controller\\".$controller;
-	 $cont = new $controller; // elle existe, on l'inclue
-         $cont->$action();       
+         if(class_exists($controller)){
+         //echo $controller::$counter;
+            if($controller::$counter>0){
+                $controller->$action();
+            }
+            else{
+               $cont = new $controller; // elle existe, on l'inclue
+               $cont->$action();  
+            }
+       }
+       else{
+           echo "404";
+       }
+       
     }
 }
 dispatcher();
+//echo Backoffice\Controller\MembreController::getUser();

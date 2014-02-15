@@ -130,6 +130,7 @@ class ProduitController extends Controller{
     }
     
     public function displaySalleHasProduct(){
+        var_dump(MembreController::$user);
         $sallecont = new SalleController;
         $liste = $sallecont->salleHasProduct();
         $this->render('template_accueil.php', 'listeadmin.php', array(
