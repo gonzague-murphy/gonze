@@ -24,9 +24,9 @@ class Controller{
         $ex = explode('\\',get_called_class());
         //var_dump($ex);
         $dirFile = str_replace('Controller', '', $ex[2]);
-        $template = $dirViews.'/'.$dirFile.'/'.$template;
-        $layout = $dirViews.'/'.$layout;
-        $menu = $dirViews.'/'.'menu.php';
+        $template = $dirViews.'/contenu/'.$dirFile.'/'.$template;
+        $layout = $dirViews.'/template/'.$layout;
+        $menu = $dirViews.'/template/'.'menu.php';
         //var_dump($_SESSION);
         extract($parameters);
         

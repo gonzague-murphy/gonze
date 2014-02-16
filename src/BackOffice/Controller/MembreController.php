@@ -6,13 +6,13 @@ USE Component\UserSessionHandler;
 class MembreController extends Controller{
     
     public $isConnected = false;
-    protected $userSession;
-    public $user;
+    protected $view;
     
 //initialise le panier à l'instanciation
     public function __construct(){
         $this->userSession = new UserSessionHandler;
         $this->castUser();
+        $this->view = new \Backoffice\Views\MembreViews();
        
     }
     
@@ -134,7 +134,7 @@ class MembreController extends Controller{
        }
     }
     
-    public function listeAllAdmin(){
+    /*public function listeAllAdmin(){
         //var_dump($this->userHandler);
         $queryTable = $this->getRepository('Membre');
         $result = $queryTable->findAll();
@@ -142,7 +142,7 @@ class MembreController extends Controller{
             'title'=>'Lokisalle',
             'membres'=>$result
         ));
-    }
+    }*/
 /*
  * Fonction de suppression
  */
@@ -188,16 +188,10 @@ class MembreController extends Controller{
     }
     
 //fonction de test
-    public function displayMembres(){
-        
-        $membre = $this->getRepository('Membre');
-        $membres = $membre->getAllMembers();
-        
-            $this->render('layout.php','membre.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-            'membres'=>$membres
-        ));
+    public function listeAllAdmin(){
+        $query = $this->getRepository('Membre');
+        $result = $query->findAll();
+        $this->view->displayForAdmin($result);
     }
     
     public function deconnexion(){
