@@ -8,3 +8,4 @@
     echo "<p>".$value['commentaire']."</p>";
     echo "<p>Note attribuée :".$value['note']."</p>";
 }
+//
