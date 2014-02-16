@@ -4,15 +4,27 @@ USE Controller\Controller;
 USE Component\UserSessionHandler;
 
 class MembreController extends Controller{
-
-    public static $counter = 0;
+    
     public $isConnected = false;
-    public $userHandler;
+    protected $userSession;
     public $user;
     
 //initialise le panier à l'instanciation
     public function __construct(){
-        self::$counter++;
+        $this->userSession = new UserSessionHandler;
+        $this->castUser();
+       
+    }
+    
+    public function castUser(){
+        if(isset($_SESSION['user'])){
+            $this->user = new \Entity\Membre;
+            foreach($_SESSION['user'] as $key=>$value){
+                $this->user->$key = $value;
+            }
+            return $this->user;
+        }
+        var_dump($this);
     }
     
     
@@ -41,6 +53,7 @@ class MembreController extends Controller{
             $this->defaultDisplay();
 
         }
+        
     }
     
 /*
@@ -57,12 +70,10 @@ class MembreController extends Controller{
             echo $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
         }
         else{
-            $this->userHandler = new UserSessionHandler;
-            $this->userHandler->initUser($myObj);
-            echo "Hello, ".UserSessionHandler::$user->pseudo;
+            $this->userSession->initializeSession($myObj);
+            echo "Hello, ".$myObj->pseudo;
          }
-         var_dump($this->user);
-         return $this->user;
+         //var_dump($this->user);
     }
         
     
@@ -102,7 +113,7 @@ class MembreController extends Controller{
                 echo "non";
             }
             else{
-            $this->userHandler->initUser($myObject);
+            $this->userSession->initializeSession($myObject);
             }
           }
     }
@@ -124,7 +135,7 @@ class MembreController extends Controller{
     }
     
     public function listeAllAdmin(){
-        var_dump($this->userHandler);
+        //var_dump($this->userHandler);
         $queryTable = $this->getRepository('Membre');
         $result = $queryTable->findAll();
         $this->render('template_accueil.php', 'membre.php', array(
@@ -169,8 +180,7 @@ class MembreController extends Controller{
     }
     
     public function displayMe(){
-        $me = UserSessionHandler::getUserSession();
-        var_dump($me);
+        $me = $this->user;
         $this->render('template_accueil.php', 'profil.php', array(
             'title'=>'Mon Profil',
             'mesInfos'=>$me

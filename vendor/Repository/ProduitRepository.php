@@ -64,8 +64,8 @@ class ProduitRepository extends EntityRepository{
  * 
  */
      public function findById($id){
-        $query = $this->getDb()->prepare("SELECT * FROM produit WHERE id_produit=$id");
-        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Produit');
+        $query = $this->getDb()->prepare("SELECT * FROM produit p, salle s WHERE p.id_salle=$id");
+        $query->setFetchMode(PDO::FETCH_ASSOC);
         $query->execute();
         $result = $query->fetch();
         //var_dump($result);

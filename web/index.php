@@ -17,19 +17,17 @@ function dispatcher(){
          $controller = "Backoffice\Controller\\".$controller;
          if(class_exists($controller)){
          //echo $controller::$counter;
-            if($controller::$counter>0){
-                $controller->$action();
+               $cont = new $controller; // elle existe, on l'inclue
+               $cont->$action();
             }
             else{
-               $cont = new $controller; // elle existe, on l'inclue
-               $cont->$action();  
+                 echo "404";
             }
        }
        else{
            echo "404";
        }
-       
-    }
+   
 }
 dispatcher();
 //echo Backoffice\Controller\MembreController::getUser();

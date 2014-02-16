@@ -148,5 +148,16 @@ class ProduitController extends Controller{
         ));
     }
     
+    public function displayProductDetail(){
+        $me = $this->getRepository('Produit');
+        $result = $me->findById($_GET['id']);
+        $avis = new AvisController();
+        $allavis = $avis->findBySalle($_GET['id']);
+        $this->render('template_accueil.php', 'produitdetails.php', array(
+            'liste'=> $result,
+             'avis'=>$allavis
+        ));
+    }
+    
     
 }

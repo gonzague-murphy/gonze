@@ -46,7 +46,7 @@ class Controller{
     public function clean(&$args){
         foreach($args as &$data){
             if(!is_array($data)){
-                  $data = preg_replace('/[^a-zA-Z0-9\s]/','', $data);
+                  $data = preg_replace('`^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$`','', $data);
             }
             else{
 //on rapelle la fonction tant que tout l'array n'y est pas passé
