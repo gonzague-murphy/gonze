@@ -2,11 +2,27 @@
 
 namespace Controller;
 
+
 class Controller{
     
     protected $msg;
     protected $table;
+    public $view;
+    public $userSession;
     
+    public function __construct(){
+        $this->userSession = new \Component\UserSessionHandler;
+        $view = $this->getView();
+        $this->view = new $view;
+    }
+    
+    
+    public function getView(){
+        $myview = explode('\\', get_called_class());
+        $view = str_replace('Controller','Views',$myview[2]);
+        $view = 'Backoffice\Views\\'.$view;
+        return $view;
+    }
     
     public function getRepository($table){
 //va servir à instancier ClassxxRepository
@@ -16,27 +32,28 @@ class Controller{
 		}
 		return $this->table;
 	}
-    
-    public function render($layout, $template, $parameters = array()){
-        //var_dump(\Component\SessionHandler::$user);
-//Prend en compte le fait que la classe fille va utiliser la fonction dans Backoffice\Controller\ClassxxController
-        $dirViews = __DIR__.'/../../src/'.str_replace('\\','/', get_called_class().'/../../Views');
-        $ex = explode('\\',get_called_class());
-        //var_dump($ex);
-        $dirFile = str_replace('Controller', '', $ex[2]);
-        $template = $dirViews.'/contenu/'.$dirFile.'/'.$template;
-        $layout = $dirViews.'/template/'.$layout;
-        $menu = $dirViews.'/template/'.'menu.php';
-        //var_dump($_SESSION);
-        extract($parameters);
         
-        ob_start();
-            require $template;
-            require $menu;
-            $content = ob_get_clean();
-            require $layout;
-        return ob_end_flush();
+    public function isPostSet(){
+       if(isset($_POST)){
+           return true;
+       }
+       else{
+           return false;
+       }
     }
+    
+    public function formValidation($fonction1, $data=array()){
+        $this->msg = $this->checkForEmptyFields($data);
+        if(empty($this->msg)){
+            $this->clean($data);
+            $table = explode('\\', get_called_class());
+            $requestTable = str_replace('Controller','',$table[2]);
+            $queryTable = $this->getRepository($requestTable);
+            $result = $queryTable->$fonction1($data);
+            return $result;
+        }
+    }
+
 
 /*
  * Nettoie les input de type $_POST

@@ -1,18 +1,13 @@
 <?php
 namespace Backoffice\Controller;
 USE Controller\Controller;
+USE Backoffice\Views\DefaultViews;
 
 class DefaultController extends Controller{
     
-    public static $counter;
-    
-    public function __construct(){
-        self::$counter++;
-    }
+   
     public function indexDisplay(){
-        $this->render('template_accueil.php','defaultPlaceholder.php', array(
-            'title'=>'Vous etes sur l\'index'
-        ));
+        $this->view->indexDisplay();
     }
 }
 /* 

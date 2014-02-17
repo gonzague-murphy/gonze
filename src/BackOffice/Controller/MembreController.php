@@ -3,31 +3,10 @@ namespace Backoffice\Controller;
 USE Controller\Controller;
 USE Component\UserSessionHandler;
 
+
 class MembreController extends Controller{
     
     public $isConnected = false;
-    protected $view;
-    
-//initialise le panier à l'instanciation
-    public function __construct(){
-        $this->userSession = new UserSessionHandler;
-        $this->castUser();
-        $this->view = new \Backoffice\Views\MembreViews();
-       
-    }
-    
-    public function castUser(){
-        if(isset($_SESSION['user'])){
-            $this->user = new \Entity\Membre;
-            foreach($_SESSION['user'] as $key=>$value){
-                $this->user->$key = $value;
-            }
-            return $this->user;
-        }
-        var_dump($this);
-    }
-    
-    
 /*
  * Fonctions de lancement
  */
@@ -47,13 +26,11 @@ class MembreController extends Controller{
     }
     
     public function lanceLogin(){
-       if(isset($_POST)){
+       if($this->isPostSet()!=false){
             $this->loginUser($_POST);
-            //$this->initializeSession();
-            $this->defaultDisplay();
-
+            $default = new DefaultController;
+            $default->view->indexDisplay();
         }
-        
     }
     
 /*
@@ -63,9 +40,7 @@ class MembreController extends Controller{
  * @return object self:$user instance de la Classe Membre
  */
     public function loginUser($dataInput=array()){
-        $this->clean($dataInput);
-        $queryTable = $this->getRepository('Membre');
-        $myObj = $queryTable->loginQuery($dataInput);
+        $myObj = $this->formValidation('loginQuery', $dataInput);
         if($myObj == false){
             echo $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
         }
@@ -73,7 +48,6 @@ class MembreController extends Controller{
             $this->userSession->initializeSession($myObj);
             echo "Hello, ".$myObj->pseudo;
          }
-         //var_dump($this->user);
     }
         
     
@@ -117,78 +91,35 @@ class MembreController extends Controller{
             }
           }
     }
-    
-/*
- * Gère l'insertion et l'initialisation de $this->user
- */
-    
-    
-    public function isPostSet($data = array()){
-       foreach($data as $key=>$value){
-           if($key == 'submit' && $value !== ''){
-               return true;
-           }
-           else{
-               return false;
-           }
-       }
-    }
-    
-    /*public function listeAllAdmin(){
-        //var_dump($this->userHandler);
-        $queryTable = $this->getRepository('Membre');
-        $result = $queryTable->findAll();
-        $this->render('template_accueil.php', 'membre.php', array(
-            'title'=>'Lokisalle',
-            'membres'=>$result
-        ));
-    }*/
+
 /*
  * Fonction de suppression
  */
      public function allowDelete(){
              $queryTable = $this->getRepository('Membre');
-                 $queryTable->deleteMembre($_GET['id']);
-                 $this->listeAllAdmin();
+             $queryTable->deleteMembre($_GET['id']);
+             $this->listeAllAdmin();
      } 
     
-//fonction de test
 
-    public function defaultDisplay(){
-        $this->render('template_accueil.php','defaultPlaceholder.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-
-        ));
-    }
     
-     public function signUpDisplay(){
-        $this->render('template_accueil.php','formsignup.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-
-        ));
+     public function signUpForm(){
+        $this->view->signUpForm();
     }
     
     public function loginDisplay(){
-        $this->render('template_accueil.php','loginform.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-
-        ));
+        $this->view->loginDisplay();
         
     }
     
-    public function displayMe(){
-        $me = $this->user;
-        $this->render('template_accueil.php', 'profil.php', array(
-            'title'=>'Mon Profil',
-            'mesInfos'=>$me
-        ));
+    public function displayFicheDetail(){
+        $me = UserSessionHandler::getUser();
+        //var_dump($me);
+        $this->view->displayFicheDetail($me);
     }
     
 //fonction de test
-    public function listeAllAdmin(){
+    public function displayForAdmin(){
         $query = $this->getRepository('Membre');
         $result = $query->findAll();
         $this->view->displayForAdmin($result);
@@ -197,7 +128,8 @@ class MembreController extends Controller{
     public function deconnexion(){
         \session_destroy();
         unset($_SESSION['user']);
-        $this->defaultDisplay();
+        $refresh = new DefaultController;
+        $refresh->indexDisplay();
     }
     
     

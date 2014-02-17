@@ -2,7 +2,7 @@
 if(isset($_SESSION['user'])){
     echo "<nav>";
     echo "<ul class='user_menu'>";
-    echo "<li><a href='?controller=MembreController&action=displayMe'>Mon profil</a></li>";
+    echo "<li><a href='?controller=MembreController&action=displayFicheDetail'>Mon profil</a></li>";
     echo "<li><a href=#> Mon panier</a></li>";
     echo "<li><a href='?controller=MembreController&action=deconnexion'> Deconnexion</a></li>";
     echo "</ul>";
@@ -12,7 +12,7 @@ if(isset($_SESSION['user'])){
         echo "<ul class='admin_menu'>";
         echo "<li><a href='?controller=SalleController&action=listeAllAdmin'>Gérer les Salles</a></li>";
         echo "<li><a href='?controller=ProduitController&action=displaySalleHasProduct'>Gérer les Produits</a></li>";
-        echo "<li><a href='?controller=MembreController&action=listeAllAdmin'>Gérer les Membres</a></li>";
+        echo "<li><a href='?controller=MembreController&action=displayForAdmin'>Gérer les Membres</a></li>";
         echo "<li><a href=''>Gérer les Codes Promo</a></li>";
         echo "<li><a href=''>Gérer les Avis</a></li>";
         echo "<li><a href=''>Gérer les Commandes</a></li>";
@@ -26,7 +26,7 @@ elseif(!isset($_SESSION['user'])){
     echo "<nav>";
     echo "<ul class='user_menu'>";
     echo "<li><a href='?controller=MembreController&action=loginDisplay'>connexion</a></li>";
-    echo "<li><a href='?controller=MembreController&action=signUpDisplay'> inscription</a></li>";
+    echo "<li><a href='?controller=MembreController&action=signUpForm'> inscription</a></li>";
     echo "</ul>";
     echo "</nav>";
 }

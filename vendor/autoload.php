@@ -11,8 +11,8 @@ class Autoload{
                     $path = __DIR__ . '/../src/'.implode('/', $ex).'.php';
                 }
                 
-                elseif($ex[0] == 'Membre'){
-                    $path = __DIR__.'/../vendor/Entity/'.implode('/', $ex).'.php';
+                elseif($ex[0] == 'Component'){
+                    $path = __DIR__.'/'.implode('/', $ex).'.php';
                 }
 
 			

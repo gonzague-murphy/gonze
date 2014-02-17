@@ -6,12 +6,15 @@ class MembreViews extends Views{
     
     
     
-    public function displayListe(){
+    public function displayListe($args){
         echo "test";
     }
     
-    public function displayFicheDetail() {
-        echo "test";
+    public function displayFicheDetail($args) {
+        $this->render('template_accueil.php', 'profil.php', array(
+            'title'=>'Mon Profil',
+            'mesInfos'=>$args
+        ));
     }
     
     public function displayForAdmin($result){
@@ -21,35 +24,10 @@ class MembreViews extends Views{
         ));
     }
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-public function listeAllAdmin(){
-        
-    }
-/*
- * Fonction de suppression
- */
-     public function allowDelete(){
-             $queryTable = $this->getRepository('Membre');
-                 $queryTable->deleteMembre($_GET['id']);
-                 $this->listeAllAdmin();
-     } 
+//:::::::::FORM DISPLAY::::::::::::::::
+//:::::::::::::::::::::::::::::::::::::
     
-//fonction de test
-
-    public function defaultDisplay(){
-        $this->render('template_accueil.php','defaultPlaceholder.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-
-        ));
-    }
-    
-     public function signUpDisplay(){
+     public function signUpForm(){
         $this->render('template_accueil.php','formsignup.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',
@@ -64,26 +42,5 @@ public function listeAllAdmin(){
 
         ));
         
-    }
-    
-    public function displayMe(){
-        $me = $this->user;
-        $this->render('template_accueil.php', 'profil.php', array(
-            'title'=>'Mon Profil',
-            'mesInfos'=>$me
-        ));
-    }
-    
-//fonction de test
-    public function displayMembres(){
-        
-        $membre = $this->getRepository('Membre');
-        $membres = $membre->getAllMembers();
-        
-            $this->render('layout.php','membre.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-            'membres'=>$membres
-        ));
     }
 }
