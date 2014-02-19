@@ -13,7 +13,25 @@ class SalleViews extends Views{
     }
     
     public function displayForAdmin($result){
-        echo "";
+        $this->render('template_accueil.php', 'salle.php', array(
+            'title'=>'Bienvenue, Admin',
+            'salles'=>$result
+          ));
+    }
+//::::::::::FORMULAIRES:::::::::::::
+//::::::::::::::::::::::::::::::::::
+    
+    public function addSalleForm(){
+        $this->render('template_accueil.php', 'salleformadd.php', array(
+            'title'=> 'Lokisalle'
+        ));
+    }
+    
+    public function updateSalleForm($args){
+        $this->render('template_accueil.php', 'salleform.php',array(
+            'title'=>'Bienvenue, Admin',
+            'salles'=>$args
+        ));
     }
 }
 

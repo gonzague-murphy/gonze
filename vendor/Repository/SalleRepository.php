@@ -39,7 +39,7 @@ class SalleRepository extends EntityRepository{
      }
      
      public function findById($id){
-        $query = $this->getDb()->prepare("SELECT * FROM salle WHERE id_salle=$id");
+        $query = $this->getDb()->prepare("SELECT * FROM salle WHERE id_salle='$id'");
         $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.$this->getTableName());
         $query->execute();
         $result = $query->fetch();
@@ -52,13 +52,6 @@ class SalleRepository extends EntityRepository{
         } 
      }
      
-     public function selectHasProduct(){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle");
-         $query->setFetchMode(PDO::FETCH_ASSOC);
-         $query->execute();
-         $result = $query->fetchAll();
-         return $result;
-         
-     }
+     
 }
 

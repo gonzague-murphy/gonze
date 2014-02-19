@@ -78,23 +78,32 @@ class ProduitController extends Controller{
         echo $this->msg;
     }
     
+    public function findById($id){
+        $table = $this->getRepository('Produit');
+        $result = $table->findById($id);
+        return $result;
+    }
+    
+/*
+ * Add to cart
+ */
+    public function addToCart(){
+        //var_dump($_SESSION);
+        \Component\PanierSessionHandler::addToCart();
+    }
+    
     
 /*
  * Fonction de display
  */
-        public function listeProduitAdmin(){
-        $produit = $this->getRepository('Produit');
-        $produits = $produit->findAll();
-        //var_dump($produits);
-        if($produits == false){
-            echo $this->msg = "<div class='error'>Désolé, aucun produit disponible pour le moment</div>";
-        }
-        else{
-        $this->render('template_accueil.php', 'listeAdmin.php',array(
-            'title'=>'Hello admin',
-            'produits'=>$produits
-        ));
-        }
+      
+    
+    public function formOption(){
+        $sallecont = new SalleController;
+        $salles = $sallecont->listeAllForProducts();
+        $promocont = new PromotionController;
+        $promotion = $promocont->listeAllForProducts();
+        return array($salles, $promotion);
     }
     
     public function displayForm(){
@@ -102,50 +111,28 @@ class ProduitController extends Controller{
         $salles = $sallecont->listeAllForProducts();
         $promocont = new PromotionController;
         $promotion = $promocont->listeAllForProducts();
-        $this->render('template_accueil.php', 'produitform.php',array(
-            'title' => 'Lokisalle',
-            'promotion' => $promotion,
-            'salles' => $salles));
+        $this->view->addForm($promotion, $salles);
     }
     
     public function displayUpdateProduit(){
         if(isset($_GET['id'])){
             $queryTable = $this->getRepository('Produit');
             $result = $queryTable->findById($_GET['id']);
-            $sallecont = new SalleController;
-            $resultSalle = $sallecont->findSalleId($result->id_salle);
-            $touteLesSalles = $sallecont->listeAllForProducts();
-            $promocont = new PromotionController;
-            $promotion = $promocont->listeAllForProducts();
-            $thispromo = $promocont->findPromoId($result->id_promo);
-            $this->render('template_accueil.php', 'produitupdateform.php',array(
-                'title'=>'Lokisalle',
-                'produit'=>$result,
-                'salle' =>$resultSalle,
-                'promo'=>$thispromo,
-                'allSalles'=>$touteLesSalles,
-                'allPromo'=>$promotion
-            ));
+            $choices = $this->formOption();
+            $this->view->updateForm($result, $choices);
         }
     }
     
     public function displaySalleHasProduct(){
-        var_dump(MembreController::$user);
-        $sallecont = new SalleController;
-        $liste = $sallecont->salleHasProduct();
-        $this->render('template_accueil.php', 'listeadmin.php', array(
-            'title'=>'Lokisalle',
-            'liste' =>$liste
-        ));
+        $value = $this->getRepository('Produit');
+        $liste = $value->selectHasProduct();
+        $this->view->displayForAdmin($liste);
     }
     
     public function displaySalleHasProductMembre(){
-        $sallecont = new SalleController;
-        $listeSalle = $sallecont->salleHasProduct();
-        $this->render('template_accueil.php', 'listenormal.php', array(
-            'title'=>'Lokisalle',
-            'liste'=>$listeSalle
-        ));
+        $value = $this->getRepository('Produit');
+        $listeSalle = $value->selectHasProduct();
+        $this->view->displayListe($listeSalle);
     }
     
     public function displayProductDetail(){
@@ -153,11 +140,7 @@ class ProduitController extends Controller{
         $result = $me->findById($_GET['id']);
         $avis = new AvisController();
         $allavis = $avis->findBySalle($_GET['id']);
-        $this->render('template_accueil.php', 'produitdetails.php', array(
-            'liste'=> $result,
-             'avis'=>$allavis
-        ));
+        $this->view->displayFicheDetail($result, $allavis);
     }
-    
     
 }

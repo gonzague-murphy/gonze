@@ -10,7 +10,7 @@ if(isset($_SESSION['user'])){
     if($_SESSION['user']['statut'] == 1){
         echo "<nav>";
         echo "<ul class='admin_menu'>";
-        echo "<li><a href='?controller=SalleController&action=listeAllAdmin'>Gérer les Salles</a></li>";
+        echo "<li><a href='?controller=SalleController&action=displayForAdmin'>Gérer les Salles</a></li>";
         echo "<li><a href='?controller=ProduitController&action=displaySalleHasProduct'>Gérer les Produits</a></li>";
         echo "<li><a href='?controller=MembreController&action=displayForAdmin'>Gérer les Membres</a></li>";
         echo "<li><a href=''>Gérer les Codes Promo</a></li>";

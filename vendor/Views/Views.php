@@ -2,7 +2,7 @@
 namespace Views;
 abstract class Views{
     
-    abstract function displayFicheDetail($args);
+    //abstract function displayFicheDetail($args);
     
     abstract function displayListe($args);
     

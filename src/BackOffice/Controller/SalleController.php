@@ -29,7 +29,7 @@ class SalleController extends Controller{
        if(isset($_POST)){
        $queryTable = $this->getRepository('Salle');
        $queryTable->updateSalle($_POST, $_GET['id']);
-       $this->listeAllAdmin();
+       $this->displayForAdmin();
        }
    }
    
@@ -41,43 +41,16 @@ class SalleController extends Controller{
        if(isset($_GET['id'])){
            $queryTable = $this->getRepository('Salle');
            $queryTable->deleteSalle($_GET['id']);
-           $this->listeAllAdmin();
+           $this->displayForAdmin();
            
        }
    }
 /*
- * Find by ID
+ * Query pour affichage mixte
  * 
  */
    
-   public function findSalleId($id){
-       $queryTable = $this->getRepository('Salle');
-       $result = $queryTable->findById($id);
-       return $result;
-   }
-    
-/*
- * Fonctions de display
- * 
- */
-    
-    public function listeAllAdmin(){
-        //var_dump(\Backoffice\Controller\MembreController::getUser());
-        $queryTable = $this->getRepository('Salle');
-        $salles = $queryTable->findAll();
-        //var_dump($salles);
-         if($salles == false){
-            echo $this->msg = "<div class='error'>Désolé, aucune salle enregistrée pour l'instant</div>";
-        }
-        else{
-            $this->render('template_accueil.php', 'salle.php', array(
-                'title'=>'Bienvenue, Admin',
-                'salles'=>$salles
-            ));
-         }
-    }
-    
-    public function listeAllForProducts(){
+   public function listeAllForProducts(){
         $queryTable = $this->getRepository('Salle');
         $salles = $queryTable->findAll();
          if($salles == false){
@@ -89,9 +62,37 @@ class SalleController extends Controller{
     
     }
     
+        public function findAllById(){
+        if(isset($_GET['id'])){
+            $id = htmlentities($_GET['id'], ENT_QUOTES);
+            $queryTable = $this->getRepository('Salle');
+            $salles = $queryTable->findById($id);
+            if($salles == false){
+                echo "Cette salle n'existe pas!";
+            
+                }
+            else{
+                return $salles;
+            }
+        }
+    }
+    
+    
 /*
- * Update display
+ * Fonctions de display
+ * 
  */
+    
+    public function displayForAdmin(){
+        $queryTable = $this->getRepository('Salle');
+        $salles = $queryTable->findAll();
+         if($salles == false){
+            echo $this->msg = "<div class='error'>Désolé, aucune salle enregistrée pour l'instant</div>";
+        }
+        else{
+            $this->view->displayForAdmin($salles);
+         }
+    }
     
     public function displaySalleForm(){
         if(isset($_GET['id'])){
@@ -102,16 +103,11 @@ class SalleController extends Controller{
                 echo "Cette salle n'existe pas!";
             }
             else{
-            $this->render('template_accueil.php', 'salleform.php',array(
-            'title'=>'Bienvenue, Admin',
-            'salles'=>$salles
-        ));
+                $this->view->updateSalleForm($salles);
             }
         }
         else{
-            $this->render('template_accueil.php', 'salle.php',array(
-            'title'=>'Bienvenue, Admin',
-        ));
+            $this->displayForAdmin();
         }
     }
 /*
@@ -119,29 +115,9 @@ class SalleController extends Controller{
  */
     
     public function displaySalleFormAdd(){
-        $this->render('template_accueil.php', 'salleformadd.php', array(
-            'title'=> 'Lokisalle'
-        ));
+        $this->view->addSalleForm();
     }
     
-    public function findAllById(){
-        if(isset($_GET['id'])){
-            $id = htmlentities($_GET['id'], ENT_QUOTES);
-            $queryTable = $this->getRepository('Salle');
-            $salles = $queryTable->findById($id);
-            if($salles == false){
-                echo "Cette salle n'existe pas!";
-            
-                }
-    
-        }
-    
-    }
-    
-    public function salleHasProduct(){
-        $querytable = $this->getRepository('Salle');
-        $liste = $querytable->selectHasProduct();
-        return $liste;
-    }
+
 
 }

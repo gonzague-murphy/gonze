@@ -1,5 +1,6 @@
 <?php
 namespace Component;
+
 class UserSessionHandler{
     
     public static $user;
@@ -30,18 +31,7 @@ class UserSessionHandler{
                  $_SESSION['user'][$key] = $value;
              }
              
-         $this->initializeCart(); 
+             PanierSessionHandler::initializeCart(); 
       }
-      
-      public function initializeCart(){
-        if(!isset($_SESSION['panier'])){
-            $_SESSION['panier'] = array();
-            $_SESSION['panier']['titre'] = array();
-            $_SESSION['panier']['id_article'] = array();
-            $_SESSION['panier']['quantite'] = array();
-            $_SESSION['panier']['prix'] = array();
-		}
-	return true;
-    }
 }
 

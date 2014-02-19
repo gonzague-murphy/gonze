@@ -9,11 +9,13 @@ class Controller{
     protected $table;
     public $view;
     public $userSession;
+    protected $arrayPost;
     
     public function __construct(){
         $this->userSession = new \Component\UserSessionHandler;
         $view = $this->getView();
         $this->view = new $view;
+        $this->arrayPost = $_POST;
     }
     
     
@@ -34,7 +36,7 @@ class Controller{
 	}
         
     public function isPostSet(){
-       if(isset($_POST)){
+       if(isset($this->arrayPost)){
            return true;
        }
        else{
@@ -43,9 +45,9 @@ class Controller{
     }
     
     public function formValidation($fonction1, $data=array()){
+        $this->clean($data);
         $this->msg = $this->checkForEmptyFields($data);
         if(empty($this->msg)){
-            $this->clean($data);
             $table = explode('\\', get_called_class());
             $requestTable = str_replace('Controller','',$table[2]);
             $queryTable = $this->getRepository($requestTable);
@@ -53,6 +55,7 @@ class Controller{
             return $result;
         }
     }
+    
 
 
 /*

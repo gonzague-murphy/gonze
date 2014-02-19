@@ -1,24 +1,27 @@
 <?php
+//var_dump($liste[0]);
 echo "<form method='post' action='?controller=ProduitController&action=lanceUpdate&id=".$_GET['id']."'>
 ";
 echo '<label>Date d\'arrivée</label>';
-echo '<input type="text" name="date_arrivee" value="'.$produit->getDateArrivee().'"/>';
+echo '<input type="text" name="date_arrivee" value="'.$result['date_arrivee'].'"/>';
 echo '<label>Date de départ</label>';
-echo '<input type="text" name="date_depart" value="'.$produit->getDateDepart().'"/>';
+echo '<input type="text" name="date_depart" value="'.$result['date_depart'].'"/>';
 echo '<label>Prix</label>';
-echo '<input type="text" name="prix" value="'.$produit->getPrix().'"/>';
-echo '<label>Salle (actuellement : '.$salle->getTitre().')</label>';
+echo '<input type="text" name="prix" value="'.$result['prix'].'"/>';
+echo '<label>Salle (actuellement : '.$result['titre'].')</label>';
 echo '<select name="salle">';
-foreach($allSalles as $unit){
+foreach($liste[0] as $key=>$value){
     //var_dump($unit);
-   echo '<option value="'.$unit->getIdSalle().'">'.$unit->getTitre().'</option>';
+   echo '<option value="'.$value->getIdSalle().'">'.$value->getTitre().'</option>';
 
 }
 echo "</select>";
-echo '<label>Code promo (actuellement :'.$promo->getCodePromo().')</label>';
+echo '<label>Code promo (actuellement :'.$result['code_promo'].')</label>';
 echo '<select name="promo">';
-foreach($allPromo as $value){
-    echo '<option value="'.$value->getIdPromo().'">'.$value->getCodePromo().'</option>';
+foreach($liste[1] as $key=>$unit){
+    //var_dump($unit);
+    echo '<option value="'.$unit->getIdPromo().'">'.$unit->getCodePromo().'</option>';
+    
 }
 echo '</select>';
 echo '<label>Etat de la salle</label>';

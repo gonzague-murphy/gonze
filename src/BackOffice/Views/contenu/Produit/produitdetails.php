@@ -8,4 +8,5 @@
     echo "<p>".$value['commentaire']."</p>";
     echo "<p>Note attribuée :".$value['note']."</p>";
 }
+echo "<a href='?controller=ProduitController&action=addToCart&id=".$liste['id_produit']."'>Ajouter au panier</a>";
 //

@@ -12,22 +12,21 @@ class MembreController extends Controller{
  */
     
    public function lanceSignUp(){
-       if(isset($_POST)){
-            $this->signUp($_POST);
-            //var_dump($this->msg);
+       if(isset($this->arrayPost)){
+            $this->signUp($this->arrayPost);
             if(empty($this->msg)){
-            $this->defaultDisplay();
+            $new = new \Backoffice\Views\DefaultViews;
+            $new->indexDisplay();
             }
             else{
-                $this->loginDisplay();
+                $this->view->loginDisplay();
             }
-            //var_dump($_SESSION);
         }
     }
     
     public function lanceLogin(){
        if($this->isPostSet()!=false){
-            $this->loginUser($_POST);
+            $this->loginUser($this->arrayPost);
             $default = new DefaultController;
             $default->view->indexDisplay();
         }
@@ -42,12 +41,13 @@ class MembreController extends Controller{
     public function loginUser($dataInput=array()){
         $myObj = $this->formValidation('loginQuery', $dataInput);
         if($myObj == false){
-            echo $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
+            $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
         }
         else{
             $this->userSession->initializeSession($myObj);
             echo "Hello, ".$myObj->pseudo;
          }
+         echo $this->msg;
     }
         
     
@@ -58,20 +58,16 @@ class MembreController extends Controller{
  */
 
     public function signUp($data =array()){
-            $this->msg = $this->checkForEmptyFields($data);
-            if(empty($this->msg)){    
-                $this->clean($data);
-                $testDoubles = $this->checkDoubleEntry('Membre',$data);
-                if($testDoubles == 0){
-                    $this->clean($data);
-                    $this->allowInsert($data);
-                }
+        $this->clean($data);
+        $testDoubles = $this->checkDoubleEntry('Membre',$data);
+        if($testDoubles == 0){
+            $this->formValidation('allowInsert', $data);
+           }
                 
-                else{
-                    $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
-                }
-            }
-            echo $this->msg;
+         else{
+            $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
+          } 
+         echo $this->msg;
     }
     
     public function allowInsert($data = array()){
@@ -98,7 +94,7 @@ class MembreController extends Controller{
      public function allowDelete(){
              $queryTable = $this->getRepository('Membre');
              $queryTable->deleteMembre($_GET['id']);
-             $this->listeAllAdmin();
+             $this->view->displayForAdmin();
      } 
     
 

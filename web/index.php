@@ -30,4 +30,4 @@ function dispatcher(){
    
 }
 dispatcher();
-
+//Component\PanierSessionHandler::initializeCart(); 
