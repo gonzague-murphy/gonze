@@ -1,6 +1,7 @@
 <?php
 namespace Backoffice\Controller;
 USE Controller\Controller;
+USE Component\PanierSessionHandler;
 
 
 class ProduitController extends Controller{
@@ -89,7 +90,7 @@ class ProduitController extends Controller{
  */
     public function addToCart(){
         //var_dump($_SESSION);
-        \Component\PanierSessionHandler::addToCart();
+        PanierSessionHandler::addToCart();
     }
     
     
