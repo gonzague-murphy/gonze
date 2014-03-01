@@ -8,6 +8,7 @@ class CommandeController extends Controller{
    public function panierDisplay(){
         $cart = new PanierSessionHandler;
         $result = $cart::getPanier();
+        var_dump($_SESSION);
         $this->view->panierDisplay($result);
     }
     

@@ -89,7 +89,7 @@ class ProduitController extends Controller{
  * Add to cart
  */
     public function addToCart(){
-        PanierSessionHandler::addToCart();
+        PanierSessionHandler::addToCart($this->arrayGet['id']);
         //var_dump($_SESSION);
     }
   

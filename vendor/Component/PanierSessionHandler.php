@@ -27,33 +27,37 @@ class PanierSessionHandler{
         return $instance::$panier;
     }
     
-    public static function addToCart(){
-        if(isset($_GET['id'])){
+    public static function addToCart($id){
             $cont = new \Backoffice\Controller\ProduitController;
-            $data = $cont->findById($_GET['id']);
-            var_dump(self::checkDouble($data));
-            if(self::checkDouble($data) == false){
+            $data = $cont->findById($id);
+            //var_dump($id);
+            $result = self::checkDouble($id);
+            if( $result == false){
                 $_SESSION['panier'][] = $data;
               }
             else{
                 echo "Ce produit est déjà dans votre panier!";
                 //var_dump($_SESSION);
                 }
-            }
         }
         
      public static function dropFromCart($id){
-         //var_dump($id);
          unset($_SESSION['panier'][$id]);
+         array_values($_SESSION['panier']);
          //var_dump($_SESSION);
 	}
         
     
     
-    public static function checkDouble($data = array()){
+    public static function checkDouble($arg){
         for($i=0;$i<sizeof($_SESSION['panier']);$i++){
-                $position_article = in_array($data['id_produit'], $_SESSION['panier'][$i]);
-                return $position_article;
+                if($arg == $_SESSION['panier'][$i]['id_produit']){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+                
             }
             
         }
