@@ -13,8 +13,9 @@ class SalleController extends Controller{
     public function addSalle(){
         if(isset($_POST)){
             $queryTable = $this->getRepository('Salle');
-            $queryTable->addSalle($_POST);
-            $this->listeAllAdmin();
+            $result = $queryTable->addSalle($_POST);
+            $total = $queryTable->findAll();
+            $this->view->displayForAdmin($total);
         }
     }
     

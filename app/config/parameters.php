@@ -5,8 +5,8 @@
 		'host' => 'localhost',
 		'type' => 'mysql',
 		'db' => 'lokisalle',
-		'user' => 'sophie',
-		'password' => 'starcraft')
+		'user' => 'root',
+		'password' => '')
 	);
 	
 //echo "<pre>";print_r($parameters);echo "</pre>";

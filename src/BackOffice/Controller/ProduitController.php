@@ -89,9 +89,14 @@ class ProduitController extends Controller{
  * Add to cart
  */
     public function addToCart(){
-        //var_dump($_SESSION);
         PanierSessionHandler::addToCart();
+        var_dump($_SESSION);
     }
+  
+/*
+ * Remove from cart
+ */
+    public function removeFromCart(){}
     
     
 /*

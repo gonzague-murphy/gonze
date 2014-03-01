@@ -21,5 +21,11 @@ class DefaultViews extends Views{
     public function displayForAdmin($result){
         echo "";
     }
+    
+    public function panierDisplay($arg){
+        $this->render('template_accueil.php', 'panier.php', array(
+            'cart'=>$arg
+        ));
+    }
 }
 

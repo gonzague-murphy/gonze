@@ -11,7 +11,7 @@ class PanierSessionHandler{
     
     public function castPanier(){
         if(isset($_SESSION['panier'])){
-            self::$panier = self::initializeCart();
+            self::$panier = $_SESSION['panier'];
         }
         return self::$panier;
     }
@@ -36,6 +36,7 @@ class PanierSessionHandler{
               }
             else{
                 echo "Ce produit est déjà dans votre panier!";
+                //var_dump($_SESSION);
                 }
             }
         }
@@ -45,9 +46,11 @@ class PanierSessionHandler{
     public static function checkDouble($data = array()){
         for($i=0;$i<sizeof($_SESSION['panier']);$i++){
                 $position_article = in_array($data['id_produit'], $_SESSION['panier'][$i]);
+                return $position_article;
             }
-            return $position_article;
+            
         }
+       
 }
 
 

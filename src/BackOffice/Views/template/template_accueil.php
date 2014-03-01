@@ -33,21 +33,7 @@ header('location : index.php');
     <div id = "wrapper_logo_menu">
         <a href="index.php"><h1>LokiSalle</h1></a>
         <h2></h2>
-        
-<!--<nav>
-   <ul class="user_menu">
-        <li><a href="?controller=MembreController&action=loginDisplay">connexion</a></li>
-        <li><a href="?controller=MembreController&action=signUpDisplay"> inscription</a></li>
-   </ul>
-</nav>
-<nav>
-   <ul class="main_menu">
-       <li><a href="?controller=SalleController&action=listeAllAdmin">Nos Salles</a></li>
-       <li><a href="?controller=ProduitController&action=listeAllSalle">About</a></li>
-       <li><a href="#">Support</a></li>
-       <li><a href="#">Contact</a></li>
-    </ul>
-</nav>-->
+
       </div><!-- fin de la div #wrapper_logo_menu-->
         <?php
         

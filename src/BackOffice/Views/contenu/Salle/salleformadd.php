@@ -5,7 +5,7 @@ echo "<form method='post' action='?controller=SalleController&action=addSalle'>"
         <label>Pays</label>
             <input type="text" name="pays"/>
         <label>Ville</label>
-            <input type="password" name="ville"/>
+            <input type="text" name="ville"/>
         <label>Adresse</label>
             <input type="text" name="adresse"/>
         <label>Code Postal</label>

@@ -8,5 +8,12 @@
     echo "<p>".$value['commentaire']."</p>";
     echo "<p>Note attribuée :".$value['note']."</p>";
 }
+$user = \Component\UserSessionHandler::getUser();
+if(!empty($user)){
+    echo "<a href=''>Laisser un avis sur cette Salle</a><br/>";
+}
+else{
+    echo "Vous devez etre <a href=''>connecté</a> pour laisser un avis<br/>";
+}
 echo "<a href='?controller=ProduitController&action=addToCart&id=".$liste['id_produit']."'>Ajouter au panier</a>";
 //

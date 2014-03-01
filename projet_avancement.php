@@ -17,9 +17,9 @@ and open the template in the editor.
  *  _Statistiques
  *  _Newsletter (botte toi le cul ça prend 2secondes)
  ***_Gestion des avis sur les salles
- *  _ Gestion des codes promo
  *  _ Update Membre
  *  _ Permettre création d'un user admin par l'admin
+ *  _ auto uplad to designed folder + extension controle
  */
         ?>
     </body>
