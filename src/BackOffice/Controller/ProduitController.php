@@ -38,8 +38,8 @@ class ProduitController extends Controller{
     }
     
     public function lanceSaveProduct(){
-        if(isset($_POST)){
-            $this->allowInsert($_POST);
+        if(isset($this->arrayPost)){
+            $this->allowInsert($this->arrayPost);
             $this->displaySalleHasProduct();
         }
     }
@@ -47,14 +47,14 @@ class ProduitController extends Controller{
 /*
  * Update
  * 
- */   public function allowUpdate($data=array(), $id){
+ */   public function allowUpdate($id, $data=array()){
             $queryTable= $this->getRepository('Produit');
             $retour = $queryTable->updateProduit($data, $id);
  }
  
         public function lanceUpdate(){
-            if(isset($_POST) && isset($_GET['id'])){
-                $this->allowUpdate($_POST, $_GET['id']);
+            if(isset($this->arrayPost) && isset($this->arrayGet['id'])){
+                $this->allowUpdate($this->arrayPost, $this->arrayGet['id']);
                 $this->displaySalleHasProduct();
             }
         }
@@ -65,11 +65,11 @@ class ProduitController extends Controller{
  * 
  */
     public function allowDelete(){
-        if(isset($_GET['id'])){
+        if(isset($this->arrayGet['id'])){
             $queryTable = $this->getRepository('Produit');
-            $result = $queryTable->findById($_GET['id']);
+            $result = $queryTable->findById($this->arrayGet['id']);
             if($result !== false){
-                $queryTable->deleteProduit($_GET['id']);
+                $queryTable->deleteProduit($this->arrayGet['id']);
                 $this->displaySalleHasProduct();
             }
             else{
@@ -90,7 +90,7 @@ class ProduitController extends Controller{
  */
     public function addToCart(){
         PanierSessionHandler::addToCart();
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
     }
   
 /*
@@ -121,9 +121,9 @@ class ProduitController extends Controller{
     }
     
     public function displayUpdateProduit(){
-        if(isset($_GET['id'])){
+        if(isset($this->arrayGet['id'])){
             $queryTable = $this->getRepository('Produit');
-            $result = $queryTable->findById($_GET['id']);
+            $result = $queryTable->findById($this->arrayGet['id']);
             $choices = $this->formOption();
             $this->view->updateForm($result, $choices);
         }
@@ -143,9 +143,9 @@ class ProduitController extends Controller{
     
     public function displayProductDetail(){
         $me = $this->getRepository('Produit');
-        $result = $me->findById($_GET['id']);
+        $result = $me->findById($this->arrayGet['id']);
         $avis = new AvisController();
-        $allavis = $avis->findBySalle($_GET['id']);
+        $allavis = $avis->findBySalle($this->arrayGet['id']);
         $this->view->displayFicheDetail($result, $allavis);
     }
     

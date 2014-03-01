@@ -11,9 +11,9 @@ class SalleController extends Controller{
  * Insert
  */    
     public function addSalle(){
-        if(isset($_POST)){
+        if(isset($this->arrayPost)){
             $queryTable = $this->getRepository('Salle');
-            $result = $queryTable->addSalle($_POST);
+            $result = $queryTable->addSalle($this->arrayPost);
             $total = $queryTable->findAll();
             $this->view->displayForAdmin($total);
         }
@@ -26,10 +26,9 @@ class SalleController extends Controller{
  * 
  */
    public function modifySalle(){
-       //var_dump($_GET);
-       if(isset($_POST)){
+       if(isset($this->arrayPost)){
        $queryTable = $this->getRepository('Salle');
-       $queryTable->updateSalle($_POST, $_GET['id']);
+       $queryTable->updateSalle($this->arrayPost, $this->arrayGet['id']);
        $this->displayForAdmin();
        }
    }
@@ -39,9 +38,9 @@ class SalleController extends Controller{
  */
    
    public function deleteSalle(){
-       if(isset($_GET['id'])){
+       if(isset($this->arrayGet['id'])){
            $queryTable = $this->getRepository('Salle');
-           $queryTable->deleteSalle($_GET['id']);
+           $queryTable->deleteSalle($this->arrayGet['id']);
            $this->displayForAdmin();
            
        }
@@ -64,8 +63,8 @@ class SalleController extends Controller{
     }
     
         public function findAllById(){
-        if(isset($_GET['id'])){
-            $id = htmlentities($_GET['id'], ENT_QUOTES);
+        if(isset($this->arrayGet['id'])){
+            $id = htmlentities($this->arrayGet['id'], ENT_QUOTES);
             $queryTable = $this->getRepository('Salle');
             $salles = $queryTable->findById($id);
             if($salles == false){
@@ -96,8 +95,8 @@ class SalleController extends Controller{
     }
     
     public function displaySalleForm(){
-        if(isset($_GET['id'])){
-            $id = htmlentities($_GET['id'], ENT_QUOTES);
+        if(isset($this->arrayGet['id'])){
+            $id = htmlentities($this->arrayGet['id'], ENT_QUOTES);
             $queryTable = $this->getRepository('Salle');
             $salles = $queryTable->findById($id);
             if($salles == false){

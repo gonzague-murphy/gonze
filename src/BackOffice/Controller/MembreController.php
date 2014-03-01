@@ -93,7 +93,7 @@ class MembreController extends Controller{
  */
      public function allowDelete(){
              $queryTable = $this->getRepository('Membre');
-             $queryTable->deleteMembre($_GET['id']);
+             $queryTable->deleteMembre($this->arrayGet['id']);
              $this->view->displayForAdmin();
      } 
     

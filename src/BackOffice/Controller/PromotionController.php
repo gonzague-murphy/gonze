@@ -31,8 +31,8 @@ class PromotionController extends Controller{
  */
    
    public function addCodePromo(){
-       if(isset($_POST)){
-           $this->filterAddPromo($_POST);
+       if(isset($this->arrayPost)){
+           $this->filterAddPromo($this->arrayPost);
            $this->displayForAdmin();
        }
    }
@@ -48,17 +48,17 @@ class PromotionController extends Controller{
  */
    
    public function updateCodePromo(){
-       if(isset($_POST)){
-           $this->filterUpdatePromo($_POST);
+       if(isset($this->arrayPost)){
+           $this->filterUpdatePromo($this->arrayPost);
            $this->displayForAdmin();
        }
    }
    
    public function filterUpdatePromo($data = array()){
-       if(isset($_GET['id'])){
+       if(isset($this->arrayGet['id'])){
             $this->clean($data);
             $querytable = $this->getRepository('Promotion');
-            $querytable->updateCodePromo($data, $_GET['id']);
+            $querytable->updateCodePromo($data, $this->arrayGet['id']);
        }
    }
    
@@ -67,9 +67,9 @@ class PromotionController extends Controller{
  */
    
    public function deletePromo(){
-       if(isset($_GET['id'])){
+       if(isset($this->arrayGet['id'])){
            $queryTable = $this->getRepository('Promotion');
-           $queryTable->deletePromo($_GET['id']);
+           $queryTable->deletePromo($this->arrayGet['id']);
            $this->displayForAdmin();
            
        }
@@ -90,9 +90,9 @@ class PromotionController extends Controller{
     }
     
    public function updateCodePromoForm(){
-       if(isset($_GET['id'])){
+       if(isset($this->arrayGet['id'])){
            $querytable = $this->getRepository('Promotion');
-           $result = $querytable->findById($_GET['id']);
+           $result = $querytable->findById($this->arrayGet['id']);
            $this->view->updatePromoForm($result);
        }
    }

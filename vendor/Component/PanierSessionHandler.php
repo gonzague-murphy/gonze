@@ -23,7 +23,8 @@ class PanierSessionHandler{
     }
     
     public static function getPanier(){
-        return self::$panier;
+        $instance = new self;
+        return $instance::$panier;
     }
     
     public static function addToCart(){
@@ -40,6 +41,12 @@ class PanierSessionHandler{
                 }
             }
         }
+        
+     public static function dropFromCart($id){
+         //var_dump($id);
+         unset($_SESSION['panier'][$id]);
+         //var_dump($_SESSION);
+	}
         
     
     

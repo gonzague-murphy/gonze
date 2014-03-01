@@ -10,12 +10,14 @@ class Controller{
     public $view;
     public $userSession;
     protected $arrayPost;
+    protected $arrayGet;
     
     public function __construct(){
         $this->userSession = new \Component\UserSessionHandler;
         $view = $this->getView();
         $this->view = new $view;
         $this->arrayPost = $_POST;
+        $this->arrayGet = $_GET;
     }
     
     

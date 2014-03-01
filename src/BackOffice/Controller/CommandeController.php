@@ -10,5 +10,17 @@ class CommandeController extends Controller{
         $result = $cart::getPanier();
         $this->view->panierDisplay($result);
     }
+    
+    public function unsetItem(){
+        PanierSessionHandler::dropFromCart($this->arrayGet['id']);
+        $this->panierDisplay();
+    }
+    
+/*
+ * Add
+ */
+    public function makeOrder(){
+        $querytable = $this->getRepository('Commande');
+    }
 }
 
