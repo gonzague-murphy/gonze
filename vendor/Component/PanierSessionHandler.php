@@ -32,7 +32,8 @@ class PanierSessionHandler{
             $data = $cont->findById($id);
             //var_dump($id);
             $result = self::checkDouble($id);
-            if( $result == false){
+            var_dump($result);
+            if($result == false){
                 $_SESSION['panier'][] = $data;
               }
             else{
@@ -43,24 +44,23 @@ class PanierSessionHandler{
         
      public static function dropFromCart($id){
          unset($_SESSION['panier'][$id]);
-         array_values($_SESSION['panier']);
+         $_SESSION['panier'] = array_values($_SESSION['panier']);
          //var_dump($_SESSION);
 	}
         
     
     
     public static function checkDouble($arg){
-        for($i=0;$i<sizeof($_SESSION['panier']);$i++){
-                if($arg == $_SESSION['panier'][$i]['id_produit']){
-                    return true;
+        $a = false;
+        foreach($_SESSION['panier'] as $key=>$value){
+            foreach($value as $unit=>$data){
+                if($unit == 'id_produit' && $data == $arg){
+                    return $a = true;   
                 }
-                else{
-                    return false;
-                }
-                
             }
-            
         }
+        return $a;
+      }
        
 }
 
