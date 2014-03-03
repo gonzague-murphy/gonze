@@ -111,6 +111,17 @@ class Controller{
         }
     }
     
+/*
+ * Fonctions upload fichiers image
+ */
+    
+    public function checkPhotoExtension(){
+	$extension = strrchr($_FILES['photo']['name'], ".");
+	$ext = strtolower(substr($extension,1));
+	$tab_extension_valide = array("gif", "jpg", "jpeg", "png");
+	$checkExtension = in_array($ext, $tab_extension_valide);
+	return $checkExtension;
+    }
     
     
 }

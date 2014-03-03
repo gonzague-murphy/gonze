@@ -15,5 +15,5 @@ if(!empty($user)){
 else{
     echo "Vous devez etre <a href=''>connecté</a> pour laisser un avis<br/>";
 }
-echo "<a href='?controller=ProduitController&action=addToCart&id=".$liste['id_produit']."'>Ajouter au panier</a>";
+echo "<a href='?controller=CommandeController&action=addToCart&id=".$liste['id_produit']."'>Ajouter au panier</a>";
 //

@@ -37,7 +37,7 @@ class ProduitController extends Controller{
           }
     }
     
-    public function lanceSaveProduct(){
+     public function lanceSaveProduct(){
         if(isset($this->arrayPost)){
             $this->allowInsert($this->arrayPost);
             $this->displaySalleHasProduct();
@@ -52,7 +52,7 @@ class ProduitController extends Controller{
             $retour = $queryTable->updateProduit($data, $id);
  }
  
-        public function lanceUpdate(){
+      public function lanceUpdate(){
             if(isset($this->arrayPost) && isset($this->arrayGet['id'])){
                 $this->allowUpdate($this->arrayPost, $this->arrayGet['id']);
                 $this->displaySalleHasProduct();
@@ -64,7 +64,7 @@ class ProduitController extends Controller{
  * Delete
  * 
  */
-    public function allowDelete(){
+      public function allowDelete(){
         if(isset($this->arrayGet['id'])){
             $queryTable = $this->getRepository('Produit');
             $result = $queryTable->findById($this->arrayGet['id']);
@@ -79,32 +79,18 @@ class ProduitController extends Controller{
         echo $this->msg;
     }
     
-    public function findById($id){
+      public function findById($id){
         $table = $this->getRepository('Produit');
         $result = $table->findById($id);
         return $result;
     }
-    
-/*
- * Add to cart
- */
-    public function addToCart(){
-        PanierSessionHandler::addToCart($this->arrayGet['id']);
-        //var_dump($_SESSION);
-    }
-  
-/*
- * Remove from cart
- */
-    public function removeFromCart(){}
-    
-    
+
 /*
  * Fonction de display
  */
       
     
-    public function formOption(){
+      public function formOption(){
         $sallecont = new SalleController;
         $salles = $sallecont->listeAllForProducts();
         $promocont = new PromotionController;
@@ -112,7 +98,7 @@ class ProduitController extends Controller{
         return array($salles, $promotion);
     }
     
-    public function displayForm(){
+      public function displayForm(){
         $sallecont = new SalleController;
         $salles = $sallecont->listeAllForProducts();
         $promocont = new PromotionController;
@@ -120,7 +106,7 @@ class ProduitController extends Controller{
         $this->view->addForm($promotion, $salles);
     }
     
-    public function displayUpdateProduit(){
+       public function displayUpdateProduit(){
         if(isset($this->arrayGet['id'])){
             $queryTable = $this->getRepository('Produit');
             $result = $queryTable->findById($this->arrayGet['id']);
@@ -129,19 +115,19 @@ class ProduitController extends Controller{
         }
     }
     
-    public function displaySalleHasProduct(){
+       public function displaySalleHasProduct(){
         $value = $this->getRepository('Produit');
         $liste = $value->selectHasProduct();
         $this->view->displayForAdmin($liste);
     }
     
-    public function displaySalleHasProductMembre(){
+      public function displaySalleHasProductMembre(){
         $value = $this->getRepository('Produit');
         $listeSalle = $value->selectHasProduct();
         $this->view->displayListe($listeSalle);
     }
     
-    public function displayProductDetail(){
+      public function displayProductDetail(){
         $me = $this->getRepository('Produit');
         $result = $me->findById($this->arrayGet['id']);
         $avis = new AvisController();

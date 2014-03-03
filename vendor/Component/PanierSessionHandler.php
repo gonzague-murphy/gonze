@@ -30,15 +30,12 @@ class PanierSessionHandler{
     public static function addToCart($id){
             $cont = new \Backoffice\Controller\ProduitController;
             $data = $cont->findById($id);
-            //var_dump($id);
             $result = self::checkDouble($id);
-            var_dump($result);
             if($result == false){
                 $_SESSION['panier'][] = $data;
               }
             else{
                 echo "Ce produit est déjà dans votre panier!";
-                //var_dump($_SESSION);
                 }
         }
         
@@ -50,7 +47,7 @@ class PanierSessionHandler{
         
     
     
-    public static function checkDouble($arg){
+     public static function checkDouble($arg){
         $a = false;
         foreach($_SESSION['panier'] as $key=>$value){
             foreach($value as $unit=>$data){
@@ -61,7 +58,4 @@ class PanierSessionHandler{
         }
         return $a;
       }
-       
 }
-
-

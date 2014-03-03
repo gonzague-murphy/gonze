@@ -20,7 +20,8 @@ class UserSessionHandler{
     }
     
     public static function getUser(){
-        return self::$user;
+        $me = new self;
+        return $me::$user;
     }
     
 //Session et panier

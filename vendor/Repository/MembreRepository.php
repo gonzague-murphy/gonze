@@ -30,7 +30,15 @@ class MembreRepository extends EntityRepository{
          }
 /*
  * Update
+ * 
  */
+        public function updateMembre(&$userData, $id){
+            //var_dump($userData);
+            $query = $this->getDb()->prepare("UPDATE membre SET pseudo=:pseudo, mdp=:mdp, nom=:nom, prenom=:prenom, email=:email, sexe=:sex, ville=:ville, cp=:cp, adresse=:adresse WHERE id_membre='$id'");
+            $this->binder($query,$userData);
+            $result = $query->execute();
+            return $result;
+     }
          
 /*
  * Delete
@@ -79,17 +87,17 @@ class MembreRepository extends EntityRepository{
         }
         
         public function findById($id){
-        $query = $this->getDb()->prepare("SELECT * FROM membre WHERE id_membre=$id");
-        $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Membre');
-        $query->execute();
-        $result = $query->fetch();
-        //var_dump($result);
-        if(!$query){
-            return false;
-        }
-        else{
-            return $result;
-        } 
+            $query = $this->getDb()->prepare("SELECT * FROM membre WHERE id_membre=$id");
+            $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Membre');
+            $query->execute();
+            $result = $query->fetch();
+            //var_dump($result);
+            if(!$query){
+                return false;
+            }
+            else{
+                return $result;
+            } 
      }
     
 }

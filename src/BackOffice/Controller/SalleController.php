@@ -1,12 +1,10 @@
 <?php
-
 namespace Backoffice\Controller;
 USE Controller\Controller;
 
 
 class SalleController extends Controller{
     
-
 /*
  * Insert
  */    
@@ -62,15 +60,13 @@ class SalleController extends Controller{
     
     }
     
-        public function findAllById(){
+    public function findAllById(){
         if(isset($this->arrayGet['id'])){
             $id = htmlentities($this->arrayGet['id'], ENT_QUOTES);
-            $queryTable = $this->getRepository('Salle');
-            $salles = $queryTable->findById($id);
+            $salles = $this->getRepository('Salle')->findById($id);
             if($salles == false){
                 echo "Cette salle n'existe pas!";
-            
-                }
+            }
             else{
                 return $salles;
             }

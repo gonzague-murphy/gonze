@@ -83,7 +83,7 @@ class MembreController extends Controller{
                 echo "non";
             }
             else{
-            $this->userSession->initializeSession($myObject);
+                $this->userSession->initializeSession($myObject);
             }
           }
     }
@@ -95,7 +95,21 @@ class MembreController extends Controller{
              $queryTable = $this->getRepository('Membre');
              $queryTable->deleteMembre($this->arrayGet['id']);
              $this->view->displayForAdmin();
-     } 
+     }
+     
+     public function updateUser(){
+         if(isset($this->arrayPost)){
+             $this->getRepository('Membre')->updateMembre($this->arrayPost,$this->arrayGet['id']);
+             $moi = $this->getRepository('Membre')->findById($this->arrayGet['id']);
+             $this->userSession->initializeSession($moi);
+             $this->displayFicheDetail();
+         }
+     }
+     
+     public function updateProfil(){
+        $me = UserSessionHandler::getUser();
+        $this->view->updateForm($me);
+     }
     
 
     

@@ -7,7 +7,7 @@ else{
     $i = 0;
     echo "<ul>";
     foreach($cart as $key=>$value){
-        echo "<li>".$value['titre']." <a href='?controller=CommandeController&action=unsetItem&id=".$key."'>Enlever du panier</a></li>";
+        echo "<li>".$value['titre']." <a href='?controller=CommandeController&action=removeFromCart&id=".$key."'>Enlever du panier</a></li>";
         $i++;
        }
     echo "</ul>";

@@ -35,6 +35,12 @@ class MembreViews extends Views{
         ));
     }
     
+    public function updateForm($arg){
+        $this->render('template_accueil.php', 'updateprofil.php', array(
+            'user'=>$arg
+        ));
+    }
+    
     public function loginDisplay(){
         $this->render('template_accueil.php','loginform.php',array(
             'title'=>'Youpi-Coinz!',
