@@ -36,6 +36,9 @@ class CommandeController extends Controller{
  */
     public function makeOrder(){
         $querytable = $this->getRepository('Commande');
+        $querytable->addOrder($this->arrayPost);
+        unset($_SESSION['panier']);
+        PanierSessionHandler::initializeCart();
     }
 }
 

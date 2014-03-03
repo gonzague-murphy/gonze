@@ -27,7 +27,7 @@ class MembreViews extends Views{
 //:::::::::FORM DISPLAY::::::::::::::::
 //:::::::::::::::::::::::::::::::::::::
     
-     public function signUpForm(){
+    public function signUpForm(){
         $this->render('template_accueil.php','formsignup.php',array(
             'title'=>'Youpi-Coinz!',
             'subtitle'=>'juste pour etre sur',

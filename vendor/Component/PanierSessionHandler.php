@@ -45,6 +45,16 @@ class PanierSessionHandler{
          //var_dump($_SESSION);
 	}
         
+        
+     public static function calculateTotal(){
+	$total = 0;
+	for($i = 0; $i< count($_SESSION['panier']);$i++){
+            $total += $_SESSION['panier'][$i]['prix'];
+	}
+        //var_dump($total);
+        return round($total, 2);
+     }
+        
     
     
      public static function checkDouble($arg){
