@@ -39,7 +39,7 @@ body{
 
 #content{
     width : 100%;
-    margin-top : 2%;
+    margin : 2% 5%;
     padding : 2% 2%;
 }
 
@@ -61,6 +61,8 @@ body{
 }
 
 #galerie{
+    width : 100%;
+    //margin : auto 5%;
     display : none;
 }
 
@@ -134,9 +136,10 @@ h1{
 #buttonMenu img{
     height : 35px;
     width : auto;
+    padding : 10px 10px;
     position : absolute;
     right : 25%;
-    top : 5.8%;
+    top : 2.3%;
 }
 .user_menu li a{
     font-family: arial;
@@ -146,7 +149,7 @@ h1{
 }
 
 .admin_menu{
-    margin : 2% 5%;
+    margin : 5% 2%;
     position : absolute;
     display : none;
     width : 100%;

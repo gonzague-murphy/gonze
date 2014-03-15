@@ -1,5 +1,5 @@
 <?php 
-var_dump($user);
+//var_dump($user);
 ?>
 <form method="post" action="?controller=MembreController&action=updateUser&id=<?php echo $user->id_membre; ?>">
         <label>Pseudo :</label>
@@ -12,9 +12,6 @@ var_dump($user);
             <input type="text" name="prenom" value ="<?php echo $user->prenom; ?>"/>
         <label>Email :</label>
             <input type="text" name="email" value="<?php echo $user->email; ?>"/>
-            <?php
-            echo $user->sexe;
-            ?>
             <input type="hidden" name="sex" value="<?php echo $user->sexe; ?>" />
         <label for="ville">Ville :</label>
             <input type="text" name="ville" value="<?php echo $user->ville; ?>"/>
