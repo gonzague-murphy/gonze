@@ -45,7 +45,6 @@ class MembreController extends Controller{
         }
         else{
             $this->userSession->initializeSession($myObj);
-            echo "Hello, ".$myObj->pseudo;
          }
          echo $this->msg;
     }

@@ -1,3 +1,4 @@
+<div id="ficheProduit">
 <h3><?php echo $liste['titre'] ?></h3>
 <img src="<?php $liste['photo']; ?>" />
 <p><?php echo $liste['description']; ?></p>
@@ -16,4 +17,4 @@ else{
     echo "Vous devez etre <a href=''>connecté</a> pour laisser un avis<br/>";
 }
 echo "<a href='?controller=CommandeController&action=addToCart&id=".$liste['id_produit']."'>Ajouter au panier</a>";
-//
+echo "</div>";

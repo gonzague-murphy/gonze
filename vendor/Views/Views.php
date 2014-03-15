@@ -17,13 +17,11 @@ abstract class Views{
         $dirFile = str_replace('Views', '', $ex[2]);
         $template = $dirViews.'/contenu/'.$dirFile.'/'.$template;
         $layout = $dirViews.'/template/'.$layout;
-        $menu = $dirViews.'/template/'.'menu.php';
         //var_dump($_SESSION);
         extract($parameters);
         
         ob_start();
             require $template;
-            require $menu;
             $content = ob_get_clean();
             require $layout;
         return ob_end_flush();

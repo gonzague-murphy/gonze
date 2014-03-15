@@ -1,47 +1,53 @@
 <?php
-if(isset($_SESSION['user'])){
-    echo "<nav>";
-    echo "<ul class='user_menu'>";
-    echo "<li><a href='?controller=MembreController&action=displayFicheDetail'>Mon profil</a></li>";
-    echo "<li><a href='?controller=CommandeController&action=panierDisplay'> Mon panier</a></li>";
-    echo "<li><a href='?controller=MembreController&action=deconnexion'> Deconnexion</a></li>";
+
+function makeMenu(){
+    
+echo "<nav class='main_menu' id='mainMenu'>";
+    echo "<ul>";
+    echo "<li><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>Nos Salles</a></li>";
+    echo "<li><a href=''>About</a></li>";
+    echo "<li><a href='#'>Support</a></li>";
+    echo "<li><a href='#'>Contact</a></li>";
     echo "</ul>";
     echo "</nav>";
-    if($_SESSION['user']['statut'] == 1){
-        echo "<nav>";
-        echo "<ul class='admin_menu'>";
-        echo "<li><a href='?controller=SalleController&action=displayForAdmin'>Gérer les Salles</a></li>";
-        echo "<li><a href='?controller=ProduitController&action=displaySalleHasProduct'>Gérer les Produits</a></li>";
-        echo "<li><a href='?controller=MembreController&action=displayForAdmin'>Gérer les Membres</a></li>";
-        echo "<li><a href='?controller=PromotionController&action=displayForAdmin'>Gérer les Codes Promo</a></li>";
-        echo "<li><a href=''>Gérer les Avis</a></li>";
-        echo "<li><a href=''>Gérer les Commandes</a></li>";
-        echo "<li><a href=''>Envoyer la newsletter</a></li>";
-        echo "<li><a href=''>Statistiques</a></li>";
+}
+
+function makeUserMenu(){
+    if(isset($_SESSION['user'])){
+        echo "<nav class='user_menu'>";
+        echo "<ul>";
+        echo "<li><a href='?controller=MembreController&action=displayFicheDetail'>Mon profil</a></li>";
+        echo "<li><a href='?controller=CommandeController&action=panierDisplay'> Mon panier</a></li>";
+        echo "<li><a href='?controller=MembreController&action=deconnexion'> Deconnexion</a></li>";
         echo "</ul>";
+        echo "</nav>";
+}
+    else{
+        echo "<nav class='user_menu'>";
+        echo "<ul>";
+        echo "<li><a onclick='breathLeft();' href='?controller=MembreController&action=loginDisplay'>connexion</a></li>";
+        echo "<li><a href='?controller=MembreController&action=signUpForm'> inscription</a></li>";
+        echo "</ul>";
+        echo "</nav>";
     }
 }
 
-elseif(!isset($_SESSION['user'])){
-    echo "<nav>";
-    echo "<ul class='user_menu'>";
-    echo "<li><a href='?controller=MembreController&action=loginDisplay'>connexion</a></li>";
-    echo "<li><a href='?controller=MembreController&action=signUpForm'> inscription</a></li>";
-    echo "</ul>";
-    echo "</nav>";
+function makeAdminMenu(){
+    if(isset($_SESSION['user']) && $_SESSION['user']['statut'] == 1){
+            echo "<div id='buttonMenu' onclick='breathLeft();'>";
+            echo "<img src='../img/arrow-right.png' />";
+            echo "</div>";
+            echo "<nav class='admin_menu' id='admin_menu'>";
+            echo "<ul>";
+            echo "<li><a href='?controller=SalleController&action=displayForAdmin'>Gérer les Salles</a></li>";
+            echo "<li><a href='?controller=ProduitController&action=displaySalleHasProduct'>Gérer les Produits</a></li>";
+            echo "<li><a href='?controller=MembreController&action=displayForAdmin'>Gérer les Membres</a></li>";
+            echo "<li><a href='?controller=PromotionController&action=displayForAdmin'>Gérer les Codes Promo</a></li>";
+            echo "<li><a href=''>Gérer les Avis</a></li>";
+            echo "<li><a href=''>Gérer les Commandes</a></li>";
+            echo "<li><a href=''>Envoyer la newsletter</a></li>";
+            echo "<li><a href=''>Statistiques</a></li>";
+            echo "</ul>";
+            echo "</nav>";
+        }
 }
-
-
-?>
-
-  
-   
-</nav>
-<nav>
-   <ul class="main_menu">
-       <li><a href="?controller=ProduitController&action=displaySalleHasProductMembre">Nos Salles</a></li>
-       <li><a href="">About</a></li>
-       <li><a href="#">Support</a></li>
-       <li><a href="#">Contact</a></li>
-    </ul>
-</nav>

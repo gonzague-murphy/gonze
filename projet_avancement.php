@@ -13,7 +13,6 @@ and open the template in the editor.
         <?php
 /*
  *A faire:
- ***_Commande = gestion panier(oui à priori)
  *  _Statistiques
  *  _Newsletter (botte toi le cul ça prend 2secondes)
  ***_Gestion des avis sur les salles

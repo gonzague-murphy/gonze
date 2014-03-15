@@ -19,6 +19,7 @@ class CommandeController extends Controller{
       public function addToCart(){
         PanierSessionHandler::addToCart($this->arrayGet['id']);
         //var_dump($_SESSION);
+        $this->panierDisplay();
     }
   
 /*
@@ -37,6 +38,7 @@ class CommandeController extends Controller{
     public function makeOrder(){
         $querytable = $this->getRepository('Commande');
         $querytable->addOrder($this->arrayPost);
+        $this->view->displayFicheDetail($this->arrayPost);
         unset($_SESSION['panier']);
         PanierSessionHandler::initializeCart();
     }

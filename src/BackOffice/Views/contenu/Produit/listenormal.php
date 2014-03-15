@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-   <table border="2">
-   <!--<tr>
-   <th colspan="3">Aperçu</th>
-   <th>Supprimer</th>
-   <th>Modifier</th>
-   </tr>-->
-    <tr>
 <?php
 //var_dump($liste);
-echo "<a href='?controller=ProduitController&action=displayForm'>Ajouter un produit</a><br/>";
+echo "<div id='galerie'>";
+echo "<ul class='produit'>";
+$i = 1;
 foreach($liste as $salle=>$unit){
-     echo "<td>";
+    $i++;
+    echo "<li>";
     echo "<h4><a href='?controller=ProduitController&action=displayProductDetail&id=".$unit['id_produit']."'>".$unit['titre']."</a></h4>";
-    echo "<a href='#'>Ajouter au panier</a>";
-    echo "</td>";
+    echo "<a href='?controller=ProduitController&action=displayProductDetail&id=".$unit['id_produit']."'><img src=''></a><br/>";
+    echo "<a href='?controller=CommandeController&action=addToCart&id=".$unit['id_produit']."'>Ajouter au panier</a>";
+    echo "</li>";
     }
-?>
-  </tr>
-  </table>
+echo "</ul>";
+echo "</div>";

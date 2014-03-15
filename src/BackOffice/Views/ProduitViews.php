@@ -13,6 +13,7 @@ class ProduitViews extends Views{
     
     public function displayFicheDetail($args, $moreArgs) {
         $this->render('template_accueil.php', 'produitdetails.php', array(
+            'title'=> $args['titre'],
             'liste'=> $args,
             'avis'=>$moreArgs
         ));
