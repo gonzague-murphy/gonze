@@ -16,17 +16,19 @@ function makeUserMenu(){
     if(isset($_SESSION['user'])){
         echo "<nav class='user_menu'>";
         echo "<ul>";
-        echo "<li><a href='?controller=MembreController&action=displayFicheDetail'>Mon profil</a></li>";
-        echo "<li><a href='?controller=CommandeController&action=panierDisplay'> Mon panier</a></li>";
-        echo "<li><a href='?controller=MembreController&action=deconnexion'> Deconnexion</a></li>";
+        echo "<li id='loupe'><input type='text' name='ville' placeholder='Chercher par ville...'/></li>";
+        echo "<li id='cart'><a href='?controller=CommandeController&action=panierDisplay'> Mon panier</a></li>";
+                echo "<li id='monCompte'><a href='?controller=MembreController&action=displayFicheDetail'>Mon compte</a></li>";
+        echo "<li id='deconnexion'><a href='?controller=MembreController&action=deconnexion'> Deconnexion</a></li>";
         echo "</ul>";
         echo "</nav>";
 }
     else{
         echo "<nav class='user_menu'>";
         echo "<ul>";
-        echo "<li><a onclick='breathLeft();' href='?controller=MembreController&action=loginDisplay'>connexion</a></li>";
-        echo "<li><a href='?controller=MembreController&action=signUpForm'> inscription</a></li>";
+        echo "<li id='loupe'><input type='text' name='ville' placeholder='Chercher par ville...'/></li>";
+        echo "<li><a href='?controller=MembreController&action=loginDisplay'>Connexion </a></li>";
+        echo "<li><a href='?controller=MembreController&action=signUpForm'>Inscription</a></li>";
         echo "</ul>";
         echo "</nav>";
     }
@@ -34,9 +36,9 @@ function makeUserMenu(){
 
 function makeAdminMenu(){
     if(isset($_SESSION['user']) && $_SESSION['user']['statut'] == 1){
-            echo "<div id='buttonMenu' onclick='breathLeft();'>";
+            /*echo "<div id='buttonMenu' onclick='breathLeft();'>";
             echo "<img src='../img/arrow-right.png' />";
-            echo "</div>";
+            echo "</div>";*/
             echo "<nav class='admin_menu' id='admin_menu'>";
             echo "<ul>";
             echo "<li><a href='?controller=SalleController&action=displayForAdmin'>Gérer les Salles</a></li>";

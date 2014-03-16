@@ -39,14 +39,54 @@ body{
 
 #content{
     width : 100%;
-    margin : 2% 5%;
+    margin : 2% 5.5%;
     padding : 2% 2%;
 }
 
-#accueil{
-    //position : relative;
-    margin :0 5.5%;
+#ficheProduit{
+    width : 80%;
 }
+
+#accueil{
+    width : 80%;
+}
+
+/*Icones du menu user***
+************************/
+
+/*#cart a{
+    background : url('../../../../img/pan.png') no-repeat;
+    background-position: 5% 50%;
+}*/
+
+#loupe input{
+    width : 10%;
+    margin-top: 0.5%;
+    padding  : 0.2% 3%;
+    border : solid 1px black;
+    border-radius: 15px;
+    background : url('../../../../img/magni.png') no-repeat;
+    background-position: 5% 50%;
+    
+}
+
+#loupe{
+    margin-right : 1.5%;
+    
+}
+
+/*#monCompte a{
+    background : url('../../../../img/mon_compte.png') no-repeat;
+    background-position: 0% 40%;
+}
+
+#deconnexion a{
+    background : url('../../../../img/deconnexion.png') no-repeat;
+    background-position: 5% 50%;
+}*/
+
+/*************************************
+*************************************/
 
 #accueil h2{
     //position : absolute;
@@ -61,7 +101,7 @@ body{
 }
 
 #galerie{
-    width : 100%;
+    width : 80%;
     //margin : auto 5%;
     display : none;
 }
@@ -133,6 +173,8 @@ h1{
     text-align : right;
 }
 
+
+
 #buttonMenu img{
     height : 35px;
     width : auto;
@@ -141,11 +183,15 @@ h1{
     right : 25%;
     top : 2.3%;
 }
+
+.user_menu li{
+    height : 150px;
+}
 .user_menu li a{
     font-family: arial;
-    padding-left : 8px;
     text-decoration: none;
     color : black;
+    padding : 8px 25px;
 }
 
 .admin_menu{

@@ -6,13 +6,21 @@
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/CommandeViews.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/css/style.css</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Component/PanierSessionHandler.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Default/defaultPlaceholder.php</file>
+            <file>file:/C:/wamp/www/lokisalle/vendor/Entity/Membre.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Entity/Commande.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Controller/Controller.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/template/template_accueil.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Component/UserSessionHandler.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/js/test.js</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/ProduitViews.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Controller/MembreController.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Controller/CommandeController.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Produit/listeadmin.php</file>
+            <file>file:/C:/wamp/www/lokisalle/vendor/Repository/MembreRepository.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Produit/listenormal.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Views/Views.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Membre/updateprofil.php</file>
             <file>file:/C:/wamp/www/lokisalle/web/index.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Membre/membre.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/template/menu.php</file>
