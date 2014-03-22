@@ -4,10 +4,10 @@ function makeMenu(){
     
 echo "<nav class='main_menu' id='mainMenu'>";
     echo "<ul>";
-    echo "<li><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>Nos Salles</a></li>";
-    echo "<li><a href=''>About</a></li>";
-    echo "<li><a href='#'>Support</a></li>";
-    echo "<li><a href='#'>Contact</a></li>";
+    echo "<li><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>NOS SALLES</a></li>";
+    echo "<li><a href=''>ABOUT</a></li>";
+    echo "<li><a href='#'>SUPPORT</a></li>";
+    echo "<li><a href='#'>CONTACT</a></li>";
     echo "</ul>";
     echo "</nav>";
 }
@@ -16,9 +16,8 @@ function makeUserMenu(){
     if(isset($_SESSION['user'])){
         echo "<nav class='user_menu'>";
         echo "<ul>";
-        echo "<li id='loupe'><input type='text' name='ville' placeholder='Chercher par ville...'/></li>";
-        echo "<li id='cart'><a href='?controller=CommandeController&action=panierDisplay'> Mon panier</a></li>";
-                echo "<li id='monCompte'><a href='?controller=MembreController&action=displayFicheDetail'>Mon compte</a></li>";
+        echo "<li id='cart'><a href='?controller=CommandeController&action=panierDisplay'> Mon panier(".count(Component\PanierSessionHandler::getPanier()).")</a></li>";
+        echo "<li id='monCompte'><a href='?controller=MembreController&action=displayFicheDetail'>Mon compte</a></li>";
         echo "<li id='deconnexion'><a href='?controller=MembreController&action=deconnexion'> Deconnexion</a></li>";
         echo "</ul>";
         echo "</nav>";
@@ -26,7 +25,6 @@ function makeUserMenu(){
     else{
         echo "<nav class='user_menu'>";
         echo "<ul>";
-        echo "<li id='loupe'><input type='text' name='ville' placeholder='Chercher par ville...'/></li>";
         echo "<li><a href='?controller=MembreController&action=loginDisplay'>Connexion </a></li>";
         echo "<li><a href='?controller=MembreController&action=signUpForm'>Inscription</a></li>";
         echo "</ul>";

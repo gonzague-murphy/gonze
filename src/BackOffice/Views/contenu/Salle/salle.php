@@ -10,6 +10,7 @@
    
 <?php
 foreach($salles as $unit){
+   //var_dump($_FILES);
    echo "<td>";
    echo "<h4>".$unit->getTitre()."</h4>";
    echo "<img src='/../".$unit->getPhoto()."'/>";

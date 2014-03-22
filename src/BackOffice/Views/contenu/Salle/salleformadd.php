@@ -1,6 +1,5 @@
 <?php
-echo "<form method='post' action='?controller=SalleController&action=addSalle'>";
-
+echo "<form method='post' action='?controller=SalleController&action=addSalle' enctype='multipart/form-data'>";
 ?>
         <label>Pays</label>
             <input type="text" name="pays"/>

@@ -11,6 +11,9 @@ class Controller{
     public $userSession;
     protected $arrayPost;
     protected $arrayGet;
+    protected $racineSite = '/lokisalle/';
+    protected $racineServer;
+    protected $files;
     
     public function __construct(){
         $this->userSession = new \Component\UserSessionHandler;
@@ -18,6 +21,8 @@ class Controller{
         $this->view = new $view;
         $this->arrayPost = $_POST;
         $this->arrayGet = $_GET;
+        $this->racineServer = $_SERVER['DOCUMENT_ROOT'];
+        $this->files = $_FILES;
     }
     
     
@@ -115,12 +120,11 @@ class Controller{
  * Fonctions upload fichiers image
  */
     
-    public function checkPhotoExtension(){
-	$extension = strrchr($_FILES['photo']['name'], ".");
-	$ext = strtolower(substr($extension,1));
-	$tab_extension_valide = array("gif", "jpg", "jpeg", "png");
-	$checkExtension = in_array($ext, $tab_extension_valide);
-	return $checkExtension;
+    public function checkFileExt($file){
+        $extension = explode('.', $file);
+        $whiteList = array('gif', 'png', 'jpg', 'jpeg');
+        $authorized = in_array(strtolower($extension[1]), $whiteList);
+        return $authorized;
     }
     
     

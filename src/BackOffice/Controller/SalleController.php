@@ -10,8 +10,10 @@ class SalleController extends Controller{
  */    
     public function addSalle(){
         if(isset($this->arrayPost)){
+            $proto = $this->makeObjectSalle();
+            $salle = $this->sanitizePhoto($proto);
             $queryTable = $this->getRepository('Salle');
-            $result = $queryTable->addSalle($this->arrayPost);
+            $queryTable->addSalle($salle);
             $total = $queryTable->findAll();
             $this->view->displayForAdmin($total);
         }
@@ -43,6 +45,47 @@ class SalleController extends Controller{
            
        }
    }
+   
+/*
+ * Renvoie chemin photo/traitement des extensions
+ */
+   
+   public function sanitizePhoto(\Entity\Salle $salle){
+        if($this->checkFileExt($this->files['photo']['name']) == 1){
+           $nomPhoto = $this->racineSite.'src/BackOffice/Views/img/'.$this->files['photo']['name'];
+           $salle->setPhoto($nomPhoto);
+           $this->uploadPhoto($salle);
+           return $salle;
+       }
+       else{
+           $this->msg = 'Mauvaise extension de fichier';
+           return $this->msg;
+       }
+       echo $this->msg;
+   }
+   
+/*
+ * Upload photo sur le serveur
+ */
+   public function uploadPhoto(\Entity\Salle $salle){
+       $dirPhoto = $this->racineServer.$salle->getPhoto();
+       copy($this->files['photo']['tmp_name'], $dirPhoto);
+       //return $salle;
+   }
+   
+/*
+ * Preparation de l'objet salle
+ */   
+   
+   public function makeObjectSalle(){
+       $salle = new \Entity\Salle;
+       $this->clean($this->arrayPost);
+       foreach($this->arrayPost as $key=>$value){
+           $salle->$key = $value;
+       }
+       return $salle;
+   }
+   
 /*
  * Query pour affichage mixte
  * 

@@ -5,7 +5,7 @@ if(empty($cart)){
 }
 else{
     $i = 0;
-    echo "<ul>";
+    echo "<ul id='cart'>";
     foreach($cart as $key=>$value){
         echo "<li>".$value['titre']." <a href='?controller=CommandeController&action=removeFromCart&id=".$key."'>Enlever du panier</a></li>";
         $i++;
@@ -14,7 +14,8 @@ else{
     echo "<form method='post' action='?controller=CommandeController&action=makeOrder'>";
     echo "<input type='submit' value='Passer ma commande'/>";
     echo "<input type='hidden' name='montant' value='".\Component\PanierSessionHandler::calculateTotal()."' />";
-    echo "<input type='hidden' name='id_membre' value='".Component\UserSessionHandler::getUser()->id_membre."' />";
+    //var_dump(Component\UserSessionHandler::getUser());
+    echo "<input type='hidden' name='id_membre' value='".\Component\UserSessionHandler::getUser()->id_membre."' />";
     
     echo "</form>";
     

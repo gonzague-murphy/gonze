@@ -1,7 +1,7 @@
 <?php
 //echo __DIR__;
-echo "<div id='accueil'>";
-echo "<img src='../img/slide2.jpg' />";
+echo "<div id='slider'>";
+//echo "<img src='../img/slide2.jpg' />";
 //echo "<h2>Location de salles pour entreprises et particuliers</h2>";
 echo "</div>";
 /*echo "<p class='placeholder'>Bienvenue sur mon site</p>";

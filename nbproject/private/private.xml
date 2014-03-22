@@ -4,9 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/CommandeViews.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/css/GGS.css</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/css/style.css</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Component/PanierSessionHandler.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Default/defaultPlaceholder.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Commande/recapcommande.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Entity/Membre.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Entity/Commande.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Controller/Controller.php</file>
@@ -21,9 +23,9 @@
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Produit/listenormal.php</file>
             <file>file:/C:/wamp/www/lokisalle/vendor/Views/Views.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Membre/updateprofil.php</file>
+            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/template/menu.php</file>
             <file>file:/C:/wamp/www/lokisalle/web/index.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Membre/membre.php</file>
-            <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/template/menu.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Produit/produitdetails.php</file>
             <file>file:/C:/wamp/www/lokisalle/src/BackOffice/Views/contenu/Commande/panier.php</file>
         </group>

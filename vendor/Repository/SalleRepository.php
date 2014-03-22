@@ -19,9 +19,9 @@ class SalleRepository extends EntityRepository{
             } 
         }
         
-     public function addSalle(&$userData){
+     public function addSalle(\Entity\Salle $salle){
          $query = $this->getDb()->prepare("INSERT INTO salle (pays, ville, adresse, cp, titre, description, photo, capacite) VALUES (:pays, :ville, :adresse, :cp, :titre, :description, :photo, :capacite)");
-         $this->binder($query,$userData);
+         $this->objectBinder($query,$salle);
          $result = $query->execute();
          return $result;
      }
@@ -51,6 +51,20 @@ class SalleRepository extends EntityRepository{
             return $result;
         } 
      }
+     
+/*
+ * Bind Objets (salles)
+ */
+     
+
+        public function objectBinder($query, \Entity\Salle $salle){
+            foreach($salle as $key=>$value){
+                if($key != 'id_salle' && $key != 'submit'){
+                    $query->bindValue(":$key",$value);
+                }
+            }
+   
+        }
      
      
 }
