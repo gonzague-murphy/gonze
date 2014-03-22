@@ -26,9 +26,9 @@ class SalleRepository extends EntityRepository{
          return $result;
      }
      
-     public function updateSalle(&$userData, $id){
+     public function updateSalle($id, \Entity\Salle $salle){
          $query = $this->getDb()->prepare("UPDATE salle SET pays=:pays, ville=:ville, adresse=:adresse, cp=:cp, titre=:titre, description=:description, photo=:photo, capacite=:capacite WHERE id_salle='$id'");
-         $this->binder($query,$userData);
+         $this->objectBinder($query,$salle);
          $result = $query->execute();
          return $result;
      }

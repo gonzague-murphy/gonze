@@ -27,9 +27,11 @@ class SalleController extends Controller{
  */
    public function modifySalle(){
        if(isset($this->arrayPost)){
-       $queryTable = $this->getRepository('Salle');
-       $queryTable->updateSalle($this->arrayPost, $this->arrayGet['id']);
-       $this->displayForAdmin();
+            $proto = $this->makeObjectSalle();
+            $salle = $this->sanitizePhoto($proto);
+            $queryTable = $this->getRepository('Salle');
+            $queryTable->updateSalle($this->arrayGet['id'], $salle);
+            $this->displayForAdmin();
        }
    }
    
@@ -70,7 +72,6 @@ class SalleController extends Controller{
    public function uploadPhoto(\Entity\Salle $salle){
        $dirPhoto = $this->racineServer.$salle->getPhoto();
        copy($this->files['photo']['tmp_name'], $dirPhoto);
-       //return $salle;
    }
    
 /*

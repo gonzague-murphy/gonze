@@ -1,5 +1,5 @@
 <?php
-echo "<form method='post' action='?controller=SalleController&action=modifySalle&id=".$_GET['id']."'>
+echo "<form method='post' enctype='multipart/form-data' action='?controller=SalleController&action=modifySalle&id=".$_GET['id']."'>
 "
 ?>
         <label>Pays</label>
