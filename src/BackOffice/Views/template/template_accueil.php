@@ -50,7 +50,7 @@
           <!--<img alt ="gallerie1" title="premiere_offre" src="../src/BackOffice/Views/img/gallerie_baleines.png"/>-->
       </div>
          <!---->
-     </div><!--fin div #main_wrapper -->
+     </div><!--fin div .wrapper -->
      <script src="../src/BackOffice/Views/js/test.js"></script>
      <script src="../src/BackOffice/Views/js/jquery.js"></script>
      <script>

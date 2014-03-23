@@ -18,6 +18,7 @@ function dispatcher(){
          if(class_exists($controller)){
          //echo $controller::$counter;
                $cont = new $controller; // elle existe, on l'inclue
+               accessControl($action);
                $cont->$action();
             }
             else{
@@ -28,6 +29,20 @@ function dispatcher(){
            echo "404";
        }
    
+}
+
+function accessControl($action){
+    $exploded = preg_split('/(?=[A-Z])/',$action);
+    foreach($exploded as $key=>$value){
+        $membre = strtolower($value);
+        if($membre == 'admin'){
+            $user = \Component\UserSessionHandler::getUser();
+            if(!isset($user) || $user->id_membre !=1){
+                echo 'You should\'nt be here';
+                exit();
+            }
+        }
+    }
 }
 dispatcher();
 //Component\PanierSessionHandler::initializeCart(); 
