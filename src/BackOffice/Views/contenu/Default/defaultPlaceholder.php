@@ -1,19 +1,22 @@
-<?php
-//echo __DIR__;
-echo "<div id='slider'>";
-//echo "<img src='../img/slide2.jpg' />";
-//echo "<h2>Location de salles pour entreprises et particuliers</h2>";
-echo "</div>";
-/*echo "<p class='placeholder'>Bienvenue sur mon site</p>";
-echo "<form id='searchForm'>";
-echo "<label>Ville :</label>";
-echo "<input type='text' name='ville'/>";
-echo "<label>Capacité :</label>";
-echo "<select>";
-echo "<option>20</option>";
-echo "<option>40</option>";
-echo "<option>60</option>";
-echo "</select>";
-echo "<input type='submit' value='Chercher' />";
-echo "</form>";*/
+<div id='latest'>
+<?php var_dump($salle); ?>
+    <div id='first'>
+        <div id='descriptionFirst'>
+            <h3><?php echo $salle[0]['titre']; ?></h3>
+        </div>
+        <img src='<?php echo $salle[0]['photo']; ?>'/>
+        </div>
+    <div id='second'>
+        <div id='descriptionFirst'>
+            <h3><?php echo $salle[1]['titre']; ?></h3>
+        </div>
+        <img src='<?php echo $salle[1]['photo']; ?>'/>
+    </div>
+    <div id='third'>
+        <div id='descriptionFirst'>
+            <h3><?php echo $salle[2]['titre']; ?></h3>
+        </div>
+        <img src='<?php echo $salle[2]['photo']; ?>'/>
+    </div>
+</div>
 

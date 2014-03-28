@@ -9,14 +9,14 @@ class ProduitController extends Controller{
 /*
  * Ici les requetes nécessaire au pull produit
  * affichage
- */  
+
     public function listeAllSalle(){
         $salleController = new SalleController;
         $all = $salleController->listeAllForProducts();
         foreach($all as $objects){
             return $objects;
         }
-    }
+    }*/
 //::::::::::::::::::::::::::::::::::::::::::::::::::::
 //::::::::::::ATTENTION REQUETE DE PULL!!!!!::::::::::
 //SELECT s.titre FROM salle s, produit p WHERE s.id_salle=p.id_salle;
@@ -84,11 +84,26 @@ class ProduitController extends Controller{
         $result = $table->findById($id);
         return $result;
     }
+    
+/*
+ * Date control
+ */
+    
 
 /*
  * Fonction de display
  */
-      
+    
+/*
+ * Page d'accueil
+ */
+    public function displayMostRecent(){
+        $table = $this->getRepository('Produit');
+        $produit = $table->selectMostRecent();
+        return $produit;
+    }
+   
+////////////////////////////////////:::
     
       public function formOption(){
         $sallecont = new SalleController;

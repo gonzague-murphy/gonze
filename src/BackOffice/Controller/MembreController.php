@@ -5,8 +5,6 @@ USE Component\UserSessionHandler;
 
 
 class MembreController extends Controller{
-    
-    public $isConnected = false;
 /*
  * Fonctions de lancement
  */
@@ -88,13 +86,17 @@ class MembreController extends Controller{
     }
 
 /*
- * Fonction de suppression
+ * Delete
  */
      public function allowDelete(){
              $queryTable = $this->getRepository('Membre');
              $queryTable->deleteMembre($this->arrayGet['id']);
-             $this->view->displayForAdmin();
+             $this->displayForAdmin();
      }
+     
+/*
+ * Update
+ */
      
      public function updateUser(){
          if(isset($this->arrayPost)){
@@ -104,6 +106,10 @@ class MembreController extends Controller{
              $this->displayFicheDetail();
          }
      }
+     
+/*
+ * Display
+ */
      
      public function updateProfil(){
         $me = UserSessionHandler::getUser();
@@ -126,8 +132,6 @@ class MembreController extends Controller{
         //var_dump($me);
         $this->view->displayFicheDetail($me);
     }
-    
-//fonction de test
     public function displayForAdmin(){
         $query = $this->getRepository('Membre');
         $result = $query->findAll();

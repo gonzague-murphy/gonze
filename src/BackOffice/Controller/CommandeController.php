@@ -8,7 +8,7 @@ class CommandeController extends Controller{
    public function panierDisplay(){
         $cart = new PanierSessionHandler;
         $result = $cart::getPanier();
-        //var_dump($_SESSION);
+        //var_dump($cart::checkDoubleBooking());
         $this->view->panierDisplay($result);
     }
 

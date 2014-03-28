@@ -23,7 +23,6 @@ class RoutingHandler{
      if(!empty($controller) && !empty($action)){
          $controller = "Backoffice\Controller\\".$controller;
          if(class_exists($controller)){
-         //echo $controller::$counter;
                $cont = new $controller; // elle existe, on l'inclue
                $this->accessControl($action);
                $cont->$action();
@@ -37,6 +36,12 @@ class RoutingHandler{
        }
    
     }
+    
+/*
+ * La convention de nommage (+le camelCase)fait que chaque
+ * methode qui gère des fonctions d'admin
+ * comporte 'Admin' dans son nom
+ */
 
     public function accessControl($action){
         $exploded = preg_split('/(?=[A-Z])/',$action);
@@ -52,9 +57,5 @@ class RoutingHandler{
         }
     }
 }
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 

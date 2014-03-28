@@ -2,7 +2,6 @@
 
 namespace Controller;
 
-
 class Controller{
     
     protected $msg;
@@ -24,7 +23,11 @@ class Controller{
         $this->racineServer = $_SERVER['DOCUMENT_ROOT'];
         $this->files = $_FILES;
     }
-    
+  
+/*
+ * Charge la vue correspondante automatiquement
+ * dans les classes filles
+ */
     
     public function getView(){
         $myview = explode('\\', get_called_class());
@@ -82,6 +85,13 @@ class Controller{
         }
     }
     
+/*
+ * Check for empty fields
+ * @params array($dataInput) tous les $_POST
+ * @return string $this->msg
+ * 
+ */
+    
     public function checkForEmptyFields($args = array()){
         foreach($args as $key=>$value){
             $newValue  = trim($value);
@@ -98,13 +108,6 @@ class Controller{
         $test = $queryTable->checkForDoubles($data);
         return $test;
     }
-    
-/*
- * Check for empty fields
- * @params array($dataInput) tous les $_POST
- * @return string $this->msg
- * 
- */
 
     
     public function userIsConnected(){
@@ -118,6 +121,8 @@ class Controller{
     
 /*
  * Fonctions upload fichiers image
+ * @params $file
+ * @return bool
  */
     
     public function checkFileExt($file){

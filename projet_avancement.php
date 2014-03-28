@@ -10,16 +10,22 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <?php
-/*
- *A faire:
- *  _Statistiques
- *  _Newsletter
- ***_Formulaire des avis sur les salles
- *  _ Permettre création d'un user admin par l'admin
- *  _ Gestion des transaction Ajax, fallback en php
- *  _ Inté et mickeys jquery
- */
-        ?>
+        <p>
+            *A faire:<hr/>
+            *  _Statistiques<br/>
+            *  _Newsletter<br/>
+            ***_Formulaire des avis sur les salles<br/>
+            *  _ Permettre création d'un user admin par l'admin<br/>
+            *  _ Gestion des transaction Ajax, fallback en php<br/>
+            *  _ Inté et mickeys jquery<br/>
+            * _ Pages 404, 401 etc<br/>
+            * _ Bonnes query pour le display des salles libres seulement<br/>
+            * _ + possibilité tri par ville/date<br/>
+            * _ Securité ne pas pouvoir créer de produits<br/>
+            * antérieurs à la date d'aujourd'hui <br/>
+            * _ Gestion du double booking<br/>
+            * _ 
+            */
+        </p>
     </body>
 </html>

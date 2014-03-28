@@ -6,7 +6,9 @@ class DefaultController extends Controller{
     
    
     public function indexDisplay(){
-        $this->view->indexDisplay();
+        $cont = new ProduitController;
+        $salle = $cont->displayMostRecent();
+        $this->view->indexDisplay($salle);
     }
     
 }

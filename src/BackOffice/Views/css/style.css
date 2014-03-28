@@ -246,16 +246,24 @@ h1{
     text-align : center;
 }
 
-#menu ul li a{
-    color : white;
+.admin_menu li{
+    display : block;
+}
+
+.admin_menu a{
+    text-align : left;
+    font-size : 1em;
+    position : relative;
+    color : black;
+}
+
+#mainMenu ul li a{
+    color : #ffffff;
     font-weight : bold;
     text-decoration : none;
     padding : 0.5em 2em;
 }
 
-.user_menu{
-    //text-align : right;
-}
 
 #loupe input{
     padding  : 0.2% 3%;
@@ -277,7 +285,7 @@ h1{
     color : black;
 }
 
-.produit li img{
+.produit img{
     width : 66%;
     height : auto;
 }

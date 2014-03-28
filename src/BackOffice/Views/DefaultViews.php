@@ -4,9 +4,10 @@ USE Views\Views;
 
 class DefaultViews extends Views{
     
-    public function indexDisplay(){
+    public function indexDisplay($salles){
         $this->render('template_accueil.php','defaultPlaceholder.php', array(
-            'title'=>'Vous etes sur l\'index'
+            'title'=>'Vous etes sur l\'index',
+            'salle'=>$salles
         ));
     }
     

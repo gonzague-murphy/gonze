@@ -68,4 +68,14 @@ class PanierSessionHandler{
         }
         return $a;
       }
+      
+      public static function checkDoubleBooking(){
+          $cont = new \Backoffice\Controller\ProduitController;
+          foreach($_SESSION['panier'] as $key=>$value){
+                  $var = $cont->findById($value['id_produit']);
+                  if($var['etat'] !== '0'){
+                      return array($var['id_produit'], $value['titre']);
+                  }
+              }
+      }
 }

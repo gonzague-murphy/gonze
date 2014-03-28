@@ -1,5 +1,6 @@
 <?php
 namespace Views;
+
 abstract class Views{
     
     //abstract function displayFicheDetail($args);
