@@ -110,14 +110,6 @@ figure video {
   max-width: 100%;
   display: block;
 }
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-  padding : 0.2% 0.3%;
- 
-}
-
-
 /***********************************
 ****Positionnement/Structure********
 ************************************/
@@ -208,6 +200,12 @@ h3 {
 
 .user_menu li, #mainMenu li, #admin_menu li{
     padding : 0px 10px;
+}
+
+/*Default placeholder*/
+.first img{
+   width : 50%;
+   height : auto;
 }
 
 }

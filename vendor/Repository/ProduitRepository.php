@@ -77,6 +77,10 @@ class ProduitRepository extends EntityRepository{
         } 
      }
      
+/*
+ * Query Select generale
+ */
+     
      public function selectHasProduct(){
          $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle");
          $query->setFetchMode(PDO::FETCH_ASSOC);
@@ -85,6 +89,10 @@ class ProduitRepository extends EntityRepository{
          return $result;  
      }
      
+/*
+ * Query select par date d'ajout
+ */
+     
      public function selectMostRecent(){
          $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle ORDER BY p.id_produit DESC LIMIT 0,3;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
@@ -92,5 +100,16 @@ class ProduitRepository extends EntityRepository{
          $result = $query->fetchAll();
          return $result;
      }
+
+/*
+ * Query select par ville
+ */
      
+/*
+ * Query select par capacite
+ */
+
+    
+     
+
 }
