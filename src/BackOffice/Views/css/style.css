@@ -11,7 +11,7 @@
 }
 
 /***********************************
-****		  Reset			********
+****	    Reset	    ********
 ************************************/
 
 body,
@@ -203,18 +203,49 @@ h3 {
 }
 
 /*Default placeholder*/
-.first img{
-   width : 50%;
-   height : auto;
+
+#latest{
+    position : relative;
 }
 
+.first, .second, .third{
+    position : absolute;
+}
 
+.desc{
+    position : absolute;
+    background-color : #ffa823;
+    height : 150px;
+    //display : none;
+}
+
+.first{
+    width : 62.5%;
+}
+.first img{
+    width : 100%;
+}
+
+.second, .third{
+    width : 30%;
+    left : 65%;
+    
+}
+
+.third{
+    height : 300px;
+    margin-top : 21.8%;
+}
+
+.second img, .third img{
+    width : 100%;
+}
 
 }
 
 /* Mise en forme police etc...*/
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 h1{
@@ -246,6 +277,10 @@ h1{
     text-align : center;
 }
 
+.admin_menu{
+    display : none;
+}
+
 .admin_menu li{
     display : block;
 }
@@ -256,6 +291,7 @@ h1{
     position : relative;
     color : black;
 }
+
 
 #mainMenu ul li a{
     color : #ffffff;

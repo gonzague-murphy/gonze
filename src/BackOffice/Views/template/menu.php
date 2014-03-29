@@ -4,6 +4,9 @@ function makeMenu(){
     
 echo "<nav class='main_menu' id='mainMenu'>";
     echo "<ul>";
+    if(isset($_SESSION['user']) && $_SESSION['user']['statut'] == 1){
+        echo "<li><a href=#'>ADMIN</a></li>";
+    }
     echo "<li><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>NOS SALLES</a></li>";
     echo "<li><a href=''>ABOUT</a></li>";
     echo "<li><a href='#'>SUPPORT</a></li>";
@@ -32,7 +35,7 @@ function makeUserMenu(){
     }
 }
 
-function makeAdminMenu(){
+/*function makeAdminMenu(){
     if(isset($_SESSION['user']) && $_SESSION['user']['statut'] == 1){
             /*echo "<div id='buttonMenu' onclick='breathLeft();'>";
             echo "<img src='../img/arrow-right.png' />";
@@ -49,5 +52,5 @@ function makeAdminMenu(){
             echo "<li><a href=''>Statistiques</a></li>";
             echo "</ul>";
             echo "</nav>";
-        }
-}
+        /*}
+}*/

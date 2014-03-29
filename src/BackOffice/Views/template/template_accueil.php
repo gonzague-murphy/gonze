@@ -10,8 +10,7 @@
                 <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>
-                <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<!-- Here's Golden Gridlet, the grid overlay script. -->
+<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>		<!-- Here's Golden Gridlet, the grid overlay script. -->
 		<!--<script src="../src/BackOffice/Views/js/GGS.js"></script>-->
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
@@ -29,7 +28,7 @@
     <div id='en_tete'>
     <div id="menu">
     <?php makeMenu(); ?>
-    <?php makeAdminMenu(); ?>
+    <?php //makeAdminMenu(); ?>
     </div><!--fin de la div #menu -->
     <div id = "twoway">
         <div id='loupe'>

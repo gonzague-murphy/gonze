@@ -94,7 +94,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function selectMostRecent(){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle ORDER BY p.id_produit DESC LIMIT 0,3;");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle ORDER BY p.id_produit DESC LIMIT 0,3;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
