@@ -6,7 +6,7 @@ class CommandeViews extends Views{
     
     public function panierDisplay($arg){
         $this->render('template_accueil.php', 'panier.php', array(
-            'title'=>'glibette est une grosse enflure',
+            'title'=>'Mon Panier',
             'cart'=>$arg
         ));
     }

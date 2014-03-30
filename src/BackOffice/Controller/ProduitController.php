@@ -103,7 +103,15 @@ class ProduitController extends Controller{
         return $produit;
     }
    
-////////////////////////////////////:::
+////////////////////////////////////
+    
+/*
+ * Recherche par ville
+ */
+    
+/*
+ * Trier par capacite
+ */
     
       public function formOption(){
         $sallecont = new SalleController;
