@@ -53,17 +53,25 @@ class SalleController extends Controller{
  */
    
    public function sanitizePhoto(\Entity\Salle $salle){
-        if($this->checkFileExt($this->files['photo']['name']) == 1){
-           $nomPhoto = $this->racineSite.'src/BackOffice/Views/img/'.$this->files['photo']['name'];
-           $salle->setPhoto($nomPhoto);
-           $this->uploadPhoto($salle);
+       if(($this->files['photo']['name']) !== ''){
+            if($this->checkFileExt($this->files['photo']['name']) == 1){
+               $nomPhoto = $this->racineSite.'src/BackOffice/Views/img/'.$this->files['photo']['name'];
+               $salle->setPhoto($nomPhoto);
+               $this->uploadPhoto($salle);
+               return $salle;
+           }
+           else{
+               $this->msg = 'Mauvaise extension de fichier';
+               return $this->msg;
+           }
+           echo $this->msg;
+        }
+        
+       else{
+           $salle->setPhoto($salle->photoActuelle);
+           unset($salle->photoActuelle);
            return $salle;
        }
-       else{
-           $this->msg = 'Mauvaise extension de fichier';
-           return $this->msg;
-       }
-       echo $this->msg;
    }
    
 /*

@@ -17,6 +17,7 @@ echo "<form method='post' enctype='multipart/form-data' action='?controller=Sall
         <label>photo</label>
             <?php echo "<img src='".$salles->getPhoto()."'/>" ?>
             <input type="file" name="photo" />
+            <input type="hidden" name="photoActuelle" value="<?php echo $salles->getPhoto(); ?>" />
      
         <label>Capacité</label>
             <input type="text" name="capacite" value="<?php echo $salles->getCapacite();?>"/>

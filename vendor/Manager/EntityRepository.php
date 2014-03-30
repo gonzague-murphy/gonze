@@ -23,7 +23,7 @@ class EntityRepository{
     
     public function getTableName(){
         
-       return strtolower(str_replace(array('Repository\\','Repository'),'', get_called_class()));
+       return strtolower(str_replace(array('Repository\\','Repository'),'', ucfirst(get_called_class())));
     }
     
     
