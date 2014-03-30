@@ -1,6 +1,7 @@
 var x = function(){
         $('#galerie').fadeIn(1800, function(){
         });
+        accueil();
         $('#loupe input').focus(function(){
             //alert('hello');
             $(this).animate({'width' : '20%'}, 280, function(){
@@ -28,9 +29,17 @@ var breathLeft = function(){
     }
 };
 
-var searchBox = function(){
-    
-}
+var accueil = function(){
+    $('.boxArticle').hover(function(){
+        $quelleBox = "#box" + ($(this).index() + 1).toString();
+        //alert($quelleBox);
+        $($quelleBox).find('.desc').fadeIn('fast', function(){});
+    }, function(){
+        $quelleBox = "#box" + ($(this).index() + 1).toString();
+        //alert($quelleBox);
+        $($quelleBox).find('.desc').fadeOut('fast', function(){});
+    });
+};
 
 
 

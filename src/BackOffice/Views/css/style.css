@@ -208,7 +208,7 @@ h3 {
     position : relative;
 }
 
-.first, .second, .third{
+#box1, #box2, #box3{
     position : absolute;
 }
 
@@ -216,28 +216,44 @@ h3 {
     position : absolute;
     background-color : #ffa823;
     height : 150px;
-    //display : none;
+    padding-left : 1em;
+    display : none;
 }
 
-.first{
+#box1, #box2, #box3{
     width : 62.5%;
 }
-.first img{
+
+#box1 .desc{
+    bottom : 0;
+    width : 98.1%;
+}
+#box2 .desc{
+    top : 0;
+    width : 96%;
+}
+
+#box3 .desc{
+    bottom : 10%;
+    width : 96%;
+}
+
+#box1 img{
     width : 100%;
 }
 
-.second, .third{
+#box2, #box3{
     width : 30%;
     left : 65%;
     
 }
 
-.third{
+#box3{
     height : 300px;
     margin-top : 21.8%;
 }
 
-.second img, .third img{
+#box2 img, #box3 img{
     width : 100%;
 }
 

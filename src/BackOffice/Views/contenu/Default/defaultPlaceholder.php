@@ -1,6 +1,6 @@
 <?php //var_dump($salle); ?>
 <div id="latest">
-    <div class='first'>
+    <div id='box1' class='boxArticle'>
         <div class='desc'>
             <h5><?php echo $salle[0]['titre']; ?></h5>
             <p>
@@ -11,7 +11,7 @@
         </div>
         <img src='<?php echo $salle[0]['photo']; ?>'/>
     </div>
-    <div class='second'>
+    <div id='box2' class='boxArticle'>
         <div class='desc'>
             <h5><?php echo $salle[1]['titre']; ?></h5>
             <p>
@@ -22,7 +22,7 @@
         </div>
         <img src='<?php echo $salle[1]['photo']; ?>'/>
     </div>
-    <div class='third'>
+    <div id='box3' class='boxArticle'>
         <div class='desc'>
             <h5><?php echo $salle[2]['titre']; ?></h5>
             <p>
