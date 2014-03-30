@@ -277,15 +277,32 @@ h1{
     text-align : center;
 }
 
-.admin_menu{
+#adminLi a{
+    //background-color : yellow;
+    padding : 100% 100%;
+}
+
+#adminLi ul{
     display : none;
 }
 
-.admin_menu li{
+
+#adminLi:hover ul{
     display : block;
+    background-color : #ffffff;
+    border : 1px solid black;
 }
 
-.admin_menu a{
+.admin_menu{
+    position : absolute;
+    left : 18.6em;
+    top : 2.2em;
+    z-index : 1;
+    //background-color : pink;
+}
+
+
+.admin_menu li a{
     text-align : left;
     font-size : 1em;
     position : relative;
@@ -298,6 +315,16 @@ h1{
     font-weight : bold;
     text-decoration : none;
     padding : 0.5em 2em;
+}
+
+/*Sous menu */
+
+#mainMenu ul li ul li{
+    display : block;
+}
+
+#mainMenu ul li ul li a{
+    color : #000000;
 }
 
 
