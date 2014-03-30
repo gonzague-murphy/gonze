@@ -11,7 +11,7 @@
 }
 
 /***********************************
-****		  Reset			********
+****	    Reset	    ********
 ************************************/
 
 body,
@@ -110,14 +110,6 @@ figure video {
   max-width: 100%;
   display: block;
 }
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-  padding : 0.2% 0.3%;
- 
-}
-
-
 /***********************************
 ****Positionnement/Structure********
 ************************************/
@@ -210,11 +202,50 @@ h3 {
     padding : 0px 10px;
 }
 
+/*Default placeholder*/
+
+#latest{
+    position : relative;
+}
+
+.first, .second, .third{
+    position : absolute;
+}
+
+.desc{
+    position : absolute;
+    background-color : #ffa823;
+    height : 150px;
+    //display : none;
+}
+
+.first{
+    width : 62.5%;
+}
+.first img{
+    width : 100%;
+}
+
+.second, .third{
+    width : 30%;
+    left : 65%;
+    
+}
+
+.third{
+    height : 300px;
+    margin-top : 21.8%;
+}
+
+.second img, .third img{
+    width : 100%;
+}
+
 }
 
 /* Mise en forme police etc...*/
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 h1{
@@ -246,22 +277,54 @@ h1{
     text-align : center;
 }
 
-.admin_menu li{
-    display : block;
+#adminLi a{
+    //background-color : yellow;
+    padding : 100% 100%;
 }
 
-.admin_menu a{
+#adminLi ul{
+    display : none;
+}
+
+
+#adminLi:hover ul{
+    display : block;
+    background-color : #ffffff;
+    border : 1px solid black;
+}
+
+.admin_menu{
+    position : absolute;
+    left : 18.6em;
+    top : 2.2em;
+    z-index : 1;
+    //background-color : pink;
+}
+
+
+.admin_menu li a{
     text-align : left;
     font-size : 1em;
     position : relative;
     color : black;
 }
 
+
 #mainMenu ul li a{
     color : #ffffff;
     font-weight : bold;
     text-decoration : none;
     padding : 0.5em 2em;
+}
+
+/*Sous menu */
+
+#mainMenu ul li ul li{
+    display : block;
+}
+
+#mainMenu ul li ul li a{
+    color : #000000;
 }
 
 

@@ -13,7 +13,7 @@ class MembreController extends Controller{
        if(isset($this->arrayPost)){
             $this->signUp($this->arrayPost);
             if(empty($this->msg)){
-            $new = new \Backoffice\Views\DefaultViews;
+            $new = new DefaultController;
             $new->indexDisplay();
             }
             else{
@@ -26,7 +26,7 @@ class MembreController extends Controller{
        if($this->isPostSet()!=false){
             $this->loginUser($this->arrayPost);
             $default = new DefaultController;
-            $default->view->indexDisplay();
+            $default->indexDisplay();
         }
     }
     
