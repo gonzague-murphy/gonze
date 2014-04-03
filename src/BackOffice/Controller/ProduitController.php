@@ -1,8 +1,6 @@
 <?php
 namespace Backoffice\Controller;
 USE Controller\Controller;
-USE Component\PanierSessionHandler;
-
 
 class ProduitController extends Controller{
 
@@ -109,9 +107,21 @@ class ProduitController extends Controller{
  * Recherche par ville
  */
     
+    public function triVille($data){
+        $cleanData = $this->clean($data);
+        $result = $this->getRepository('Produit')->selectByCity($cleanData);
+        return $result;
+    }
+    
 /*
  * Trier par capacite
  */
+    
+    public function triCapa($capa){
+        $cleanData = $this->clean($capa);
+        $result = $this->getRepository('Produit')->selectByCapacity($cleanData);
+        return $result;
+    }
     
       public function formOption(){
         $sallecont = new SalleController;

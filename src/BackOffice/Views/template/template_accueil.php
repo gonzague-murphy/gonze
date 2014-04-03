@@ -10,7 +10,7 @@
                 <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>
-<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>		<!-- Here's Golden Gridlet, the grid overlay script. -->
+                <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>		<!-- Here's Golden Gridlet, the grid overlay script. -->
 		<!--<script src="../src/BackOffice/Views/js/GGS.js"></script>-->
 		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 
@@ -28,13 +28,12 @@
     <div id='en_tete'>
     <div id="menu">
     <?php makeMenu(); ?>
-    <?php //makeAdminMenu(); ?>
     </div><!--fin de la div #menu -->
     <div id = "twoway">
         <div id='loupe'>
         <input type='text' name='ville' placeholder='Chercher par ville...'/>
         </div>
-        <a href="index.php"><h1>LokiSalle</h1></a>
+        <a href="#"><h1>LokiSalle</h1></a>
         <?php makeUserMenu();?>
     </div><!-- fin de la div #twoway-->
     </div><!-- fin de la div #en_tete-->
@@ -43,9 +42,6 @@
         <?php 
         echo $content;
         ?>
-      </div>
-      <div id="gallery_image">
-          <!--<img alt ="gallerie1" title="premiere_offre" src="../src/BackOffice/Views/img/gallerie_baleines.png"/>-->
       </div>
          <!---->
      </div><!--fin div .wrapper -->

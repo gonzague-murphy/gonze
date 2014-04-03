@@ -29,6 +29,7 @@ var breathLeft = function(){
     }
 };
 
+//Hover sur salles de page d'accueil
 var accueil = function(){
     $('.boxArticle').hover(function(){
         $quelleBox = "#box" + ($(this).index() + 1).toString();
@@ -39,6 +40,11 @@ var accueil = function(){
         //alert($quelleBox);
         $($quelleBox).find('.desc').fadeOut('fast', function(){});
     });
+};
+
+var rechercheAjax = function(){
+    valInput = $('#sel').val();
+    
 };
 
 
