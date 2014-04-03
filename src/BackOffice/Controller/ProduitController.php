@@ -110,7 +110,8 @@ class ProduitController extends Controller{
     public function triVille(){
         $this->clean($this->arrayGet);
         $result = $this->getRepository('Produit')->selectByCity(ucfirst($this->arrayGet['id']));
-        $this->view->displayListe($result);
+        //var_dump($result);
+        $this->view->updateProd($result);
     }
 /*
  * Trier par capacite
