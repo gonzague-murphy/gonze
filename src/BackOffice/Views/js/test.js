@@ -8,7 +8,8 @@ var x = function(){
                 //alert("hello!");
             });
         });
-            };
+        rechercheAjax();
+    };
 
 var i = 0;
 
@@ -43,8 +44,10 @@ var accueil = function(){
 };
 
 var rechercheAjax = function(){
-    var valInput = "id="+$('.town').val();
-    $("#galerie").load("index.php?controller=ProduitController&action=triVille", valInput);
+    $('.town').change(function(){
+        var valInput = "id="+$('.town').val();
+        $("#galerie").load("index.php?controller=ProduitController&action=triVille", valInput);
+    });
 };
 
 

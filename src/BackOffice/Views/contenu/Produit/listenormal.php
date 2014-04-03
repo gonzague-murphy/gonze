@@ -1,5 +1,4 @@
 <?php //var_dump($liste); ?> 
-<p onclick='rechercheAjax();'>Clickez moi!!</p>
     <label>Trier Par ville :</label>
     <select class='town'>
         <option name='default' value=''>---</option>
