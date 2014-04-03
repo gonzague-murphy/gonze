@@ -107,12 +107,11 @@ class ProduitController extends Controller{
  * Recherche par ville
  */
     
-    public function triVille($data){
-        $cleanData = $this->clean($data);
-        $result = $this->getRepository('Produit')->selectByCity($cleanData);
-        return $result;
+    public function triVille(){
+        $this->clean($this->arrayGet);
+        $result = $this->getRepository('Produit')->selectByCity(ucfirst($this->arrayGet['id']));
+        $this->view->displayListe($result);
     }
-    
 /*
  * Trier par capacite
  */

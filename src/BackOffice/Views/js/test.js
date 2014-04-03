@@ -43,8 +43,8 @@ var accueil = function(){
 };
 
 var rechercheAjax = function(){
-    valInput = $('#sel').val();
-    
+    var valInput = "id="+ $('.town').val();
+    $("#galerie").load("index.php?controller=ProduitController&action=triVille", valInput);
 };
 
 

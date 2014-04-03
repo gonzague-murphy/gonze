@@ -1,5 +1,12 @@
+    <p onclick='rechercheAjax();'>Clickez moi!!</p>
+    <label>Trier Par ville :</label>
+    <select class='town'>
+        <option name='default' value=''>---</option>
+        <option name='paris' value="paris">Paris</option>
+        <option name='lyon' value="lyon">Lyon</option>
+        <option name='bordeaux' value="bordeaux">Bordeaux</option>
+    </select>
 <?php
-//var_dump($liste);
 echo "<div id='galerie'>";
 echo "<ul class='produit'>";
 $i = 1;
