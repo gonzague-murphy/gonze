@@ -264,7 +264,8 @@ h3 {
 
 /* Mise en forme police etc...*/
 body{
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight : 400;
 }
 
 h1{
@@ -358,7 +359,7 @@ select{
 
 #mainMenu ul li a{
     color : #ffffff;
-    font-weight : bold;
+    font-weight : 500;
     text-decoration : none;
     padding : 0.5em 2em;
 }
@@ -372,11 +373,13 @@ select{
 
 #mainMenu ul li ul li a{
     color : #000000;
+    font-weight : 300;
 }
 
 #latest h5 a{
     font-size : 1.32em;
-    font-weight : normal;
+    font-weight : 400;
+    font-style: italic;
     color : black;
     position : relative;
     left : 80%;

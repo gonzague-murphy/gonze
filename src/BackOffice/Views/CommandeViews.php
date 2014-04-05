@@ -15,11 +15,10 @@ class CommandeViews extends Views{
         echo "test";
     }
     
-    public function displayFicheDetail($args, $msg) {
+    public function displayFicheDetail($args) {
         $this->render('template_accueil.php', 'recapcommande.php', array(
             'title'=>'test',
-            'commande'=>$args,
-            'msg'=>$msg
+            'commande'=>$args
         ));
     }
     

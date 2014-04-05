@@ -50,6 +50,11 @@ class ProduitRepository extends EntityRepository{
          $result = $query->execute();
          return $result;
      }
+     
+     public function updateState($id){
+         $query = $this->getDb()->prepare("UPDATE produit SET etat='1' WHERE id_produit='$id'");
+         $result = $query->execute();
+     }
     
 /*
  * DELETE query

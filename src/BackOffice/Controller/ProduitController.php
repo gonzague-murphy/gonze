@@ -60,10 +60,21 @@ class ProduitController extends Controller{
                 $this->displaySalleHasProduct();
             }
         }
-      
- /*
-  * Format Date fonctions
-  */       
+        
+        public function updateAfterOrder(){
+            $queryTable = $this->getRepository('Produit');
+            $arrayObjects = $this->makeObjectFromCart();
+            for($i=0; $i <= (\sizeof($arrayObjects)-1);$i++){
+                //var_dump($arrayObjects);
+                $queryTable->updateState($arrayObjects[$i]->id_produit);
+            }
+        }
+
+/*
+ * Date control
+ */
+    
+       
       public function formatDateForInsert($var){
           $format = date("Y-m-d H:i:s", strtotime($var));
           return $format;
@@ -86,6 +97,19 @@ class ProduitController extends Controller{
        }
        return $prod;
    }
+   
+       public function makeObjectFromCart(){
+           $prod = new \Entity\Produit;
+           $arr = array();
+           foreach(\Component\PanierSessionHandler::getPanier() as $key=>$value){
+               foreach($value as $unit=>$data){
+                    $prod->$unit = $data;
+            }
+            array_push($arr, $prod);
+         }
+         //var_dump($arr);
+         return $arr;
+       }
    
 /*
  * Format Object
@@ -123,12 +147,6 @@ class ProduitController extends Controller{
         $result = $table->findById($id);
         return $result;
     }
-    
-/*
- * Date control
- */
-    
-
 /*
  * Fonction de display
  */

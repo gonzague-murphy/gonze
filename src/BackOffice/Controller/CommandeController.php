@@ -8,7 +8,6 @@ class CommandeController extends Controller{
    public function panierDisplay(){
         $cart = new PanierSessionHandler;
         $result = $cart::getPanier();
-        //var_dump($cart::checkDoubleBooking());
         $this->view->panierDisplay($result);
     }
 
@@ -36,6 +35,8 @@ class CommandeController extends Controller{
  * Add
  */
     public function makeOrder(){
+        $prodCont = new ProduitController;
+        $prodCont->updateAfterOrder();
         $querytable = $this->getRepository('Commande');
         $querytable->addOrder($this->arrayPost);
         $this->view->displayFicheDetail($this->arrayPost);

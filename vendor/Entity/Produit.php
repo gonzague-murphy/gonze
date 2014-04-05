@@ -53,4 +53,8 @@ class Produit{
     public function setDateDepart($date){
         return $this->date_depart = $date;
     }
+    
+    public function setEtat($etat){
+        return $this->etat = $etat;
+    }
 }

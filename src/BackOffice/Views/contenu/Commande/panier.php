@@ -4,11 +4,9 @@ if(empty($cart)){
     echo "Votre panier est vide!";
 }
 else{
-    $i = 0;
     echo "<ul id='cart'>";
     foreach($cart as $key=>$value){
         echo "<li>".$value['titre']." <a href='?controller=CommandeController&action=removeFromCart&id=".$key."' class='bouton'>Enlever du panier</a></li>";
-        $i++;
        }
     echo "</ul>";
     echo "<form method='post' action='?controller=CommandeController&action=makeOrder'>";
