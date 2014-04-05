@@ -1,8 +1,6 @@
 <?php
 namespace Backoffice\Controller;
 USE Controller\Controller;
-USE Component\PanierSessionHandler;
-
 
 class ProduitController extends Controller{
 
@@ -49,16 +47,49 @@ class ProduitController extends Controller{
  * 
  */   public function allowUpdate($id, $data=array()){
             $queryTable= $this->getRepository('Produit');
-            $retour = $queryTable->updateProduit($data, $id);
+            $queryTable->updateProduit($data, $id);
  }
  
       public function lanceUpdate(){
             if(isset($this->arrayPost) && isset($this->arrayGet['id'])){
-                $this->allowUpdate($this->arrayPost, $this->arrayGet['id']);
+                $prod = $this->makeObjectProduit();
+                $obj = $this->formatDateObject($prod);
+                $this->allowUpdate($this->arrayGet['id'], $obj);
                 $this->displaySalleHasProduct();
             }
         }
+      
+        
+      public function formatDateForInsert($var){
+          $format = date("Y-m-d H:i:s", strtotime($var));
+          return $format;
+      }
+      
+      public static function formatDateForDisplay($var){
+          $format = date("d-m-Y H:i:s", strtotime($var));
+          return $format;
+      }
     
+/*
+ * Make Object
+ * 
+ */
+       public function makeObjectProduit(){
+       $prod = new \Entity\Produit;
+       $this->clean($this->arrayPost);
+       foreach($this->arrayPost as $key=>$value){
+           $prod->$key = $value;
+       }
+       return $prod;
+   }
+   
+       public function formatDateObject(\Entity\Produit $obj){
+           $dateA = $obj->getDateArrivee();
+           $obj->setDateArrivee($this->formatDateForInsert($dateA));
+           $dateD = $obj->getDateDepart();
+           $obj->setDateDepart($this->formatDateForInsert($dateD));
+           return $obj;
+       }
 
 /*
  * Delete
@@ -103,7 +134,27 @@ class ProduitController extends Controller{
         return $produit;
     }
    
-////////////////////////////////////:::
+////////////////////////////////////
+    
+/*
+ * Recherche par ville
+ */
+    
+    public function triVille(){
+        $this->clean($this->arrayGet);
+        $result = $this->getRepository('Produit')->selectByCity(ucfirst($this->arrayGet['ville']));
+        //var_dump($result);
+        $this->view->updateProd($result);
+    }
+/*
+ * Trier par capacite
+ */
+    
+    public function triCapa($capa){
+        $cleanData = $this->clean($capa);
+        $result = $this->getRepository('Produit')->selectByCapacity($cleanData);
+        return $result;
+    }
     
       public function formOption(){
         $sallecont = new SalleController;

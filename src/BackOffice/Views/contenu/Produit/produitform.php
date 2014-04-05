@@ -2,9 +2,11 @@
 echo '<form method="post" action="?controller=ProduitController&action=lanceSaveProduct">
 ';
 echo '<label>Date d\'arrivée</label>';
-echo '<input type="text" name="date_arrivee"/>';
+echo '<input type="text" name="date_arrivee" data-field="datetime" readonly/>';
+echo "<div class='dateGen'></div>";
 echo '<label>Date de départ</label>';
-echo '<input type="text" name="date_depart"/>';
+echo '<input type="text" name="date_depart" data-field="datetime" readonly/>';
+echo "<div class='dateGen'></div>";
 echo '<label>Prix</label>';
 echo '<input type="text" name="prix"/>';
 echo '<label>Salle</label>';

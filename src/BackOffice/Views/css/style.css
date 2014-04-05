@@ -7,7 +7,6 @@
          url('fonts/Gladifilthefte-webfont.svg#gladifiltheftegladifilthefte') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 /***********************************
@@ -206,6 +205,7 @@ h3 {
 
 #latest{
     position : relative;
+    width : 90%;
 }
 
 #box1, #box2, #box3{
@@ -293,6 +293,10 @@ h1{
     text-align : center;
 }
 
+#adminLi{
+    position : relative;
+}
+
 #adminLi a{
     //background-color : yellow;
     padding : 100% 100%;
@@ -311,9 +315,10 @@ h1{
 
 .admin_menu{
     position : absolute;
-    left : 18.6em;
-    top : 2.2em;
+    right : -35%;
+    top : 120%;
     z-index : 1;
+    width : 185%;
     //background-color : pink;
 }
 
@@ -321,7 +326,7 @@ h1{
 .admin_menu li a{
     text-align : left;
     font-size : 1em;
-    position : relative;
+    //position : relative;
     color : black;
 }
 

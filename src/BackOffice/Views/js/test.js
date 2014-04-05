@@ -1,4 +1,5 @@
 var x = function(){
+        $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('#galerie').fadeIn(1800, function(){
         });
         accueil();
@@ -8,7 +9,8 @@ var x = function(){
                 //alert("hello!");
             });
         });
-            };
+        rechercheAjax();
+    };
 
 var i = 0;
 
@@ -29,6 +31,7 @@ var breathLeft = function(){
     }
 };
 
+//Hover sur salles de page d'accueil
 var accueil = function(){
     $('.boxArticle').hover(function(){
         $quelleBox = "#box" + ($(this).index() + 1).toString();
@@ -38,6 +41,13 @@ var accueil = function(){
         $quelleBox = "#box" + ($(this).index() + 1).toString();
         //alert($quelleBox);
         $($quelleBox).find('.desc').fadeOut('fast', function(){});
+    });
+};
+
+var rechercheAjax = function(){
+    $('.town').change(function(){
+        var valInput = "ville="+$('.town').val();
+        $("#galerie").load("index.php?controller=ProduitController&action=triVille", valInput);
     });
 };
 

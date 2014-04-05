@@ -45,4 +45,12 @@ class Produit{
     public function getEtat(){
         return $this->etat;
     }
+    
+    public function setDateArrivee($date){
+        return $this->date_arrivee = $date;
+    }
+    
+    public function setDateDepart($date){
+        return $this->date_depart = $date;
+    }
 }

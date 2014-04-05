@@ -10,7 +10,7 @@ abstract class Views{
     abstract function displayForAdmin($args);
     
     
-    public static function render($layout, $template, $parameters = array()){
+    public function render($layout, $template, $parameters = array()){
 //Prend en compte le fait que la classe fille va utiliser la fonction dans Backoffice\Controller\ClassxxController
         $dirViews = __DIR__.'/../../src/'.str_replace('\\','/', get_called_class().'/../../Views');
         $ex = explode('\\',get_called_class());

@@ -1,6 +1,6 @@
 <div id="ficheProduit">
 <h3><?php echo $liste['titre'] ?></h3>
-<img src="<?php $liste['photo']; ?>" />
+<img src="<?php echo $liste['photo']; ?>" />
 <p><?php echo $liste['description']; ?></p>
 <p>Prix : <?php echo $liste['prix']; ?> €</p>
 <h3>Avis :</h3>

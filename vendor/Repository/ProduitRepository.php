@@ -43,9 +43,10 @@ class ProduitRepository extends EntityRepository{
  * changer l'état des salles au moment de
  * la commande
  */
-     public function updateProduit(&$userData, $id){
+     public function updateProduit($userData, $id){
          $query = $this->getDb()->prepare("UPDATE produit SET date_arrivee=:date_arrivee, date_depart=:date_depart, prix=:prix, id_salle=:salle, id_promo=:promo, etat=:etat WHERE id_produit='$id'");
-         $this->binder($query,$userData);
+         $this->objectBinder($query,$userData);
+         //var_dump($userData);
          $result = $query->execute();
          return $result;
      }
@@ -105,11 +106,36 @@ class ProduitRepository extends EntityRepository{
  * Query select par ville
  */
      
+     public function selectByCity($city){
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$city."' ORDER BY p.id_produit DESC;");
+         $query->setFetchMode(PDO::FETCH_ASSOC);
+         $query->execute();
+         $result = $query->fetchAll();
+         //var_dump($result);
+         return $result;
+     }
+/* echo "SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$city."' ORDER BY p.id_produit DESC;"*/
+     
 /*
  * Query select par capacite
  */
 
-    
+     public function selectByCapacity($capacity){
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$capacity."' ORDER BY p.id_produit DESC;");
+         $query->setFetchMode(PDO::FETCH_ASSOC);
+         $query->execute();
+         $result = $query->fetchAll();
+         return $result;
+     }
+     
+     public function objectBinder($query, \Entity\Produit $prod){
+            $cles = array('submit', 'id_produit', 'id_salle', 'id_promo');
+            foreach($prod as $key=>$value){
+                if(!in_array($key, $cles)){
+                    $query->bindValue(":$key",$value);
+                }
+            }
+        }
      
 
 }
