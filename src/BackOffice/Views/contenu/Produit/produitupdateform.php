@@ -3,9 +3,9 @@
 echo "<form method='post' action='?controller=ProduitController&action=lanceUpdate&id=".$_GET['id']."'>
 ";
 echo '<label>Date d\'arrivée</label>';
-echo '<input type="text" name="date_arrivee" value="'.$result['date_arrivee'].'"/>';
+echo '<input type="text" class="dateGen" name="date_arrivee" value="'.Backoffice\Controller\ProduitController::formatDateForDisplay($result['date_arrivee']).'"/>';
 echo '<label>Date de départ</label>';
-echo '<input type="text" name="date_depart" value="'.$result['date_depart'].'"/>';
+echo '<input type="text" class="dateGen" name="date_depart" value="'.Backoffice\Controller\ProduitController::formatDateForDisplay($result['date_depart']).'"/>';
 echo '<label>Prix</label>';
 echo '<input type="text" name="prix" value="'.$result['prix'].'"/>';
 echo '<label>Salle (actuellement : '.$result['titre'].')</label>';

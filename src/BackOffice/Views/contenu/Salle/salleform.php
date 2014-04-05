@@ -5,7 +5,7 @@ echo "<form method='post' enctype='multipart/form-data' action='?controller=Sall
         <label>Pays</label>
             <input type="text" name="pays" value="<?php echo $salles->getPays();?>"/>
         <label>Ville</label>
-            <input type="password" name="ville" value="<?php echo $salles->getVille();?>"/>
+            <input type="text" name="ville" value="<?php echo $salles->getVille();?>"/>
         <label>Adresse</label>
             <input type="text" name="adresse" value="<?php echo $salles->getAdresse();?>"/>
         <label>Code Postal</label>

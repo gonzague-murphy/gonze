@@ -1,7 +1,7 @@
 <!doctype html>
 <!--[if lt IE 9]><html class="ie"><![endif]-->
 <!--[if gte IE 9]><!--><html><!--<![endif]-->
-<?php require_once('menu.php'); ?>
+<?php require_once("menu.php"); ?>
 	
 	<head>
 		<meta charset="utf-8"/>
@@ -10,9 +10,11 @@
                 <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>
+		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/jquery.datetimepicker.css"/>
                 <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css'>		<!-- Here's Golden Gridlet, the grid overlay script. -->
 		<!--<script src="../src/BackOffice/Views/js/GGS.js"></script>-->
-		<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+                <script type="text/javascript" src="../src/BackOffice/Views/js/jquery-1.10.2.js"></script>
+           
 
 
 		
@@ -33,7 +35,7 @@
         <div id='loupe'>
         <input type='text' name='ville' placeholder='Chercher par ville...'/>
         </div>
-        <a href="#"><h1>LokiSalle</h1></a>
+        <a href="index.php"><h1>LokiSalle</h1></a>
         <?php makeUserMenu();?>
     </div><!-- fin de la div #twoway-->
     </div><!-- fin de la div #en_tete-->
@@ -45,12 +47,13 @@
       </div>
          <!---->
      </div><!--fin div .wrapper -->
+     <script src="../src/BackOffice/Views/js/jquery.datetimepicker.js"></script>
      <script src="../src/BackOffice/Views/js/test.js"></script>
-     <script src="../src/BackOffice/Views/js/jquery.js"></script>
-     <script>
+     <!--<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>-->
+     <script src=''>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
-                CKEDITOR.replace( 'description');
+                /*CKEDITOR.replace( 'description');*/
      </script>
 </body>
 </html>

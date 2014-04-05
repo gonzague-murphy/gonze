@@ -1,4 +1,5 @@
 var x = function(){
+        $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('#galerie').fadeIn(1800, function(){
         });
         accueil();
@@ -45,7 +46,7 @@ var accueil = function(){
 
 var rechercheAjax = function(){
     $('.town').change(function(){
-        var valInput = "id="+$('.town').val();
+        var valInput = "ville="+$('.town').val();
         $("#galerie").load("index.php?controller=ProduitController&action=triVille", valInput);
     });
 };

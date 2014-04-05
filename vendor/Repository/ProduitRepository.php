@@ -43,9 +43,10 @@ class ProduitRepository extends EntityRepository{
  * changer l'état des salles au moment de
  * la commande
  */
-     public function updateProduit(&$userData, $id){
+     public function updateProduit($userData, $id){
          $query = $this->getDb()->prepare("UPDATE produit SET date_arrivee=:date_arrivee, date_depart=:date_depart, prix=:prix, id_salle=:salle, id_promo=:promo, etat=:etat WHERE id_produit='$id'");
-         $this->binder($query,$userData);
+         $this->objectBinder($query,$userData);
+         //var_dump($userData);
          $result = $query->execute();
          return $result;
      }
@@ -126,6 +127,15 @@ class ProduitRepository extends EntityRepository{
          $result = $query->fetchAll();
          return $result;
      }
+     
+     public function objectBinder($query, \Entity\Produit $prod){
+            $cles = array('submit', 'id_produit', 'id_salle', 'id_promo');
+            foreach($prod as $key=>$value){
+                if(!in_array($key, $cles)){
+                    $query->bindValue(":$key",$value);
+                }
+            }
+        }
      
 
 }
