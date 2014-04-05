@@ -42,7 +42,6 @@ border: 0;
 a, li, input{
 text-decoration : none;
 list-style : none;
-display : inline;
 border : none;
 }
 
@@ -201,6 +200,10 @@ h3 {
     padding : 0px 10px;
 }
 
+#mainMenu ul li{
+    display : inline;
+}
+
 /*Default placeholder*/
 
 #latest{
@@ -269,6 +272,28 @@ h1{
   color : #ffa823;
   font-size : 46px;
   //text-align : center;
+}
+
+form input{
+    display : block;
+}
+
+form textarea{
+    display : block;
+}
+
+form img{
+    max-width : 22%;
+    height : auto;
+    display : block;
+}
+
+label{
+    display : inline;
+}
+
+select{
+    display : block;
 }
 
 #twoway{
@@ -342,10 +367,44 @@ h1{
 
 #mainMenu ul li ul li{
     display : block;
+    padding : 1% 0;
 }
 
 #mainMenu ul li ul li a{
     color : #000000;
+}
+
+#latest h5 a{
+    font-size : 1.32em;
+    font-weight : normal;
+    color : black;
+    position : relative;
+    left : 80%;
+}
+
+/*Boutons*/
+.bouton{
+    padding : 2% 2.3%;
+    color : #ffffff;
+    background-color : #000000;
+    margin-left : 0.2%;
+    margin-right : 1%;
+}
+
+/*Mise en page liste produits*/
+
+#galerie a:first-child{
+    text-decoration: none;
+    color : #000000;
+}
+
+#supr{
+    font-size : 1.8em;
+    color : red;
+}
+
+#galerie span{
+    font-size : 3em;
 }
 
 
@@ -365,13 +424,14 @@ h1{
     color : black;
 }
 
-#content a{
+h4 a{
     color : black;
 }
 
 .produit img{
     width : 66%;
     height : auto;
+    margin-bottom : 5%;
 }
 
 #cart li{

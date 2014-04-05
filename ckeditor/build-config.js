@@ -13,10 +13,10 @@
  * (1) http://ckeditor.com/builder
  *     Visit online builder to build CKEditor from scratch.
  *
- * (2) http://ckeditor.com/builder/5346be27bc0918d0fd5cc09a6bae537b
+ * (2) http://ckeditor.com/builder/5574aa4721b288e7bbf2c0e057d2316f
  *     Visit online builder to build CKEditor, starting with the same setup as before.
  *
- * (3) http://ckeditor.com/builder/download/5346be27bc0918d0fd5cc09a6bae537b
+ * (3) http://ckeditor.com/builder/download/5574aa4721b288e7bbf2c0e057d2316f
  *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
  *
  * NOTE:
@@ -26,7 +26,7 @@
 
 var CKBUILDER_CONFIG = {
 	skin: 'moono',
-	preset: 'standard',
+	preset: 'basic',
 	ignore: [
 		'dev',
 		'.gitignore',
@@ -35,40 +35,17 @@ var CKBUILDER_CONFIG = {
 		'.mailmap'
 	],
 	plugins : {
-		'a11yhelp' : 1,
 		'about' : 1,
 		'basicstyles' : 1,
-		'blockquote' : 1,
 		'clipboard' : 1,
-		'contextmenu' : 1,
-		'elementspath' : 1,
 		'enterkey' : 1,
 		'entities' : 1,
-		'filebrowser' : 1,
 		'floatingspace' : 1,
-		'format' : 1,
-		'horizontalrule' : 1,
-		'htmlwriter' : 1,
-		'image' : 1,
 		'indentlist' : 1,
 		'link' : 1,
 		'list' : 1,
-		'magicline' : 1,
-		'maximize' : 1,
-		'pastefromword' : 1,
-		'pastetext' : 1,
-		'removeformat' : 1,
-		'resize' : 1,
-		'scayt' : 1,
-		'sourcearea' : 1,
-		'specialchar' : 1,
-		'stylescombo' : 1,
-		'tab' : 1,
-		'table' : 1,
-		'tabletools' : 1,
 		'toolbar' : 1,
 		'undo' : 1,
-		'wsc' : 1,
 		'wysiwygarea' : 1
 	},
 	languages : {

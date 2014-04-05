@@ -49,11 +49,11 @@
      </div><!--fin div .wrapper -->
      <script src="../src/BackOffice/Views/js/jquery.datetimepicker.js"></script>
      <script src="../src/BackOffice/Views/js/test.js"></script>
-     <!--<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>-->
-     <script src=''>
+     <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+     <script>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
-                /*CKEDITOR.replace( 'description');*/
+                CKEDITOR.replace( 'description');
      </script>
 </body>
 </html>
