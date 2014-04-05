@@ -31,9 +31,9 @@ class ProduitRepository extends EntityRepository{
  * 
  */
         
-    public function addProduit(&$userData){
+    public function addProduit($userData){
          $query = $this->getDb()->prepare("INSERT INTO ".$this->getTableName()." (date_arrivee, date_depart, prix, id_salle, id_promo, etat) VALUES (:date_arrivee, :date_depart, :prix, :salle, :promo, :etat)");
-         $this->binder($query,$userData);
+         $this->Objectbinder($query,$userData);
          $result = $query->execute();
          return $result;
      }
@@ -111,7 +111,6 @@ class ProduitRepository extends EntityRepository{
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
-         //var_dump($result);
          return $result;
      }
 /* echo "SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$city."' ORDER BY p.id_produit DESC;"*/

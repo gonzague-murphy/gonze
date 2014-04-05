@@ -37,7 +37,9 @@ class ProduitController extends Controller{
     
      public function lanceSaveProduct(){
         if(isset($this->arrayPost)){
-            $this->allowInsert($this->arrayPost);
+            $prod = $this->makeObjectProduit();
+            $obj = $this->formatDateObject($prod);
+            $this->allowInsert($obj);
             $this->displaySalleHasProduct();
         }
     }
@@ -59,7 +61,9 @@ class ProduitController extends Controller{
             }
         }
       
-        
+ /*
+  * Format Date fonctions
+  */       
       public function formatDateForInsert($var){
           $format = date("Y-m-d H:i:s", strtotime($var));
           return $format;
@@ -82,6 +86,10 @@ class ProduitController extends Controller{
        }
        return $prod;
    }
+   
+/*
+ * Format Object
+ */
    
        public function formatDateObject(\Entity\Produit $obj){
            $dateA = $obj->getDateArrivee();
