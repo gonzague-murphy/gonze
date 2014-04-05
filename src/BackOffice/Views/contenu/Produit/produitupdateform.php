@@ -1,5 +1,8 @@
 <?php
-//var_dump($liste[0]);
+//var_dump($liste);
+echo "<h3>".$liste[0]->getTitre()."</h3>";
+echo "<h4>".$liste[0]->getVille()."</h4>";
+echo "<img src='".$liste[0]->getPhoto()."'/>";
 echo "<form method='post' action='?controller=ProduitController&action=lanceUpdate&id=".$_GET['id']."'>
 ";
 echo '<label>Date d\'arrivée</label>';
@@ -8,14 +11,6 @@ echo '<label>Date de départ</label>';
 echo '<input type="text" class="dateGen" name="date_depart" value="'.Backoffice\Controller\ProduitController::formatDateForDisplay($result['date_depart']).'"/>';
 echo '<label>Prix</label>';
 echo '<input type="text" name="prix" value="'.$result['prix'].'"/>';
-echo '<label>Salle (actuellement : '.$result['titre'].')</label>';
-echo '<select name="salle">';
-foreach($liste[0] as $key=>$value){
-    //var_dump($unit);
-   echo '<option value="'.$value->getIdSalle().'">'.$value->getTitre().'</option>';
-
-}
-echo "</select>";
 echo '<label>Code promo (actuellement :'.$result['code_promo'].')</label>';
 echo '<select name="promo">';
 foreach($liste[1] as $key=>$unit){

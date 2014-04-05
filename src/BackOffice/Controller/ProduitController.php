@@ -164,9 +164,9 @@ class ProduitController extends Controller{
         return $result;
     }
     
-      public function formOption(){
+      public function formOption($id){
         $sallecont = new SalleController;
-        $salles = $sallecont->listeAllForProducts();
+        $salles = $sallecont->findById($id);
         $promocont = new PromotionController;
         $promotion = $promocont->listeAllForProducts();
         return array($salles, $promotion);
@@ -184,7 +184,8 @@ class ProduitController extends Controller{
         if(isset($this->arrayGet['id'])){
             $queryTable = $this->getRepository('Produit');
             $result = $queryTable->findById($this->arrayGet['id']);
-            $choices = $this->formOption();
+            //var_dump($result);
+            $choices = $this->formOption($result['id_salle']);
             $this->view->updateForm($result, $choices);
         }
     }

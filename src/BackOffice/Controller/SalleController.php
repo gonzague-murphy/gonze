@@ -125,6 +125,16 @@ class SalleController extends Controller{
         }
     }
     
+    public function findById($id){
+        $salles = $this->getRepository('Salle')->findById($id);
+            if($salles == false){
+                echo "Cette salle n'existe pas!";
+            }
+            else{
+                return $salles;
+            }
+    }
+    
     
 /*
  * Fonctions de display
