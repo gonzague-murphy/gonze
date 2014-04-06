@@ -65,7 +65,7 @@ class ProduitController extends Controller{
             $queryTable = $this->getRepository('Produit');
             $arrayObjects = $this->makeObjectFromCart();
             for($i=0; $i <= (\sizeof($arrayObjects)-1);$i++){
-                //var_dump($arrayObjects);
+                
                 $queryTable->updateState($arrayObjects[$i]->id_produit);
             }
         }
@@ -90,25 +90,25 @@ class ProduitController extends Controller{
  * 
  */
        public function makeObjectProduit(){
-       $prod = new \Entity\Produit;
-       $this->clean($this->arrayPost);
-       foreach($this->arrayPost as $key=>$value){
-           $prod->$key = $value;
+            $prod = new \Entity\Produit;
+            $this->clean($this->arrayPost);
+           foreach($this->arrayPost as $key=>$value){
+                $prod->$key = $value;
        }
-       return $prod;
+            return $prod;
    }
    
        public function makeObjectFromCart(){
-           $prod = new \Entity\Produit;
-           $arr = array();
-           foreach(\Component\PanierSessionHandler::getPanier() as $key=>$value){
+           $cart = \Component\PanierSessionHandler::getPanier();
+           $array = array();
+           foreach($cart as $key=>$value){
+               $prod = new \Entity\Produit;
                foreach($value as $unit=>$data){
                     $prod->$unit = $data;
             }
-            array_push($arr, $prod);
+            $array[] = $prod;
          }
-         //var_dump($arr);
-         return $arr;
+         return $array;
        }
    
 /*
