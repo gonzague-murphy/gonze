@@ -37,8 +37,8 @@ var rechercheAjax = function(){
     });
 };
 
-var x = function(){
-        $('#logMeIn').css({'display' : 'none'});
+var launching = function(){
+    $('#logMeIn').css({'display' : 'none'});
         $('.user_menu ul').prepend("<li id='connexion'>Connexion </li>");
         $('#twoway').css({'height' : '100px'});
         $('#connexion').click(function(){
@@ -47,6 +47,27 @@ var x = function(){
                 $('#connexion').css({'display' : 'none'});
             });
         });
+        
+};
+
+var loginSubmit = function(){
+    $('#logMeIn').submit(function(event){
+        /*var pseudo = $('#pseudo').val();
+        var mdp = $('#mdp').val();
+        //alert(pseudo);
+        var dataString = 'pseudo=' + pseudo + '&mdp=' + mdp;
+        $.ajax({
+            type: "POST",
+            url: "index.php?controller=MembreController&action=lanceLogin",
+            data: dataString
+        });*/
+        event.preventDefault();
+    });
+}
+
+var x = function(){
+        launching();
+        loginSubmit();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('#galerie').fadeIn(1800, function(){
         });
