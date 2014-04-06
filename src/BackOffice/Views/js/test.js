@@ -42,7 +42,6 @@ var launching = function(){
         $('#twoway').css({'height' : '100px'});
         $('#connexion').click(function(){
             $('#twoway').animate({'height' : '210px'}, 250, function(){
-                temoin = true;
                 $('#logMeIn').css({'display' : 'block'});
                 $('#connexion').css({'display' : 'none'});
             
@@ -51,19 +50,30 @@ var launching = function(){
         
 };
 
+var succesLogin = function(){
+    $.ajax({
+        type : "GET",
+        async : true,
+        url : "index.php?controller=DefaultController&action=indexDisplay"
+    });
+};
+
 var loginSubmit = function(){
     $('#logMeIn').submit(function(event){
+        event.preventDefault();
         var pseudo = $('#pseudo').val();
         var mdp = $('#mdp').val();
         //alert(pseudo);
         var dataString = 'pseudo=' + pseudo + '&mdp=' + mdp;
         $.ajax({
             type: "POST",
+            async : true,
             url: "index.php?controller=MembreController&action=lanceLogin",
             data: dataString,
-            success : cutCon
+            success : function(){
+                $('html').load("index.php?controller=DefaultController&action=indexDisplay");
+            }
         });
-        event.preventDefault();
     });
 };
 

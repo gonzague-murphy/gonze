@@ -268,10 +268,6 @@ h3 {
 */
 
 
-.invisible{
-    display : none;
-}
-
 body{
     font-family: 'Alegreya Sans', sans-serif;
     font-weight : 400;
@@ -383,6 +379,12 @@ select{
 #mainMenu ul li ul li a{
     color : #000000;
     font-weight : 300;
+}
+
+/* Connexion dans le user_menu */
+
+.invisible{
+    display : none;
 }
 
 .user_menu li{
