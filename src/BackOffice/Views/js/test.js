@@ -39,12 +39,13 @@ var rechercheAjax = function(){
 
 var launching = function(){
     $('#logMeIn').css({'display' : 'none'});
-        $('.user_menu ul').prepend("<li id='connexion'>Connexion </li>");
         $('#twoway').css({'height' : '100px'});
         $('#connexion').click(function(){
             $('#twoway').animate({'height' : '210px'}, 250, function(){
+                temoin = true;
                 $('#logMeIn').css({'display' : 'block'});
                 $('#connexion').css({'display' : 'none'});
+            
             });
         });
         
@@ -52,18 +53,19 @@ var launching = function(){
 
 var loginSubmit = function(){
     $('#logMeIn').submit(function(event){
-        /*var pseudo = $('#pseudo').val();
+        var pseudo = $('#pseudo').val();
         var mdp = $('#mdp').val();
         //alert(pseudo);
         var dataString = 'pseudo=' + pseudo + '&mdp=' + mdp;
         $.ajax({
             type: "POST",
             url: "index.php?controller=MembreController&action=lanceLogin",
-            data: dataString
-        });*/
+            data: dataString,
+            success : cutCon
+        });
         event.preventDefault();
     });
-}
+};
 
 var x = function(){
         launching();

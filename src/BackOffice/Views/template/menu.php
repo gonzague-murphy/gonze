@@ -32,9 +32,9 @@ function makeUserMenu(){
         echo "<nav class='user_menu'>";?>
 <form id="logMeIn" method="post" action="?controller=MembreController&action=lanceLogin">
             <label>Pseudo :</label>
-            <input type="text" name="pseudo" /><br/>
+            <input id="pseudo" type="text" name="pseudo" /><br/>
             <label>Password :</label>
-            <input type="password" name="mdp" /><br/>
+            <input id="mdp" type="password" name="mdp" /><br/>
             <input type="submit" value="send"/>
 </form>
         
@@ -42,6 +42,9 @@ function makeUserMenu(){
 
 <?php
         echo "<ul>";
+        echo"<noscript><div class='invisible'></noscript>";
+        echo "<li id='connexion'>Connexion </li>";
+        echo "<noscript></div></noscript>";
         echo "<li><a href='?controller=MembreController&action=signUpForm'>Inscription</a></li>";
         echo "</ul>";
         echo "</nav>";
