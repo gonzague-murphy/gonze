@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>
 		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/jquery.datetimepicker.css"/>
-<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,400italic,500' rel='stylesheet' type='text/css'>		<!--<script src="../src/BackOffice/Views/js/GGS.js"></script>-->
+                <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,400italic,500' rel='stylesheet' type='text/css'>		<!--<script src="../src/BackOffice/Views/js/GGS.js"></script>-->
                 <script type="text/javascript" src="../src/BackOffice/Views/js/jquery-1.10.2.js"></script>
 		<!-- 
 			This script enables structural HTML5 elements in old IE.
