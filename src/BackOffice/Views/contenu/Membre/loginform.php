@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <form method="post" action="?controller=MembreController&action=lanceLogin">
             <label>Pseudo :</label>
             <input type="text" name="pseudo" /><br/>

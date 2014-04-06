@@ -29,9 +29,17 @@ function makeUserMenu(){
         echo "</nav>";
 }
     else{
-        echo "<nav class='user_menu'>";
+        echo "<nav class='user_menu'>";?>
+<form id= 'logMeIn' method="post" action="?controller=MembreController&action=lanceLogin">
+            <label>Pseudo :</label>
+            <input type="text" name="pseudo" /><br/>
+            <label>Password :</label>
+            <input type="password" name="mdp" /><br/>
+            <input type="submit" value="send"/>
+</form>
+  
+<?php
         echo "<ul>";
-        echo "<li><a href='?controller=MembreController&action=loginDisplay'>Connexion </a></li>";
         echo "<li><a href='?controller=MembreController&action=signUpForm'>Inscription</a></li>";
         echo "</ul>";
         echo "</nav>";

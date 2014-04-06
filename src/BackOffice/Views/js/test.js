@@ -1,17 +1,3 @@
-var x = function(){
-        $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
-        $('#galerie').fadeIn(1800, function(){
-        });
-        accueil();
-        $('#loupe input').focus(function(){
-            //alert('hello');
-            $(this).animate({'width' : '20%'}, 280, function(){
-                //alert("hello!");
-            });
-        });
-        rechercheAjax();
-    };
-
 var i = 0;
 
 var breathLeft = function(){
@@ -50,6 +36,29 @@ var rechercheAjax = function(){
         $("#galerie").load("index.php?controller=ProduitController&action=triVille", valInput);
     });
 };
+
+var x = function(){
+        $('#logMeIn').css({'display' : 'none'});
+        $('.user_menu ul').prepend("<li id='connexion'>Connexion </li>");
+        $('#twoway').css({'height' : '100px'});
+        $('#connexion').click(function(){
+            $('#twoway').animate({'height' : '210px'}, 250, function(){
+                $('#logMeIn').css({'display' : 'block'});
+                $('#connexion').css({'display' : 'none'});
+            });
+        });
+        $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
+        $('#galerie').fadeIn(1800, function(){
+        });
+        accueil();
+        $('#loupe input').focus(function(){
+            //alert('hello');
+            $(this).animate({'width' : '20%'}, 280, function(){
+                //alert("hello!");
+            });
+        });
+        rechercheAjax();
+    };
 
 
 

@@ -44,7 +44,7 @@ class ProduitRepository extends EntityRepository{
  * la commande
  */
      public function updateProduit($userData, $id){
-         $query = $this->getDb()->prepare("UPDATE produit SET date_arrivee=:date_arrivee, date_depart=:date_depart, prix=:prix, id_salle=:salle, id_promo=:promo, etat=:etat WHERE id_produit='$id'");
+         $query = $this->getDb()->prepare("UPDATE produit SET date_arrivee=:date_arrivee, date_depart=:date_depart, prix=:prix, id_promo=:promo, etat=:etat WHERE id_produit='$id'");
          $this->objectBinder($query,$userData);
          //var_dump($userData);
          $result = $query->execute();
@@ -96,6 +96,17 @@ class ProduitRepository extends EntityRepository{
      }
      
 /*
+ * Query tous produits admin
+ */
+     
+     public function selectHasProductAdmin(){
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.etat, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle");
+         $query->setFetchMode(PDO::FETCH_ASSOC);
+         $query->execute();
+         $result = $query->fetchAll();
+         return $result;  
+     }
+/*
  * Query select par date d'ajout
  */
      
@@ -138,7 +149,7 @@ class ProduitRepository extends EntityRepository{
                 if(!in_array($key, $cles)){
                     $query->bindValue(":$key",$value);
                 }
-            }
+            }   
         }
      
 

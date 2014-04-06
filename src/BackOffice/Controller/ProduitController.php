@@ -48,6 +48,7 @@ class ProduitController extends Controller{
  * Update
  * 
  */   public function allowUpdate($id, $data=array()){
+     //var_dump($data);
             $queryTable= $this->getRepository('Produit');
             $queryTable->updateProduit($data, $id);
  }
@@ -210,7 +211,7 @@ class ProduitController extends Controller{
     
        public function displaySalleHasProduct(){
         $value = $this->getRepository('Produit');
-        $liste = $value->selectHasProduct();
+        $liste = $value->selectHasProductAdmin();
         $this->view->displayForAdmin($liste);
     }
     

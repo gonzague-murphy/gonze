@@ -118,11 +118,10 @@ pas avoir à la "défaire" ensuite pour les resolutions mobiles*/
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
 
-/*header,*/ #twoway {
-  //margin: 0 5.555555555555555%;
-  width :100%;
-  height : 50px;
-  padding : 7px 15px;
+#twoway {
+  /*width :100%;
+  height : 180px;
+  padding : 7px 15px;*/
   position : relative;
 }
 
@@ -196,7 +195,7 @@ h3 {
     padding : 1% 1.1%;
 }
 
-.user_menu li, #mainMenu li, #admin_menu li{
+#mainMenu li, #admin_menu li{
     padding : 0px 10px;
 }
 
@@ -262,7 +261,11 @@ h3 {
 
 }
 
-/* Mise en forme police etc...*/
+/* 
+* Mise en forme police etc...
+*
+*
+*/
 body{
     font-family: 'Alegreya Sans', sans-serif;
     font-weight : 400;
@@ -272,7 +275,6 @@ h1{
   font-family: 'gladifiltheftegladifilthefte';
   color : #ffa823;
   font-size : 46px;
-  //text-align : center;
 }
 
 form input{
@@ -298,17 +300,17 @@ select{
 }
 
 #twoway{
-  //background-color : #243a40;
   position : relative;
   margin: 0 5.555555555555555% 2% 5.555555555555555%;
   width : 80%;
   padding-bottom : 2%;
   border-bottom : solid 1px;
+  height : 210px;
+  padding : 7px 15px;
 
 }
 
 #menu{
-    //border-bottom : solid 0.5px;
     margin-bottom : 1em;
     height : 3em;
     background-color : black;
@@ -319,12 +321,15 @@ select{
     text-align : center;
 }
 
+#connexion{
+    cursor : pointer;
+}
+
 #adminLi{
     position : relative;
 }
 
 #adminLi a{
-    //background-color : yellow;
     padding : 100% 100%;
 }
 
@@ -345,14 +350,12 @@ select{
     top : 120%;
     z-index : 1;
     width : 185%;
-    //background-color : pink;
 }
 
 
 .admin_menu li a{
     text-align : left;
     font-size : 1em;
-    //position : relative;
     color : black;
 }
 
@@ -374,6 +377,14 @@ select{
 #mainMenu ul li ul li a{
     color : #000000;
     font-weight : 300;
+}
+
+.user_menu li{
+    padding : 0.6% 0;
+}
+
+.user_menu ul{
+    margin-top : 1%;
 }
 
 #latest h5 a{
@@ -435,6 +446,15 @@ h4 a{
     width : 66%;
     height : auto;
     margin-bottom : 5%;
+}
+
+.produit .reserved{
+    border : solid 1px red;
+    width : 25%;
+}
+
+.produit .reserved p{
+    color : red;
 }
 
 #cart li{
