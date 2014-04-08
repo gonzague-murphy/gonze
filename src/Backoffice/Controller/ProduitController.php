@@ -199,6 +199,14 @@ class ProduitController extends Controller{
         $this->view->addForm($promotion, $salles);
     }
     
+    public function formOnly(){
+        $sallecont = new SalleController;
+        $salles = $sallecont->listeAllForProducts();
+        $promocont = new PromotionController;
+        $promotion = $promocont->listeAllForProducts();
+        $this->view->addFormPartial($promotion, $salles);
+    }
+    
        public function displayUpdateProduit(){
         if(isset($this->arrayGet['id'])){
             $queryTable = $this->getRepository('Produit');

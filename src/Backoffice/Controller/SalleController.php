@@ -55,7 +55,7 @@ class SalleController extends Controller{
    public function sanitizePhoto(\Entity\Salle $salle){
        if(($this->files['photo']['name']) !== ''){
             if($this->checkFileExt($this->files['photo']['name']) == 1){
-               $nomPhoto = $this->racineSite.'src/BackOffice/Views/img/'.$this->files['photo']['name'];
+               $nomPhoto = $this->racineSite.'src/Backoffice/Views/img/'.$this->files['photo']['name'];
                $salle->setPhoto($nomPhoto);
                $this->uploadPhoto($salle);
                return $salle;

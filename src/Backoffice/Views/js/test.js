@@ -17,6 +17,13 @@ var breathLeft = function(){
     }
 };
 
+var formAdmin = function(){
+    $('.adminAdd').click(function(event){
+        event.preventDefault();
+        $('#galerie').load("index.php?controller=ProduitController&action=formOnly");
+    });
+};
+
 //Hover sur salles de page d'accueil
 var accueil = function(){
     $('.boxArticle').hover(function(){
@@ -83,6 +90,7 @@ var loginSubmit = function(){
 
 var x = function(){
         launching();
+        formAdmin();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('#galerie').fadeIn(1800, function(){
         });

@@ -7,12 +7,12 @@
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<title><?php echo "Lokisalle | ".$title;?></title>
-                <link rel="icon" type="image/png" href="../src/BackOffice/Views/img/favicon.ico" />
+                <link rel="icon" type="image/png" href="../src/Backoffice/Views/img/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/style.css"/>
-		<link rel = "stylesheet" href = "../src/BackOffice/Views/css/jquery.datetimepicker.css"/>
-                <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,400italic,500' rel='stylesheet' type='text/css'>		<!--<script src="../src/BackOffice/Views/js/GGS.js"></script>-->
-                <script type="text/javascript" src="../src/BackOffice/Views/js/jquery-1.10.2.js"></script>
+		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/style.css"/>
+		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/jquery.datetimepicker.css"/>
+                <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,400italic,500' rel='stylesheet' type='text/css'>		<!--<script src="../src/Backoffice/Views/js/GGS.js"></script>-->
+                <script type="text/javascript" src="../src/Backoffice/Views/js/jquery-1.10.2.js"></script>
 		<!-- 
 			This script enables structural HTML5 elements in old IE.
 			http://code.google.com/p/html5shim/
@@ -42,8 +42,8 @@
       </div>
          <!---->
      </div><!--fin div .wrapper -->
-     <script src="../src/BackOffice/Views/js/jquery.datetimepicker.js"></script>
-     <script src="../src/BackOffice/Views/js/test.js"></script>
+     <script src="../src/Backoffice/Views/js/jquery.datetimepicker.js"></script>
+     <script src="../src/Backoffice/Views/js/test.js"></script>
      <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
      <script>
                 // Replace the <textarea id="editor1"> with a CKEditor

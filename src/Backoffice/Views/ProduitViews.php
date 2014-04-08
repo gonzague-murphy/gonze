@@ -42,6 +42,13 @@ class ProduitViews extends Views{
            ));
     }
     
+    public function addFormPartial($promotion, $salles){
+        $this->partialRender('produitform.php', array(
+            'promotion' => $promotion,
+            'salles' => $salles
+        ));
+    }
+    
     public function updateForm($data = array(), $args = array()){
         $this->render('template_accueil.php', 'produitupdateform.php',array(
             'result'=>$data,
