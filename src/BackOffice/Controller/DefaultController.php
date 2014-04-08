@@ -1,7 +1,6 @@
 <?php
 namespace Backoffice\Controller;
 USE Controller\Controller;
-require_once(__DIR__."/../Views/template/menu.php");
 
 class DefaultController extends Controller{
     
@@ -12,10 +11,17 @@ class DefaultController extends Controller{
         $this->view->indexDisplay($salle);
     }
     
-    public function makeMenu(){
-        makeMenu();
-        makeUserMenu();
-    }
+/*
+ * Fonction no result
+ */
+    
+/*
+ * Error 404
+ */
+
+/*
+ * Error 503
+ */
     
 }
 
