@@ -61,6 +61,7 @@ var succesLogin = function(){
 var loginSubmit = function(){
     $('#logMeIn').submit(function(event){
         event.preventDefault();
+        $('#twoway').css({'height' : '100px'});
         var pseudo = $('#pseudo').val();
         var mdp = $('#mdp').val();
         //alert(pseudo);
@@ -71,15 +72,17 @@ var loginSubmit = function(){
             url: "index.php?controller=MembreController&action=lanceLogin",
             data: dataString,
             success : function(){
-                $('html').load("index.php?controller=DefaultController&action=indexDisplay");
+                $(document).load("index.php?controller=DefaultController&action=makeMenu", function(){
+                alert("All es klar");
+                });
             }
         });
+    /*index.php?controller=DefaultController&action=indexDisplay*/    
     });
 };
 
 var x = function(){
         launching();
-        loginSubmit();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('#galerie').fadeIn(1800, function(){
         });
