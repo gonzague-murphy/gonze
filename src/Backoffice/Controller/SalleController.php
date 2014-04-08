@@ -15,7 +15,8 @@ class SalleController extends Controller{
             $queryTable = $this->getRepository('Salle');
             $queryTable->addSalle($salle);
             $total = $queryTable->findAll();
-            $this->view->displayForAdmin($total);
+            header('Location: index.php?controller=SalleController&action=displayForAdmin');
+            exit;
         }
     }
     
@@ -30,8 +31,10 @@ class SalleController extends Controller{
             $proto = $this->makeObjectSalle();
             $salle = $this->sanitizePhoto($proto);
             $queryTable = $this->getRepository('Salle');
+            //var_dump($salle);
             $queryTable->updateSalle($this->arrayGet['id'], $salle);
-            $this->displayForAdmin();
+            header('Location: index.php?controller=SalleController&action=displayForAdmin');
+            exit;
        }
    }
    

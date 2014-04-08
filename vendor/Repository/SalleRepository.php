@@ -58,8 +58,9 @@ class SalleRepository extends EntityRepository{
      
 
         public function objectBinder($query, \Entity\Salle $salle){
+            $whiteList = array('id_salle', 'submit', 'photoActuelle');
             foreach($salle as $key=>$value){
-                if($key != 'id_salle' && $key != 'submit'){
+                if(!in_array($key, $whiteList)){
                     $query->bindValue(":$key",$value);
                 }
             }

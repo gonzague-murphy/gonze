@@ -40,7 +40,8 @@ class ProduitController extends Controller{
             $prod = $this->makeObjectProduit();
             $obj = $this->formatDateObject($prod);
             $this->allowInsert($obj);
-            $this->displaySalleHasProduct();
+            header('Location: index.php?controller=ProduitController&action=displaySalleHasProduct');
+            exit;
         }
     }
     

@@ -267,10 +267,19 @@ h3 {
 *
 */
 
+html{
+    height : 100%;
+}
 
 body{
     font-family: 'Alegreya Sans', sans-serif;
     font-weight : 400;
+    height : 100%;
+    overflow: scroll;
+}
+
+.wrapper{
+    height : 100%;
 }
 
 h1{
