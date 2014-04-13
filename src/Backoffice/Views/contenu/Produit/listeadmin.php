@@ -1,7 +1,7 @@
 <?php
 //var_dump($liste);
 echo "<div id='galerie'>";
-echo "<a class='adminAdd' href='?controller=ProduitController&action=displayForm'><span>+</span>Ajouter un produit</a><br/>";
+echo "<a href='?controller=ProduitController&action=displayForm'><span>+</span>Ajouter un produit</a><br/>";
 echo "<ul class='produit'>";
 foreach($liste as $salle=>$unit){
     if($unit['etat'] == 1){

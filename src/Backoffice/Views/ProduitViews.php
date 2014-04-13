@@ -12,7 +12,7 @@ class ProduitViews extends Views{
     
     public function displayListe($args){
         $this->render('template_accueil.php', 'listenormal.php', array(
-            'title'=>'Lokisalle',
+            'title'=>'Toutes les salles',
             'liste'=>$args
         ), true);
     }
@@ -27,7 +27,7 @@ class ProduitViews extends Views{
     
     public function displayForAdmin($result){
         $this->render('template_accueil.php', 'listeadmin.php', array(
-            'title'=>'Lokisalle',
+            'title'=>'Toutes les salles',
             'liste' =>$result
         ));
     }
@@ -36,7 +36,7 @@ class ProduitViews extends Views{
     
     public function addForm($promotion, $salles){
         $this->render('template_accueil.php', 'produitform.php',array(
-            'title' => 'Lokisalle',
+            'title' => 'Ajouter un produit',
             'promotion' => $promotion,
             'salles' => $salles
            ));
@@ -51,6 +51,7 @@ class ProduitViews extends Views{
     
     public function updateForm($data = array(), $args = array()){
         $this->render('template_accueil.php', 'produitupdateform.php',array(
+            'title'=>$args[0]->getTitre(),
             'result'=>$data,
             'liste' =>$args
         ));

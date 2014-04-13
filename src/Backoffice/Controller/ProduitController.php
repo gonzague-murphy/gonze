@@ -39,9 +39,11 @@ class ProduitController extends Controller{
         if(isset($this->arrayPost)){
             $prod = $this->makeObjectProduit();
             $obj = $this->formatDateObject($prod);
-            $this->allowInsert($obj);
-            header('Location: index.php?controller=ProduitController&action=displaySalleHasProduct');
-            exit;
+            if($this->checkDoubleDate($obj) == false){
+                $this->allowInsert($obj);
+                header('Location: index.php?controller=ProduitController&action=displaySalleHasProduct');
+                exit;
+            }
         }
     }
     
@@ -85,6 +87,20 @@ class ProduitController extends Controller{
       public static function formatDateForDisplay($var){
           $format = date("d-m-Y H:i:s", strtotime($var));
           return $format;
+      }
+      
+      public function checkDoubleDate(\Entity\Produit $object){
+          $dateObject = new \DateTime($this->formatDateForInsert($object->date_arrivee));
+          $result = $dateObject->format('Y-m-d');
+          $number = $this->getRepository('Produit')->checkForDoubles($object->salle, $result);
+          //var_dump($number);
+          if($number == 0){
+              return false;
+          }
+          else{
+              $this->msg='<div class="error">Il exist déjà un produit sur cette salle aux mêmes dates!</div>';
+              echo $this->msg;
+          }
       }
     
 /*

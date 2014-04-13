@@ -4,7 +4,9 @@
 <p><?php echo $liste['description']; ?></p>
 <p>Prix : <?php echo $liste['prix']; ?> €</p>
 <h3>Avis :</h3>
-<?php foreach($avis as $key=>$value){
+<?php 
+var_dump($avis);
+foreach($avis as $key=>$value){
     echo "<h4>".$value['pseudo']."</h4>";
     echo "<p>".$value['commentaire']."</p>";
     echo "<p>Note attribuée :".$value['note']."</p>";

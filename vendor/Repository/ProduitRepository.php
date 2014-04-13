@@ -11,21 +11,13 @@ class ProduitRepository extends EntityRepository{
  * (on compare le titre des salles dans le controller)
  */
     
-    public function checkForDoubles($userData = array()){
-            $date_arrivee = $this->findByKey('date_arrivee', $userData);
-            $id_salle = $this->findByKey('salle', $userData);
-            $query = $this->getDb()->prepare("SELECT * FROM ".$this->getTableName()." WHERE date_arrivee='$date_arrivee' AND id_salle='$id_salle'");
+    public function checkForDoubles($id_salle, $date_arrivee){
+            $query = $this->getDb()->prepare("SELECT COUNT(id_produit) FROM ".$this->getTableName()." WHERE date_arrivee LIKE '$date_arrivee%' AND id_salle='$id_salle'");
             $query->execute();
             $result = $query->rowCount();
-            if($result <=0){
-                return false;
-            }
-            else{
-                return true;
-            } 
+            return $result;
         }
         
-    
 /*
  * Add query
  * 
@@ -88,7 +80,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function selectHasProduct(){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat=0");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat=0 AND p.date_arrivee > CURDATE()");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();

@@ -17,7 +17,7 @@ class CommandeViews extends Views{
     
     public function displayFicheDetail($args) {
         $this->render('template_accueil.php', 'recapcommande.php', array(
-            'title'=>'test',
+            'title'=>'Recapitulation de votre commande',
             'commande'=>$args
         ));
     }

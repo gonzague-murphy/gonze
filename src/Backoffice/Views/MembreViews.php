@@ -19,7 +19,7 @@ class MembreViews extends Views{
     
     public function displayForAdmin($result){
         $this->render('template_accueil.php', 'membre.php', array(
-            'title'=>'Lokisalle',
+            'title'=>'Tous les membres',
             'membres'=>$result
         ));
     }
@@ -29,9 +29,7 @@ class MembreViews extends Views{
     
     public function signUpForm(){
         $this->render('template_accueil.php','formsignup.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-
+            'title'=>'S\'inscrire',
         ));
     }
     
@@ -43,9 +41,7 @@ class MembreViews extends Views{
     
     public function loginDisplay(){
         $this->render('template_accueil.php','loginform.php',array(
-            'title'=>'Youpi-Coinz!',
-            'subtitle'=>'juste pour etre sur',
-
+            'title'=>'Connectez-vous',
         ));
         
     }

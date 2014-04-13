@@ -23,13 +23,13 @@ class SalleViews extends Views{
     
     public function addSalleForm(){
         $this->render('template_accueil.php', 'salleformadd.php', array(
-            'title'=> 'Lokisalle'
+            'title'=> 'Ajouter une salle'
         ));
     }
     
     public function updateSalleForm($args){
         $this->render('template_accueil.php', 'salleform.php',array(
-            'title'=>'Bienvenue, Admin',
+            'title'=>'Modifier une salle',
             'salles'=>$args
         ));
     }
