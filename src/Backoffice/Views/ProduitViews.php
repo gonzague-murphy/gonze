@@ -34,11 +34,12 @@ class ProduitViews extends Views{
 //:::::::::FORMULAIRES:::::::::
 //:::::::::::::::::::::::::::::
     
-    public function addForm($promotion, $salles){
+    public function addForm($promotion, $salles, $msg){
         $this->render('template_accueil.php', 'produitform.php',array(
             'title' => 'Ajouter un produit',
             'promotion' => $promotion,
-            'salles' => $salles
+            'salles' => $salles,
+            'msg'=>$msg
            ));
     }
     

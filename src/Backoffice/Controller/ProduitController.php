@@ -39,7 +39,12 @@ class ProduitController extends Controller{
         if(isset($this->arrayPost)){
             $prod = $this->makeObjectProduit();
             $obj = $this->formatDateObject($prod);
-            if($this->checkDoubleDate($obj) == false){
+            $this->checkDoubleDate($obj);
+            if(!empty($this->msg)){
+                $this->displayForm();
+                echo $this->msg;
+            }
+            else{
                 $this->allowInsert($obj);
                 header('Location: index.php?controller=ProduitController&action=displaySalleHasProduct');
                 exit;
@@ -93,13 +98,12 @@ class ProduitController extends Controller{
           $dateObject = new \DateTime($this->formatDateForInsert($object->date_arrivee));
           $result = $dateObject->format('Y-m-d');
           $number = $this->getRepository('Produit')->checkForDoubles($object->salle, $result);
-          //var_dump($number);
-          if($number == 0){
-              return false;
+          if($number !== 0){
+              $this->msg='Il existe deja une produit pour cette salle à la meme date!';
+              return $this->msg;
           }
           else{
-              $this->msg='<div class="error">Il exist déjà un produit sur cette salle aux mêmes dates!</div>';
-              echo $this->msg;
+              return false;
           }
       }
     
@@ -213,7 +217,7 @@ class ProduitController extends Controller{
         $salles = $sallecont->listeAllForProducts();
         $promocont = new PromotionController;
         $promotion = $promocont->listeAllForProducts();
-        $this->view->addForm($promotion, $salles);
+        $this->view->addForm($promotion, $salles, $this->msg);
     }
     
     public function formOnly(){

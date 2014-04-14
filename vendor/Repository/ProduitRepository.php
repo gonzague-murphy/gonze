@@ -12,7 +12,8 @@ class ProduitRepository extends EntityRepository{
  */
     
     public function checkForDoubles($id_salle, $date_arrivee){
-            $query = $this->getDb()->prepare("SELECT COUNT(id_produit) FROM ".$this->getTableName()." WHERE date_arrivee LIKE '$date_arrivee%' AND id_salle='$id_salle'");
+            //var_dump($id_salle, $date_arrivee);
+            $query = $this->getDb()->prepare("SELECT * FROM produit WHERE id_salle='$id_salle' AND date_arrivee LIKE '$date_arrivee%'");
             $query->execute();
             $result = $query->rowCount();
             return $result;
