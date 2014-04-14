@@ -11,7 +11,8 @@ class MembreController extends Controller{
     
    public function lanceSignUp(){
        if(isset($this->arrayPost)){
-            $this->signUp($this->arrayPost);
+           //var_dump($this->arrayPost);
+            $this->signUp();
             if(empty($this->msg)){
             $new = new DefaultController;
             $new->indexDisplay();
@@ -24,6 +25,7 @@ class MembreController extends Controller{
     
     public function lanceLogin(){
        if($this->isPostSet()!=false){
+           var_dump($this->arrayPost);
             $this->loginUser($this->arrayPost);
             $default = new DefaultController;
             $default->indexDisplay();
@@ -54,11 +56,14 @@ class MembreController extends Controller{
  * @return object $this->user instance de la Classe Membre
  */
 
-    public function signUp($data =array()){
-        $this->clean($data);
-        $testDoubles = $this->checkDoubleEntry('Membre',$data);
-        if($testDoubles == 0){
-            $this->formValidation('allowInsert', $data);
+    public function signUp(){
+        //var_dump($this->arrayPost);
+        //$this->clean($this->arrayPost);
+        $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
+        //var_dump($testDoubles);
+        if($testDoubles == false){
+            //$this->checkForEmptyFields($this->arrayPost);
+            $this->allowInsert($this->arrayPost);
            }
                 
          else{

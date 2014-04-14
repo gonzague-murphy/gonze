@@ -56,6 +56,7 @@ class Controller{
     
     public function formValidation($fonction1, $data=array()){
         $this->clean($data);
+        //var_dump($data);
         $this->msg = $this->checkForEmptyFields($data);
         if(empty($this->msg)){
             $table = explode('\\', get_called_class());
@@ -93,6 +94,7 @@ class Controller{
  */
     
     public function checkForEmptyFields($args = array()){
+        //var_dump($args);
         foreach($args as $key=>$value){
             $newValue  = trim($value);
             if(empty($newValue)){
