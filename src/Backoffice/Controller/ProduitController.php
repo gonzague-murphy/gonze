@@ -99,7 +99,7 @@ class ProduitController extends Controller{
           $result = $dateObject->format('Y-m-d');
           $number = $this->getRepository('Produit')->checkForDoubles($object->salle, $result);
           if($number !== 0){
-              $this->msg='Il existe deja une produit pour cette salle à la meme date!';
+              $this->msg='Il existe déjà une produit pour cette salle à la meme date!';
               return $this->msg;
           }
           else{

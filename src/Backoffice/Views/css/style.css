@@ -310,6 +310,11 @@ select{
     display : block;
 }
 
+.error{
+    color : red;
+    text-shadow: 1px;
+}
+
 #twoway{
   position : relative;
   margin: 0 5.555555555555555% 2% 5.555555555555555%;

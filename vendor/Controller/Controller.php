@@ -77,7 +77,7 @@ class Controller{
     public function clean(&$args){
         foreach($args as &$data){
             if(!is_array($data)){
-                  $data = preg_replace('`^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$`','', $data);
+                  $data = \htmlentities($data, ENT_QUOTES);
             }
             else{
 //on rapelle la fonction tant que tout l'array n'y est pas passé

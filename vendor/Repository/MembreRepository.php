@@ -75,7 +75,6 @@ class MembreRepository extends EntityRepository{
         public function checkForDoubles($userData = array()){
             $pseudo = $userData['pseudo'];
             $mail = $userData['email'];
-            //var_dump($mail, $pseudo);
             $query = $this->getDb()->prepare("SELECT * FROM ".$this->getTableName()." WHERE email='$mail' OR pseudo='$pseudo'");
             $query->execute();
             $result = $query->rowCount();

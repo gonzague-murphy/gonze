@@ -58,11 +58,11 @@ class MembreController extends Controller{
 
     public function signUp(){
         //var_dump($this->arrayPost);
-        //$this->clean($this->arrayPost);
+        $this->clean($this->arrayPost);
         $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
         //var_dump($testDoubles);
         if($testDoubles == false){
-            //$this->checkForEmptyFields($this->arrayPost);
+            $this->checkForEmptyFields($this->arrayPost);
             $this->allowInsert($this->arrayPost);
            }
                 
