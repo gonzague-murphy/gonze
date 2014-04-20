@@ -17,11 +17,11 @@ class ProduitViews extends Views{
         ), true);
     }
     
-    public function displayFicheDetail($args, $moreArgs) {
+    public function displayFicheDetail($args, $avis) {
         $this->render('template_accueil.php', 'produitdetails.php', array(
             'title'=> $args['titre'],
             'liste'=> $args,
-            'avis'=>$moreArgs
+            'avis'=>$avis,
         ));
     }
     

@@ -254,8 +254,9 @@ class ProduitController extends Controller{
         $me = $this->getRepository('Produit');
         $result = $me->findById($this->arrayGet['id']);
         $avis = new AvisController();
-        $allavis = $avis->findBySalle($this->arrayGet['id']);
-        $this->view->displayFicheDetail($result, $allavis);
+        $tousLesAvis = $avis->findBySalle($result['id_salle']);
+        $msg1 = $avis->msg;
+        $this->view->displayFicheDetail($result, $tousLesAvis);
     }
     
 }

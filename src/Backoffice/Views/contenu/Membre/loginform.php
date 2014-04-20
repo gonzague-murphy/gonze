@@ -4,4 +4,5 @@
             <label>Password :</label>
             <input type="password" name="mdp" /><br/>
             <input type="submit" value="send"/>
-        </form>
+</form>
+<a href='?controller=MembreController&action=lostPwdForm'>Mot de passe oublié?</a>

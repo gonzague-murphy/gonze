@@ -20,8 +20,6 @@ class SalleController extends Controller{
         }
     }
     
-    
-    
 /*
  * Update
  * 

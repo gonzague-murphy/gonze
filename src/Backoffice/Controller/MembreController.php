@@ -11,21 +11,32 @@ class MembreController extends Controller{
     
    public function lanceSignUp(){
        if(isset($this->arrayPost)){
-           //var_dump($this->arrayPost);
-            $this->signUp();
+           $this->verifSignUp();
             if(empty($this->msg)){
+            $this->signUp();
             $new = new DefaultController;
             $new->indexDisplay();
             }
             else{
-                $this->view->loginDisplay();
+                $this->signUpForm();
             }
         }
     }
     
+    public function verifSignUp(){
+            $this->clean($this->arrayPost);
+            $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
+            if($testDoubles == false){
+            $this->checkForEmptyFields($this->arrayPost);
+            }
+            else{
+            $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
+            } 
+            echo $this->msg;
+    }
+    
     public function lanceLogin(){
        if($this->isPostSet()!=false){
-           var_dump($this->arrayPost);
             $this->loginUser($this->arrayPost);
             $default = new DefaultController;
             $default->indexDisplay();
@@ -57,19 +68,17 @@ class MembreController extends Controller{
  */
 
     public function signUp(){
-        //var_dump($this->arrayPost);
-        $this->clean($this->arrayPost);
+        /*$this->clean($this->arrayPost);
         $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
-        //var_dump($testDoubles);
         if($testDoubles == false){
-            $this->checkForEmptyFields($this->arrayPost);
+            $this->checkForEmptyFields($this->arrayPost);*/
             $this->allowInsert($this->arrayPost);
-           }
+           /*}*/
                 
-         else{
+         /*else{
             $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
           } 
-         echo $this->msg;
+         echo $this->msg;*/
     }
     
     public function allowInsert($data = array()){
@@ -80,7 +89,6 @@ class MembreController extends Controller{
           }
         else{
             $myObject = $queryTable->loginQuery($data);
-            //var_dump($myObject);
             if($myObject == false){
                 echo "non";
             }

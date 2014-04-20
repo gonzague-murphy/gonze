@@ -5,7 +5,9 @@ USE Views\Views;
 class AvisViews extends Views{
     
     public function displayListe($args){
-        echo "";
+        $this->partialRender('listecomments.php', array(
+            'avis'=>$args
+        ));
     }
     
     public function displayForAdmin($args){

@@ -36,8 +36,10 @@ function makeUserMenu(){
             <label>Password :</label>
             <input id="mdp" type="password" name="mdp" /><br/>
             <input type="submit" value="send"/>
+<a href='?controller=MembreController&action=lostPwdForm'>Mot de passe oublié?</a>
 </form>
-        
+
+
 
 
 <?php
