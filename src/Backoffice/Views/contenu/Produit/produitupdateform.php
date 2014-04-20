@@ -3,6 +3,7 @@
 echo "<h3>".$liste[0]->getTitre()."</h3>";
 echo "<h4>".$liste[0]->getVille()."</h4>";
 echo "<img src='".$liste[0]->getPhoto()."'/>";
+echo "<div class='error'>".$msg."</div><br/>";
 echo "<form method='post' action='?controller=ProduitController&action=lanceUpdate&id=".$_GET['id']."'>
 ";
 echo '<label>Date d\'arrivée</label>';
@@ -21,7 +22,7 @@ foreach($liste[1] as $key=>$unit){
 echo '</select>';
 echo '<label>Etat de la salle</label>';
 echo '<select name="etat">';
-echo '<option value="0" selected="selected">Libre</option>';
+echo '<option value="0">Libre</option>';
 echo '<option value="1">Reservée</option>';
 echo '</select>';
 echo '<input type="submit" id="submit" name="submit" value="submit" />';

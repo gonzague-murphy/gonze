@@ -16,7 +16,13 @@ class ProduitRepository extends EntityRepository{
             $query = $this->getDb()->prepare("SELECT * FROM produit WHERE id_salle='$id_salle' AND date_arrivee LIKE '$date_arrivee%'");
             $query->execute();
             $result = $query->rowCount();
-            return $result;
+            if($result !== 0){
+                $obj = $query->fetchAll(PDO::FETCH_CLASS, "\Entity\\"."Produit");
+                return $obj;
+            }
+            else{
+                return $result;
+            }
         }
         
 /*

@@ -50,11 +50,12 @@ class ProduitViews extends Views{
         ));
     }
     
-    public function updateForm($data = array(), $args = array()){
+    public function updateForm($data = array(), $args = array(), $msg=''){
         $this->render('template_accueil.php', 'produitupdateform.php',array(
             'title'=>$args[0]->getTitre(),
             'result'=>$data,
-            'liste' =>$args
+            'liste' =>$args,
+            'msg'=>$msg
         ));
     }
 }

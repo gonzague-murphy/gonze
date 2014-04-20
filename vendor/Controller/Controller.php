@@ -94,10 +94,12 @@ class Controller{
     
     public function checkForEmptyFields($args = array()){
         foreach($args as $key=>$value){
-            $newValue  = trim($value);
+            if($key !== 'etat'){
+                $newValue  = trim($value);
+            }
             if(empty($newValue)){
                 $this->msg = "<div class='error'>Le champ ".$key." est obligatoire</div>";
-                echo $this->msg;
+                //echo $this->msg;
             }
         }
         return $this->msg;
@@ -171,6 +173,13 @@ class Controller{
     }
     else{
         return false;
+        }
+    }
+    
+    public function compareTwoDates($date1, $date2){
+        if($date2<$date1){
+            $this->msg ="La date de départ ne peut pas être inférieure à la date d'arrivée!";
+            return $this->msg;
         }
     }
     

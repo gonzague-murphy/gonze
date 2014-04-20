@@ -63,10 +63,18 @@ class ProduitController extends Controller{
  
       public function lanceUpdate(){
             if(isset($this->arrayPost) && isset($this->arrayGet['id'])){
-                $prod = $this->makeObjectProduit();
-                $obj = $this->formatDateObject($prod);
-                $this->allowUpdate($this->arrayGet['id'], $obj);
-                $this->displaySalleHasProduct();
+                $this->clean($this->arrayPost);
+                $this->checkForEmptyFields($this->arrayPost);
+                $this->compareTwoDates($this->arrayPost['date_arrivee'], $this->arrayPost['date_depart']);
+                if(empty($this->msg)){
+                    $prod = $this->makeObjectProduit();
+                    $obj = $this->formatDateObject($prod);
+                    $this->allowUpdate($this->arrayGet['id'], $obj);
+                    $this->displaySalleHasProduct();
+                }
+                else{
+                    $this->displayUpdateProduit();
+                }
             }
         }
         
@@ -96,15 +104,32 @@ class ProduitController extends Controller{
       
       public function checkDoubleDate(\Entity\Produit $object){
           $dateObject = new \DateTime($this->formatDateForInsert($object->date_arrivee));
-          $result = $dateObject->format('Y-m-d');
+          $result = $dateObject->format('Y-m');
           $number = $this->getRepository('Produit')->checkForDoubles($object->salle, $result);
-          if($number !== 0){
-              $this->msg='Il existe déjà une produit pour cette salle à la meme date!';
-              return $this->msg;
-          }
+          if(!is_numeric($number)){
+                var_dump($number);
+                  $dateUser = $dateObject->format('Y-m-d');
+                  $myBool = $this->dateInRange($number[0]->date_arrivee, $number[0]->date_depart, $dateUser);
+                  if($myBool == true){
+                      $this->msg = 'Il existe deja un produit couvrant les memes dates!';
+                      return $this->msg;
+                  }
+              }
+          
           else{
               return false;
           }
+      }
+      
+/*
+ * Check for Range Date
+ */
+      
+      public function dateInRange($date_dep, $date_arr, $date_user){
+          $start_ts = strtotime($date_dep);
+          $end_ts = strtotime($date_arr);
+          $user_ts = strtotime($date_user);
+          return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
       }
     
 /*
@@ -234,7 +259,7 @@ class ProduitController extends Controller{
             $result = $queryTable->findById($this->arrayGet['id']);
             //var_dump($result);
             $choices = $this->formOption($result['id_salle']);
-            $this->view->updateForm($result, $choices);
+            $this->view->updateForm($result, $choices, $this->msg);
         }
     }
     
