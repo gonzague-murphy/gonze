@@ -121,6 +121,25 @@ class MembreController extends Controller{
      }
      
 /*
+ * Send new password
+ */
+     public function mailPwd(){
+         //var_dump($this->arrayPost);
+         $this->clean($this->arrayPost);
+         $emailExists = $this->getRepository('Membre')->checkIfEmailExists($this->arrayPost['email']);
+         if($emailExists == false){
+             $this->msg = "Pas d'utilisateur enregistré avec cette adresse!";
+             $this->view->forgoPwd($this->msg);
+             
+         }
+         else{
+            $pwd = $this->randomPwd();
+            $this->mailLostPwd($this->arrayPost['email'], $pwd);
+            $this->getRepository('Membre')->updatePassword(md5($pwd), $emailExists['id_membre']);
+         }
+     }
+     
+/*
  * Display
  */
      
@@ -138,6 +157,11 @@ class MembreController extends Controller{
     public function loginDisplay(){
         $this->view->loginDisplay();
         
+    }
+    
+    public function lostPwdForm(){
+        $rien = '';
+        $this->view->forgoPwd($rien);
     }
     
     public function displayFicheDetail(){

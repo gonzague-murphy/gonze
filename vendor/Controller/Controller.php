@@ -132,6 +132,47 @@ class Controller{
         return $authorized;
     }
     
+    public function randomPwd($length =10){
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+       }
+    return $randomString;
+    }
+    
+    public function mailLostPwd($destinataire, $newpwd){
+        $to = $destinataire;
+        $pwd = $newpwd;
+        $subject = 'Mot de passe oublié';
+        $message = '<html>
+        <head>
+        <title>Nouveau mot de passe</title>
+        </head>
+        <body>
+        <p>Vous avez récemment demandé un changement de mot de passe sur notre site LokiSalle</p>
+        <p>Voici votre nouveau mot de passe : '.$pwd.'</p>
+        <p>Si vous souhaitez modifier votre mot de passe, il vous est possible de le faire dans la rubrique "Mon compte" de votre espace client.</p>
+        </body>
+        </html>';
+
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+        $headers .= 'From: "Mon super site" <contact@supersite.com>' . "\r\n";
+        $headers .= 'Cc: "Contact" <contact@supersite.com>' . "\r\n";
+        $headers .= 'Bcc: "Contact" <contact@supersite.com>' . "\r\n";
+     
+
+    $mail = mail($to, $subject, $message, $headers); //marche
+
+    if($mail){
+        return true;
+    }
+    else{
+        return false;
+        }
+    }
     
 }
 

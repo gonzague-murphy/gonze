@@ -39,6 +39,13 @@ class MembreViews extends Views{
         ));
     }
     
+    public function forgoPwd($msg){
+        $this->render('template_accueil.php', 'pwdforgotten.php', array(
+           'title'=>'Mot de passe oublié',
+            'msg'=>$msg
+        ));
+    }
+    
     public function loginDisplay(){
         $this->render('template_accueil.php','loginform.php',array(
             'title'=>'Connectez-vous',

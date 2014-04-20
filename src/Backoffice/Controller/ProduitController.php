@@ -255,7 +255,6 @@ class ProduitController extends Controller{
         $result = $me->findById($this->arrayGet['id']);
         $avis = new AvisController();
         $tousLesAvis = $avis->findBySalle($result['id_salle']);
-        $msg1 = $avis->msg;
         $this->view->displayFicheDetail($result, $tousLesAvis);
     }
     

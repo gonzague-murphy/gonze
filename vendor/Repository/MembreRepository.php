@@ -39,6 +39,11 @@ class MembreRepository extends EntityRepository{
             $result = $query->execute();
             return $result;
      }
+     
+     public function updatePassword($string, $id_membre){
+         $query = $this->getDb()->prepare("UPDATE membre SET mdp='$string' WHERE id_membre=$id_membre");
+         $query->execute();
+     }
          
 /*
  * Delete
@@ -93,6 +98,13 @@ class MembreRepository extends EntityRepository{
             else{
                 return $result;
             } 
+     }
+     
+     public function checkIfEmailExists($email){
+         $query = $this->getDb()->prepare("SELECT id_membre FROM membre WHERE email='$email'");
+         $query->execute();
+         $result = $query->fetch();
+         return $result;
      }
     
 }
