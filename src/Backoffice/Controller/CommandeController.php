@@ -38,10 +38,22 @@ class CommandeController extends Controller{
         $prodCont = new ProduitController;
         $prodCont->updateAfterOrder();
         $querytable = $this->getRepository('Commande');
-        $querytable->addOrder($this->arrayPost);
+        $idCommande = $querytable->addOrder($this->arrayPost);
+        $this->updateDetails($idCommande);
         $this->view->displayFicheDetail($this->arrayPost);
         unset($_SESSION['panier']);
         PanierSessionHandler::initializeCart();
+    } 
+    
+/*
+ * Add to details_commande
+ */
+    public function updateDetails($id_commande){
+        $cart = PanierSessionHandler::getPanier();
+        $detailCont = new DetailsCommandeController;
+        foreach($cart as $key=>$value){
+            $detailCont->insertDetails($id_commande, $value['id_produit']);
+        }
     }
     
 /*
