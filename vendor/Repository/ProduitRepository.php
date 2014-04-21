@@ -13,7 +13,7 @@ class ProduitRepository extends EntityRepository{
     
     public function checkForDoubles($id_salle, $date_arrivee){
             //var_dump($id_salle, $date_arrivee);
-            $query = $this->getDb()->prepare("SELECT * FROM produit WHERE id_salle='$id_salle' AND date_arrivee LIKE '$date_arrivee%'");
+            $query = $this->getDb()->prepare("SELECT * FROM produit WHERE id_salle='$id_salle' AND (date_arrivee LIKE '$date_arrivee%' OR date_depart LIKE '$date_arrivee%')");
             $query->execute();
             $result = $query->rowCount();
             if($result !== 0){
@@ -44,7 +44,7 @@ class ProduitRepository extends EntityRepository{
  */
      public function updateProduit($userData, $id){
          $query = $this->getDb()->prepare("UPDATE produit SET date_arrivee=:date_arrivee, date_depart=:date_depart, prix=:prix, id_promo=:promo, etat=:etat WHERE id_produit='$id'");
-         $this->objectBinder($query,$userData);
+         $this->objectBinderForUpdates($query,$userData);
          //var_dump($userData);
          $result = $query->execute();
          return $result;
@@ -150,6 +150,15 @@ class ProduitRepository extends EntityRepository{
                 }
             }   
         }
+        
+    public function objectBinderForUpdates($query, \Entity\Produit $prod){
+            $cles = array('submit', 'id_produit', 'id_salle', 'id_promo', 'salle');
+            foreach($prod as $key=>$value){
+                if(!in_array($key, $cles)){
+                    $query->bindValue(":$key",$value);
+                }
+            }
+    }
      
 
 }

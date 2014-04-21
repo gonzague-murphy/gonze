@@ -43,5 +43,13 @@ class CommandeController extends Controller{
         unset($_SESSION['panier']);
         PanierSessionHandler::initializeCart();
     }
+    
+/*
+ * Gérer les commandes
+ */
+    public function displayForAdmin(){
+        $all = $this->getRepository('Commande')->findAll();
+        $this->view->displayForAdmin($all);
+    }
 }
 

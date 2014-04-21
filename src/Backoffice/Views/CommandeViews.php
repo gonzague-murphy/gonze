@@ -23,7 +23,10 @@ class CommandeViews extends Views{
     }
     
     public function displayForAdmin($result){
-        echo "";
+        $this->render('template_accueil.php', 'listecommande.php', array(
+            'title'=> 'Toutes les commandes',
+            'commandes'=>$result
+        ));
     }
 }
 

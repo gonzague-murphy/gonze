@@ -177,10 +177,16 @@ class Controller{
     }
     
     public function compareTwoDates($date1, $date2){
-        if($date2<$date1){
+        $arrivee = strtotime($date1);
+        $depart = strtotime($date2);
+        $today = strtotime('today');
+        if($depart < $arrivee){
             $this->msg ="La date de départ ne peut pas être inférieure à la date d'arrivée!";
-            return $this->msg;
         }
+        if($arrivee <= $today){
+            $this->msg .= "<br/>La date d'arrivée ne peut pas être inférieure à la date d'ajourd'hui!";
+        }
+        return $this->msg;
     }
     
 }

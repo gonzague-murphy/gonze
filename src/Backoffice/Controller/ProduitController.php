@@ -37,6 +37,7 @@ class ProduitController extends Controller{
     
      public function lanceSaveProduct(){
         if(isset($this->arrayPost)){
+            $this->compareTwoDates($this->arrayPost['date_arrivee'], $this->arrayPost['date_depart']);
             $prod = $this->makeObjectProduit();
             $obj = $this->formatDateObject($prod);
             $this->checkDoubleDate($obj);
@@ -66,10 +67,11 @@ class ProduitController extends Controller{
                 $this->clean($this->arrayPost);
                 $this->checkForEmptyFields($this->arrayPost);
                 $this->compareTwoDates($this->arrayPost['date_arrivee'], $this->arrayPost['date_depart']);
+                $prod = $this->makeObjectProduit();
+                $obj = $this->formatDateObject($prod);
+                $this->checkDoubleDate($obj);
                 if(empty($this->msg)){
-                    $prod = $this->makeObjectProduit();
-                    $obj = $this->formatDateObject($prod);
-                    $this->allowUpdate($this->arrayGet['id'], $obj);
+                    $this->allowUpdate($this->arrayGet['id'], $prod);
                     $this->displaySalleHasProduct();
                 }
                 else{
@@ -106,12 +108,13 @@ class ProduitController extends Controller{
           $dateObject = new \DateTime($this->formatDateForInsert($object->date_arrivee));
           $result = $dateObject->format('Y-m');
           $number = $this->getRepository('Produit')->checkForDoubles($object->salle, $result);
+          //var_dump($number);
           if(!is_numeric($number)){
-                var_dump($number);
                   $dateUser = $dateObject->format('Y-m-d');
+                  //var_dump($dateUser);
                   $myBool = $this->dateInRange($number[0]->date_arrivee, $number[0]->date_depart, $dateUser);
                   if($myBool == true){
-                      $this->msg = 'Il existe deja un produit couvrant les memes dates!';
+                      $this->msg = 'Il existe déjà un produit couvrant les mêmes dates sur la même salle!';
                       return $this->msg;
                   }
               }
@@ -125,12 +128,16 @@ class ProduitController extends Controller{
  * Check for Range Date
  */
       
-      public function dateInRange($date_dep, $date_arr, $date_user){
-          $start_ts = strtotime($date_dep);
-          $end_ts = strtotime($date_arr);
+      public function dateInRange($date_arr, $date_dep, $date_user){
+          $start_ts = strtotime($date_arr);
+          $end_ts = strtotime($date_dep);
           $user_ts = strtotime($date_user);
           return (($user_ts >= $start_ts) && ($user_ts <= $end_ts));
       }
+
+/*
+ * Check if booking date is inferior to today
+ */
     
 /*
  * Make Object

@@ -6,6 +6,7 @@ echo "<img src='".$liste[0]->getPhoto()."'/>";
 echo "<div class='error'>".$msg."</div><br/>";
 echo "<form method='post' action='?controller=ProduitController&action=lanceUpdate&id=".$_GET['id']."'>
 ";
+echo "<input type='hidden' name='salle' value='".$liste[0]->getIdSalle()."' />";
 echo '<label>Date d\'arrivée</label>';
 echo '<input type="text" class="dateGen" name="date_arrivee" value="'.Backoffice\Controller\ProduitController::formatDateForDisplay($result['date_arrivee']).'"/>';
 echo '<label>Date de départ</label>';
