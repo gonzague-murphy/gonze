@@ -219,7 +219,7 @@ h3 {
     background-color : #ffa823;
     height : 150px;
     padding-left : 1em;
-    display : none;
+    //display : none;
 }
 
 #box1, #box2, #box3{
@@ -461,6 +461,10 @@ select{
 
 h4 a{
     color : black;
+}
+
+.blueRow{
+    background : blue;
 }
 
 .produit img{

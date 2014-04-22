@@ -28,5 +28,13 @@ class CommandeViews extends Views{
             'commandes'=>$result
         ));
     }
+    
+    public function mixDetail($result, $details){
+        $this->render('template_accueil.php', 'listecommande.php', array(
+            'title'=> 'Toutes les commandes',
+            'commandes'=>$result,
+            'detail'=>$details
+        ));
+    }
 }
 

@@ -37,8 +37,7 @@ class CommandeController extends Controller{
     public function makeOrder(){
         $prodCont = new ProduitController;
         $prodCont->updateAfterOrder();
-        $querytable = $this->getRepository('Commande');
-        $idCommande = $querytable->addOrder($this->arrayPost);
+        $idCommande = $this->getRepository('Commande')->addOrder($this->arrayPost);
         $this->updateDetails($idCommande);
         $this->view->displayFicheDetail($this->arrayPost);
         unset($_SESSION['panier']);
@@ -57,11 +56,25 @@ class CommandeController extends Controller{
     }
     
 /*
+ * Boucle pour peupler les details commande
+ */
+    public function loopDetails($all, DetailsCommandeController $detailsCont){
+        $detail = array();
+        foreach($all as $key=>$value){
+            $detail[] = $detailsCont->findById($value->getIdCommande());
+        }
+        return $detail;
+    }
+    
+/*
  * Gérer les commandes
  */
-    public function displayForAdmin(){
+    public function mixDetail(){
         $all = $this->getRepository('Commande')->findAll();
-        $this->view->displayForAdmin($all);
+        //var_dump($all);
+        $detailsCont = new DetailsCommandeController;
+        $details = $this->loopDetails($all, $detailsCont);
+        $this->view->mixDetail($all, $details);
     }
 }
 
