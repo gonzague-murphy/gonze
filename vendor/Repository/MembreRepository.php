@@ -17,6 +17,7 @@ class MembreRepository extends EntityRepository{
  */
 
         public function signUpQuery(&$userData){
+            $userData['mdp']= md5($userData['mdp']);
             $query = $this->getDb()->prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, email, sexe, ville, cp, adresse)VALUES (:pseudo,:mdp,:nom,:prenom,:email,:sex,:ville,:cp,:adresse)");
             $this->binder($query,$userData);
             //var_dump($userData);
@@ -31,6 +32,7 @@ class MembreRepository extends EntityRepository{
          
          public function insertNewAdmin($data){
             //var_dump($data);
+            $data['mdp']= md5($data['mdp']);
             $query = $this->getDb()->prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, email, sexe, ville, cp, adresse, statut)VALUES (:pseudo,:mdp,:nom,:prenom,:email,:sex,:ville,:cp,:adresse, :statut)");
             $this->binder($query,$data);
             //var_dump($userData);
@@ -76,6 +78,7 @@ class MembreRepository extends EntityRepository{
      public function loginQuery($userData = array()){
         $myArray = array_slice($userData,0,2);
         //var_dump($myArray);
+        $myArray['mdp']= md5($myArray['mdp']);
         $query = $this->getDb()->prepare("SELECT id_membre, pseudo, nom, prenom, email, sexe, ville, cp, adresse, statut FROM ".$this->getTableName()." WHERE pseudo=:pseudo AND mdp=:mdp");
         $this->binder($query,$myArray);
         $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.'Membre');

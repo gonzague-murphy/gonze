@@ -54,18 +54,6 @@ class Controller{
        }
     }
     
-    public function formValidation($fonction1, $data=array()){
-        $this->clean($data);
-        $this->msg = $this->checkForEmptyFields($data);
-        if(empty($this->msg)){
-            $table = explode('\\', get_called_class());
-            $requestTable = str_replace('Controller','',$table[2]);
-            $queryTable = $this->getRepository($requestTable);
-            $result = $queryTable->$fonction1($data);
-            return $result;
-        }
-    }
-    
 
 
 /*

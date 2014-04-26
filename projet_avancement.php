@@ -12,8 +12,6 @@ and open the template in the editor.
     <body>
         <p>
             *A faire:<hr/>
-            *  _Newsletter<br/>
-            *  _ Permettre création d'un user admin par l'admin<br/>
             *  _ Gestion des transaction Ajax, fallback en php<br/>
             *  _ Inté et mickeys jquery<br/>
             * _ Pages 404, 401 etc<br/>
