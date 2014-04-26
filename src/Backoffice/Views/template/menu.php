@@ -59,7 +59,7 @@ function makeAdminMenu(){
             echo "<li><a href='?controller=ProduitController&action=displaySalleHasProduct'>Gérer les Produits</a></li>";
             echo "<li><a href='?controller=MembreController&action=displayForAdmin'>Gérer les Membres</a></li>";
             echo "<li><a href='?controller=PromotionController&action=displayForAdmin'>Gérer les Codes Promo</a></li>";
-            echo "<li><a href=''>Gérer les Avis</a></li>";
+            echo "<li><a href='?controller=AvisController&action=listeForAdmin'>Gérer les Avis</a></li>";
             echo "<li><a href='?controller=CommandeController&action=mixDetail'>Gérer les Commandes</a></li>";
             echo "<li><a href=''>Envoyer la newsletter</a></li>";
             echo "<li><a href=''>Statistiques</a></li>";

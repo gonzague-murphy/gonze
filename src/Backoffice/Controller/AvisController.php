@@ -4,10 +4,23 @@ USE Controller\Controller;
 
 class AvisController extends Controller{
     
+/*
+ * Display for public
+ */
     public function findBySalle($id){
         $query = $this->getRepository('Avis');
         $result = $query->findBySalleId($id);
         return $result;
+    }
+    
+/*
+ * List for admin
+ * 
+ */
+    
+    public function listeForAdmin(){
+        $result = $this->getRepository('Avis')->fetchAll();
+        $this->view->displayForAdmin($result);
     }
     
 /*
@@ -39,6 +52,12 @@ class AvisController extends Controller{
 /*
  * Delete
  */
+    
+    public function flushAdmin(){
+        $this->clean($this->arrayGet);
+        $this->getRepository('Avis')->deleteFeedback($this->arrayGet['id']);
+        $this->listeForAdmin();
+    }
 
 /*
  * Check si le membre a deja laissé un avis sur la salle

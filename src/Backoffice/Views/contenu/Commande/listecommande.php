@@ -30,7 +30,10 @@ function calculateCA($year){
         echo "<tr>";
         echo "<td>".$value->getIdCommande()."</td>";
         echo "<td>".$value->getIdMembre()."</td>";
-        echo "<td>".$value->getMontant()."</td>";
+        echo "<td>".$value->getMontant()." €</td>";
+        echo "</tr>";
+        echo "<tr>";
+        echo "<td>Details</td>";
         echo "</tr>";
         foreach($detail as $unit=>$data){
             foreach($data as $object=>$prop){

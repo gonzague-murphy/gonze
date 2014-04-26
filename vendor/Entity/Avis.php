@@ -2,12 +2,12 @@
 namespace Entity;
 
 class Avis{
-     public $id_avis;
-     public $commentaire;
-     public $note;
-     public $date;
-     public $id_salle;
-     public $id_membre;
+     protected $id_avis;
+     protected $commentaire;
+     protected $note;
+     protected $date;
+     protected $id_salle;
+     protected $id_membre;
      
      public function getIdAvis(){
          return $this->id_avis;

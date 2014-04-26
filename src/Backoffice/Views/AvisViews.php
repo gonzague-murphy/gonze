@@ -11,6 +11,9 @@ class AvisViews extends Views{
     }
     
     public function displayForAdmin($args){
-        echo "";
+        $this->render('template_accueil.php', 'listeadmin.php', array(
+            'title'=>'Gérer les avis',
+            'avis'=>$args
+        ));
     }
 }

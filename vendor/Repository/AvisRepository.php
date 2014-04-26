@@ -13,6 +13,13 @@ class AvisRepository extends EntityRepository{
         return $result;
     }
     
+    public function fetchAll(){
+        $query = $this->getDb()->prepare("SELECT a.*, m.pseudo, s.titre FROM avis a, membre m, salle s WHERE a.id_membre=m.id_membre AND a.id_salle=s.id_salle");
+        $query->setFetchMode(PDO::FETCH_CLASS, '\Entity\\'.'Avis');
+        $query->execute();
+        return $result = $query->fetchAll();
+    }
+    
     public function checkDouble($user, $salle){
             $query = $this->getDb()->prepare("SELECT * FROM avis WHERE id_membre='$user' AND id_salle='$salle'");
             $query->execute();
@@ -23,6 +30,11 @@ class AvisRepository extends EntityRepository{
     public function addFeedback($data){
         $query = $this->getDb()->prepare("INSERT INTO avis (commentaire, note, date, id_salle, id_membre) VALUES(:commentaire, :note, CURDATE(), :id_salle, :id_membre)");
         $this->objectBinder($query, $data);
+        $query->execute();
+    }
+    
+    public function deleteFeedback($id){
+        $query = $this->getDb()->prepare("DELETE FROM avis WHERE id_avis=$id");
         $query->execute();
     }
     
