@@ -53,6 +53,16 @@ class SalleRepository extends EntityRepository{
      }
      
 /*
+ * Stats query Most sold
+ */
+     public function mostSold(){
+        $query = $this->getDb()->prepare("SELECT p.id_produit, s.titre, COUNT(s.titre) as compte FROM produit p INNER JOIN details_commande d ON d.id_produit=p.id_produit INNER JOIN salle s ON p.id_salle=s.id_salle GROUP BY p.id_salle ORDER BY compte DESC LIMIT 0,5;");
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $query->execute();
+        return $result = $query->fetchAll();
+    }
+     
+/*
  * Bind Objets (salles)
  */
      

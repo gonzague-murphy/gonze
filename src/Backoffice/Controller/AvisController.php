@@ -74,4 +74,12 @@ class AvisController extends Controller{
             return false;
         }
     }
+    
+/*
+ * Stats
+ */
+    public function topVenuesAvg(){
+        $result = $this->getRepository('Avis')->bestRanked();
+        return $result;
+    }
 }

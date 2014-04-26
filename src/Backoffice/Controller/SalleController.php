@@ -136,6 +136,14 @@ class SalleController extends Controller{
             }
     }
     
+/*
+ * Stats query
+ */
+    public function listMostSoldAdmin(){
+        $result = $this->getRepository('Salle')->mostSold();
+        return $result;
+    }
+    
     
 /*
  * Fonctions de display

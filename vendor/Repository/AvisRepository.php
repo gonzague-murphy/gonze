@@ -38,6 +38,24 @@ class AvisRepository extends EntityRepository{
         $query->execute();
     }
     
+/*
+ * Query Statistiques salles les mieux notées
+Pour avoir le max :
+
+SELECT a.id_salle, a.note FROM avis a JOIN(SELECT MAX(note) AS noteMax, id_salle FROM avis  GROUP BY id_salle)AS b ON a.id_salle=b.id_salle AND a.note=b.noteMax ORDER BY b.noteMax DESC LIMIT 0,5;
+
+Pour avoir la moyenne :
+
+SELECT s.titre, AVG(a.note) FROM salle s, avis a WHERE a.id_salle=s.id_salle GROUP BY a.id_salle;*/
+
+    
+    public function bestRanked(){
+        $query = $this->getDb()->prepare("SELECT s.titre, a.id_salle, ROUND(AVG(a.note),0) as note, COUNT(a.id_avis) as nbre FROM salle s, avis a WHERE a.id_salle=s.id_salle GROUP BY a.id_salle");
+        $query->setFetchMode(PDO::FETCH_CLASS, '\Entity\\'.'Avis');
+        $query->execute();
+        return $result = $query->fetchAll();
+    }
+    
     
     public function objectBinder($query, $avis=array()){
             $cles = array('submit');

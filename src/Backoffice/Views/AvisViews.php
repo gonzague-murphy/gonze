@@ -16,4 +16,11 @@ class AvisViews extends Views{
             'avis'=>$args
         ));
     }
+    
+    public function bestRankAdmin($data){
+        $this->render('template_accueil.php', 'ranks.php', array(
+            'title'=>'Top 5 des Salles les mieux notées',
+            'salle'=>$data
+        ));
+    }
 }
