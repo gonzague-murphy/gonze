@@ -9,6 +9,7 @@ class DefaultController extends Controller{
         $this->membre = new MembreController;
         $this->commande = new CommandeController;
         $this->salle = new SalleController;
+        $this->detail = new DetailsCommandeController;
         $this->view = new \Backoffice\Views\DefaultViews;
     }
     
@@ -19,10 +20,12 @@ class DefaultController extends Controller{
         $this->view->indexDisplay($salle);
     }
     
-    public function assembleStats(){
+    public function assembleStatsAdmin(){
         $bestRanked = $this->avis->topVenuesAvg();
         $mostSold = $this->salle->listMostSoldAdmin();
-        $this->view->displayStatsAdmin($bestRanked, $mostSold);
+        $mostQty = $this->detail->topProductQty();
+        $mostExp = $this->commande->mostExpensive();
+        $this->view->displayStatsAdmin($bestRanked, $mostSold, $mostQty, $mostExp);
     }
     
     

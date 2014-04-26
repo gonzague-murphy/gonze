@@ -18,5 +18,10 @@ class DetailsCommandeController extends Controller{
         return $result;
         
     }
+    
+    public function topProductQty(){
+        $result = $this->getRepository('DetailsCommande')->topFiveQty();
+        return $result;
+    }
 }
 

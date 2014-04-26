@@ -1,5 +1,5 @@
 <?php
-
+echo "<div id='stats'>";
 echo "<h3>Top 5 des salles les mieux notées (en moyenne)</h3>";
 //var_dump($bestRanked);
 echo "<table>";
@@ -42,6 +42,46 @@ else{
     echo "<h3>Désolée, aucune salle à afficher !</h3>";
 }
 echo"</table>";
-echo "<h3>Top 5 des membres qui achète le plus (en termes de quantité) :</h3>";
-echo "<h3>Top 5 des membres qui achète le plus cher (en termes de prix) :</h3>";
-
+echo "<h3>Top 5 des membres qui achètent le plus (en termes de quantité) </h3>";
+//var_dump($mostQty);
+echo "<table>";
+    echo "<th>";
+    echo "<tr>";
+    echo "<td>Membre</td>";
+    echo "<td>Nombre de produits commandés</td>";
+    echo "</tr>";
+    echo "</th>";
+if(!is_null($mostQty)){
+    foreach($mostQty as $key=>$value){
+        echo "<tr>";
+        echo "<td>".$value['pseudo']."</td>";
+        echo "<td>".$value['compte']."</td>";
+        echo "</tr>";
+    }
+}
+else{
+    echo "<h3>Désolée, aucune salle à afficher !</h3>";
+}
+echo "</table>";
+echo "<h3>Top 5 des membres qui achètent le plus cher (en termes de prix) </h3>";
+//var_dump($mostExp);
+echo "<table>";
+    echo "<th>";
+    echo "<tr>";
+    echo "<td>Membre</td>";
+    echo "<td>A dépensé</td>";
+    echo "</tr>";
+    echo "</th>";
+if(!is_null($mostExp)){
+    foreach($mostExp as $key=>$value){
+        echo "<tr>";
+        echo "<td>".$value['pseudo']."</td>";
+        echo "<td>".$value['compte']." €</td>";
+        echo "</tr>";
+    }
+}
+else{
+    echo "<h3>Désolée, aucune salle à afficher !</h3>";
+}
+echo "</table>";
+echo "</div>";

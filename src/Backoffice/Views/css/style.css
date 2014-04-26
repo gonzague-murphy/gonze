@@ -457,6 +457,12 @@ select{
     background-position: 5% 50%;
 }
 
+#stats h3{
+    font-family: 'gladifiltheftegladifilthefte';
+    font-weight : 200;
+    font-size : 1.5em;
+}
+
 
 
 h4 a{

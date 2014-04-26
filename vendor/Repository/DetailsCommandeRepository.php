@@ -17,4 +17,14 @@ class DetailsCommandeRepository extends EntityRepository{
         $result = $query->fetchAll();
         return $result;
     }
+    
+/*
+ * Stats query 3e query
+ */
+    public function topFiveQty(){
+        $query = $this->getDb()->prepare("SELECT COUNT(d.id_details_commande) AS compte, m.pseudo, c.id_membre FROM details_commande d INNER JOIN commande c ON c.id_commande=d.id_commande INNER JOIN membre m ON c.id_membre=m.id_membre GROUP BY m.pseudo ORDER BY compte DESC LIMIT 0,5;");
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $query->execute();
+        return $result = $query->fetchAll();
+    }
 }

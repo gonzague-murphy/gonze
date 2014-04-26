@@ -23,11 +23,13 @@ class DefaultViews extends Views{
         echo "";
     }
     
-    public function displayStatsAdmin($bestRanked, $mostSold){
+    public function displayStatsAdmin($bestRanked, $mostSold, $mostQty, $mostExp){
         $this->render('template_accueil.php', 'stats.php', array(
             'title'=>'Statistiques du site',
             'bestRanked'=>$bestRanked,
-            'mostSold'=>$mostSold
+            'mostSold'=>$mostSold,
+            'mostQty'=>$mostQty,
+            'mostExp'=>$mostExp
         ));
     }
     

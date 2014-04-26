@@ -76,5 +76,14 @@ class CommandeController extends Controller{
         $details = $this->loopDetails($all, $detailsCont);
         $this->view->mixDetail($all, $details);
     }
+    
+/*
+ * Query stats most Expensive
+ */
+    
+    public function mostExpensive(){
+        $result = $this->getRepository('Commande')->mostExpensive();
+        return $result;
+    }
 }
 
