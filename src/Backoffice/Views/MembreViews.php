@@ -33,6 +33,13 @@ class MembreViews extends Views{
         ));
     }
     
+    public function signUpAdmin($msg=''){
+        $this->render('template_accueil.php', 'formsignupadmin.php', array(
+            'title'=>'Ajouter un membre',
+            'msg'=>$msg
+        ));
+    }
+    
     public function updateForm($arg){
         $this->render('template_accueil.php', 'updateprofil.php', array(
             'user'=>$arg

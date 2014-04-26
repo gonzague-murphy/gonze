@@ -28,6 +28,20 @@ class MembreRepository extends EntityRepository{
                 return true;
             }
          }
+         
+         public function insertNewAdmin($data){
+            //var_dump($data);
+            $query = $this->getDb()->prepare("INSERT INTO membre (pseudo, mdp, nom, prenom, email, sexe, ville, cp, adresse, statut)VALUES (:pseudo,:mdp,:nom,:prenom,:email,:sex,:ville,:cp,:adresse, :statut)");
+            $this->binder($query,$data);
+            //var_dump($userData);
+            $result = $query->execute();
+            if(!$result){
+                return false;
+            }
+            else{
+                return true;
+            }
+         }
 /*
  * Update
  * 

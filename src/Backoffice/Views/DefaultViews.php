@@ -33,6 +33,5 @@ class DefaultViews extends Views{
         ));
     }
     
-    
 }
 

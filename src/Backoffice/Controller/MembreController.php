@@ -23,6 +23,20 @@ class MembreController extends Controller{
         }
     }
     
+    public function insertAdmin(){
+        if(isset($this->arrayPost)){
+           $this->verifSignUp();
+            if(empty($this->msg)){
+            $this->getRepository('Membre')->insertNewAdmin($this->arrayPost);
+            $this->welcomeNewAdmin($this->arrayPost['email'], $this->arrayPost['pseudo'], $this->arrayPost['mdp']);
+            $this->view->signUpAdmin('Merci! Un email a été envoyé au nouvel administrateur afin de lui communiquer ses identifiants de connexion');
+            }
+            else{
+                $this->view->signUpAdmin($this->msg);
+            }
+        }
+    }
+    
     public function verifSignUp(){
             $this->clean($this->arrayPost);
             $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
@@ -152,6 +166,10 @@ class MembreController extends Controller{
     
      public function signUpForm(){
         $this->view->signUpForm();
+    }
+    
+    public function signUpFormAdmin(){
+        $this->view->signUpAdmin();
     }
     
     public function loginDisplay(){

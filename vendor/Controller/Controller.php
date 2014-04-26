@@ -176,6 +176,43 @@ class Controller{
         }
     }
     
+    public function welcomeNewAdmin($destinataire,$pseudo, $newpwd){
+        $to = $destinataire;
+        $pwd = $newpwd;
+        $subject = 'Vous avez été ajouté en tant qu\'administrateur du site Lokisalle';
+        $message = '<html>
+        <head>
+        <title>'.$subject.'</title>
+        </head>
+        <body>
+        <p>Vous avez été invité à rejoindre l\'equipe de Lokisalle</p>
+        <p>Voici vos indentifiants temporaires :</p>
+        <p>Email : '.$to.'</p>
+        <p>Pseudo : '.$pseudo.'</p>
+        <p>Mot de passe : '.$pwd.'</p>
+        <p>Il vous est FORTEMENT conseillé de changer de mot de passe dans les plus bref délais, en rendant dans la rubrique "Mon compte" de votre espace administrateur.</p>
+        </body>
+        </html>';
+
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+
+        $headers .= 'From: "Mon super site" <contact@supersite.com>' . "\r\n";
+        $headers .= 'Cc: "Contact" <contact@supersite.com>' . "\r\n";
+        $headers .= 'Bcc: "Contact" <contact@supersite.com>' . "\r\n";
+     
+
+    $mail = mail($to, $subject, $message, $headers); //marche
+
+    if($mail){
+        return true;
+    }
+    else{
+        return false;
+        }
+    }
+    
+    
     public function compareTwoDates($date1, $date2){
         $arrivee = strtotime($date1);
         $depart = strtotime($date2);
