@@ -1,4 +1,10 @@
-<?php //var_dump($salle); ?>
+<?php //var_dump($salle); 
+if(is_array($msg)){
+    foreach($msg as $key=>$value){
+        echo "<div class='error'>".$value."</div><br/>";
+    }
+}
+?>
 <div id="latest">
     <h5><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>Voir toutes nos salles &rarr;</a></h5>
     <div class='boxArticle'>

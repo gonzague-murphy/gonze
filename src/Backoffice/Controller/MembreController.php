@@ -53,7 +53,7 @@ class MembreController extends Controller{
             $this->loginUser($this->arrayPost);
             \Component\CookieBakery::atLogin($this->arrayPost);
             $default = new DefaultController;
-            $default->indexDisplay();
+            $default->indexDisplay($this->msg);
         }
     }
     
@@ -71,7 +71,8 @@ class MembreController extends Controller{
         else{
             $this->userSession->initializeSession($myObj);
          }
-         echo $this->msg;
+         //var_dump($this->msg);
+         return $this->msg;
     }
     
     public function formValidation($fonction1, $data=array()){
@@ -94,17 +95,7 @@ class MembreController extends Controller{
  */
 
     public function signUp(){
-        /*$this->clean($this->arrayPost);
-        $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
-        if($testDoubles == false){
-            $this->checkForEmptyFields($this->arrayPost);*/
             $this->allowInsert($this->arrayPost);
-           /*}*/
-                
-         /*else{
-            $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
-          } 
-         echo $this->msg;*/
     }
     
     public function allowInsert($data = array()){
@@ -140,6 +131,8 @@ class MembreController extends Controller{
      
      public function updateUser(){
          if(isset($this->arrayPost)){
+             $this->clean($this->arrayPost);
+             $this->clean($this->arrayGet);
              $this->getRepository('Membre')->updateMembre($this->arrayPost,$this->arrayGet['id']);
              $moi = $this->getRepository('Membre')->findById($this->arrayGet['id']);
              $this->userSession->initializeSession($moi);

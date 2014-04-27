@@ -9,6 +9,28 @@ class UserSessionHandler{
         $this->castUser();
     }
     
+    public static function startSession(){
+        if(!isset($_SESSION['session_start_time'])){
+            $_SESSION['session_start_time']=time();
+        }
+    }
+    
+    public static function expireSession(){
+        if(isset($_SESSION['session_start_time'])){
+        if($_SESSION['session_start_time']+ 30 * 60 < time()){
+            session_unset();
+            session_destroy();
+            session_start();
+            session_regenerate_id(true);
+            $_SESSION["expired"] = "yes";
+            header("Location:controller=MembreController&action=loginDisplay"); // Redirect to Login Page
+            } 
+        else {
+            $_SESSION['session_start_time']=time();
+            }
+        }
+    }
+    
     public function castUser(){
         if(isset($_SESSION['user'])){
             self::$user = new \Entity\Membre;
@@ -33,6 +55,7 @@ class UserSessionHandler{
              }
              
              PanierSessionHandler::initializeCart(); 
+             self::startSession();
       }
 }
 

@@ -14,10 +14,10 @@ class DefaultController extends Controller{
     }
     
    
-    public function indexDisplay(){
+    public function indexDisplay($msg=''){
         $cont = new ProduitController;
         $salle = $cont->displayMostRecent();
-        $this->view->indexDisplay($salle);
+        $this->view->indexDisplay($salle, $msg);
     }
     
     public function assembleStatsAdmin(){
