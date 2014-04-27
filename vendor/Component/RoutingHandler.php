@@ -49,7 +49,7 @@ class RoutingHandler{
             $membre = strtolower($value);
             if($membre == 'admin'){
                 $user = \Component\UserSessionHandler::getUser();
-                if(!isset($user) || $user->id_membre !=1){
+                if(!isset($user) || $user->statut !=1){
                     echo 'You should\'nt be here';
                     exit();
                 }

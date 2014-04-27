@@ -50,7 +50,7 @@ SELECT s.titre, AVG(a.note) FROM salle s, avis a WHERE a.id_salle=s.id_salle GRO
 
     
     public function bestRanked(){
-        $query = $this->getDb()->prepare("SELECT s.titre, a.id_salle, ROUND(AVG(a.note),0) as note, COUNT(a.id_avis) as nbre FROM salle s, avis a WHERE a.id_salle=s.id_salle GROUP BY a.id_salle");
+        $query = $this->getDb()->prepare("SELECT s.titre, a.id_salle, ROUND(AVG(a.note),0) as note, COUNT(a.id_avis) as nbre FROM salle s, avis a WHERE a.id_salle=s.id_salle GROUP BY a.id_salle LIMIT 0,5;");
         $query->setFetchMode(PDO::FETCH_CLASS, '\Entity\\'.'Avis');
         $query->execute();
         return $result = $query->fetchAll();

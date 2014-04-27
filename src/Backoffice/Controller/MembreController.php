@@ -52,6 +52,7 @@ class MembreController extends Controller{
     public function lanceLogin(){
        if($this->isPostSet()!=false){
             $this->loginUser($this->arrayPost);
+            \Component\CookieBakery::atLogin($this->arrayPost);
             $default = new DefaultController;
             $default->indexDisplay();
         }

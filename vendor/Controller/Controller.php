@@ -18,6 +18,7 @@ class Controller{
         $this->userSession = new \Component\UserSessionHandler;
         $view = $this->getView();
         $this->view = new $view;
+        $this->cookies = \Component\CookieBakery::bakeMeCookies();
         $this->arrayPost = $_POST;
         $this->arrayGet = $_GET;
         $this->racineServer = $_SERVER['DOCUMENT_ROOT'];

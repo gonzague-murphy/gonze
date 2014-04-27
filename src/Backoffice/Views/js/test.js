@@ -42,7 +42,7 @@ var launching = function(){
     $('#logMeIn').css({'display' : 'none'});
         $('#twoway').css({'height' : '100px'});
         $('#connexion').click(function(){
-            $('#twoway').animate({'height' : '210px'}, 250, function(){
+            $('#twoway').animate({'height' : '220px'}, 250, function(){
                 $('#logMeIn').css({'display' : 'block'});
                 $('#connexion').css({'display' : 'none'});
             
