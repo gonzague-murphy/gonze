@@ -83,15 +83,17 @@ class Controller{
  */
     
     public function checkForEmptyFields($args = array()){
+        $errors = array();
         foreach($args as $key=>$value){
             if($key !== 'etat'){
                 $newValue  = trim($value);
             }
             if(empty($newValue)){
-                $this->msg = "<div class='error'>Le champ ".$key." est obligatoire</div>";
+                $errors[] = "<div class='error'>Le champ ".$key." est obligatoire</div>";
                 //echo $this->msg;
             }
         }
+        $this->msg = $errors;
         return $this->msg;
     }
     

@@ -14,11 +14,11 @@ class MembreController extends Controller{
            $this->verifSignUp();
             if(empty($this->msg)){
             $this->signUp();
-            $new = new DefaultController;
-            $new->indexDisplay();
+            header('Location: ?controller=DefaultController&action=indexDisplay');
+            exit();
             }
             else{
-                $this->signUpForm();
+                $this->view->signUpForm($this->msg);
             }
         }
     }
@@ -46,7 +46,6 @@ class MembreController extends Controller{
             else{
             $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
             } 
-            echo $this->msg;
     }
     
     public function lanceLogin(){
@@ -115,9 +114,10 @@ class MembreController extends Controller{
             echo "perdu!";
           }
         else{
-            $myObject = $queryTable->loginQuery($data);
+            $myObject = $queryTable->loginQuery($this->arrayPost);
             if($myObject == false){
-                echo "non";
+                $this->msg = "Nous avons eu un problème au moment de la connexion";
+                echo $this->msg;
             }
             else{
                 $this->userSession->initializeSession($myObject);
@@ -178,7 +178,7 @@ class MembreController extends Controller{
 
     
      public function signUpForm(){
-        $this->view->signUpForm();
+        $this->view->signUpForm($this->msg);
     }
     
     public function signUpFormAdmin(){
@@ -209,8 +209,8 @@ class MembreController extends Controller{
     public function deconnexion(){
         \session_destroy();
         unset($_SESSION['user']);
-        $refresh = new DefaultController;
-        $refresh->indexDisplay();
+        header('Location: ?controller=DefaultController&action=indexDisplay');
+        exit();
     }
     
     

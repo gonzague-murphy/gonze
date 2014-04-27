@@ -17,9 +17,9 @@ class CommandeController extends Controller{
  * Add to cart
  */
       public function addToCart(){
-        $msg = PanierSessionHandler::addToCart($this->arrayGet['id']);
-        //var_dump($_SESSION);
-        $this->panierDisplay($msg);
+        $msg= PanierSessionHandler::addToCart($this->arrayGet['id']);
+        header('Location: ?controller=CommandeController&action=panierDisplay&msg='.$msg);
+        exit();
     }
   
 /*
@@ -27,7 +27,8 @@ class CommandeController extends Controller{
  */
       public function removeFromCart(){
           PanierSessionHandler::dropFromCart($this->arrayGet['id']);
-          $this->panierDisplay();
+          header('Location: ?controller=CommandeController&action=panierDisplay');
+          exit();
       }
       
 /*

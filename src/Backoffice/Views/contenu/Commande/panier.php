@@ -4,7 +4,9 @@ if(empty($cart)){
     echo "Votre panier est vide!";
 }
 else{
-    echo $msg."<br/>";
+    if($_GET['msg'] == 'on'){
+        echo "Ce produit est déjà dans votre panier!<br/>";
+    }
 ?>
 <table class='commande'>
     <thead>

@@ -35,7 +35,7 @@ class PanierSessionHandler{
                 $_SESSION['panier'][] = $data;
               }
             else{
-                return "Ce produit est déjà dans votre panier!";
+                return "on";
                 }
         }
         

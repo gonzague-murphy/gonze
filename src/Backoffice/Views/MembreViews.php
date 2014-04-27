@@ -27,9 +27,10 @@ class MembreViews extends Views{
 //:::::::::FORM DISPLAY::::::::::::::::
 //:::::::::::::::::::::::::::::::::::::
     
-    public function signUpForm(){
+    public function signUpForm($msg=''){
         $this->render('template_accueil.php','formsignup.php',array(
             'title'=>'S\'inscrire',
+            'msg'=>$msg
         ));
     }
     
