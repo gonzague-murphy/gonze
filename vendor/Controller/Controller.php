@@ -16,6 +16,7 @@ class Controller{
     
     public function __construct(){
         $this->userSession = new \Component\UserSessionHandler;
+        $this->cart =  \Component\PanierSessionHandler::getPanier();
         $view = $this->getView();
         $this->view = new $view;
         $this->cookies = \Component\CookieBakery::bakeMeCookies();

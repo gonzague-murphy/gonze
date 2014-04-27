@@ -7,7 +7,7 @@ class CommandeRepository extends EntityRepository{
     
     public function addOrder(&$args){
         //var_dump($args);
-        $query = $this->getDb()->prepare("INSERT INTO commande (montant, id_membre,date) VALUES (:montant, :id_membre, CURDATE())");
+        $query = $this->getDb()->prepare("INSERT INTO commande (montant, id_membre,date) VALUES (:montant, :id_membre, NOW())");
         $this->binder($query,$args);
         $query->execute();
         return $this->getDb()->lastInsertId();

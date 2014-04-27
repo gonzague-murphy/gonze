@@ -5,10 +5,11 @@ USE \Component\PanierSessionHandler;
 
 class CommandeController extends Controller{
     
-   public function panierDisplay(){
+    
+   public function panierDisplay($msg=''){
         $cart = new PanierSessionHandler;
         $result = $cart::getPanier();
-        $this->view->panierDisplay($result);
+        $this->view->panierDisplay($result, $msg);
     }
 
     
@@ -16,9 +17,9 @@ class CommandeController extends Controller{
  * Add to cart
  */
       public function addToCart(){
-        PanierSessionHandler::addToCart($this->arrayGet['id']);
+        $msg = PanierSessionHandler::addToCart($this->arrayGet['id']);
         //var_dump($_SESSION);
-        $this->panierDisplay();
+        $this->panierDisplay($msg);
     }
   
 /*
@@ -27,6 +28,13 @@ class CommandeController extends Controller{
       public function removeFromCart(){
           PanierSessionHandler::dropFromCart($this->arrayGet['id']);
           $this->panierDisplay();
+      }
+      
+/*
+ * Recap and apply Promo
+ */
+      public function recap($reduction){
+          $this->view->recap($this->cart, $reduction);
       }
     
     
@@ -42,6 +50,7 @@ class CommandeController extends Controller{
         $this->view->displayFicheDetail($this->arrayPost);
         unset($_SESSION['panier']);
         PanierSessionHandler::initializeCart();
+        exit();
     } 
     
 /*
@@ -53,6 +62,38 @@ class CommandeController extends Controller{
         foreach($cart as $key=>$value){
             $detailCont->insertDetails($id_commande, $value['id_produit']);
         }
+    }
+    
+/*
+ * Public function isset Promo
+ */
+    
+    public function dispatchOrder(){
+        if(isset($this->arrayPost['promo']) && !empty($this->arrayPost['promo'])){
+            $myBool = $this->checkCode($this->arrayPost['promo']);
+            //var_dump($myBool);
+            if(is_null($myBool)){
+                $this->panierDisplay('Le code de promotion est invalide!');
+            }
+            else{
+                $this->recap($myBool);
+            }
+        }
+        else{
+            $this->recap(0);
+        }
+    }
+    
+/*
+ * Check Promo Code
+ */
+    public function checkCode($data){
+        //var_dump($data, $this->cart);
+            foreach($this->cart as $key){
+                if(in_array($data, $key)){
+                    return $key['reduction'];
+                }
+            }
     }
     
 /*

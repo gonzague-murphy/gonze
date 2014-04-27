@@ -35,7 +35,7 @@ class PanierSessionHandler{
                 $_SESSION['panier'][] = $data;
               }
             else{
-                echo "Ce produit est déjà dans votre panier!";
+                return "Ce produit est déjà dans votre panier!";
                 }
         }
         
@@ -46,13 +46,13 @@ class PanierSessionHandler{
 	}
         
         
-     public static function calculateTotal(){
+     public static function calculateTotal($promo=0){
 	$total = 0;
 	for($i = 0; $i< count($_SESSION['panier']);$i++){
-            $total += $_SESSION['panier'][$i]['prix'];
+            $total += $_SESSION['panier'][$i]['prix']*1.20;
 	}
-        //var_dump($total);
-        return round($total, 2);
+        $result = $total-$promo;
+        return round($result, 2);
      }
         
     

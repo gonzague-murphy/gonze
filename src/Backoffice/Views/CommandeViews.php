@@ -4,10 +4,11 @@ USE Views\Views;
 
 class CommandeViews extends Views{
     
-    public function panierDisplay($arg){
+    public function panierDisplay($arg, $msg=''){
         $this->render('template_accueil.php', 'panier.php', array(
             'title'=>'Mon Panier',
-            'cart'=>$arg
+            'cart'=>$arg,
+            'msg'=>$msg
         ));
     }
     
@@ -26,6 +27,14 @@ class CommandeViews extends Views{
         $this->render('template_accueil.php', 'listecommande.php', array(
             'title'=> 'Toutes les commandes',
             'commandes'=>$result
+        ));
+    }
+    
+    public function recap($resume, $reduction){
+        $this->render('template_accueil.php', 'applyPromo.php', array(
+            'title'=>'Passer ma commande',
+            'resume'=>$resume,
+            'reduction'=>$reduction
         ));
     }
     

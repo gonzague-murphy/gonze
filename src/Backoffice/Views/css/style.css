@@ -469,6 +469,11 @@ h4 a{
     color : black;
 }
 
+.commande img{
+    width : 80px;
+    height : auto;
+}
+
 .blueRow{
     background : blue;
 }
