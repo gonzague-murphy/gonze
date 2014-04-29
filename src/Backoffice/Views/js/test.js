@@ -85,6 +85,7 @@ var loginSubmit = function(){
 var x = function(){
         launching();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
+        $('a.signUp').colorbox({href:"/lokisalle/src/Backoffice/Views/contenu/membre/formsignup.php"});
         $('#galerie').fadeIn(1800, function(){
         });
         accueil();

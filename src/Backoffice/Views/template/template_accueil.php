@@ -43,6 +43,7 @@
          <!---->
      </div><!--fin div .wrapper -->
      <script src="../src/Backoffice/Views/js/jquery.datetimepicker.js"></script>
+     <script src="../src/Backoffice/Views/js/jquery.colorbox-min.js"></script>
      <script src="../src/Backoffice/Views/js/test.js"></script>
      <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
      <script>

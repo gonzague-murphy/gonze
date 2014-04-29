@@ -57,7 +57,7 @@ function makeUserMenu(){
         echo"<noscript><div class='invisible'></noscript>";
         echo "<li id='connexion'>Connexion </li>";
         echo "<noscript></div></noscript>";
-        echo "<li><a href='?controller=MembreController&action=signUpForm'>Inscription</a></li>";
+        echo "<li><a href='?controller=MembreController&action=signUpForm' class='signUp'>Inscription</a></li>";
         echo "</ul>";
         echo "</nav>";
     }

@@ -1,10 +1,11 @@
 <?php
-if(is_array($msg)){
+if(isset($msg) && is_array($msg)){
     foreach($msg as $key=>$value){
         echo "<div class='error'>".$value."</div>";
     }
 }
 ?>
+<div>
 <form method="post" action="?controller=MembreController&action=lanceSignUp">
         <label>Pseudo :</label>
             <input type="text" name="pseudo" value="<?php if(isset($_POST['pseudo'])) echo $_POST['pseudo']; ?>"/>
@@ -30,5 +31,5 @@ if(is_array($msg)){
         
             <input type="submit" id="submit" name="submit" value="submit" />
     </form>
-
+</div>
    

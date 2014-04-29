@@ -288,6 +288,23 @@ h1{
   font-size : 46px;
 }
 
+.formCB{
+    background : #ffffff;
+    border-radius : 15px;
+    padding : 10% 10%;
+    height : auto;
+    overflow : visible;
+}
+
+#cboxLoadedContent{
+    background : #ffffff;
+    border-radius : 15px;
+    padding : 10% 10%;
+    height : auto;
+    overflow : visible;
+    width : 350px;
+}
+
 form input{
     display : block;
 }
