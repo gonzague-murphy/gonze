@@ -1,9 +1,21 @@
 <div id="ficheProduit">
 <h3><?php echo $liste['titre'] ?></h3>
 <img src="<?php echo $liste['photo']; ?>" />
-<p><?php echo $liste['description']; ?></p>
+   <input type="hidden" id="address" value="<?php echo $liste['adresse'].", ".$liste['cp']." ".$liste['ville'] ?>">
+<ul class="tabs">
+    <li><a href="#tab1">Plan</a></li>
+    <li><a href="#tab2">Description</a></li>
+    <li><a href="#tab3">Avis</a></li>
+</ul>
+<div id="tab1" class="onglet">
+<div id="map-canvas">
+</div>
+</div>
+<div id="tab2" class="onglet">
+<p><?php echo $liste['description'];?></p>
 <p>Prix : <?php echo $liste['prix']; ?> €</p>
-<h3>Avis :</h3>
+</div>
+<div id="tab3" class="onglet">
 <?php 
 $user = \Component\UserSessionHandler::getUser();
 //var_dump($user);
@@ -44,3 +56,6 @@ foreach($avis as $key=>$value){
 }
 echo "<a href='?controller=CommandeController&action=addToCart&id=".$liste['id_produit']."'>Ajouter au panier</a>";
 echo "</div>";
+?>
+</div>
+</div>

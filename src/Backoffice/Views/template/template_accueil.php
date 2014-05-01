@@ -13,6 +13,8 @@
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/jquery.datetimepicker.css"/>
                 <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,400italic,500' rel='stylesheet' type='text/css'>		<!--<script src="../src/Backoffice/Views/js/GGS.js"></script>-->
                 <script type="text/javascript" src="../src/Backoffice/Views/js/jquery-1.10.2.js"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>                
+
 		<!-- 
 			This script enables structural HTML5 elements in old IE.
 			http://code.google.com/p/html5shim/

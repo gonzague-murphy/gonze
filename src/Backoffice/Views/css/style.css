@@ -259,6 +259,58 @@ h3 {
     width : 100%;
 }
 
+/******************Fiche Produit***************/
+
+
+#ficheProduit{
+    position : relative;
+}
+
+
+#ficheProduit img{
+    width : 35%;
+    height : auto;   
+}
+      
+.tabs a {
+    background: #ffffff;
+    color: #000000;
+    border : 4px solid black;
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight : 600;
+    margin-left : -1%;
+}
+
+.onglet{
+    padding-top : 5%;
+}
+
+#tab2, #tab3{
+    width : 55%;
+}
+
+.tabs a.active {
+    background: #000000;
+    color: #ffffff;
+}
+
+.tabs li {
+    display: inline;
+    list-style: none outside none;
+}
+
+}
+
+html, body, #map-canvas, .onglet, .wrapper, .tabbed, #ficheProduit, #content{
+    height: 100%;
+}
+
+#map-canvas{
+    width : 500px;
+    height : 500px;
 }
 
 /* 
@@ -303,6 +355,10 @@ h1{
     height : auto;
     overflow : visible;
     width : 350px;
+}
+
+#cboxLoadedContent input, select, option{
+    width : 100%;
 }
 
 form input{
@@ -434,7 +490,6 @@ select{
 #latest h5 a{
     font-size : 1.32em;
     font-weight : 400;
-    font-style: italic;
     color : black;
     position : relative;
     left : 80%;
