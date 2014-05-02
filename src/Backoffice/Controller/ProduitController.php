@@ -259,13 +259,12 @@ class ProduitController extends Controller{
     
     public function customSearch(){
         $result = $this->rechercheSite();
-        var_dump($this->arrayPost);
+        $vars = $this->arrayPost;
         if(!empty($result)){
-            $this->view->displaySearchResult($result, $this->arrayPost);
+            $this->view->displaySearchResult($vars, $result);
         }
         else{
-            $this->msg = 'Désolé, aucun résultat sur ces critères de recherche!';
-            $this->view->displaySearchResult($this->msg, $this->arrayPost);
+            $this->view->displaySearchResult($vars, '');
         }
     }
     

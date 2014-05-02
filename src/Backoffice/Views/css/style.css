@@ -122,16 +122,11 @@ pas avoir à la "défaire" ensuite pour les resolutions mobiles*/
   /*width :100%;
   height : 180px;
   padding : 7px 15px;*/
-  position : relative;
+  /*position : relative;*/
 }
 
 h1{
-    //margin-bottom : 5%;
-    //margin-left : 5.55555%;
-    width : 100%;
-    position : absolute;
-    left : 45%;
-    top : 9%;
+    text-align : center;
     
 }
 
@@ -144,10 +139,8 @@ h3 {
 }
 
 .user_menu{
-    position : absolute;
-    left : 90.1%;
-    top : 2%;
-    width : 100%;
+    float : right;
+    margin-top : -8.5%;
 }
 
 /*marges "elastiques" pour le responsive*/
@@ -206,16 +199,15 @@ h3 {
 /*Default placeholder*/
 
 #latest{
-    position : relative;
-    width : 90%;
+    width : 100%;
 }
 
-#box1, #box2, #box3{
-    position : absolute;
+#latest img{
+    max-width : 25%;;
 }
+
 
 .desc{
-    position : absolute;
     background-color : #ffa823;
     height : 150px;
     padding-left : 1em;
@@ -263,7 +255,7 @@ h3 {
 
 
 #ficheProduit{
-    position : relative;
+    /*position : relative;*/
 }
 
 
@@ -390,7 +382,6 @@ select{
 }
 
 #twoway{
-  position : relative;
   margin: 0 5.555555555555555% 2% 5.555555555555555%;
   width : 80%;
   padding-bottom : 2%;
@@ -415,9 +406,6 @@ select{
     cursor : pointer;
 }
 
-#adminLi{
-    position : relative;
-}
 
 #adminLi a{
     padding : 100% 100%;
@@ -435,10 +423,7 @@ select{
 }
 
 .admin_menu{
-    position : absolute;
-    right : -35%;
-    top : 120%;
-    z-index : 1;
+    margin : 0 5.5%;
     width : 185%;
 }
 
@@ -476,7 +461,8 @@ select{
 }
 
 .user_menu li{
-    padding : 0.6% 0;
+    padding : 2% 0;
+    margin : 15% 0;
     display : block;
 }
 
@@ -492,8 +478,8 @@ select{
     font-size : 1.32em;
     font-weight : 400;
     color : black;
-    position : relative;
     left : 80%;
+    float : right;
 }
 
 /*Boutons*/
@@ -535,10 +521,17 @@ select{
 
 .tripleSearch{
     width : inherit;
-    margin : 3% 5.5%;
+    margin-top : 3%;
+    margin-bottom : 3%;
+    margin-left : 5.5%;
+    margin-right : 50%;
     padding-bottom : 2%;
     border-bottom: solid 1px black;
     display : none;
+}
+
+.tripleSearch span{
+    font-size : 0.8em;
 }
 
 .tripleSearch input, select, label{

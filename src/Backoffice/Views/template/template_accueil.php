@@ -35,6 +35,7 @@
     </div><!-- fin de la div #twoway-->
     </div><!-- fin de la div #en_tete-->
     <div class="tripleSearch">
+        <span>*Merci de remplir tous les champs pour plus de précision dans la recherche</span><br/><br/>
         <form method='post' action='?controller=ProduitController&action=customSearch'>
             <label for="mois">Mois : </label>
             <select name="mois">
