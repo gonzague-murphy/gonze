@@ -3,7 +3,7 @@ $cookies = \Component\CookieBakery::bakeMeCookies();
 $bool = isset($cookies['rememberMe']);
 ?>
 <div class='cBLogin'>
-<form method="post" action="?controller=MembreController&action=lanceLogin" onsubmit='parent.$.fn.colorbox.close();'>
+<form method="post" action="?controller=MembreController&action=lanceLogin">
             <label>Pseudo :</label>
             <input type="text" name="pseudo" value="<?php if($bool) echo $cookies['rememberMe'];?>"/><br/>
             <label>Password :</label>
