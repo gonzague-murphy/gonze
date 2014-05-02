@@ -142,6 +142,26 @@ class ProduitRepository extends EntityRepository{
          return $result;
      }
      
+/*
+ * Query recherche principale
+ */
+     
+     public function mainSearchOne($mois, $annee){
+         $query = $this->getDb()->prepare("SELECT id_produit FROM produit WHERE date_arrivee LIKE '%$annee-$mois%';");
+         $query->setFetchMode(PDO::FETCH_ASSOC);
+         $query->execute();
+         return $result = $query->fetchAll();
+         
+     }
+     
+     public function mainSearchTwo($id, $keyWord){
+         $query = $this->getDb()->prepare("SELECT * FROM produit p INNER JOIN salle s ON p.id_salle=s.id_salle WHERE p.id_produit=$id AND s.ville LIKE '%$keyWord%';");
+         $query->setfetchMode(PDO::FETCH_CLASS, "\Entity\\"."Produit");
+         $query->execute();
+         return $result = $query->fetchAll(); 
+     }
+/******************************************************************************************/
+     
      public function objectBinder($query, \Entity\Produit $prod){
             $cles = array('submit', 'id_produit', 'id_salle', 'id_promo');
             foreach($prod as $key=>$value){

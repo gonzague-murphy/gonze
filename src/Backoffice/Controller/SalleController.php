@@ -15,7 +15,7 @@ class SalleController extends Controller{
             $queryTable = $this->getRepository('Salle');
             $queryTable->addSalle($salle);
             $total = $queryTable->findAll();
-            header('Location: index.php?controller=SalleController&action=displayForAdmin');
+            header('Location: ?controller=SalleController&action=displayForAdmin');
             exit;
         }
     }
@@ -31,7 +31,7 @@ class SalleController extends Controller{
             $queryTable = $this->getRepository('Salle');
             //var_dump($salle);
             $queryTable->updateSalle($this->arrayGet['id'], $salle);
-            header('Location: index.php?controller=SalleController&action=displayForAdmin');
+            header('Location: ?controller=SalleController&action=displayForAdmin');
             exit;
        }
    }
@@ -153,12 +153,7 @@ class SalleController extends Controller{
     public function displayForAdmin(){
         $queryTable = $this->getRepository('Salle');
         $salles = $queryTable->findAll();
-         if($salles == false){
-            echo $this->msg = "<div class='error'>Désolé, aucune salle enregistrée pour l'instant</div>";
-        }
-        else{
             $this->view->displayForAdmin($salles);
-         }
     }
     
     public function displaySalleForm(){

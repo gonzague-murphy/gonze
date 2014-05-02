@@ -328,6 +328,7 @@ body{
     font-weight : 400;
     height : 100%;
     overflow: scroll;
+    width : 100%;
 }
 
 .wrapper{
@@ -521,12 +522,33 @@ select{
 }
 
 
-#loupe input{
-    padding  : 0.2% 3%;
-    border : solid 1px;
-    border-radius: 15px;
+#loupe{
+    margin-top : 2%;
+    padding : 0 2%;
     background : #ffffff url('../../../../img/magni.png') no-repeat;
-    background-position: 5% 50%;
+    background-position: 0% -4%;
+}
+
+#loupe:hover{
+    cursor : pointer;
+}
+
+.tripleSearch{
+    width : inherit;
+    margin : 3% 5.5%;
+    padding-bottom : 2%;
+    border-bottom: solid 1px black;
+    display : none;
+}
+
+.tripleSearch input, select, label{
+    width : 15%;
+    display : inline;
+    margin : 0 1%;
+}
+
+.tripleSearch input[type=submit]{
+    width : 5%;
 }
 
 #stats h3{

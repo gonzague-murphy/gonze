@@ -29,13 +29,32 @@
     <?php makeMenu(); ?>
     </div><!--fin de la div #menu -->
     <div id = "twoway">
-        <div id='loupe'>
-        <input type='text' name='ville' placeholder='Chercher par ville...'/>
-        </div>
-        <a href="index.php"><h1>LokiSalle</h1></a>
+        <div id='loupe'>&nbsp;&nbsp;&nbsp;Recherche</div>
+        <a href="?controller=DefaultController&action=indexDisplay"><h1>LokiSalle</h1></a>
         <?php makeUserMenu();?>
     </div><!-- fin de la div #twoway-->
     </div><!-- fin de la div #en_tete-->
+    <div class="tripleSearch">
+        <form method='post' action='?controller=ProduitController&action=customSearch'>
+            <label for="mois">Mois : </label>
+            <select name="mois">
+<?php
+$months = array("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre");
+foreach($months as $key=>$value){
+    echo "<option value='".($key + 1)."'>".$value."</option>";
+}
+?>
+            </select>
+            <label for="annee">Annee : </label>
+            <select name="annee">
+                <option>2014</option>
+                <option>2015</option>
+            </select>
+            <label for="motCle">Par mot-clé : </label>
+            <input type="text" name="motCle" placeholder="Ex: Paris" />
+            <input type="submit" value="Chercher" />
+        </form>
+    </div>
     <div class="wrapper">
       <div id="content">
         <?php 

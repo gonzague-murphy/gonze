@@ -9,6 +9,7 @@ class PromotionViews extends Views{
     
     public function displayForAdmin($args){
         $this->render('template_accueil.php', 'promo.php', array(
+            'title'=>'Gérer les codes Promo',
             'promo'=>$args
         ));
     }

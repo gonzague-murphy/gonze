@@ -12,11 +12,15 @@ and open the template in the editor.
     <body>
         <p>
             *A faire:<hr/>
-            *  _ Gestion des transaction Ajax, fallback en php<br/>
-            *  _ Inté et mickeys jquery<br/>
-            * _ Pages 404, 401 etc<br/>
-            * _ + possibilité tri par ville/date<br/>
-            * _ 
+            * _ search
+            * _ s'inscrire à la newsletter'
+            * _ pages après envoi de mail newsletter et mot de passe perdu
+            * _ tests de cohérence
+            * _ page d'accueil à modéliser
+            * _ fiche produit à modéliser
+            *_ resultats de la recherche à modéliser
+            *_ page de stats à modéliser
+            * _ page commande admin à modéliser
             */
         </p>
     </body>

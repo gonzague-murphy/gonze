@@ -1,7 +1,7 @@
 <form method="post" action="?controller=ProduitController&action=lanceSaveProduct">
 <?php if(isset($msg))echo "<div class='error'>".$msg."</div>"; ?>
 <label>Date d'arrivée </label>
-<input type="text" class="dateGen" name="date_arrivee" value="<?php if(isset($_POST['date_arrivee'])) echo $_POST['date_arrivee'];?>"/>
+<input type="text" class="dateGen" name="date_arrivee"/>
 <label>Date de départ</label>
 <input type="text" class="dateGen" name="date_depart" value="<?php if(isset($_POST['date_depart'])) echo $_POST['date_depart'];?>"/>
 <label>Prix</label>

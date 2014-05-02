@@ -58,5 +58,14 @@ class ProduitViews extends Views{
             'msg'=>$msg
         ));
     }
+    
+    public function displaySearchResult($data = '', $msg='', $vars=''){
+        $this->render('template_accueil.php', 'searchTemplate.php', array(
+            'title'=>'Résultats de la recherche',
+            'produit'=>$data,
+            'msg'=>$msg,
+            'vars'=>$vars
+        ));
+    }
 }
 

@@ -4,17 +4,7 @@ USE Controller\Controller;
 
 class ProduitController extends Controller{
 
-/*
- * Ici les requetes nécessaire au pull produit
- * affichage
-
-    public function listeAllSalle(){
-        $salleController = new SalleController;
-        $all = $salleController->listeAllForProducts();
-        foreach($all as $objects){
-            return $objects;
-        }
-    }*/
+    
 //::::::::::::::::::::::::::::::::::::::::::::::::::::
 //::::::::::::ATTENTION REQUETE DE PULL!!!!!::::::::::
 //SELECT s.titre FROM salle s, produit p WHERE s.id_salle=p.id_salle;
@@ -47,7 +37,7 @@ class ProduitController extends Controller{
             }
             else{
                 $this->allowInsert($obj);
-                header('Location: index.php?controller=ProduitController&action=displaySalleHasProduct');
+                header('Location: ?controller=ProduitController&action=displaySalleHasProduct');
                 exit;
             }
         }
@@ -176,6 +166,13 @@ class ProduitController extends Controller{
            $obj->setDateDepart($this->formatDateForInsert($dateD));
            return $obj;
        }
+       
+/*
+ * Pad Numbers
+ */
+       public function paddNumbers($numbers){
+            return $data = sprintf("%02s", $numbers);
+       }
 
 /*
  * Delete
@@ -234,6 +231,42 @@ class ProduitController extends Controller{
         $cleanData = $this->clean($capa);
         $result = $this->getRepository('Produit')->selectByCapacity($cleanData);
         return $result;
+    }
+
+/*
+ * Recherche à la loupe
+ */
+    
+    public function rechercheSite(){
+        $data = array();
+        $this->clean($this->arrayPost);
+        $this->checkForEmptyFields($this->arrayPost);
+        if(empty($this->msg)){
+            $numPadded = $this->paddNumbers($this->arrayPost['mois']);
+            $result1 = $this->getRepository('Produit')->mainSearchOne($numPadded, $this->arrayPost['annee']);
+            foreach($result1 as $key=>$value){
+                $data[$key] = $this->getRepository('Produit')->mainSearchTwo($value['id_produit'], $this->arrayPost['motCle']);
+            }
+            //var_dump($data);
+            return $data;
+        }
+    }
+/*
+ * Affichage de la Recherche
+ * 
+ */
+    
+    
+    public function customSearch(){
+        $result = $this->rechercheSite();
+        var_dump($this->arrayPost);
+        if(!empty($result)){
+            $this->view->displaySearchResult($result, $this->arrayPost);
+        }
+        else{
+            $this->msg = 'Désolé, aucun résultat sur ces critères de recherche!';
+            $this->view->displaySearchResult($this->msg, $this->arrayPost);
+        }
     }
     
       public function formOption($id){
