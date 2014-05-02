@@ -147,21 +147,25 @@ class MembreController extends Controller{
          //var_dump($this->arrayPost);
          $this->clean($this->arrayPost);
          $emailExists = $this->getRepository('Membre')->checkIfEmailExists($this->arrayPost['email']);
-         if($emailExists == false){
-             $this->msg = "Pas d'utilisateur enregistré avec cette adresse!";
-             $this->view->forgoPwd($this->msg);
-             
-         }
-         else{
-            $pwd = $this->randomPwd();
-            $this->mailLostPwd($this->arrayPost['email'], $pwd);
-            $this->getRepository('Membre')->updatePassword(md5($pwd), $emailExists['id_membre']);
-         }
+            if($emailExists == false){
+                $this->msg = "Pas d'utilisateur enregistré avec cette adresse!";
+                $this->view->forgoPwd($this->msg);
+
+            }
+            else{
+               $pwd = $this->randomPwd();
+               $this->mailLostPwd($this->arrayPost['email'], $pwd);
+               $this->getRepository('Membre')->updatePassword(md5($pwd), $emailExists['id_membre']);
+            }
      }
      
 /*
  * Display
  */
+     
+     public function justLogin(){
+         $this->view->justLogin();
+     }
      
      public function updateProfil(){
         $me = UserSessionHandler::getUser();

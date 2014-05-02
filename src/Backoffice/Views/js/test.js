@@ -148,6 +148,10 @@ var loginSubmit = function(){
     });
 };
 
+var closeMe = function(){
+    parent.$.fn.colorbox.close();
+};
+
 
 var searchForm = function(){
     $('#loupe').click(function(){
@@ -156,16 +160,13 @@ var searchForm = function(){
 };
 
 var x = function(){
-        launching();
+        /*launching();*/
         tabbedContent();
         searchForm();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('a.signUp').colorbox({href:"/lokisalle/src/Backoffice/Views/contenu/Membre/formsignup.php"});
+        $('a.flyLogin').colorbox({iframe : true, href:"?controller=MembreController&action=justLogin", onClosed:function(){ location.reload(true); }});
         accueil();
-        $('#loupe input').focus(function(){
-            $(this).animate({'width' : '20%'}, 280, function(){
-            });
-        });
         rechercheAjax();
         initialize();
         codeAddress();

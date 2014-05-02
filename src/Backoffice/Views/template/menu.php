@@ -29,33 +29,10 @@ function makeUserMenu(){
         echo "</nav>";
 }
     else{
-        $cookies = \Component\CookieBakery::bakeMeCookies();
-        $bool = isset($cookies['rememberMe']);
-        echo "<nav class='user_menu'>";?>
-<form id="logMeIn" method="post" action="?controller=MembreController&action=lanceLogin">
-            <label>Pseudo :</label>
-            <input id="pseudo" type="text" name="pseudo" value="<?php if($bool) echo $cookies['rememberMe'];?>" /><br/>
-            <label>Password :</label>
-            <input id="mdp" type="password" name="mdp" /><br/>
-            <input style='display : inline;' type="checkbox" name="remember" <?php if($bool) {
-		echo 'checked="checked"';
-	}
-	else {
-		echo '';
-	}
-	?> value="1" />
-            <label>Se souvenir de moi?</label>
-            <input type="submit" value="send"/>
-<a href='?controller=MembreController&action=lostPwdForm'>Mot de passe oublié?</a>
-</form>
-
-
-
-
-<?php
+        echo "<nav class='user_menu'>";
         echo "<ul>";
         echo"<noscript><div class='invisible'></noscript>";
-        echo "<li id='connexion'>Connexion </li>";
+        echo "<li id='connexion'><a href='?controller=MembreController&action=loginDisplay' class='flyLogin'>Connexion</a></li>";
         echo "<noscript></div></noscript>";
         echo "<li><a href='?controller=MembreController&action=signUpForm' class='signUp'>Inscription</a></li>";
         echo "</ul>";

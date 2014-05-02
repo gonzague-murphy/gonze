@@ -60,4 +60,8 @@ class MembreViews extends Views{
         ));
         
     }
+    
+    public function justLogin(){
+        $this->partialRender('loginformSolo.php', array());
+    }
 }

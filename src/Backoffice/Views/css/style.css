@@ -118,13 +118,6 @@ pas avoir à la "défaire" ensuite pour les resolutions mobiles*/
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
 
-#twoway {
-  /*width :100%;
-  height : 180px;
-  padding : 7px 15px;*/
-  /*position : relative;*/
-}
-
 h1{
     text-align : center;
     
@@ -333,6 +326,12 @@ h1{
   font-size : 46px;
 }
 
+/*****Color Box**************/
+
+.cBLogin{
+    width : 100%;
+}
+
 .formCB{
     background : #ffffff;
     border-radius : 15px;
@@ -345,9 +344,9 @@ h1{
     background : #ffffff;
     border-radius : 15px;
     padding : 10% 10%;
-    height : auto;
+    min-height : 300px;
     overflow : visible;
-    width : 350px;
+    width : 450px;
 }
 
 #cboxLoadedContent input, select, option{
@@ -386,7 +385,7 @@ select{
   width : 80%;
   padding-bottom : 2%;
   border-bottom : solid 1px;
-  height : 210px;
+  height : 100px;
   padding : 7px 15px;
 
 }
@@ -520,7 +519,7 @@ select{
 }
 
 .tripleSearch{
-    width : inherit;
+    width : 82.5%;
     margin-top : 3%;
     margin-bottom : 3%;
     margin-left : 5.5%;
