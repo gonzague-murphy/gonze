@@ -5,13 +5,11 @@ if(is_array($msg)){
     }
 }
 ?>
-
-<div id="latest">
-    <h5><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>Voir toutes nos salles &rarr;</a></h5>
-    <div class='boxArticle'>
-        <div class='desc'>
+        <div id='homePage'>
+            <ul>
             <?php
             foreach($salle as$key=>$value){
+            echo "<li>";
             echo "<h5>".$value['titre']."</h5>";
             echo "<p>";
             echo $value['prix']."euros<br/>";
@@ -21,9 +19,9 @@ if(is_array($msg)){
             echo "<a href='?controller=ProduitController&action=displayProductDetail&id=".$salle[0]['id_produit']."'>";
             echo "<img src='".$value['photo']."'/>";
             echo "</a>";
+            echo "</li>";
             }
 ?>
+            </ul>
         </div>
-    </div>
-</div>
 

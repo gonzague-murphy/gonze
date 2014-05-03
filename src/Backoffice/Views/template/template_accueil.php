@@ -1,7 +1,10 @@
 <!doctype html>
 <!--[if lt IE 9]><html class="ie"><![endif]-->
 <!--[if gte IE 9]><!--><html><!--<![endif]-->
-<?php require_once("menu.php"); ?>
+<?php 
+require_once("menu.php"); 
+require_once("footer.php"); 
+?>
 	
 	<head>
 		<meta charset="utf-8"/>
@@ -24,6 +27,7 @@
 		<![endif]-->
 	</head>
 <body onload="x();">
+    <div id='bigWrapper'>
     <div id='en_tete'>
     <div id="menu">
     <?php makeMenu(); ?>
@@ -60,9 +64,11 @@ foreach($months as $key=>$value){
       <div id="content">
         <?php 
         echo $content;
+        //var_dump($_SESSION['user']);
         ?>
       </div>
          <!---->
+         <?php makeFooter(); ?>
      </div><!--fin div .wrapper -->
      <script src="../src/Backoffice/Views/js/jquery.datetimepicker.js"></script>
      <script src="../src/Backoffice/Views/js/jquery.colorbox-min.js"></script>
@@ -73,5 +79,6 @@ foreach($months as $key=>$value){
                 // instance, using default configuration.
                 CKEDITOR.replace( 'description');
      </script>
+     </div>
 </body>
 </html>

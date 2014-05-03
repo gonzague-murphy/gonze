@@ -4,6 +4,12 @@ USE Views\Views;
 
 class NewsletterViews extends Views{
     
+    public function displaySubscribe(){
+        $this->render('template_accueil.php', 'thankyou.php', array(
+            'title'=>'Inscription Newsletter'
+        ));
+    }
+    
     public function displayForAdmin($result){
         echo "";
     }
@@ -18,5 +24,6 @@ class NewsletterViews extends Views{
     public function displayListe($args){
         echo "test";
     }
+    
 }
 

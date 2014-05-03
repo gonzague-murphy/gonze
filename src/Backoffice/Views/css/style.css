@@ -191,57 +191,12 @@ h3 {
 
 /*Default placeholder*/
 
-#latest{
-    width : 100%;
-}
-
-#latest img{
-    max-width : 25%;;
-}
-
 
 .desc{
     background-color : #ffa823;
     height : 150px;
     padding-left : 1em;
     //display : none;
-}
-
-#box1, #box2, #box3{
-    width : 62.5%;
-}
-
-#box1 .desc{
-    bottom : 0;
-    width : 98.1%;
-}
-#box2 .desc{
-    top : 0;
-    width : 96%;
-}
-
-#box3 .desc{
-    bottom : 10%;
-    width : 96%;
-}
-
-#box1 img{
-    width : 100%;
-}
-
-#box2, #box3{
-    width : 30%;
-    left : 65%;
-    
-}
-
-#box3{
-    height : 300px;
-    margin-top : 21.8%;
-}
-
-#box2 img, #box3 img{
-    width : 100%;
 }
 
 /******************Fiche Produit***************/
@@ -316,9 +271,6 @@ body{
     width : 100%;
 }
 
-.wrapper{
-    height : 100%;
-}
 
 h1{
   font-family: 'gladifiltheftegladifilthefte';
@@ -407,7 +359,7 @@ select{
 
 
 #adminLi a{
-    position : relative;
+    /*position : relative;*/
 }
 
 #adminLi ul{
@@ -422,7 +374,7 @@ select{
 }
 
 .admin_menu{
-    position : absolute;
+    /*position : absolute;*/
     left : 22%;
     
 }
@@ -472,14 +424,6 @@ select{
 
 .user_menu li a{
     color : black;
-}
-
-#latest h5 a{
-    font-size : 1.32em;
-    font-weight : 400;
-    color : black;
-    left : 80%;
-    float : right;
 }
 
 /*Boutons*/
@@ -550,7 +494,16 @@ select{
     font-size : 1.5em;
 }
 
+#homePage{
+    clear : both;
+    padding: 5% 5%;
+    margin-bottom : 2%;
+}
 
+#homePage img{
+    width : 25%;
+    height : auto;
+}
 
 h4 a{
     color : black;
@@ -582,6 +535,26 @@ h4 a{
 
 #cart li{
     display : block;
+}
+
+#bigWrapper{
+   margin : 0 0;
+   min-height:100%;
+   position:relative;
+}
+
+#content{
+    padding-bottom : 18em;
+}
+
+#footer {
+   left : 0%;
+   padding-top : 1em;
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:15em;   /* Height of the footer */
+   background:#696969;
 }
 
 

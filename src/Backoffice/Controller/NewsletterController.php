@@ -58,5 +58,29 @@ class NewsletterController extends Controller{
         return false;
         }
     }
+    
+    public function thanks(){
+        $this->view->displaySubscribe();
+    }
+    
+    public function subscribe(){
+        //var_dump($this->view);
+        $user = \Component\UserSessionHandler::getUser();
+        $check = $this->checkDoubleSubscribe($user->id_membre);
+        if($check !== 1){
+            $this->getRepository('Newsletter')->insertSubscriber($user->id_membre);
+            header("location: ?controller=NewsletterController&action=thanks&msg=1");
+            exit();
+        }
+        else{
+            header("location: ?controller=NewsletterController&action=thanks&msg=2");
+            exit();
+        }
+    }
+    
+    public function checkDoubleSubscribe($userId){
+        $result = $this->getRepository('Newsletter')->checkDouble($userId);
+        return $result;
+    }
 }
 
