@@ -94,7 +94,7 @@ overflow: auto;
 
 
 /***********************************
-****		 Media			 *******
+****	       Media         *******
 ***********************************/
 
 figure {
@@ -407,7 +407,7 @@ select{
 
 
 #adminLi a{
-    padding : 100% 100%;
+    position : relative;
 }
 
 #adminLi ul{
@@ -422,8 +422,9 @@ select{
 }
 
 .admin_menu{
-    margin : 0 5.5%;
-    width : 185%;
+    position : absolute;
+    left : 22%;
+    
 }
 
 
@@ -461,7 +462,7 @@ select{
 
 .user_menu li{
     padding : 2% 0;
-    margin : 15% 0;
+    margin : 8% 0;
     display : block;
 }
 

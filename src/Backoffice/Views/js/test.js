@@ -159,15 +159,14 @@ var searchForm = function(){
     });
 };
 
+
 var x = function(){
-        /*launching();*/
         tabbedContent();
         searchForm();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('a.signUp').colorbox({href:"/lokisalle/src/Backoffice/Views/contenu/Membre/formsignup.php"});
         $('a.flyLogin').colorbox({iframe : true, href:"?controller=MembreController&action=justLogin", onClosed:function(){ location.reload(true); }});
         $('form.flyLogin').submit(closeMe());
-        accueil();
         rechercheAjax();
         initialize();
         codeAddress();

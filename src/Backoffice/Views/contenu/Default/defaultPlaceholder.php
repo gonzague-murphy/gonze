@@ -5,6 +5,7 @@ if(is_array($msg)){
     }
 }
 ?>
+
 <div id="latest">
     <h5><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>Voir toutes nos salles &rarr;</a></h5>
     <div class='boxArticle'>
