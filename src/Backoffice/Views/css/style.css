@@ -305,8 +305,9 @@ h1{
     width : 100%;
 }
 
-.cBLogin{
+.cboxIframe{
     overflow :  auto;
+    height : 100%;
 }
 
 form input{

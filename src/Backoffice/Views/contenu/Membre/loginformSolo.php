@@ -5,7 +5,7 @@ $bool = isset($cookies['rememberMe']);
 <div class='cBLogin'>
 <?php
     if(!empty($msg)){
-    echo "<div class='error'>".$msg."</div>";
+    echo "<div class='error' style='color:red;'>".$msg."</div>";
 }
 ?>
 <form method="post" action="?controller=MembreController&action=lanceLogin">
@@ -22,5 +22,5 @@ $bool = isset($cookies['rememberMe']);
 	?> value="1">Se souvenir de moi?
             <input type="submit" value="send"/>
 </form>
-<a href='?controller=MembreController&action=lostPwdForm'>Mot de passe oublié?</a>
+<a href='?controller=MembreController&action=lostPwdForm' target="_top">Mot de passe oublié?</a>
 </div>
