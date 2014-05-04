@@ -42,20 +42,26 @@ class MembreController extends Controller{
             $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
             if($testDoubles == false){
             $this->checkForEmptyFields($this->arrayPost);
-            }
+                }
             else{
-            $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
-            } 
+            return $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
+          } 
     }
     
     public function lanceLogin(){
        if($this->isPostSet()!=false){
             $this->loginUser($this->arrayPost);
             \Component\CookieBakery::atLogin($this->arrayPost);
-            $default = new DefaultController;
-            $default->indexDisplay($this->msg);
-        }
+            //var_dump($this->msg);
+            if(empty($this->msg)){
+                $default = new DefaultController;
+                $default->indexDisplay('');
+            }
+            else{
+                $this->view->justLogin($this->msg);
+            }
     }
+ }
     
 /*
  * Login : on nettoie, on lance la query, on fait l'erreur
@@ -63,10 +69,10 @@ class MembreController extends Controller{
  * @params array($dataInput) tous les $_POST
  * @return object self:$user instance de la Classe Membre
  */
-    public function loginUser($dataInput=array()){
+    public function loginUser($dataInput){
         $myObj = $this->formValidation('loginQuery', $dataInput);
         if($myObj == false){
-            $this->msg = "<div class='error'>Mauvaise combinaison de login/mot de passe</div>";
+            $this->msg = "Mauvaise combinaison de login/mot de passe";
         }
         else{
             $this->userSession->initializeSession($myObj);
@@ -164,7 +170,7 @@ class MembreController extends Controller{
  */
      
      public function justLogin(){
-         $this->view->justLogin();
+         $this->view->justLogin('');
      }
      
      public function updateProfil(){

@@ -64,7 +64,6 @@ foreach($months as $key=>$value){
       <div id="content">
         <?php 
         echo $content;
-        //var_dump($_SESSION['user']);
         ?>
       </div>
          <!---->

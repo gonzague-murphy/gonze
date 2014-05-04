@@ -61,7 +61,9 @@ class MembreViews extends Views{
         
     }
     
-    public function justLogin(){
-        $this->partialRender('loginformSolo.php', array());
+    public function justLogin($msg){
+        $this->partialRender('loginformSolo.php', array(
+            'msg'=>$msg
+        ));
     }
 }

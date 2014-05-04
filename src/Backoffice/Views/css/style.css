@@ -305,6 +305,10 @@ h1{
     width : 100%;
 }
 
+.cBLogin{
+    overflow :  auto;
+}
+
 form input{
     display : block;
 }
@@ -327,7 +331,7 @@ select{
     display : block;
 }
 
-.error{
+.error, elements.style{
     color : red;
     text-shadow: 1px;
 }

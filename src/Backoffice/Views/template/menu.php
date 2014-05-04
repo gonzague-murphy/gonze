@@ -31,9 +31,7 @@ function makeUserMenu(){
     else{
         echo "<nav class='user_menu'>";
         echo "<ul>";
-        echo"<noscript><div class='invisible'></noscript>";
         echo "<li id='connexion'><a href='?controller=MembreController&action=loginDisplay' class='flyLogin'>Connexion</a></li>";
-        echo "<noscript></div></noscript>";
         echo "<li><a href='?controller=MembreController&action=signUpForm' class='signUp'>Inscription</a></li>";
         echo "</ul>";
         echo "</nav>";
