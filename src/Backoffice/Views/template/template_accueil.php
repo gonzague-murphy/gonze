@@ -1,10 +1,11 @@
-<!doctype html>
-<!--[if lt IE 9]><html class="ie"><![endif]-->
-<!--[if gte IE 9]><!--><html><!--<![endif]-->
 <?php 
 require_once("menu.php"); 
 require_once("footer.php"); 
 ?>
+<!doctype html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+
 	
 	<head>
 		<meta charset="utf-8"/>
@@ -35,6 +36,7 @@ require_once("footer.php");
     <div id = "twoway">
         <div id='loupe'>&nbsp;&nbsp;&nbsp;Recherche</div>
         <a href="?controller=DefaultController&action=indexDisplay"><h1>LokiSalle</h1></a>
+        <p>Numéro 1 sur la location de salles en France</p>
         <?php makeUserMenu();?>
     </div><!-- fin de la div #twoway-->
     </div><!-- fin de la div #en_tete-->
@@ -71,6 +73,7 @@ foreach($months as $key=>$value){
      </div><!--fin div .wrapper -->
      <script src="../src/Backoffice/Views/js/jquery.datetimepicker.js"></script>
      <script src="../src/Backoffice/Views/js/jquery.colorbox-min.js"></script>
+     <script src="http://unslider.com/unslider.min.js"></script>
      <script src="../src/Backoffice/Views/js/test.js"></script>
      <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
      <script>

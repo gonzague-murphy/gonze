@@ -164,14 +164,29 @@ var searchForm = function(){
     });
 };
 
+var carouselArrows = function(){
+    var unslider = $('.carousel').unslider({
+        speed: 500,               //  The speed to animate each slide (in milliseconds)
+        delay: 3000
+    });
+    
+    $('.unslider-arrow').click(function() {
+        var fn = this.className.split(' ')[1];
+        
+        //  Either do unslider.data('unslider').next() or .prev() depending on the className
+        unslider.data('unslider')[fn]();
+    });
+};
+
 
 var x = function(){
         tabbedContent();
+        colorBoxLogin();
         searchForm();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('a.signUp').colorbox({href:"/lokisalle/src/Backoffice/Views/contenu/Membre/formsignup.php"});
-        colorBoxLogin();
         rechercheAjax();
+        carouselArrows();
         initialize();
         codeAddress();
     };

@@ -5,8 +5,21 @@ if(is_array($msg)){
     }
 }
 ?>
-        <div id='homePage'>
-            <ul>
+<a href="#" class="unslider-arrow prev"><img src="../src/Backoffice/Views/img/icons/rew.png" />&nbsp;&nbsp;&nbsp;</a>
+<a href="#" class="unslider-arrow next"><img src="../src/Backoffice/Views/img/icons/fwd.png" /></a>
+<div class="carousel">
+    <ul>
+        <li><img src="../src/Backoffice/Views/img/carousel/slide1.jpg" /></li>
+        <li><img src="../src/Backoffice/Views/img/carousel/slide2.jpg" /></li>
+        <li><img src="../src/Backoffice/Views/img/carousel/slide3.jpg" /></li>
+        <li><img src="../src/Backoffice/Views/img/carousel/slide4.jpg" /></li>
+    </ul>
+</div>
+        <div id='galerie'>
+            <div class="titleHome">
+            <h3 class="categorie">&nbsp;&nbsp;&nbsp;Nos 3 dernières offres</h3>
+            </div>
+            <ul class="produit">
             <?php
             foreach($salle as$key=>$value){
             echo "<li>";
@@ -24,4 +37,10 @@ if(is_array($msg)){
 ?>
             </ul>
         </div>
+
+<div id="partenaires">
+    <div class="titleHome">
+    <h3 class="categorie">&nbsp;&nbsp;&nbsp;Ils nous ont fait confiance</h3>
+    </div>
+</div>
 
