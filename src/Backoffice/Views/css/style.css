@@ -577,7 +577,70 @@ h4 a{
    bottom:0;
    width:100%;
    height:15em;   /* Height of the footer */
-   background:#696969;
+   background:#000000;
+}
+
+#footer ul li{
+    margin-top : 5%;
+}
+
+#footer a{
+    color : white;
+}
+
+#footer .rappelLiens{
+    position : relative;
+    margin : 5.5% 0% 0% 5.5%;
+    border-right: solid 1px #ffffff;
+    width : 20%;
+    top : -15%;
+}
+
+#footer .reseauxSociaux{
+    padding-right : 5%;
+    position : absolute;
+    left : 30%;
+    top : 30%;
+    border-right: solid 1px #ffffff;
+}
+
+#footer .newsLetter{
+    position : relative;
+    left : 60%;
+    margin-top : -7%;
+    width : 25%;
+}
+
+.newsLetter input[type=checkbox]{
+    float : left;
+}
+
+.newsLetter input[type=submit]{
+    background : white;
+    color : black;
+    font-weight : 600;
+    padding : 1% 1%;
+}
+
+#footer .newsLetter p, label, input{
+    color : white;
+    display : inline;
+}
+
+.twitter, .facebook, .googlePlus{
+    padding : 1% 0 2% 25%;
+}
+
+.twitter{
+    background : url('../img/icons/twitter.png') no-repeat;
+}
+
+.facebook{
+    background : url('../img/icons/facebook.png') no-repeat;
+}
+
+.googlePlus{
+    background : url('../img/icons/g+.png') no-repeat;
 }
 
 .user_menu{

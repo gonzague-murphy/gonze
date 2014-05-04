@@ -40,7 +40,7 @@ if(is_array($msg)){
 
 <div id="partenaires">
     <div class="titleHome">
-    <h3 class="categorie">&nbsp;&nbsp;&nbsp;Ils nous ont fait confiance</h3>
+    <h3 class="categorie">Ils nous ont fait confiance</h3>
     </div>
 </div>
 
