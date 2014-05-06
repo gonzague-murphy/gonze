@@ -111,6 +111,14 @@ var rechercheEtat = function(){
     });
 };
 
+var toggleStats = function(){
+    $('#stats h3').next('table').hide();
+    $('#stats h3').click(function(){
+        var el = $(this).next('table');
+        check = el.is(':visible') ? el.slideUp() : ($('table').slideUp()) (el.slideDown());
+    });
+};
+
 var launching = function(){
     $('#logMeIn').css({'display' : 'none'});
         $('#twoway').css({'height' : '100px'});
@@ -194,6 +202,7 @@ var x = function(){
         $('a.signUp').colorbox({href:"/lokisalle/src/Backoffice/Views/contenu/Membre/formsignup.php"});
         rechercheAjax();
         rechercheEtat();
+        toggleStats();
         carouselArrows();
         initialize();
         codeAddress();
