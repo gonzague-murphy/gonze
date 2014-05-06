@@ -1,5 +1,5 @@
 <form method="post" action="?controller=MembreController&action=insertAdmin">
-    <?php echo $msg."<br/>";?>
+    <?php if(isset($msg))echo $msg."<br/>";?>
         <label>Pseudo :</label>
             <input type="text" name="pseudo" />
         <label>Password :</label>

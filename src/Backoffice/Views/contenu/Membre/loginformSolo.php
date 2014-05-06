@@ -4,7 +4,7 @@ $bool = isset($cookies['rememberMe']);
 ?>
 <div class='cBLogin'>
 <?php
-    if(!empty($msg)){
+    if(isset($msg)){
     echo "<div class='error' style='color:red;'>".$msg."</div>";
 }
 ?>

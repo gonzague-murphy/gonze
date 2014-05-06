@@ -1,7 +1,13 @@
 <?php //var_dump($salle); 
-if(is_array($msg)){
+if(isset($msg)){ 
+    if(is_array($msg)){
     foreach($msg as $key=>$value){
         echo "<div class='error'>".$value."</div><br/>";
+        }
+    }
+    
+    else{
+        echo $msg;
     }
 }
 ?>
@@ -17,7 +23,7 @@ if(is_array($msg)){
 </div>
         <div id='galerie'>
             <div class="titleHome">
-            <h3 class="categorie">&nbsp;&nbsp;&nbsp;Nos 3 dernières offres</h3>
+            <h3 class="categorie">Nos 3 dernières offres</h3>
             </div>
             <ul class="produit">
             <?php

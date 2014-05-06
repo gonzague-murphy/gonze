@@ -595,6 +595,10 @@ select{
     font-size : 1.2em;
 }
 
+#stats h3:hover{
+    cursor :  pointer;
+}
+
 #stats th, #stats td{
     padding : 2% 2%;
     min-width : 15%;
@@ -612,10 +616,10 @@ select{
 }
 
 .categorie{
-    width : 20%;
+    width : 28%;
     background : #ffffff;
-    padding : 0.5em 0 1em 1.3em;
-    margin-left : 40%;
+    padding : 0.5em 0 1em 0;
+    //margin-left : 35%;
     font-weight : normal;
     font-size : 1.5em;
 }

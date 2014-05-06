@@ -136,7 +136,7 @@ var succesLogin = function(){
     $.ajax({
         type : "GET",
         async : true,
-        url : "index.php?controller=DefaultController&action=indexDisplay"
+        url : "?controller=DefaultController&action=indexDisplay"
     });
 };
 
@@ -151,15 +151,14 @@ var loginSubmit = function(){
         $.ajax({
             type: "POST",
             async : true,
-            url: "index.php?controller=MembreController&action=lanceLogin",
+            url: "?controller=MembreController&action=lanceLogin",
             data: dataString,
             success : function(){
-                $(document).load("index.php?controller=DefaultController&action=makeMenu", function(){
+                $(document).load("?controller=DefaultController&action=makeMenu", function(){
                 alert("All es klar");
                 });
             }
         });
-    /*index.php?controller=DefaultController&action=indexDisplay*/    
     });
 };
 
