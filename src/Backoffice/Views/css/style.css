@@ -584,14 +584,20 @@ select{
     color : black;
 }
 
+#stats table, #stats th, #stats td{
+    border:1px solid black;
+    border-collapse:collapse
+}
+
 #stats h3{
     font-family: 'Merriweather', serif;
     font-weight : 500;
     font-size : 1.2em;
 }
 
-.conceal{
-    display : none;
+#stats th, #stats td{
+    padding : 2% 2%;
+    min-width : 15%;
 }
 
 #homePage{
