@@ -4,7 +4,7 @@ if(empty($cart)){
     echo "Votre panier est vide!";
 }
 else{
-    if($_GET['msg'] == 'on'){
+    if(isset($_GET['msg']) && $_GET['msg'] == 'on'){
         echo "Ce produit est déjà dans votre panier!<br/>";
     }
 ?>

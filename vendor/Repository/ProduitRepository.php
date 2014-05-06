@@ -87,7 +87,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function selectHasProduct(){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat=0 AND p.date_arrivee > CURDATE()");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart FROM salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat=0 AND p.date_arrivee > CURDATE()");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
@@ -99,7 +99,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function selectHasProductAdmin(){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.etat, p.prix, p.id_salle from salle s, produit p WHERE s.id_salle=p.id_salle");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart, p.etat FROM salle s, produit p WHERE s.id_salle=p.id_salle");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
@@ -110,7 +110,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function selectMostRecent(){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat=0 ORDER BY p.id_produit DESC LIMIT 0,3;");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart FROM salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat=0 ORDER BY p.id_produit DESC LIMIT 0,3;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
@@ -122,7 +122,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function selectByCity($city){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$city."' AND p.etat=0 ORDER BY p.id_produit DESC;");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$city."' AND p.etat=0 ORDER BY p.id_produit DESC;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
@@ -134,8 +134,8 @@ class ProduitRepository extends EntityRepository{
  * Query select par capacite
  */
 
-     public function selectByCapacity($capacity){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$capacity."' ORDER BY p.id_produit DESC;");
+     public function selectByState($etat){
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart, p.etat FROM salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat='".$etat."' ORDER BY p.id_produit DESC;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();

@@ -23,15 +23,23 @@ if(is_array($msg)){
             <?php
             foreach($salle as$key=>$value){
             echo "<li>";
-            echo "<h5>".$value['titre']."</h5>";
-            echo "<p>";
-            echo $value['prix']."euros<br/>";
-            echo $value['capacite']."personnes<br/>";
-            echo $value['ville']."<br/>";
-            echo "</p>";
-            echo "<a href='?controller=ProduitController&action=displayProductDetail&id=".$salle[0]['id_produit']."'>";
-            echo "<img src='".$value['photo']."'/>";
-            echo "</a>";
+            echo "<div class='details'>";
+            echo "<h4><a href='?controller=ProduitController&action=displayProductDetail&id=".$value['id_produit']."'>".$value['titre']."</a></h4>";
+            echo "<a href='?controller=ProduitController&action=displayProductDetail&id=".$value['id_produit']."'><img src='".$value['photo']."'></a>";
+            echo "<div class='flaticon-ville'>".$value['ville']."</div>";
+            echo "<div class='flaticon-calend'>Du ".date("d-m-Y", strtotime($value['date_arrivee']))." au ".date("d-m-Y", strtotime($value['date_depart']))."</div>";
+            echo "<div class='flaticon-capa'>".$value['capacite']." personnes</div>";
+            echo "<div class='flaticon-euro'>".$value['prix']." euros</div>";
+            echo "</div>";
+            echo "<div class='linksProd'>";
+            echo "<span><a href='?controller=ProduitController&action=displayProductDetail&id=".$value['id_produit']."'>&#10095; Voir la fiche détaillée</a></span>";
+            if(isset($_SESSION['user'])){
+                echo "<a href='?controller=CommandeController&action=addToCart&id=".$value['id_produit']."' class='bouton'>+ Ajouter au panier</a>";
+            }
+            else{
+                echo "<span><a href='?controller=MembreController&action=loginDisplay' class='flyLogin'>&#10095; Connectez-vous pour l'ajouter au panier</a></span>";
+            }
+            echo "</div>";
             echo "</li>";
             }
 ?>

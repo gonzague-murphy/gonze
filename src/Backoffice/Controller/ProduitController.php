@@ -37,8 +37,8 @@ class ProduitController extends Controller{
             }
             else{
                 $this->allowInsert($obj);
-                header('Location: ?controller=ProduitController&action=displaySalleHasProduct');
-                exit;
+                header('Location: ?controller=ProduitController&action=displaySalleHasProductAdmin');
+                exit();
             }
         }
     }
@@ -62,7 +62,7 @@ class ProduitController extends Controller{
                 $this->checkDoubleDate($obj);
                 if(empty($this->msg)){
                     $this->allowUpdate($this->arrayGet['id'], $prod);
-                    $this->displaySalleHasProduct();
+                    $this->displaySalleHasProductAdmin();
                 }
                 else{
                     $this->displayUpdateProduit();
@@ -184,7 +184,7 @@ class ProduitController extends Controller{
             $result = $queryTable->findById($this->arrayGet['id']);
             if($result !== false){
                 $queryTable->deleteProduit($this->arrayGet['id']);
-                $this->displaySalleHasProduct();
+                $this->displaySalleHasProductAdmin();
             }
             else{
                 $this->msg = "Ce produit n'existe pas!";
@@ -227,10 +227,10 @@ class ProduitController extends Controller{
  * Trier par capacite
  */
     
-    public function triCapa($capa){
-        $cleanData = $this->clean($capa);
-        $result = $this->getRepository('Produit')->selectByCapacity($cleanData);
-        return $result;
+    public function triState(){
+        $this->clean($this->arrayGet);
+        $result = $this->getRepository('Produit')->selectByState($this->arrayGet['etat']);
+        $this->view->updateState($result);
     }
 
 /*
@@ -302,7 +302,7 @@ class ProduitController extends Controller{
         }
     }
     
-       public function displaySalleHasProduct(){
+       public function displaySalleHasProductAdmin(){
         $value = $this->getRepository('Produit');
         $liste = $value->selectHasProductAdmin();
         $this->view->displayForAdmin($liste);

@@ -10,6 +10,13 @@ class ProduitViews extends Views{
         ), true);
     }
     
+    public function updateState($arg){
+        $this->partialRender('listeadmin.php', array(
+            'liste'=>$arg
+        ));
+    }
+    
+    
     public function displayListe($args){
         $this->render('template_accueil.php', 'listenormal.php', array(
             'title'=>'Toutes les salles',

@@ -100,7 +100,14 @@ var accueil = function(){
 var rechercheAjax = function(){
     $('.town').change(function(){
         var valInput = "ville="+$('.town').val();
-        $("#galerie").load("index.php?controller=ProduitController&action=triVille", valInput);
+        $("#galerie").load("?controller=ProduitController&action=triVille", valInput);
+    });
+};
+
+var rechercheEtat = function(){
+    $('#state').change(function(){
+        var valInput = "etat="+$('.state').val();
+        $("#galerie").load("?controller=ProduitController&action=triState", valInput);
     });
 };
 
@@ -186,6 +193,7 @@ var x = function(){
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         $('a.signUp').colorbox({href:"/lokisalle/src/Backoffice/Views/contenu/Membre/formsignup.php"});
         rechercheAjax();
+        rechercheEtat();
         carouselArrows();
         initialize();
         codeAddress();

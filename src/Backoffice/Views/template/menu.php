@@ -41,7 +41,7 @@ function makeUserMenu(){
 function makeAdminMenu(){
             echo "<ul class='admin_menu'>";
             echo "<li><a href='?controller=SalleController&action=displayForAdmin'>Gérer les Salles</a></li>";
-            echo "<li><a href='?controller=ProduitController&action=displaySalleHasProduct'>Gérer les Produits</a></li>";
+            echo "<li><a href='?controller=ProduitController&action=displaySalleHasProductAdmin'>Gérer les Produits</a></li>";
             echo "<li><a href='?controller=MembreController&action=displayForAdmin'>Gérer les Membres</a></li>";
             echo "<li><a href='?controller=PromotionController&action=displayForAdmin'>Gérer les Codes Promo</a></li>";
             echo "<li><a href='?controller=AvisController&action=listeForAdmin'>Gérer les Avis</a></li>";

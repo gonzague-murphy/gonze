@@ -11,10 +11,12 @@ echo "<table>";
     echo "</th>";
 if(!is_null($bestRanked)){
     foreach($bestRanked as $key=>$value){
+        echo "<div class='conceal'>";
         echo "<tr>";
         echo "<td>".$value->titre."</td>";
         echo "<td>".$value->getNote()."/10 sur ".$value->nbre." avis</td>";
         echo "</tr>";
+        echo "</div>";
     }
 }
 else{
@@ -32,10 +34,12 @@ echo "<table>";
     echo "</th>";
 if(!is_null($mostSold)){
     foreach($mostSold as $key=>$value){
+        echo "<div class='conceal'>";
         echo "<tr>";
         echo "<td>".$value['titre']."</td>";
         echo "<td>".$value['compte']." fois</td>";
         echo "</tr>";
+        echo "</div>";
     }
 }
 else{
@@ -53,10 +57,12 @@ echo "<table>";
     echo "</th>";
 if(!is_null($mostQty)){
     foreach($mostQty as $key=>$value){
+        echo "<div class='conceal'>";
         echo "<tr>";
         echo "<td>".$value['pseudo']."</td>";
         echo "<td>".$value['compte']."</td>";
         echo "</tr>";
+        echo "</div>";
     }
 }
 else{
@@ -74,10 +80,12 @@ echo "<table>";
     echo "</th>";
 if(!is_null($mostExp)){
     foreach($mostExp as $key=>$value){
+        echo "<div class='conceal'>";
         echo "<tr>";
         echo "<td>".$value['pseudo']."</td>";
         echo "<td>".$value['compte']." €</td>";
         echo "</tr>";
+        echo "</div>";
     }
 }
 else{

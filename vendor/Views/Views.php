@@ -48,7 +48,7 @@ abstract class Views{
             }
             $content = ob_get_clean();
             
-            require $template;
+            require_once($template);
         return ob_end_flush();
     }
 }
