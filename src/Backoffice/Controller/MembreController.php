@@ -5,6 +5,7 @@ USE Component\UserSessionHandler;
 
 
 class MembreController extends Controller{
+    
 /*
  * Fonctions de lancement
  */
@@ -18,7 +19,7 @@ class MembreController extends Controller{
             exit();
             }
             else{
-                $this->view->signUpForm($this->msg);
+                $this->view->justSignUp($this->msg);
             }
         }
     }
@@ -171,6 +172,10 @@ class MembreController extends Controller{
      
      public function justLogin(){
          $this->view->justLogin('');
+     }
+     
+     public function justSignUp(){
+         $this->view->justSignUp('');
      }
      
      public function updateProfil(){

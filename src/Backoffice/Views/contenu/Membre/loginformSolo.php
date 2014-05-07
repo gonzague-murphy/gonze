@@ -2,6 +2,7 @@
 $cookies = \Component\CookieBakery::bakeMeCookies();
 $bool = isset($cookies['rememberMe']);
 ?>
+<link rel = "stylesheet" href = "../src/Backoffice/Views/css/style.css"/>
 <div class='cBLogin'>
 <?php
     if(isset($msg)){
@@ -13,14 +14,15 @@ $bool = isset($cookies['rememberMe']);
             <input type="text" name="pseudo" id="pseudo" value="<?php if($bool) echo $cookies['rememberMe'];?>"/><br/>
             <label>Password :</label>
             <input type="password" name="mdp" id="mdp" /><br/>
+            <label for="remember">Se souvenir de moi?</label>
             <input type="checkbox" name="remember" <?php if($bool) {
 		echo 'checked="checked"';
 	}
 	else {
 		echo '';
 	}
-	?> value="1">Se souvenir de moi?
-            <input type="submit" value="send"/>
+	?> value="1">
+            <input type="submit" value="Connexion"/>
 </form>
 <a href='?controller=MembreController&action=lostPwdForm' target="_top">Mot de passe oublié?</a>
 </div>

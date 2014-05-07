@@ -66,4 +66,10 @@ class MembreViews extends Views{
             'msg'=>$msg
         ));
     }
+    
+    public function justSignUp($msg){
+        $this->partialRender('formsignup.php', array(
+            'msg'=>$msg
+        ));
+    }
 }

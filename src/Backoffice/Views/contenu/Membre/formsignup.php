@@ -5,8 +5,9 @@ if(isset($msg) && is_array($msg)){
     }
 }
 ?>
-<div>
-<form method="post" action="?controller=MembreController&action=lanceSignUp">
+<link rel = "stylesheet" href = "../src/Backoffice/Views/css/style.css"/>
+<div class='cBLogin'>
+<form method="post" action="?controller=MembreController&action=lanceSignUp" class='sign'>
         <label>Pseudo :</label>
             <input type="text" name="pseudo" value="<?php if(isset($_POST['pseudo'])) echo $_POST['pseudo']; ?>"/>
         <label>Password :</label>

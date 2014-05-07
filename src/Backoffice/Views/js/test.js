@@ -167,9 +167,24 @@ var closeMe = function(){
 };
 
 var colorBoxLogin = function(){
-    $('a.flyLogin').colorbox({iframe : true, href:"?controller=MembreController&action=justLogin", onClosed:function(){ location.reload(true); }});
+    $('a.flyLogin').colorbox({iframe : true, href:"?controller=MembreController&action=justLogin", height : "335px", width : "315px", scrolling : false, left: "496px", onClosed:function(){ location.reload(true); }});
     $('form.flyLogin').submit(closeMe());
  };
+ 
+ var colorBoxSignUp = function(){
+    $('a.signUp').colorbox({
+        iframe : true, 
+        href:"?controller=MembreController&action=justSignUp", 
+        scrolling : false, 
+        left: "496px", 
+        top : "7%",
+        height : "865px",
+        width : "360px",
+        onClosed:function(){ 
+            location.reload(true); 
+    }});
+    $('form.sign').submit(closeMe());
+};
 
 
 var searchForm = function(){
@@ -180,14 +195,12 @@ var searchForm = function(){
 
 var carouselArrows = function(){
     var unslider = $('.carousel').unslider({
-        speed: 500,               //  The speed to animate each slide (in milliseconds)
+        speed: 500,          
         delay: 3000
     });
     
     $('.unslider-arrow').click(function() {
         var fn = this.className.split(' ')[1];
-        
-        //  Either do unslider.data('unslider').next() or .prev() depending on the className
         unslider.data('unslider')[fn]();
     });
 };
@@ -196,9 +209,9 @@ var carouselArrows = function(){
 var x = function(){
         tabbedContent();
         colorBoxLogin();
+        colorBoxSignUp();
         searchForm();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
-        $('a.signUp').colorbox({href:"/lokisalle/src/Backoffice/Views/contenu/Membre/formsignup.php"});
         rechercheAjax();
         rechercheEtat();
         toggleStats();

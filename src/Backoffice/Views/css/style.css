@@ -232,7 +232,6 @@ h3 {
 
 #galerie .linksProd span{
     font-size : inherit;
-    margin-left : 9%;
     display : block;
     text-align : left;
     color : black;
@@ -343,7 +342,7 @@ body{
 
 h1{
   font-family: 'gladifiltheftegladifilthefte';
-  color : #ffa823;
+  color : #F78F6D;
   font-size : 46px;
 }
 
@@ -357,22 +356,33 @@ h2, h3, h4, h5{
     width : 100%;
 }
 
-.formCB{
-    background : #ffffff;
-    border-radius : 15px;
-    padding : 10% 10%;
-    height : auto;
-    overflow : visible;
+.cBLogin input[type=text], .cBLogin input[type=submit], .cBLogin input[type=password]{
+    width : 100%;
+    height : 35px;
+    margin : 4% 0;
+}
+
+.cBLogin input[type=checkbox], .cBLogin label{
+    display : inline;
+}
+
+.cBLogin input[type=checkbox]{
+    vertical-align: bottom;
+    position: relative;
+    overflow: hidden;
+    width : 5%;
+    top : -0.9%;
+}
+
+.cBLogin a{
+    color : #000000;
 }
 
 #cboxLoadedContent{
-    background : #ffffff;
+    background : #FFD88A;;
     border-radius : 15px;
-    padding : 10% 10%;
-    height : 300px;
+    padding : 15% 20%;
     overflow : visible;
-    width : 450px;
-    border : solid 3px black;
 }
 
 #cboxLoadedContent input, select, option{
@@ -382,6 +392,10 @@ h2, h3, h4, h5{
 .cboxIframe{
     overflow :  auto;
     height : 100%;
+}
+
+form{
+    overflow : hidden;
 }
 
 form input{
@@ -430,7 +444,8 @@ select{
 }
 
 #menu{
-    background : #000000;
+    background : #8A8887;
+    border-bottom : solid 30px #FCA47E;
     text-align : center;
     padding : 1.5em 0;
 }
@@ -476,7 +491,7 @@ select{
 
 #mainMenu ul li a{
     color : #ffffff;
-    font-weight : 500;
+    font-weight : 600;
     text-decoration : none;
     padding : 0.5em 2em;
 }
@@ -618,7 +633,7 @@ select{
 .categorie{
     width : 28%;
     background : #ffffff;
-    padding : 0.5em 0 1em 0;
+    padding : 0.5em 0 0.5em 0;
     //margin-left : 35%;
     font-weight : normal;
     font-size : 1.5em;
@@ -673,7 +688,7 @@ h4 a{
    bottom:0;
    width:100%;
    height:15em;   /* Height of the footer */
-   background:#000000;
+   background:#EBE1B7;
 }
 
 #footer ul li{
@@ -681,7 +696,7 @@ h4 a{
 }
 
 #footer a{
-    color : white;
+    color : #000000;
 }
 
 #footer .rappelLiens{
