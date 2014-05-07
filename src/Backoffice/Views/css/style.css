@@ -69,13 +69,23 @@ border : none;
 ***********************************/
 
 html {
-height: 100%;
+min-height: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
 body {
 min-height: 100%;
 font-size: 100%;
+color : #373737;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
 }
 
 article,
@@ -167,9 +177,7 @@ h3 {
 }
 
 #menu ul{
-    margin-left : 5.55555%;
     margin-bottom : 0.8em;
-    //margin-top : 0.8em;
 }
 
 #slider img{
@@ -183,9 +191,7 @@ h3 {
 
 .produit{
     width : 100%;
-    list-style : none;
-    //margin: 2% 6.6%;
-    
+    list-style : none;    
 }
 
 .produit .details{
@@ -212,7 +218,7 @@ h3 {
 
 .linksProd a{
     display : block;
-    color : #000000;
+    color : #373737;
     text-align : left;
 }
 
@@ -227,14 +233,14 @@ h3 {
 }
 
 .add{
-    color : #000000;
+    color : #373737;
 }
 
 #galerie .linksProd span{
     font-size : inherit;
     display : block;
     text-align : left;
-    color : black;
+    color : #373737;
 }
 
 .produit li{
@@ -283,7 +289,7 @@ h3 {
 .tabs a {
     background: #ffffff;
     color: #000000;
-    border : 4px solid black;
+    border : 4px solid #373737;
     display: inline-block;
     padding: 5px 10px;
     text-decoration: none;
@@ -332,7 +338,7 @@ html{
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight : 400;
     height : 100%;
     overflow: scroll;
@@ -347,7 +353,7 @@ h1{
 }
 
 h2, h3, h4, h5{
-    font-family : 'Merriweather', serif;
+    font-family : 'Oswald', serif;
 }
 
 /*****Color Box**************/
@@ -360,6 +366,16 @@ h2, h3, h4, h5{
     width : 100%;
     height : 35px;
     margin : 4% 0;
+    padding : 1% 5%;
+}
+
+.sign label{
+    display : inline;
+}
+
+input[type="radio"]{
+    vertical-align: middle; 
+    margin: 0px; 
 }
 
 .cBLogin input[type=checkbox], .cBLogin label{
@@ -383,6 +399,7 @@ h2, h3, h4, h5{
     border-radius : 15px;
     padding : 15% 20%;
     overflow : visible;
+    z-index : 100;
 }
 
 #cboxLoadedContent input, select, option{
@@ -461,7 +478,7 @@ select{
     display : none;
     width : 150%;
     background : #ffffff;
-    border : solid 1px black;
+    border : solid 1px #373737;
 }
 
 #adminLi{
@@ -472,7 +489,7 @@ select{
 #mainMenu ul>li>ul>li a{
     text-align : center;
     font-size : 1em;
-    color : black;
+    color : #373737;
     width : 100%;
 }
 
@@ -513,7 +530,8 @@ select{
 }
 
 .user_menu li a{
-    color : black;
+    color : #373737;
+    font-weight : 400;
 }
 
 /*Boutons*/
@@ -542,7 +560,7 @@ select{
 #loupe{
     margin-top : 2%;
     padding : 0 2%;
-    background : #ffffff url('../../../../img/magni.png') no-repeat;
+    background : url('../../../../img/magni.png') no-repeat;
     background-position: 0% -4%;
 }
 
@@ -557,7 +575,7 @@ select{
     margin-left : 5.5%;
     margin-right : 50%;
     padding-bottom : 2%;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px #373737;
     display : none;
 }
 
@@ -569,11 +587,11 @@ select{
     width : 15%;
     display : inline;
     margin : 0 1%;
-    color : black;
+    color : #373737;
 }
 
 .tripleSearch label{
-    color : black;
+    color : #373737;
 }
 
 .tripleSearch input[type=submit]{
@@ -586,6 +604,7 @@ select{
     position: relative; 
     overflow: auto;
     left : 8%;
+    width : 1290px;
 }
 .carousel li { 
     list-style: none; 
@@ -600,12 +619,12 @@ select{
 }
 
 #stats table, #stats th, #stats td{
-    border:1px solid black;
+    border:1px solid #373737;
     border-collapse:collapse
 }
 
 #stats h3{
-    font-family: 'Merriweather', serif;
+    font-family: 'Oswald', serif;
     font-weight : 500;
     font-size : 1.2em;
 }
@@ -626,12 +645,12 @@ select{
 }
 
 .titleHome{
-    background : url('../img/lineMeBack.png')no-repeat;
+    background : url('../img/lastback.png')no-repeat;
     margin-right : 5%;
 }
 
 .categorie{
-    width : 28%;
+    width : 22%;
     background : #ffffff;
     padding : 0.5em 0 0.5em 0;
     //margin-left : 35%;
@@ -640,7 +659,7 @@ select{
 }
 
 h4 a{
-    color : black;
+    color : #373737;
 }
 
 .commande img{
@@ -696,13 +715,13 @@ h4 a{
 }
 
 #footer a{
-    color : #000000;
+    color : #373737;
 }
 
 #footer .rappelLiens{
     position : relative;
     margin : 5.5% 0% 0% 5.5%;
-    border-right: solid 1px #ffffff;
+    border-right: solid 1px #373737;
     width : 20%;
     top : -15%;
 }
@@ -712,7 +731,7 @@ h4 a{
     position : absolute;
     left : 30%;
     top : 30%;
-    border-right: solid 1px #ffffff;
+    border-right: solid 1px #373737;
 }
 
 #footer .newsLetter{
@@ -729,13 +748,13 @@ h4 a{
 
 .newsLetter input[type=submit]{
     background : white;
-    color : black;
+    color : #373737;
     font-weight : 600;
     padding : 1% 1%;
 }
 
 #footer .newsLetter p, .newsLetter label, .newsLetter input{
-    color : white;
+    color : #373737;
     display : inline;
 }
 
@@ -777,4 +796,3 @@ h4 a{
     float : right;
     margin-top : -8.5%;
 }
-

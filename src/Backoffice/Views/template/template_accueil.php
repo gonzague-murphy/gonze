@@ -15,8 +15,9 @@ require_once("footer.php");
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/style.css"/>
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/jquery.datetimepicker.css"/>
-                <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:400,300,400italic,500' rel='stylesheet' type='text/css'>		<!--<script src="../src/Backoffice/Views/js/GGS.js"></script>-->
-                <link href='http://fonts.googleapis.com/css?family=Merriweather&subset=latin' rel='stylesheet' type='text/css'>                <script type="text/javascript" src="../src/Backoffice/Views/js/jquery-1.10.2.js"></script>
+                <link href='http://fonts.googleapis.com/css?family=Oswald&subset=latin' rel='stylesheet' type='text/css'>
+                <link href='http://fonts.googleapis.com/css?family=Merriweather&subset=latin' rel='stylesheet' type='text/css'>                
+                <script type="text/javascript" src="../src/Backoffice/Views/js/jquery-1.10.2.js"></script>
                 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>                
 
 		<!-- 
@@ -36,7 +37,7 @@ require_once("footer.php");
     <div id = "twoway">
         <div id='loupe'>&nbsp;&nbsp;&nbsp;Recherche</div>
         <a href="?controller=DefaultController&action=indexDisplay"><h1>LokiSalle</h1></a>
-        <p>Numéro 1 sur la location de salles en France</p>
+        <p>Location de salles partout en France en 2 clics !</p>
         <?php makeUserMenu();?>
     </div><!-- fin de la div #twoway-->
     </div><!-- fin de la div #en_tete-->

@@ -44,10 +44,7 @@ class NewsletterController extends Controller{
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
-        $headers .= 'From: "Mon super site" <contact@supersite.com>' . "\r\n";
-        $headers .= 'Cc: "Contact" <contact@supersite.com>' . "\r\n";
-        $headers .= 'Bcc: "Contact" <contact@supersite.com>' . "\r\n";
-     
+        $headers .= 'From: "Lokisalle" <loki-salle@alwaysdata.net>' . "\r\n";
 
     $mail = mail($to, $subject, $message, $headers); //marche
 

@@ -84,19 +84,6 @@ var tabbedContent = function(){
 };
 
 
-//Hover sur salles de page d'accueil
-var accueil = function(){
-    $('.boxArticle').hover(function(){
-        $quelleBox = "#box" + ($(this).index() + 1).toString();
-        //alert($quelleBox);
-        $($quelleBox).find('.desc').fadeIn('fast', function(){});
-    }, function(){
-        $quelleBox = "#box" + ($(this).index() + 1).toString();
-        //alert($quelleBox);
-        $($quelleBox).find('.desc').fadeOut('fast', function(){});
-    });
-};
-
 var rechercheAjax = function(){
     $('.town').change(function(){
         var valInput = "ville="+$('.town').val();
@@ -167,7 +154,12 @@ var closeMe = function(){
 };
 
 var colorBoxLogin = function(){
-    $('a.flyLogin').colorbox({iframe : true, href:"?controller=MembreController&action=justLogin", height : "335px", width : "315px", scrolling : false, left: "496px", onClosed:function(){ location.reload(true); }});
+    $('a.flyLogin').colorbox({iframe : true, href:"?controller=MembreController&action=justLogin", height : "335px", width : "315px", scrolling : false, left: "496px", onClosed:function(){ 
+            location.reload(true); 
+        }, onOpen : function(){
+            $('#colorbox,#cboxOverlay,#cboxWrapper').css('z-index', '4000');
+            $('body').append('<div class="overlay"></div>');
+        }});
     $('form.flyLogin').submit(closeMe());
  };
  

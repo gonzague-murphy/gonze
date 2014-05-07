@@ -10,7 +10,7 @@ if(isset($msg) && is_array($msg)){
 <form method="post" action="?controller=MembreController&action=lanceSignUp" class='sign'>
         <label>Pseudo :</label>
             <input type="text" name="pseudo" value="<?php if(isset($_POST['pseudo'])) echo $_POST['pseudo']; ?>"/>
-        <label>Password :</label>
+        <label>Mot de passe :</label>
             <input type="password" name="mdp" value="<?php if(isset($_POST['mdp'])) echo $_POST['mdp']; ?>" />
         <label>Nom :</label>
             <input type="text" name="nom" value="<?php if(isset($_POST['nom'])) echo $_POST['nom']; ?>"/>
@@ -30,7 +30,7 @@ if(isset($msg) && is_array($msg)){
         <label>Adresse :</label>
             <input type="text" name="adresse" value="<?php if(isset($_POST['adresse'])) echo $_POST['adresse']; ?>"/>
         
-            <input type="submit" id="submit" name="submit" value="submit" />
+            <input type="submit" id="submit" name="submit" value="S'inscrire" />
     </form>
 </div>
    

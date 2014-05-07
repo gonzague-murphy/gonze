@@ -6,11 +6,17 @@ USE PDO;
 
 class MembreRepository extends EntityRepository{
 
-        
-        
-
         public function getAllMembers(){
-            return $this->findAll();
+            $query = $this->getDb()->prepare("SELECT * FROM membre WHERE statut <> 1");
+            $query->setFetchMode(PDO::FETCH_CLASS, 'Entity\\'.ucfirst($this->getTableName()));
+            $query->execute();
+            $result = $query->fetchAll();
+            if(!$query){
+                return false;
+            }
+            else{
+                return $result;
+            }
         }
 /*
  * Insert

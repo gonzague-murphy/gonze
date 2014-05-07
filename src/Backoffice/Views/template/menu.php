@@ -22,9 +22,9 @@ function makeUserMenu(){
     if(isset($_SESSION['user'])){
         echo "<nav class='user_menu'>";
         echo "<ul>";
-        echo "<li id='cart'><a href='?controller=CommandeController&action=panierDisplay'> Mon panier(".count(Component\PanierSessionHandler::getPanier()).")</a></li>";
+        echo "<li id='cart'><a href='?controller=CommandeController&action=panierDisplay'>Mon panier(".count(Component\PanierSessionHandler::getPanier()).")</a></li>";
         echo "<li id='monCompte'><a href='?controller=MembreController&action=displayFicheDetail'>Mon compte</a></li>";
-        echo "<li id='deconnexion'><a href='?controller=MembreController&action=deconnexion'> Deconnexion</a></li>";
+        echo "<li id='deconnexion'><a href='?controller=MembreController&action=deconnexion'>Déconnexion</a></li>";
         echo "</ul>";
         echo "</nav>";
 }
