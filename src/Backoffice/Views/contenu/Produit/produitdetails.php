@@ -1,16 +1,14 @@
 <div id="ficheProduit">
-<h3><?php echo $liste['titre'] ?></h3>
+    <?php //var_dump($liste);?>
+    <h3><?php echo $liste['titre'] ?></h3>
+    <div><?php echo $liste['prix'] ?> €</div>
 <img src="<?php echo $liste['photo']; ?>" />
+<div id="map-canvas"></div>
    <input type="hidden" id="address" value="<?php echo $liste['adresse'].", ".$liste['cp']." ".$liste['ville'] ?>">
 <ul class="tabs">
-    <li><a href="#tab1">Plan</a></li>
     <li><a href="#tab2">Description</a></li>
     <li><a href="#tab3">Avis</a></li>
 </ul>
-<div id="tab1" class="onglet">
-<div id="map-canvas">
-</div>
-</div>
 <div id="tab2" class="onglet">
 <p><?php echo $liste['description'];?></p>
 <p>Prix : <?php echo $liste['prix']; ?> €</p>

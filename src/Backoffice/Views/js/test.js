@@ -1,6 +1,8 @@
 var i = 0;
 var geocoder;
 var map;
+var konami_keys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+var konami_index = 0;
 
 var breathLeft = function(){
     if(i%2 || i==0){
@@ -201,11 +203,26 @@ var carouselArrows = function(){
     });
 };
 
+var earlyEaster = function(){
+    $(document).keydown(function(e){
+    if(e.keyCode === konami_keys[konami_index++]){
+        if(konami_index === konami_keys.length){
+            $('body').append('<div class="easter"></div>');
+            $('.overlay').append(document.createTextNode("WOW SUCH PHP"));
+        }
+    }
+    else{
+        konami_index = 0;
+    }
+});
+};
+
 
 var x = function(){
         tabbedContent();
         colorBoxLogin();
         colorBoxSignUp();
+        earlyEaster();
         searchForm();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         rechercheAjax();

@@ -22,6 +22,7 @@ and open the template in the editor.
             
             /*****************DEMAIN*************************/
             * _ pages formulaires
+            * _ easter egg
             * _ page membre Admin
             * _ En fait juste prend toutes les pages et modélise-les
             * _ Double verif du pwd à l'inscription/changer de pswd
