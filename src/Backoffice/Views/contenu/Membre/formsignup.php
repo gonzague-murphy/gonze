@@ -12,6 +12,8 @@ if(isset($msg) && is_array($msg)){
             <input type="text" name="pseudo" value="<?php if(isset($_POST['pseudo'])) echo $_POST['pseudo']; ?>"/>
         <label>Mot de passe :</label>
             <input type="password" name="mdp" value="<?php if(isset($_POST['mdp'])) echo $_POST['mdp']; ?>" />
+       <label>Confirmez le mot de passe :</label>
+            <input type="password" name="mdp2" value="<?php if(isset($_POST['mdp2'])) echo $_POST['mdp2']; ?>" />
         <label>Nom :</label>
             <input type="text" name="nom" value="<?php if(isset($_POST['nom'])) echo $_POST['nom']; ?>"/>
         <label>Prenom :</label>

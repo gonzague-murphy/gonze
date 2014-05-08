@@ -172,6 +172,10 @@ var colorBoxLogin = function(){
         top : "7%",
         height : "865px",
         width : "360px",
+        onOpen : function(){
+            $('#colorbox,#cboxOverlay,#cboxWrapper').css('z-index', '4000');
+            $('body').append('<div class="overlay"></div>');
+        },
         onClosed:function(){ 
             location.reload(true); 
     }});

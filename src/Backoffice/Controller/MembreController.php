@@ -13,8 +13,10 @@ class MembreController extends Controller{
    public function lanceSignUp(){
        if(isset($this->arrayPost)){
            $this->verifSignUp();
+           var_dump($this->msg);
             if(empty($this->msg)){
             $this->signUp();
+            $this->getRepository('Membre')->loginQuery($this->arrayPost);
             header('Location: ?controller=DefaultController&action=indexDisplay');
             exit();
             }
@@ -42,8 +44,9 @@ class MembreController extends Controller{
             $this->clean($this->arrayPost);
             $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
             if($testDoubles == false){
-            $this->checkForEmptyFields($this->arrayPost);
-                }
+                $this->checkSamePwd();
+                $this->checkForEmptyFields($this->arrayPost);
+          }
             else{
             return $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
           } 
@@ -164,6 +167,16 @@ class MembreController extends Controller{
                $this->mailLostPwd($this->arrayPost['email'], $pwd);
                $this->getRepository('Membre')->updatePassword(md5($pwd), $emailExists['id_membre']);
             }
+     }
+     
+/*
+ * Verification des 2 password
+ */
+     
+     public function checkSamePwd(){
+        if($this->arrayPost['mdp'] != $this->arrayPost['mdp2']){
+            return $this->msg = 'Les mots de passe ne correspondent pas!';
+        }
      }
      
 /*

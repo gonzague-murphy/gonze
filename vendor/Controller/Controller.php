@@ -91,8 +91,12 @@ class Controller{
             if(empty($newValue)){
                 $errors[] = "<div class='error'>Le champ ".$key." est obligatoire</div>";
                 //echo $this->msg;
-            }
+                
+            }    
         }
+        if($args['mdp'] != $args['mdp2']){
+                    $errors[] = 'Les mots de passe ne correspondent pas!';
+                }
         $this->msg = $errors;
         return $this->msg;
     }
