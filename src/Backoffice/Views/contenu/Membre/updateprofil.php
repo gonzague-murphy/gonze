@@ -1,11 +1,17 @@
-<?php 
-//var_dump($user);
+<?php
+if(isset($msg) && is_array($msg)){
+    foreach($msg as $key=>$value){
+        echo "<div class='error'>".$value."</div>";
+    }
+}
 ?>
 <form method="post" action="?controller=MembreController&action=updateUser&id=<?php echo $user->id_membre; ?>">
         <label>Pseudo :</label>
         <input type="text" name="pseudo" value="<?php echo $user->pseudo; ?>"/>
-        <label>Password :</label>
-            <input type="password" name="mdp" value="<?php echo $user->password; ?>"/>
+        <label>Mot de passe :</label>
+            <input type="password" name="mdp" value="<?php if(isset($_POST['mdp'])) echo $_POST['mdp']; ?>"/>
+            <label>Confirmez le mot de passe :</label>
+            <input type="password" name="mdp2" value="<?php if(isset($_POST['mdp2'])) echo $_POST['mdp2']; ?>" />
         <label>Nom :</label>
             <input type="text" name="nom" value="<?php echo $user->nom; ?>"/>
         <label>Prenom :</label>

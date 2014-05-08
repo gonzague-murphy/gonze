@@ -94,7 +94,7 @@ class Controller{
                 
             }    
         }
-        if($args['mdp'] != $args['mdp2']){
+        if(isset($args['mdp2']) && $args['mdp'] != $args['mdp2']){
                     $errors[] = 'Les mots de passe ne correspondent pas!';
                 }
         $this->msg = $errors;

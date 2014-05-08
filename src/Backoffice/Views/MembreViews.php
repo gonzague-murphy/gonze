@@ -41,9 +41,10 @@ class MembreViews extends Views{
         ));
     }
     
-    public function updateForm($arg){
+    public function updateForm($arg, $msg){
         $this->render('template_accueil.php', 'updateprofil.php', array(
-            'user'=>$arg
+            'user'=>$arg,
+            'msg'=>$msg
         ));
     }
     

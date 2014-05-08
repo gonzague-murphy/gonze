@@ -56,6 +56,7 @@ class MembreRepository extends EntityRepository{
  */
         public function updateMembre(&$userData, $id){
             //var_dump($userData);
+            $userData['mdp']= md5($userData['mdp']);
             $query = $this->getDb()->prepare("UPDATE membre SET pseudo=:pseudo, mdp=:mdp, nom=:nom, prenom=:prenom, email=:email, sexe=:sex, ville=:ville, cp=:cp, adresse=:adresse WHERE id_membre='$id'");
             $this->binder($query,$userData);
             $result = $query->execute();

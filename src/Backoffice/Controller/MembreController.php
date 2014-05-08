@@ -13,7 +13,7 @@ class MembreController extends Controller{
    public function lanceSignUp(){
        if(isset($this->arrayPost)){
            $this->verifSignUp();
-           var_dump($this->msg);
+           //var_dump($this->msg);
             if(empty($this->msg)){
             $this->signUp();
             $this->getRepository('Membre')->loginQuery($this->arrayPost);
@@ -44,7 +44,6 @@ class MembreController extends Controller{
             $this->clean($this->arrayPost);
             $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
             if($testDoubles == false){
-                $this->checkSamePwd();
                 $this->checkForEmptyFields($this->arrayPost);
           }
             else{
@@ -142,11 +141,18 @@ class MembreController extends Controller{
      public function updateUser(){
          if(isset($this->arrayPost)){
              $this->clean($this->arrayPost);
+             $this->checkForEmptyFields($this->arrayPost);
              $this->clean($this->arrayGet);
-             $this->getRepository('Membre')->updateMembre($this->arrayPost,$this->arrayGet['id']);
-             $moi = $this->getRepository('Membre')->findById($this->arrayGet['id']);
-             $this->userSession->initializeSession($moi);
-             $this->displayFicheDetail();
+             if(empty($this->msg)){
+                $this->getRepository('Membre')->updateMembre($this->arrayPost,$this->arrayGet['id']);
+                $moi = $this->getRepository('Membre')->findById($this->arrayGet['id']);
+                $this->userSession->initializeSession($moi);
+                $this->displayFicheDetail();
+             }
+             else{
+                 $me = UserSessionHandler::getUser();
+                 $this->view->updateForm($me, $this->msg);
+             }
          }
      }
      
@@ -169,15 +175,6 @@ class MembreController extends Controller{
             }
      }
      
-/*
- * Verification des 2 password
- */
-     
-     public function checkSamePwd(){
-        if($this->arrayPost['mdp'] != $this->arrayPost['mdp2']){
-            return $this->msg = 'Les mots de passe ne correspondent pas!';
-        }
-     }
      
 /*
  * Display
@@ -193,7 +190,7 @@ class MembreController extends Controller{
      
      public function updateProfil(){
         $me = UserSessionHandler::getUser();
-        $this->view->updateForm($me);
+        $this->view->updateForm($me, '');
      }
     
 
