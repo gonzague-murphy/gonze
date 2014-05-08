@@ -147,7 +147,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function findSimilar($city, $id){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart, p.etat FROM salle s INNER JOIN  produit p ON s.id_salle=p.id_salle WHERE s.ville='$city' AND p.id_produit != $id LIMIT 0,3");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart, p.etat FROM salle s INNER JOIN  produit p ON s.id_salle=p.id_salle WHERE s.ville='$city' AND p.id_produit != $id AND p.etat != 1 LIMIT 3");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();

@@ -278,8 +278,9 @@ h3 {
 
 
 #ficheProduit{
-    width : 65%;
-    padding : 1% 3%;
+    width : 68%;
+    padding : 1% 0;
+    margin-right : 3%;
 }
 
 
@@ -289,8 +290,13 @@ h3 {
     margin-bottom : 5%;
 }
 
-#ficheProduit h3, #ficheProduit h4, #similar h4{
+#ficheProduit h3, #ficheProduit h4{
     font-size : 1.5em;
+}
+
+#similar h3{
+    font-size : 1.3em;
+    font-weight : 400;
 }
 
 #similar{
@@ -333,10 +339,10 @@ h3 {
 #tab2, #tab3{
     overflow : auto;
     width : 65%;
-    height : 180px;
-    border : solid 2px #000000;
+    height : 150px;
+    border : solid 4px #000000;
     padding  :5% 5%;
-    margin-top : -3.2%;
+    margin-top : -3.4%;
     margin-left : -0.5%;
 }
 

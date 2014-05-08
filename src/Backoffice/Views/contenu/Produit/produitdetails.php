@@ -74,7 +74,7 @@ foreach($avis as $key=>$value){
 <div id="map-canvas"></div>
 </div>
 <div id='similar'>
-    <h4>Suggestions similaires :</h4>
+    <h3>Suggestions similaires :</h3>
 <?php
 //var_dump($liste);
 echo "<div id='galerie'>";
