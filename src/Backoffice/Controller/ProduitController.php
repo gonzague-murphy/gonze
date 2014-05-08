@@ -317,9 +317,10 @@ class ProduitController extends Controller{
       public function displayProductDetail(){
         $me = $this->getRepository('Produit');
         $result = $me->findById($this->arrayGet['id']);
+        $suggestions = $me->findSimilar($result['ville'], $result['id_produit']);
         $avis = new AvisController();
         $tousLesAvis = $avis->findBySalle($result['id_salle']);
-        $this->view->displayFicheDetail($result, $tousLesAvis);
+        $this->view->displayFicheDetail($result, $tousLesAvis, $suggestions);
     }
     
 }

@@ -278,25 +278,52 @@ h3 {
 
 
 #ficheProduit{
-    width : 55%;
+    width : 65%;
+    padding : 1% 3%;
 }
 
 
 #ficheProduit img{
+    width : 65%;
+    height : auto; 
+    margin-bottom : 5%;
+}
+
+#ficheProduit h3, #ficheProduit h4, #similar h4{
+    font-size : 1.5em;
+}
+
+#similar{
+    position : absolute;
+    left : 53%;
+    padding : 2% 2%;
+    top : 20%;
+    width : 30%;
+    border-left : dotted 2px #373737;
+}
+
+#similar .produit li{
+    display : block;
     width : 100%;
-    height : auto;   
+}
+
+.tabs{
+    margin : 3% 0;
 }
       
 .tabs a {
     background: #ffffff;
     color: #000000;
-    border : 4px solid #373737;
     display: inline-block;
     padding: 5px 10px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight : 600;
-    margin-left : -1%;
+    border : 4px solid #000000;
+}
+
+.tabs a:last-child{
+    margin-left : -0.5%;
 }
 
 .onglet{
@@ -304,7 +331,13 @@ h3 {
 }
 
 #tab2, #tab3{
-    width : 55%;
+    overflow : auto;
+    width : 65%;
+    height : 180px;
+    border : solid 2px #000000;
+    padding  :5% 5%;
+    margin-top : -3.2%;
+    margin-left : -0.5%;
 }
 
 .tabs a.active {

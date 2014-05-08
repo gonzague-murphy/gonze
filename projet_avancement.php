@@ -14,7 +14,6 @@ and open the template in the editor.
             *A faire:<hr/>
             * _ pages après envoi de mail newsletter et mot de passe perdu
             * _ tests de cohérence
-            * _ fiche produit à modéliser
             * _ page de stats à modéliser
             * _ page commande admin à modéliser
             * _ page panier
