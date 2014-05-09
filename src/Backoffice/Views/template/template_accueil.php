@@ -60,7 +60,7 @@ foreach($months as $key=>$value){
             </select>
             <label for="motCle">Par mot-clé : </label>
             <input type="text" name="motCle" placeholder="Ex: Paris" />
-            <input type="submit" value="Chercher" />
+            <input type="submit" value="Chercher" class='order'/>
         </form>
     </div>
     <div class="wrapper">

@@ -28,6 +28,14 @@ class DefaultController extends Controller{
         $this->view->displayStatsAdmin($bestRanked, $mostSold, $mostQty, $mostExp);
     }
     
+    public function mentionLegales(){
+        $this->view->displayMentionsLegales();
+    }
+    
+    public function displayCgv(){
+        $this->view->displayCgv();
+    }
+    
     
     
 /*

@@ -15,12 +15,10 @@ and open the template in the editor.
             * _ pages après envoi de mail newsletter et mot de passe perdu
             * _ tests de cohérence
             * _ page commande admin à modéliser
-            * _ page panier
             
             
             /*****************DEMAIN*************************/
             * _ pages formulaires
-            * _ Double verif du pwd à l'inscription/changer de pswd
             */
         </p>
     </body>

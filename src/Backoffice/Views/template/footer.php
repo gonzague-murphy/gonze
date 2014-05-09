@@ -5,8 +5,8 @@ function makeFooter(){
     echo "<div>";
     echo "<ul class='rappelLiens'>";
     echo "<li><a href=''>Contact</a></li>";
-    echo "<li><a href=''>CGV</a></li>";
-    echo "<li><a href=''>Mentions Légales</a></li>";
+    echo "<li><a href='?controller=DefaultController&action=displayCgv'>CGV</a></li>";
+    echo "<li><a href='?controller=DefaultController&action=mentionLegales'>Mentions Légales</a></li>";
     echo "</ul>";
     echo "<ul class='reseauxSociaux'>";
     echo "<li class='twitter'><a href=''>Suivez-nous sur Twitter</a></li>";

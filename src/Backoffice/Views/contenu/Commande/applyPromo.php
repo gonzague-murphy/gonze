@@ -4,12 +4,12 @@
 <table class='commande'>
     <thead>
         <tr>
-            <td>Salle</td>
-            <td>Photo</td>
-            <td>Date d'arrivée/Date de départ</td>
-            <td>Capacité</td>
-            <td>Prix</td>
-            <td>TVA</td>
+            <th>Salle</th>
+            <th>Photo</th>
+            <th>Date d'arrivée/Date de départ</th>
+            <th>Capacité</th>
+            <th>Prix</th>
+            <th>TVA</th>
         </tr>
     </thead>
 <?php
@@ -36,5 +36,5 @@ echo "<form method='post' action='?controller=CommandeController&action=makeOrde
 echo "<input type='hidden' name='montant' value='".\Component\PanierSessionHandler::calculateTotal($reduction)."' />";
     //var_dump(Component\UserSessionHandler::getUser());
     echo "<input type='hidden' name='id_membre' value='".\Component\UserSessionHandler::getUser()->id_membre."' />";
-    echo "<input type='submit' value='Commander' />";
+    echo "<input type='submit' value='Commander' class='order'/>";
     echo "</form>";

@@ -24,6 +24,18 @@ class DefaultViews extends Views{
         echo "";
     }
     
+    public function displayMentionsLegales(){
+        $this->render('template_accueil.php', 'mentionslegales.php', array(
+            'title'=>'Mentions  Légales'
+        ));
+    }
+    
+    public function displayCgv(){
+        $this->render('template_accueil.php', 'cgv.php', array(
+            'title'=>'Conditions générales de vente'
+        ));
+    }
+    
     public function displayStatsAdmin($bestRanked, $mostSold, $mostQty, $mostExp){
         $this->render('template_accueil.php', 'stats.php', array(
             'title'=>'Statistiques du site',
