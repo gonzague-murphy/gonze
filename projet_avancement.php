@@ -14,16 +14,12 @@ and open the template in the editor.
             *A faire:<hr/>
             * _ pages après envoi de mail newsletter et mot de passe perdu
             * _ tests de cohérence
-            * _ page de stats à modéliser
             * _ page commande admin à modéliser
             * _ page panier
             
             
             /*****************DEMAIN*************************/
             * _ pages formulaires
-            * _ easter egg
-            * _ page membre Admin
-            * _ En fait juste prend toutes les pages et modélise-les
             * _ Double verif du pwd à l'inscription/changer de pswd
             */
         </p>
