@@ -1,4 +1,4 @@
-<form method="post" action="?controller=ProduitController&action=lanceSaveProduct">
+<form method="post" action="?controller=ProduitController&action=lanceSaveProduct" class='cBLogin'>
 <?php if(isset($msg))echo "<div class='error'>".$msg."</div>"; ?>
 <label>Date d'arrivée </label>
 <input type="text" class="dateGen" name="date_arrivee"/>

@@ -174,7 +174,7 @@ h3 {
 
 .user_menu{
     float : right;
-    margin-top : -13.5%;
+    margin-top : -11.5%;
 }
 
 #menu ul{
@@ -199,6 +199,16 @@ h3 {
     text-align : left;
     margin-left : 15%;
     margin-bottom : 5%;
+}
+
+#galerieMembre table{
+    border-collapse: collapse;
+    border:1px solid #373737;
+    width : 100%;
+}
+
+#galerieMembre td{
+    text-align: center;
 }
 
 .details img{
@@ -570,7 +580,7 @@ select{
 }
 
 .user_menu li{
-    padding : 2% 0;
+    padding : 1% 0;
     margin : 8% 0;
     display : block;
 }
@@ -686,6 +696,16 @@ select{
     min-width : 15%;
 }
 
+#stats th, #galerieMembre th{
+    background : #FFD88A;
+}
+
+#stats p{
+    font-weight : 200;
+    font-size : 0.9em;
+    text-decoration: underline;
+}
+
 #homePage{
     clear : both;
     padding: 5% 5%;
@@ -693,7 +713,8 @@ select{
 }
 
 .titleHome{
-    background : url('../img/lastback.png')no-repeat;
+    background : url('../img/sophTry.png')no-repeat;
+    background-position : 0 45%;
     margin-right : 5%;
 }
 

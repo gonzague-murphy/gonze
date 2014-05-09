@@ -1,10 +1,19 @@
 <?php
 //var_dump($membres);
 echo "<div id='galerieMembre'>";
-echo "<a href='?controller=MembreController&action=signUpFormAdmin'><span>+</span>Ajouter un Administrateur</a><br/>";
-echo "<ul>";
+echo "<a href='?controller=MembreController&action=signUpFormAdmin' class='add'><span>+</span>Ajouter un Administrateur</a><br/><br/>";
+echo "<table>";
+echo "<tr>";
+echo "<th>Pseudo</th>";
+echo "<th>Email</th>";
+echo "<th>Supprimer</th>";
+echo "</tr>";
 foreach($membres as $user=>$unit){
-    echo "<li><div>".$unit->getPseudo().' | '.$unit->getEmail().'</div><a href=?controller=MembreController&action=allowDelete&id='.$unit->getIdMembre().'><span id="suppr">x</span>Supprimer ce membre</a></li>';
+    echo "<tr>";
+    echo "<td>".$unit->getPseudo().'</td>';
+    echo "<td>".$unit->getEmail().'</td>';
+    echo '<td><a href="?controller=MembreController&action=allowDelete&id='.$unit->getIdMembre().'" class="add">&nbsp;&nbsp;&nbsp;X</a></td>';
+    echo "</tr>";
 }
 echo "</ul>";
 echo "</div>";

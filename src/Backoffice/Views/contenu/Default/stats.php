@@ -1,7 +1,8 @@
 <?php
 echo "<div id='stats'>";
-echo "<h3>Top 5 des salles les mieux notées (en moyenne)</h3>";
-//var_dump($bestRanked);
+echo "<p>Cliquez sur la statistique que vous souhaitez consulter</p>";
+echo "<h3>+ Top 5 des salles les mieux notées (en moyenne)</h3>";
+//var_dump
 echo "<table>";
     echo "<tr>";
     echo "<th>Salle</th>";
@@ -19,7 +20,7 @@ else{
     echo "<h3>Désolée, aucune salle à afficher !</h3>";
 }
 echo"</table>";
-echo "<h3>Top 5 des salles les plus vendues </h3>";
+echo "<h3>+ Top 5 des salles les plus vendues </h3>";
 //var_dump($mostSold);
 echo "<table>";
     echo "<tr>";
@@ -38,7 +39,7 @@ else{
     echo "<h3>Désolée, aucune salle à afficher !</h3>";
 }
 echo"</table>";
-echo "<h3>Top 5 des membres qui achètent le plus (en termes de quantité) </h3>";
+echo "<h3>+ Top 5 des membres qui achètent le plus (en termes de quantité) </h3>";
 //var_dump($mostQty);
 echo "<table>";
     echo "<tr>";
@@ -57,7 +58,7 @@ else{
     echo "<h3>Désolée, aucune salle à afficher !</h3>";
 }
 echo "</table>";
-echo "<h3>Top 5 des membres qui achètent le plus cher (en termes de prix) </h3>";
+echo "<h3>+ Top 5 des membres qui achètent le plus cher (en termes de prix) </h3>";
 //var_dump($mostExp);
 echo "<table>";
     echo "<tr>";
