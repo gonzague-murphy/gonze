@@ -3,7 +3,7 @@
     <label>Sujet</label>
     <input type='text' name='sujet' value='<?php if(isset($_POST['sujet'])) echo $_POST['sujet'];?>' />
     <label>Message</label>
-    <textarea name='message'></textarea>
+    <textarea name='message' id="message"></textarea>
     <input type='submit' value='Envoyer la Newsletter' />
 </form>
 

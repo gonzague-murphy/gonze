@@ -6,7 +6,7 @@ class DefaultViews extends Views{
     
     public function indexDisplay($salles, $msg=''){
         $this->render('template_accueil.php','defaultPlaceholder.php', array(
-            'title'=>'Vous etes sur l\'index',
+            'title'=>'Accueil',
             'salle'=>$salles,
             'msg'=>$msg
         ));

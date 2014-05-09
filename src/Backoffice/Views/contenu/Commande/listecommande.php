@@ -17,36 +17,37 @@ function calculateCA($year){
     
 </select>
 <div>
-    <table>
-        <th>
-            <tr>
-                <td>Id_commande</td>
-                <td>Id_membre</td>
-                <td>Montant</td>
-            </tr>
-        </th>
+    <!--<ul>
+       <li>N° de la commande</li>
+       <li>N° du client</li>
+       <li>Montant</li>
+    </ul>-->
 <?php
     foreach($commandes as $key=>$value){
-        echo "<tr>";
-        echo "<td>".$value->getIdCommande()."</td>";
-        echo "<td>".$value->getIdMembre()."</td>";
-        echo "<td>".$value->getMontant()." €</td>";
-        echo "</tr>";
-        echo "<tr>";
-        echo "<td>Details</td>";
-        echo "</tr>";
+        echo "<ul>";
+        echo "<li>N° de la commande : ".$value->getIdCommande()."</li>";
+        echo "<li>N° du client : ".$value->getIdMembre()."</li>";
+        echo "<li>Montant : ".$value->getMontant()." €</li>";
+        echo "<li class='fullDetails'>+Details</li>";
         foreach($detail as $unit=>$data){
             foreach($data as $object=>$prop){
                 if($value->getIdCommande() == $prop->id_commande){
-                    echo "<tr class='blueRow'>";
+                    echo "<table>";
+                    echo "<tr>";
+                    echo "<th>N° des détails de la commande</th>";
+                    echo "<th>N° de la commande</th>";
+                    echo "<th>N° du produit acheté</th>";
+                    echo "</tr>";
+                    echo "<tr>";
                     echo "<td>".$prop->id_details_commande."</td>";
                     echo "<td>".$prop->id_commande."</td>";
                     echo "<td>".$prop->id_produit."</td>";
                     echo "</tr>";
+                    echo "</table>";
                 }
             }
         }
     }
+    echo "</ul>";
 ?>
-    </table>
 </div>

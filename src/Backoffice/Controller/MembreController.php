@@ -28,11 +28,12 @@ class MembreController extends Controller{
     
     public function insertAdmin(){
         if(isset($this->arrayPost)){
-           $this->verifSignUp();
+           $this->msg = $this->verifSignUp();
             if(empty($this->msg)){
-            $this->getRepository('Membre')->insertNewAdmin($this->arrayPost);
-            $this->welcomeNewAdmin($this->arrayPost['email'], $this->arrayPost['pseudo'], $this->arrayPost['mdp']);
-            $this->view->signUpAdmin('Merci! Un email a été envoyé au nouvel administrateur afin de lui communiquer ses identifiants de connexion');
+                $this->getRepository('Membre')->insertNewAdmin($this->arrayPost);
+                $this->welcomeNewAdmin($this->arrayPost['email'], $this->arrayPost['pseudo'], $this->arrayPost['mdp']);
+                header('Location:?controller=MembreController&action=adminOk');
+                exit();
             }
             else{
                 $this->view->signUpAdmin($this->msg);
@@ -179,6 +180,10 @@ class MembreController extends Controller{
 /*
  * Display
  */
+     
+     public function adminOk(){
+         $this->view->newAdminOk();
+     }
      
      public function justLogin(){
          $this->view->justLogin('');

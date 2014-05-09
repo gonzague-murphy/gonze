@@ -201,13 +201,13 @@ h3 {
     margin-bottom : 5%;
 }
 
-#galerieMembre table{
+#galerieMembre table, #bigWrapper table{
     border-collapse: collapse;
     border:1px solid #373737;
     width : 100%;
 }
 
-#galerieMembre td{
+#galerieMembre td, #bigWrapper td{
     text-align: center;
 }
 
@@ -245,6 +245,10 @@ h3 {
 
 .add{
     color : #373737;
+}
+
+.add span{
+    font-size : 3em;
 }
 
 #galerie .linksProd span{
@@ -696,7 +700,7 @@ select{
     min-width : 15%;
 }
 
-#stats th, #galerieMembre th{
+#stats th, #galerieMembre th, #bigWrapper th{
     background : #FFD88A;
 }
 
@@ -757,6 +761,34 @@ h4 a{
 
 #cart li{
     display : block;
+}
+
+.onCart input[type=text]{
+    background : #FFD88A;
+    border-radius: 10px;
+    padding : 0.5% 2%;
+}
+
+#ficheProduit .order{
+    float : right;
+    margin-right: 40%;
+    margin-top: -13%;
+    padding : 2% 2%;
+    background: #000000;
+    color : #ffffff;
+    font-weight : 500;
+}
+
+.order{
+    color : #000000;
+    background : #FCA47E;
+    font-weight : 500;
+    padding : 0.7% 1%;
+}
+
+.order:hover{
+    background : #000000;
+    color : #ffffff;
 }
 
 #bigWrapper{

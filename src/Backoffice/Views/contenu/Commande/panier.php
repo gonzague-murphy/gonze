@@ -11,13 +11,13 @@ else{
 <table class='commande'>
     <thead>
         <tr>
-            <td>Salle</td>
-            <td>Photo</td>
-            <td>Date d'arrivée/Date de départ</td>
-            <td>Capacité</td>
-            <td>Prix</td>
-            <td>TVA</td>
-            <td>Retirer du panier</td>
+            <th>Salle</th>
+            <th>Photo</th>
+            <th>Date d'arrivée/Date de départ</th>
+            <th>Capacité</th>
+            <th>Prix</th>
+            <th>TVA</th>
+            <th>Retirer du panier</th>
         </tr>
     </thead>
 <?php
@@ -35,12 +35,13 @@ foreach($cart as $key=>$value){
     echo "</tr>";
 }
 ?>
-</table>
+</table><br/><br/>
 
 <?php
-    echo "Prix total : ".Component\PanierSessionHandler::calculateTotal()." euros";
-    echo "<form method='post' action='?controller=CommandeController&action=dispatchOrder'>";
-    echo "<label>Disposez-vous d'un code de réduction?</label><input type='text' name='promo' />";
-    echo "<input type='submit' value='Passer ma commande'/>";
+    echo "Prix total : ".Component\PanierSessionHandler::calculateTotal()." euros<br/><br/>";
+    echo "<form method='post' action='?controller=CommandeController&action=dispatchOrder' class='onCart'>";
+    echo "<label>Disposez-vous d'un code de réduction?</label>";
+    echo "<input type='text' name='promo' /><br/>";
+    echo "<input type='submit' value='Passer ma commande' class='order'/>";
     echo "</form>";
 }

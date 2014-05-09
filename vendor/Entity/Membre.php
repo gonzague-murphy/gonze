@@ -94,6 +94,9 @@ class Membre{
         return $this->email;
     }
 
+    public function getStatut(){
+        return $this->statut;
+    }
 
 }
 

@@ -34,10 +34,17 @@ class MembreViews extends Views{
         ));
     }
     
-    public function signUpAdmin($msg=''){
+    public function signUpAdmin($msg){
         $this->render('template_accueil.php', 'formsignupadmin.php', array(
             'title'=>'Ajouter un membre',
             'msg'=>$msg
+        ));
+    }
+    
+    public function newAdminOk(){
+        $this->render('template_accueil.php', 'thankyou.php', array(
+            'title'=>'Nouvel admin',
+            'msg'=>'Un email a été envoyé au nouvel administrateur afin de lui communiquer ses identifiants de connexion'
         ));
     }
     

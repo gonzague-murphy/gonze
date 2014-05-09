@@ -14,7 +14,7 @@ $user = \Component\UserSessionHandler::getUser();
     </div><br/>
 <?php
 if(!empty($user)){
-    echo "<a href='?controller=CommandeController&action=addToCart&id=".$liste['id_produit']."'>Ajouter au panier</a>";
+    echo "<a href='?controller=CommandeController&action=addToCart&id=".$liste['id_produit']."' class='order'>+Ajouter au panier</a>";
 }
 
 else{

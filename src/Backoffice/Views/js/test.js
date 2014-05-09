@@ -108,6 +108,14 @@ var toggleStats = function(){
     });
 };
 
+var toggleOrders = function(){
+    $('.fullDetails').next('table').hide();
+    $('.fullDetails').click(function(){
+        var el = $(this).next('table');
+        check = el.is(':visible') ? el.slideUp() : ($('table').slideUp()) (el.slideDown());
+    });
+};
+
 var launching = function(){
     $('#logMeIn').css({'display' : 'none'});
         $('#twoway').css({'height' : '100px'});
@@ -228,6 +236,7 @@ var x = function(){
         rechercheAjax();
         rechercheEtat();
         toggleStats();
+        toggleOrders();
         carouselArrows();
         initialize();
         codeAddress();
