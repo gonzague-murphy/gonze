@@ -45,11 +45,18 @@ class MembreController extends Controller{
             $this->clean($this->arrayPost);
             $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
             if($testDoubles == false){
-                $this->checkForEmptyFields($this->arrayPost);
+                $this->msg = $this->checkForEmptyFields($this->arrayPost);
+                $this->msg[] = $this->checkLength();
           }
             else{
             return $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
           } 
+    }
+    
+    public function checkLength(){
+        if(strlen($this->arrayPost['pseudo'])<3 || strlen($this->arrayPost['mdp']<3)){
+            return "Votre pseudo et votre mot de passe doivent faire au minimum 3 charactères";
+        }
     }
     
     public function lanceLogin(){

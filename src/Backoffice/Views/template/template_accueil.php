@@ -16,7 +16,6 @@ require_once("footer.php");
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/style.css"/>
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/jquery.datetimepicker.css"/>
                 <link href='http://fonts.googleapis.com/css?family=Oswald&subset=latin' rel='stylesheet' type='text/css'>
-                <link href='http://fonts.googleapis.com/css?family=Merriweather&subset=latin' rel='stylesheet' type='text/css'>                
                 <script type="text/javascript" src="../src/Backoffice/Views/js/jquery-1.10.2.js"></script>
                 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>                
 
