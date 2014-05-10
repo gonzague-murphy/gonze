@@ -113,10 +113,24 @@ class CommandeController extends Controller{
  */
     public function mixDetail(){
         $all = $this->getRepository('Commande')->findAll();
-        //var_dump($all);
+        $years = $this->allYears();
         $detailsCont = new DetailsCommandeController;
         $details = $this->loopDetails($all, $detailsCont);
-        $this->view->mixDetail($all, $details);
+        $this->view->mixDetail($all, $details, $years);
+    }
+    
+/*
+ * Toutes les commande par id_membre
+ */
+    
+    public function getMyOrders($id){
+        return $result = $this->getRepository('Commande')->findById($id);
+    }
+/*
+ * Toutes les annees des commandes
+ */
+    public function allYears(){
+        return $result = $this->getRepository('Commande')->returnAllYears();
     }
     
 /*
@@ -126,6 +140,27 @@ class CommandeController extends Controller{
     public function mostExpensive(){
         $result = $this->getRepository('Commande')->mostExpensive();
         return $result;
+    }
+    
+/*
+ * Chiffre d'affaire
+ */
+    
+    public function CaAdd(){
+        $this->clean($this->arrayGet);
+        $result = $this->getRepository('Commande')->findAll();
+        echo $this->calculateCA($this->arrayGet['year'], $result);
+    }
+   
+    public function calculateCA($year, $commandes){
+        $chiffreAffaire = 0;
+        foreach($commandes as $key=>$value){
+            $format = date("Y", strtotime($value->getDate()));
+            if($format == $year){
+                $chiffreAffaire += $value->getMontant();
+            }
+        }
+        return "Notre chiffre d'affaire s'élève à ".$chiffreAffaire." euros pour l'année ".$year."";
     }
 }
 

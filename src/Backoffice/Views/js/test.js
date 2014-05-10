@@ -93,6 +93,19 @@ var rechercheAjax = function(){
     });
 };
 
+var chiffreA = function(){
+    var valInput = $('#annee').val();
+    $.get( "index.php?controller=CommandeController&action=CaAdd&year="+valInput, function( data ) {
+        $('.result').html(data);
+        });
+    $('#annee').change(function(){
+        var valInput = $('#annee').val();
+        $.get( "index.php?controller=CommandeController&action=CaAdd&year="+valInput, function( data ) {
+        $('.result').html(data);
+        });
+});
+};
+
 var rechercheEtat = function(){
     $('#state').change(function(){
         var valInput = "etat="+$('.state').val();
@@ -234,7 +247,7 @@ var x = function(){
         searchForm();
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         rechercheAjax();
-        rechercheEtat();
+        chiffreA();
         toggleStats();
         toggleOrders();
         carouselArrows();

@@ -38,11 +38,12 @@ class CommandeViews extends Views{
         ));
     }
     
-    public function mixDetail($result, $details){
+    public function mixDetail($result, $details, $years){
         $this->render('template_accueil.php', 'listecommande.php', array(
             'title'=> 'Toutes les commandes',
             'commandes'=>$result,
-            'detail'=>$details
+            'detail'=>$details,
+                'years'=>$years
         ));
     }
 }

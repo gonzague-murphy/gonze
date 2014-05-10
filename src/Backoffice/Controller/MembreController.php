@@ -227,8 +227,9 @@ class MembreController extends Controller{
     
     public function displayFicheDetail(){
         $me = UserSessionHandler::getUser();
-        //var_dump($me);
-        $this->view->displayFicheDetail($me);
+        $commCont = new CommandeController;
+        $myOrders = $commCont->getMyOrders($me->id_membre);
+        $this->view->displayFicheDetail($me, $myOrders);
     }
     public function displayForAdmin(){
         $query = $this->getRepository('Membre');

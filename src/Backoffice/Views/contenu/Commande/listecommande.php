@@ -1,21 +1,14 @@
-<?php
-//var_dump($commandes);
-//var_dump($detail);
-$chiffreAffaire = 0;
-function calculateCA($year){
-    foreach($commandes as $key=>$value){
-        $format = date("Y", strtotime($value->getDate()));
-        if($format == $year){
-            $chiffreAffaire += $value->getMontant();
-        }
+<label>Chiffre d'affaire par an :</label>
+<select name='annee' id='annee'>
+<?php 
+foreach($years as $key=>$value){
+    foreach($value as $unit=>$data){
+        echo "<option value='".$data."'>".$data."</option>";
     }
-    return "Notre chiffre d'affaire annuel s'élève à ".$chiffreAffaire." euros";
 }
 ?>
-<label>Chiffre d'affaire par an :</label>
-<select name='annee'>
-    
 </select>
+<p class='result'></p>
 <div>
     <!--<ul>
        <li>N° de la commande</li>
@@ -24,10 +17,10 @@ function calculateCA($year){
     </ul>-->
 <?php
     foreach($commandes as $key=>$value){
-        echo "<ul>";
-        echo "<li>N° de la commande : ".$value->getIdCommande()."</li>";
-        echo "<li>N° du client : ".$value->getIdMembre()."</li>";
-        echo "<li>Montant : ".$value->getMontant()." €</li>";
+        echo "<ul class='commandeAdmin'>";
+        echo "<li>N° de la commande : ".$value->getIdCommande()."   </li>";
+        echo "<li>N° du client : ".$value->getIdMembre()."    </li>";
+        echo "<li>Montant : ".$value->getMontant()." €    </li>";
         echo "<li class='fullDetails'>+Details</li>";
         foreach($detail as $unit=>$data){
             foreach($data as $object=>$prop){

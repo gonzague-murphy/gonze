@@ -20,4 +20,18 @@ class CommandeRepository extends EntityRepository{
         return $result = $query->fetchAll();
     }
     
+    public function findById($id){
+        $query = $this->getDb()->prepare("SELECT * FROM commande WHERE id_membre=$id ORDER BY date DESC LIMIT 0,3");
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $query->execute();
+        return $result = $query->fetchAll();
+    }
+    
+    public function returnAllYears(){
+        $query = $this->getDb()->prepare("SELECT DISTINCT YEAR(date) as year FROM commande");
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+        $query->execute();
+        return $result = $query->fetchAll();
+    }
+    
 }

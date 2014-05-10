@@ -16,8 +16,7 @@ require_once("footer.php");
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/style.css"/>
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/jquery.datetimepicker.css"/>
                 <link href='http://fonts.googleapis.com/css?family=Oswald&subset=latin' rel='stylesheet' type='text/css'>
-                <script type="text/javascript" src="../src/Backoffice/Views/js/jquery-1.10.2.js"></script>
-                <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>                
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>                <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>                
 
 		<!-- 
 			This script enables structural HTML5 elements in old IE.
@@ -71,10 +70,10 @@ foreach($months as $key=>$value){
          <!---->
          <?php makeFooter(); ?>
      </div><!--fin div .wrapper -->
+     <script src="../src/Backoffice/Views/js/test.js"></script>
      <script src="../src/Backoffice/Views/js/jquery.datetimepicker.js"></script>
      <script src="../src/Backoffice/Views/js/jquery.colorbox-min.js"></script>
      <script src="../src/Backoffice/Views/js/unslider.js"></script>
-     <script src="../src/Backoffice/Views/js/test.js"></script>
      <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
      <script>
                 // Replace the <textarea id="editor1"> with a CKEditor

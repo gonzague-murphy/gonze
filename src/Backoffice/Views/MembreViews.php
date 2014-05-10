@@ -10,10 +10,11 @@ class MembreViews extends Views{
         echo "test";
     }
     
-    public function displayFicheDetail($args) {
+    public function displayFicheDetail($args, $orders) {
         $this->render('template_accueil.php', 'profil.php', array(
             'title'=>'Mon Profil',
-            'mesInfos'=>$args
+            'mesInfos'=>$args,
+            'orders'=>$orders
         ));
     }
     

@@ -370,6 +370,18 @@ h3 {
     list-style: none outside none;
 }
 
+#bigWrapper table.profil{
+    position: absolute;
+    right: 20%;
+    top: 40%;
+}
+
+.monProfil h5{
+    position: absolute;
+    right: 45%;
+    top: 0;
+}
+
 /*Carousel*/
 
 .carousel { 
@@ -794,6 +806,47 @@ h4 a{
 .userMessage h5{
     font-size : 2em;
     text-align: center;
+}
+
+.monProfil{
+    position : relative;
+}
+
+#bigWrapper table.profil{
+    width: 40%;
+}
+
+.monProfil h5{
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+.commandeAdmin{
+    margin-top : 2%;
+}
+
+.commandeAdmin li{
+    display : inline;
+    margin : 0 5%;
+    padding-bottom : 10%;
+}
+
+.commandeAdmin li.fullDetails{
+    color : #F78F6D;
+}
+
+.commandeAdmin li.fullDetails:hover{
+    cursor : pointer;
+}
+
+.result{
+    width : 50%;
+    display : inline;
+}
+
+#bigWrapper .commandeAdmin table{
+    width : 70%;
+    margin : 3% 0;
 }
 
 #bigWrapper{
