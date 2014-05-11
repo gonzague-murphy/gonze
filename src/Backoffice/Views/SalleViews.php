@@ -27,10 +27,11 @@ class SalleViews extends Views{
         ));
     }
     
-    public function updateSalleForm($args){
+    public function updateSalleForm($args, $msg){
         $this->render('template_accueil.php', 'salleform.php',array(
             'title'=>'Modifier une salle',
-            'salles'=>$args
+            'salles'=>$args,
+            'msg'=>$msg
         ));
     }
 }

@@ -1,4 +1,10 @@
 <?php
+if(isset($msg) && is_array($msg)){
+    foreach($msg as $key=>$value){
+        echo "<div class='error'>".$value."</div>";
+    }
+}
+
 echo "<form method='post' enctype='multipart/form-data' action='?controller=SalleController&action=modifySalle&id=".$_GET['id']."'>
 "
 ?>

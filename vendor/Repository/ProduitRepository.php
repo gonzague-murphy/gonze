@@ -122,11 +122,16 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function selectByCity($city){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$city."' AND p.etat=0 ORDER BY p.id_produit DESC;");
-         $query->setFetchMode(PDO::FETCH_ASSOC);
-         $query->execute();
-         $result = $query->fetchAll();
-         return $result;
+         if($city==''){
+             return $result = $this->selectHasProduct();
+         }
+         else{
+            $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$city."' AND p.etat=0 ORDER BY p.id_produit DESC;");
+            $query->setFetchMode(PDO::FETCH_ASSOC);
+            $query->execute();
+            $result = $query->fetchAll();
+            return $result;
+         }
      }
 /* echo "SELECT s.titre, s.photo, s.description, p.id_produit, p.prix, s.capacite, s.ville, p.id_salle FROM salle s, produit p WHERE s.id_salle=p.id_salle AND s.ville='".$city."' ORDER BY p.id_produit DESC;"*/
      

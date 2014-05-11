@@ -4,6 +4,11 @@ var map;
 var konami_keys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
 var konami_index = 0;
 
+/*$(function() {
+        $('.clickable').next('table').hide();
+        toggleStats();
+});*/
+
 var breathLeft = function(){
     if(i%2 || i==0){
         $('h1').animate({'marginLeft' : "17.5%"}, 280, function(){});
@@ -103,7 +108,7 @@ var chiffreA = function(){
         $.get( "index.php?controller=CommandeController&action=CaAdd&year="+valInput, function( data ) {
         $('.result').html(data);
         });
-});
+    });
 };
 
 var rechercheEtat = function(){
@@ -113,13 +118,14 @@ var rechercheEtat = function(){
     });
 };
 
-var toggleStats = function(){
-    $('#stats h3').next('table').hide();
-    $('#stats h3').click(function(){
+var montrerLesStats = function(){
+    $('.clickable').next('table').hide();
+    $('.clickable').click(function(){
         var el = $(this).next('table');
-        check = el.is(':visible') ? el.slideUp() : ($('table').slideUp()) (el.slideDown());
+        check = el.is(':visible') ? el.slideUp() : ($(this+'table').slideUp()) (el.slideDown());
     });
-};
+    };
+    
 
 var toggleOrders = function(){
     $('.fullDetails').next('table').hide();
@@ -248,7 +254,7 @@ var x = function(){
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         rechercheAjax();
         chiffreA();
-        toggleStats();
+        //montrerLesStats();
         toggleOrders();
         carouselArrows();
         initialize();

@@ -68,7 +68,6 @@ foreach($months as $key=>$value){
         ?>
       </div>
          <!---->
-         <?php makeFooter(); ?>
      </div><!--fin div .wrapper -->
      <script src="../src/Backoffice/Views/js/test.js"></script>
      <script src="../src/Backoffice/Views/js/jquery.datetimepicker.js"></script>
@@ -81,6 +80,7 @@ foreach($months as $key=>$value){
                 CKEDITOR.replace( 'description');
                 CKEDITOR.replace( 'message');
      </script>
+     <?php makeFooter(); ?>
      </div>
 </body>
 </html>

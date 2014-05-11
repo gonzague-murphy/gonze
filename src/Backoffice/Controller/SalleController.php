@@ -26,13 +26,21 @@ class SalleController extends Controller{
  */
    public function modifySalle(){
        if(isset($this->arrayPost)){
-            $proto = $this->makeObjectSalle();
-            $salle = $this->sanitizePhoto($proto);
-            $queryTable = $this->getRepository('Salle');
-            //var_dump($salle);
-            $queryTable->updateSalle($this->arrayGet['id'], $salle);
-            header('Location: ?controller=SalleController&action=displayForAdmin');
-            exit;
+           $this->clean($this->arrayPost);
+           $this->msg = $this->checkForEmptyFields($this->arrayPost);
+           if(empty($this->msg)){
+                $proto = $this->makeObjectSalle();
+                $salle = $this->sanitizePhoto($proto);
+                $queryTable = $this->getRepository('Salle');
+                $queryTable->updateSalle($this->arrayGet['id'], $salle);
+                header('Location: ?controller=SalleController&action=displayForAdmin');
+                exit;
+           }
+           
+           else{
+               $result = $this->getRepository('Salle')->findById($this->arrayGet['id']);
+               $this->view->updateSalleForm($result, $this->msg);
+           }
        }
    }
    
@@ -165,7 +173,7 @@ class SalleController extends Controller{
                 echo "Cette salle n'existe pas!";
             }
             else{
-                $this->view->updateSalleForm($salles);
+                $this->view->updateSalleForm($salles, '');
             }
         }
         else{

@@ -14,7 +14,7 @@ class MembreController extends Controller{
        if(isset($this->arrayPost)){
            $this->verifSignUp();
            //var_dump($this->msg);
-            if(empty($this->msg)){
+            if(is_null($this->msg[0])){
             $this->signUp();
             $this->getRepository('Membre')->loginQuery($this->arrayPost);
             header('Location: ?controller=DefaultController&action=indexDisplay');
@@ -22,6 +22,7 @@ class MembreController extends Controller{
             }
             else{
                 $this->view->justSignUp($this->msg);
+                $this->msg = '';
             }
         }
     }
@@ -29,7 +30,7 @@ class MembreController extends Controller{
     public function insertAdmin(){
         if(isset($this->arrayPost)){
            $this->msg = $this->verifSignUp();
-            if(empty($this->msg)){
+            if(is_null($this->msg[0])){
                 $this->getRepository('Membre')->insertNewAdmin($this->arrayPost);
                 $this->welcomeNewAdmin($this->arrayPost['email'], $this->arrayPost['pseudo'], $this->arrayPost['mdp']);
                 header('Location:?controller=MembreController&action=adminOk');
@@ -46,7 +47,7 @@ class MembreController extends Controller{
             $testDoubles = $this->getRepository('Membre')->checkForDoubles($this->arrayPost);
             if($testDoubles == false){
                 $this->msg = $this->checkForEmptyFields($this->arrayPost);
-                $this->msg[] = $this->checkLength();
+                $this->msg[] =  $this->checkLength();
           }
             else{
             return $this->msg = "Pseudo/Email deja pris!<br/>Avez-vous <a href='#'>oublié votre mot de passe?</a>";
@@ -54,7 +55,9 @@ class MembreController extends Controller{
     }
     
     public function checkLength(){
-        if(strlen($this->arrayPost['pseudo'])<3 || strlen($this->arrayPost['mdp']<3)){
+        $longueurPseudo = strlen($this->arrayPost['pseudo']);
+        $longueurMdp = strlen($this->arrayPost['mdp']);
+        if($longueurMdp < 3 || $longueurPseudo < 3){
             return "Votre pseudo et votre mot de passe doivent faire au minimum 3 charactères";
         }
     }

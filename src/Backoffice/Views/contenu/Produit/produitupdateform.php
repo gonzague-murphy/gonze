@@ -3,7 +3,15 @@
 echo "<h3>".$liste[0]->getTitre()."</h3>";
 echo "<h4>".$liste[0]->getVille()."</h4>";
 echo "<img src='".$liste[0]->getPhoto()."'/>";
-if(isset($msg)) echo "<div class='error'>".$msg."</div><br/>";
+if(isset($msg) && is_array($msg)){
+    foreach($msg as $key=>$value){
+        echo "<div class='error'>".$value."</div>";
+    }
+}
+
+elseif(isset($msg) && !is_array($msg)){
+    echo "<div class='error'>".$msg."</div>";
+}
 echo "<form method='post' action='?controller=ProduitController&action=lanceUpdate&id=".$_GET['id']."'>
 ";
 echo "<input type='hidden' name='salle' value='".$liste[0]->getIdSalle()."' />";

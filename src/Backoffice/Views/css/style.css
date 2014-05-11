@@ -704,6 +704,10 @@ select{
     border-collapse:collapse
 }
 
+#stats table{
+    width : 60%;
+}
+
 #stats h3{
     font-family: 'Oswald', serif;
     font-weight : 500;

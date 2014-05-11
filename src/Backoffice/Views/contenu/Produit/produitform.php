@@ -1,5 +1,15 @@
+<?php
+if(isset($msg) && is_array($msg)){
+    foreach($msg as $key=>$value){
+        echo "<div class='error'>".$value."</div>";
+    }
+}
+
+elseif(isset($msg) && !is_array($msg)){
+    echo "<div class='error'>".$msg."</div>";
+}
+?>
 <form method="post" action="?controller=ProduitController&action=lanceSaveProduct" class='cBLogin'>
-<?php if(isset($msg))echo "<div class='error'>".$msg."</div>"; ?>
 <label>Date d'arrivée </label>
 <input type="text" class="dateGen" name="date_arrivee"/>
 <label>Date de départ</label>

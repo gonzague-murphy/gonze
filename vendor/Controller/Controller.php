@@ -97,8 +97,7 @@ class Controller{
         if(isset($args['mdp2']) && $args['mdp'] != $args['mdp2']){
                     $errors[] = 'Les mots de passe ne correspondent pas!';
                 }
-        $this->msg = $errors;
-        return $this->msg;
+        return $errors;
     }
     
     public function checkDoubleEntry($table, $data = array()){
@@ -211,10 +210,10 @@ class Controller{
         $depart = strtotime($date2);
         $today = strtotime('today');
         if($depart < $arrivee){
-            $this->msg ="La date de départ ne peut pas être inférieure à la date d'arrivée!";
+            $this->msg[] ="La date de départ ne peut pas être inférieure à la date d'arrivée!";
         }
         if($arrivee <= $today){
-            $this->msg .= "<br/>La date d'arrivée ne peut pas être inférieure à la date d'ajourd'hui!";
+            $this->msg[] = "<br/>La date d'arrivée ne peut pas être inférieure à la date d'ajourd'hui!";
         }
         return $this->msg;
     }
