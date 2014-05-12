@@ -13,7 +13,6 @@ class MembreController extends Controller{
    public function lanceSignUp(){
        if(isset($this->arrayPost)){
            $this->verifSignUp();
-           //var_dump($this->msg);
             if(is_null($this->msg[0])){
             $this->signUp();
             $this->getRepository('Membre')->loginQuery($this->arrayPost);
@@ -29,8 +28,10 @@ class MembreController extends Controller{
     
     public function insertAdmin(){
         if(isset($this->arrayPost)){
-           $this->msg = $this->verifSignUp();
-            if(is_null($this->msg[0])){
+           $this->verifSignUp();
+           $errors = array_filter($this->msg);
+           //var_dump($this->msg);
+            if(empty($errors)){
                 $this->getRepository('Membre')->insertNewAdmin($this->arrayPost);
                 $this->welcomeNewAdmin($this->arrayPost['email'], $this->arrayPost['pseudo'], $this->arrayPost['mdp']);
                 header('Location:?controller=MembreController&action=adminOk');
@@ -215,7 +216,7 @@ class MembreController extends Controller{
     }
     
     public function signUpFormAdmin(){
-        $this->view->signUpAdmin();
+        $this->view->signUpAdmin('');
     }
     
     public function loginDisplay(){

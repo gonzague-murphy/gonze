@@ -296,7 +296,6 @@ class ProduitController extends Controller{
         if(isset($this->arrayGet['id'])){
             $queryTable = $this->getRepository('Produit');
             $result = $queryTable->findById($this->arrayGet['id']);
-            //var_dump($result);
             $choices = $this->formOption($result['id_salle']);
             $this->view->updateForm($result, $choices, $this->msg);
         }

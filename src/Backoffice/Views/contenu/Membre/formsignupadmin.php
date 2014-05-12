@@ -5,7 +5,7 @@ if(isset($msg) && is_array($msg)){
     }
 }
 ?>
-<form method="post" action="?controller=MembreController&action=insertAdmin">
+<form method="post" action="?controller=MembreController&action=insertAdmin" class='siteForms'>
         <label>Pseudo :</label>
             <input type="text" name="pseudo" value="<?php if(isset($_POST['pseudo'])) echo $_POST['pseudo'];?>"/>
         <label>Password :</label>
@@ -19,8 +19,10 @@ if(isset($msg) && is_array($msg)){
         <label>Email :</label>
             <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email'];?>"/>
         <label for="sex">Sexe :</label>
-            <input type="radio" name="sex" value="m" checked />Male
-            <input type="radio" name="sex" value="f" />Female
+        <select name='sex'>
+            <option value='m'>Homme</option>
+            <option value='f'>Femme</option>
+        </select>
         <label for="ville">Ville :</label>
             <input type="text" name="ville" value="<?php if(isset($_POST['ville'])) echo $_POST['ville'];?>"/>
      
@@ -34,7 +36,7 @@ if(isset($msg) && is_array($msg)){
             <option value='2'>Membre</option>
             <option value='1'>Administrateur</option>
         </select>
-            <input type="submit" id="submit" name="submit" value="submit" />
+            <input type="submit" id="submit" name="submit" value="Ajouter" />
     </form>
 
    

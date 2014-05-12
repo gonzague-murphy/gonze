@@ -9,7 +9,7 @@ elseif(isset($msg) && !is_array($msg)){
     echo "<div class='error'>".$msg."</div>";
 }
 ?>
-<form method="post" action="?controller=ProduitController&action=lanceSaveProduct" class='cBLogin'>
+<form method="post" action="?controller=ProduitController&action=lanceSaveProduct" class='siteForms'>
 <label>Date d'arrivée </label>
 <input type="text" class="dateGen" name="date_arrivee"/>
 <label>Date de départ</label>
@@ -39,7 +39,7 @@ foreach($promotion as $value){
     <option value="0" selected="selected">Libre</option>
     <option value="1">Reservée</option>
 </select>
-<input type="submit" id="submit" name="submit" value="submit" />
+<input type="submit" id="submit" name="submit" value="Ajouter une salle" />
 </form>
     
 

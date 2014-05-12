@@ -471,11 +471,15 @@ input[type="radio"]{
     color : #000000;
 }
 
+::-webkit-scrollbar:horizontal{
+    display : none;
+}
+
 #cboxLoadedContent{
     background : #FFD88A;;
     border-radius : 15px;
     padding : 15% 20%;
-    overflow : visible;
+    overflow : auto;
     z-index : 100;
 }
 
@@ -786,6 +790,74 @@ h4 a{
     background : #FFD88A;
     border-radius: 10px;
     padding : 0.5% 2%;
+}
+
+.siteForms{
+    background : #FFD88A;
+    border-radius : 15px;
+    text-align: center;
+    width : 50%;
+    margin : 0 22%;
+    padding : 1% 0;
+}
+
+.siteForms img{
+    margin-left : 39%;
+    margin-top : 2%;
+    margin-bottom : 2%;
+}
+
+.siteForms textarea{
+    width : 70%;
+}
+
+.siteForms input, .siteForms select, .siteForms textarea{
+    margin : 2% 33%;
+    width : 30%;
+}
+
+.siteForms input[type=file]{
+    width : 100%;
+}
+
+.siteForms input, siteForms select{
+    padding : 0.5% 2%;
+}
+
+.siteForms input[type=submit]{
+    color : #ffffff;
+    background : #000000;
+    width :30%;
+    margin-left : 35%;
+}
+
+.siteForms select{
+    display : block;
+}
+
+.avisForm{
+    background : #FCA47E;
+    padding-left : 10%;
+    padding-top : 5%;
+    margin-bottom : 5%;
+}
+
+.avisForm input, .avisForm select{
+    display : block;
+}
+
+.avisForm textarea{
+    width : 80%;
+}
+
+.avisForm textarea, .avisForm select, .avisForm input{
+    margin-bottom : 2%;
+}
+
+.avisForm input[type=submit]{
+    color : #ffffff;
+    background: #000000;
+    padding : 0.5% 0.5%;
 }
 
 #ficheProduit .order{

@@ -2,7 +2,7 @@
 $cookies = \Component\CookieBakery::bakeMeCookies();
 $bool = isset($cookies['rememberMe']);
 ?>
-<form method="post" action="?controller=MembreController&action=lanceLogin">
+<form method="post" action="?controller=MembreController&action=lanceLogin" class='siteForms'>
             <label>Pseudo :</label>
             <input type="text" name="pseudo" value="<?php if($bool) echo $cookies['rememberMe'];?>"/><br/>
             <label>Password :</label>

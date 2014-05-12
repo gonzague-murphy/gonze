@@ -5,7 +5,7 @@ if(isset($msg) && is_array($msg)){
     }
 }
 
-echo "<form method='post' enctype='multipart/form-data' action='?controller=SalleController&action=modifySalle&id=".$_GET['id']."'>
+echo "<form method='post' enctype='multipart/form-data' action='?controller=SalleController&action=modifySalle&id=".$_GET['id']."' class='siteForms'>
 "
 ?>
         <label>Pays</label>
@@ -19,7 +19,7 @@ echo "<form method='post' enctype='multipart/form-data' action='?controller=Sall
         <label>Titre</label>
             <input type="text" name="titre" value="<?php echo $salles->getTitre();?>"/>
         <label>Description</label>
-        <textarea name="description" id="description"><?php echo $salles->getDescription();?></textarea>
+        <textarea class="ckeditor" name="description" id="description"><?php echo $salles->getDescription();?></textarea>
         <label>photo</label>
             <?php echo "<img src='".$salles->getPhoto()."'/>" ?>
             <input type="file" name="photo" />
@@ -27,6 +27,6 @@ echo "<form method='post' enctype='multipart/form-data' action='?controller=Sall
      
         <label>Capacité</label>
             <input type="text" name="capacite" value="<?php echo $salles->getCapacite();?>"/>
-            <input type="submit" id="submit" name="submit" value="submit" />
+            <input type="submit" id="submit" name="submit" value="Modifier" />
             
     </form>

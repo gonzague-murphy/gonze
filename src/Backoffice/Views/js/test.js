@@ -119,18 +119,18 @@ var rechercheEtat = function(){
 };
 
 var montrerLesStats = function(){
-    $('.clickable').next('table').hide();
+    $('.clickable').siblings('table').hide();
     $('.clickable').click(function(){
         var el = $(this).next('table');
-        check = el.is(':visible') ? el.slideUp() : ($(this+'table').slideUp()) (el.slideDown());
+        check = el.is(':visible') ? el.slideUp() : ($(this).slideUp()) (el.slideDown());
     });
     };
     
 
 var toggleOrders = function(){
-    $('.fullDetails').next('table').hide();
+    $('.fullDetails').nextAll('table').hide();
     $('.fullDetails').click(function(){
-        var el = $(this).next('table');
+        var el = $(this).nextAll('table');
         check = el.is(':visible') ? el.slideUp() : ($('table').slideUp()) (el.slideDown());
     });
 };
@@ -196,7 +196,7 @@ var colorBoxLogin = function(){
     $('a.signUp').colorbox({
         iframe : true, 
         href:"?controller=MembreController&action=justSignUp", 
-        scrolling : false, 
+        scrolling : true, 
         left: "496px", 
         top : "7%",
         height : "865px",

@@ -69,11 +69,11 @@ class ProduitRepository extends EntityRepository{
  * 
  */
      public function findById($id){
-        $query = $this->getDb()->prepare("SELECT * FROM produit p INNER JOIN salle s ON p.id_salle=s.id_salle INNER JOIN promotion pro ON pro.id_promo=p.id_promo WHERE p.id_produit=$id;");
+        $inId = intval($id);
+        $query = $this->getDb()->prepare("SELECT * FROM produit p INNER JOIN salle s ON p.id_salle=s.id_salle INNER JOIN promotion pro ON pro.id_promo=p.id_promo OR p.id_promo IS NULL WHERE p.id_produit=$inId;");
         $query->setFetchMode(PDO::FETCH_ASSOC);
         $query->execute();
         $result = $query->fetch();
-        //var_dump($result);
         if(!$query){
             return false;
         }
@@ -152,7 +152,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function findSimilar($city, $id){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart, p.etat FROM salle s INNER JOIN  produit p ON s.id_salle=p.id_salle WHERE s.ville='$city' AND p.id_produit != $id AND p.etat != 1 LIMIT 3");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart, p.etat FROM salle s INNER JOIN  produit p ON s.id_salle=p.id_salle WHERE s.ville='$city' AND p.id_produit !=$id AND p.etat!=1;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();

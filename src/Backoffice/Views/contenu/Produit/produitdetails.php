@@ -38,15 +38,15 @@ if(isset($user)){
     $doubleFeedback = $avisCont->checkFeedbackLeft($user->id_membre, $liste['id_salle']);
     //var_dump($doubleFeedback);
     if($doubleFeedback == false){
-        echo "<form method='post' action='?controller=AvisController&action=addFeedbk&id=".$_GET['id']."'>";
+        echo "<form method='post' action='?controller=AvisController&action=addFeedbk&id=".$_GET['id']."' class='avisForm'>";
         echo "<input type='hidden' name='id_membre' value='".$user->id_membre."'/>";
         echo "<input type='hidden' name='id_salle' value='".$liste['id_salle']."'/>";
         echo "<label>Note attribuée : (sur 10)</label>";
         echo '<select name="note" id="note">';
-        $i =1;
-        while($i<11){
+        $i =10;
+        while($i>0){
             echo "<option value='".$i."'>".$i."</option>";
-            $i++;
+            $i--;
         }
         echo "</select>";
         echo "<label>Commentaire :</label>";

@@ -1,5 +1,5 @@
 <?php
-echo "<form method='post' action='?controller=SalleController&action=addSalle' enctype='multipart/form-data'>";
+echo "<form method='post' action='?controller=SalleController&action=addSalle' enctype='multipart/form-data' class='siteForms'>";
 ?>
         <label>Pays</label>
             <input type="text" name="pays"/>
@@ -13,12 +13,12 @@ echo "<form method='post' action='?controller=SalleController&action=addSalle' e
             <input type="text" name="titre"/>
         <label>Description</label>
         <textarea name="description" id="description"></textarea>
-        <label>photo</label>
+        <label>Photo</label>
             <input type="file" name="photo" />
      
         <label>Capacité</label>
             <input type="text" name="capacite"/>
-            <input type="submit" id="submit" name="submit" value="submit" />
+            <input type="submit" id="submit" name="submit" value="Ajouter" />
             
     </form>
 
