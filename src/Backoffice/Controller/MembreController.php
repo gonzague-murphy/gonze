@@ -152,10 +152,12 @@ class MembreController extends Controller{
      
      public function updateUser(){
          if(isset($this->arrayPost)){
-             $this->clean($this->arrayPost);
-             $this->checkForEmptyFields($this->arrayPost);
-             $this->clean($this->arrayGet);
-             if(empty($this->msg)){
+              $this->clean($this->arrayPost);
+              $this->msg = $this->checkForEmptyFields($this->arrayPost);
+              $this->msg[] =  $this->checkLength();             
+              $errors = array_filter($this->msg);
+              //var_dump($errors);
+             if(empty($errors)){
                 $this->getRepository('Membre')->updateMembre($this->arrayPost,$this->arrayGet['id']);
                 $moi = $this->getRepository('Membre')->findById($this->arrayGet['id']);
                 $this->userSession->initializeSession($moi);
@@ -163,7 +165,7 @@ class MembreController extends Controller{
              }
              else{
                  $me = UserSessionHandler::getUser();
-                 $this->view->updateForm($me, $this->msg);
+                 $this->view->updateForm($me, $errors);
              }
          }
      }
