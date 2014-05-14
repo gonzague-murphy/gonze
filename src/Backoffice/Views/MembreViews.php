@@ -51,6 +51,7 @@ class MembreViews extends Views{
     
     public function updateForm($arg, $msg){
         $this->render('template_accueil.php', 'updateprofil.php', array(
+            'title'=>'Modifier mes informations',
             'user'=>$arg,
             'msg'=>$msg
         ));

@@ -3,28 +3,21 @@ var geocoder;
 var map;
 var konami_keys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
 var konami_index = 0;
+var areUReady = false;
 
-/*$(function() {
-        $('.clickable').next('table').hide();
-        toggleStats();
-});*/
-
-var breathLeft = function(){
-    if(i%2 || i==0){
-        $('h1').animate({'marginLeft' : "17.5%"}, 280, function(){});
-        $('#mainMenu').animate({'marginLeft' : '16.1%'}, 280, function(){});
-        $('#content').animate({'marginLeft' : '15.3%'}, 280, function(){});
-        $('#admin_menu').fadeIn('fast', function(){});
-        i++;
-    }
-    else{
-        $('h1').animate({'marginLeft' : "6.5%"}, 250, function(){});
-        $('#mainMenu').animate({'marginLeft' : '5%'}, 250, function(){});
-        $('#content').animate({'marginLeft' : '5.5%'}, 250, function(){});
-        $('#admin_menu').fadeOut(50, function(){});
-        i++;
-    }
+document.onreadystatechange = function () {
+  if(document.readyState == "complete") {
+      return areUReady = true;
+  }
 };
+
+/*Empeche l'utilisateur de cliquer sur le lien tant que la page n'est pas chargée*/
+$('a.signUp').click(function(){
+        return areUReady;
+   });
+$('a.flyLogin').click(function(){
+        return areUReady;
+   });
 
 function initialize() {
   geocoder = new google.maps.Geocoder();
@@ -111,17 +104,11 @@ var chiffreA = function(){
     });
 };
 
-var rechercheEtat = function(){
-    $('#state').change(function(){
-        var valInput = "etat="+$('.state').val();
-        $("#galerie").load("?controller=ProduitController&action=triState", valInput);
-    });
-};
-
 var montrerLesStats = function(){
     $('.clickable').siblings('table').hide();
     $('.clickable').click(function(){
         var el = $(this).next('table');
+        alert($(this));
         check = el.is(':visible') ? el.slideUp() : ($(this).slideUp()) (el.slideDown());
     });
     };
@@ -135,48 +122,6 @@ var toggleOrders = function(){
     });
 };
 
-var launching = function(){
-    $('#logMeIn').css({'display' : 'none'});
-        $('#twoway').css({'height' : '100px'});
-        $('#connexion').click(function(){
-            $('#twoway').animate({'height' : '220px'}, 250, function(){
-                $('#logMeIn').css({'display' : 'block'});
-                $('#connexion').css({'display' : 'none'});
-            
-            });
-        });
-        
-};
-
-var succesLogin = function(){
-    $.ajax({
-        type : "GET",
-        async : true,
-        url : "?controller=DefaultController&action=indexDisplay"
-    });
-};
-
-var loginSubmit = function(){
-    $('#logMeIn').submit(function(event){
-        event.preventDefault();
-        $('#twoway').css({'height' : '100px'});
-        var pseudo = $('#pseudo').val();
-        var mdp = $('#mdp').val();
-        //alert(pseudo);
-        var dataString = 'pseudo=' + pseudo + '&mdp=' + mdp;
-        $.ajax({
-            type: "POST",
-            async : true,
-            url: "?controller=MembreController&action=lanceLogin",
-            data: dataString,
-            success : function(){
-                $(document).load("?controller=DefaultController&action=makeMenu", function(){
-                alert("All es klar");
-                });
-            }
-        });
-    });
-};
 
 var closeMe = function(){
     parent.$.fn.colorbox.close();
@@ -244,7 +189,6 @@ var earlyEaster = function(){
 });
 };
 
-
 var x = function(){
         tabbedContent();
         colorBoxLogin();
@@ -254,7 +198,6 @@ var x = function(){
         $(".dateGen").datetimepicker({format:'d-m-Y H:i:s'});
         rechercheAjax();
         chiffreA();
-        //montrerLesStats();
         toggleOrders();
         carouselArrows();
         initialize();

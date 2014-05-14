@@ -21,8 +21,8 @@ $bool = isset($cookies['rememberMe']);
 	else {
 		echo '';
 	}
-	?> value="1">
+	?> value="1"><br/><br/>
+            <a href='?controller=MembreController&action=lostPwdForm' target="_top">Mot de passe oublié?</a>
             <input type="submit" value="Connexion"/>
 </form>
-<a href='?controller=MembreController&action=lostPwdForm' target="_top">Mot de passe oublié?</a>
 </div>

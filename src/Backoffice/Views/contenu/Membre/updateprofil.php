@@ -5,7 +5,7 @@ if(isset($msg) && is_array($msg)){
     }
 }
 ?>
-<form method="post" action="?controller=MembreController&action=updateUser&id=<?php echo $user->id_membre; ?>">
+<form method="post" action="?controller=MembreController&action=updateUser&id=<?php echo $user->id_membre; ?>" class='siteForms'>
         <label>Pseudo :</label>
         <input type="text" name="pseudo" value="<?php echo $user->pseudo; ?>"/>
         <label>Mot de passe :</label>
@@ -26,9 +26,9 @@ if(isset($msg) && is_array($msg)){
             <input type="text" name="cp" value ="<?php echo $user->cp; ?>" />
        
         <label>Adresse :</label>
-            <input type="text" name="adresse" value="<?php echo $user->adresse; ?>"/>
+            <input type="text" name="adresse" value="<?php echo $user->adresse; ?>"/><br/>
         
-            <input type="submit" id="submit" name="submit" value="submit" />
+            <input type="submit" id="submit" name="submit" value="Envoyer" />
     </form>
 
    
