@@ -58,5 +58,11 @@ class DefaultViews extends Views{
         ));
     }
     
+    public function noSuchPage(){
+        $this->render('template_accueil.php', 'nopage.php', array(
+            'title'=>'Oops... Où allez-vous?'
+        ));
+    }
+    
 }
 

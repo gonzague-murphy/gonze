@@ -43,6 +43,13 @@ class DefaultController extends Controller{
     public function contactForm(){
         $this->view->displayContactForm();
     }
+/*
+ * Page does not exist
+ */
+    
+    public function unknownPage(){
+        $this->view->noSuchPage();
+    }
     
 /*
  * Error 404

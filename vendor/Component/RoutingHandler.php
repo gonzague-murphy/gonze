@@ -22,10 +22,16 @@ class RoutingHandler{
     
      if(!empty($controller) && !empty($action)){
          $controller = "Backoffice\Controller\\".$controller;
-         if(class_exists($controller)){
-               $cont = new $controller; // elle existe, on l'inclue
-               $this->accessControl($action);
-               $cont->$action();
+         if(\class_exists($controller)){
+               $cont = new $controller;
+               if(\method_exists($cont, $action)){
+                $this->accessControl($action);
+                $cont->$action();
+               }
+               else{
+                   $default = new \Backoffice\Controller\DefaultController();
+                   $default->unknownPage();
+               }
             }
             else{
                  echo "404";
