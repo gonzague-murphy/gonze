@@ -11,9 +11,9 @@ echo "<nav class='main_menu' id='mainMenu'>";
         echo "</li>";
     }
     echo "<li><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>NOS SALLES</a></li>";
-    echo "<li><a href=''>QUI SOMMES NOUS?</a></li>";
+    echo "<li><a href='?controller=DefaultController&action=displayAbout'>QUI SOMMES NOUS?</a></li>";
     echo "<li><a href='#'>SUPPORT</a></li>";
-    echo "<li><a href='#'>CONTACT</a></li>";
+    echo "<li><a href='?controller=DefaultController&action=contactForm'>CONTACT</a></li>";
     echo "</ul>";
     echo "</nav>";
 }

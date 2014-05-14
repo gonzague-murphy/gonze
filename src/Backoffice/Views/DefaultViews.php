@@ -46,5 +46,17 @@ class DefaultViews extends Views{
         ));
     }
     
+    public function displayAbout(){
+        $this->render('template_accueil.php', 'aboutus.php', array(
+            'title'=>'Qui sommes-nous?'
+        ));
+    }
+    
+    public function displayContactForm(){
+        $this->render('template_accueil.php', 'contact.php', array(
+            'title'=>'Nous contacter'
+        ));
+    }
+    
 }
 

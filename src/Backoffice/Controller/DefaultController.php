@@ -36,11 +36,13 @@ class DefaultController extends Controller{
         $this->view->displayCgv();
     }
     
+    public function displayAbout(){
+        $this->view->displayAbout();
+    }
     
-    
-/*
- * Fonction no result
- */
+    public function contactForm(){
+        $this->view->displayContactForm();
+    }
     
 /*
  * Error 404
