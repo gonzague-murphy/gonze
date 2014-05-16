@@ -483,12 +483,29 @@ input[type="radio"]{
     background : #FFD88A;;
     border-radius : 15px;
     padding : 15% 20%;
-    overflow : auto;
     z-index : 100;
 }
 
 #cboxLoadedContent input, select, option{
     width : 100%;
+    margin-right : 50%;
+}
+
+.cBLogin input[type=submit]{
+    background : #000000;
+    color : white;
+}
+
+#cboxClose{
+    border-radius : 50px;
+    left: 380px;
+    position: absolute;
+    top: -20px;
+    background : url('../img/icons/close3.png') no-repeat;
+    width : 55px;
+    height : 55px;
+    box-shadow: 0;
+    border : 0 none;
 }
 
 .cboxIframe{
@@ -812,10 +829,12 @@ h4 a{
 }
 
 .siteForms textarea{
-    width : 70%;
+    width : 225px;
+    height : 180px;
+    margin : 2% 33%;
 }
 
-.siteForms input, .siteForms select, .siteForms textarea{
+.siteForms input, .siteForms select{
     margin : 2% 33%;
     width : 30%;
 }

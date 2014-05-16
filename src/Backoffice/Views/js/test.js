@@ -145,7 +145,7 @@ var colorBoxLogin = function(){
         left: "496px", 
         top : "7%",
         height : "865px",
-        width : "360px",
+        width : "315px",
         onOpen : function(){
             $('#colorbox,#cboxOverlay,#cboxWrapper').css('z-index', '4000');
             $('body').append('<div class="overlay"></div>');
