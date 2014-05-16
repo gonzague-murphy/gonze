@@ -16,10 +16,16 @@ foreach($years as $key=>$value){
        <li>Montant</li>
     </ul>-->
 <?php
+$i =0;
     foreach($commandes as $key=>$value){
         echo "<ul class='commandeAdmin'>";
         echo "<li>N° de la commande : ".$value->getIdCommande()."   </li>";
-        echo "<li>N° du client : ".$value->getIdMembre()."    </li>";
+        if(!is_null($value->getIdMembre())){
+            echo "<li>N° du client : ".$value->getIdMembre()."    </li>";
+        }
+        else{
+            echo "<li>N° du client : Membre supprimé    </li>";
+        }
         echo "<li>Montant : ".$value->getMontant()." €    </li>";
         echo "<li class='fullDetails'>+Details</li>";
         foreach($detail as $unit=>$data){
@@ -40,7 +46,7 @@ foreach($years as $key=>$value){
                 }
             }
         }
+       echo "</ul>";
     }
-    echo "</ul>";
 ?>
 </div>

@@ -7,9 +7,10 @@ if(empty($user)){
     echo "<input type='text' name='expedit'/>";
 }
 ?>
-     <label>Sujet :</label>
-    <input type='text' />
+    <label>Sujet :</label>
+        <input type='text' />
     <label for='corpsMessage'>Votre message:</label>
-    <textarea class="ckeditor"></textarea>
+        <textarea class="ckeditor"></textarea>
+    <input type="submit" value="Envoyer" />
 </form>
 </div>
