@@ -52,15 +52,22 @@ class DefaultViews extends Views{
         ));
     }
     
-    public function displayContactForm(){
+    public function displayContactForm($msg){
         $this->render('template_accueil.php', 'contact.php', array(
-            'title'=>'Nous contacter'
+            'title'=>'Nous contacter',
+            'msg'=>$msg
         ));
     }
     
     public function noSuchPage(){
         $this->render('template_accueil.php', 'nopage.php', array(
             'title'=>'Oops... Où allez-vous?'
+        ));
+    }
+    
+    public function okContact(){
+        $this->render('template_accueil.php', 'thankyou.php', array(
+            'title'=>'Votre message a été envoyé'
         ));
     }
     

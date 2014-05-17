@@ -21,8 +21,10 @@ if(isset($msg) && is_array($msg)){
         <label>Email :</label>
             <input type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>"/>
         <label for="sex">Sexe :</label>
-            <input type="radio" name="sex" value="m" checked />Male
-            <input type="radio" name="sex" value="f" />Female
+        <select name='sex'>
+            <option value='m'>Homme</option>
+            <option value='f'>Femme</option>
+        </select><br/>
         <label for="ville">Ville :</label>
             <input type="text" name="ville" value="<?php if(isset($_POST['ville'])) echo $_POST['ville']; ?>"/>
      

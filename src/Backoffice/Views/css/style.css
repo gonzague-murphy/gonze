@@ -137,8 +137,75 @@ figure video {
 /*on enveloppe la structure et le positionnement avec une query pour ne
 pas avoir à la "défaire" ensuite pour les resolutions mobiles*/
 
+
+@media screen and (min-width: 40em) {
+.user_menu ul li{
+        margin: 1% 0 0 0;
+        text-align: center;
+    }
+    
+    .categorie{
+        margin-top : 15%;
+    }
+    .carousel{
+        display : none;
+    }
+    
+    #content{
+       padding-bottom : 45em;
+    }
+   
+    .titleHome{
+        background : none;
+    }
+    
+    #twoway{
+        border : 0;
+    }
+    
+    #twoway img{
+        display : none;
+    }
+    
+    .unslider-arrow{
+        display : none;
+    }
+    
+    #footer ul{
+    margin-left : 15%;
+    }
+    
+    #content{
+    margin-top : 7%;
+
+    }
+    
+    #twoway p{
+        display : none;
+    }
+}
+
+/* @media screen and (min-width: 1392px) */
+@media screen and (min-width: 85em) {
+    .carousel{
+        margin-left: 7%;
+    }
+}
+
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
+    
+    #twoway img{
+        display: block;
+    }
+    
+    #twoway p{
+        display : block;
+    }
+    
+    #footer ul{
+        margin : 0;
+    }
 
 h1{
     text-align : center;
@@ -153,18 +220,9 @@ h3 {
   margin: 1.5em 0 1.5em;
 }
 
+
 #twoway{
-   height : 150px;
-}
-
-
-/*marges "elastiques" pour le responsive*/
-.wrapper {
-  margin: 0 5.555555555555555%;
-  padding: 0 0.75em;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  border-bottom : solid 1px;
 }
 
 #menu{
@@ -174,7 +232,7 @@ h3 {
 
 .user_menu{
     float : right;
-    margin-top : -11.5%;
+    margin-top : -14.5%;
 }
 
 #menu ul{
@@ -195,11 +253,7 @@ h3 {
     list-style : none;    
 }
 
-.produit .details{
-    text-align : left;
-    margin-left : 15%;
-    margin-bottom : 5%;
-}
+
 
 #galerieMembre table, #bigWrapper table{
     border-collapse: collapse;
@@ -219,8 +273,12 @@ h3 {
     display : block;
 }
 
+.details h4{
+    font-weight: 400;
+}
+
 .produit h4{
-    margin-left : 18%;
+    margin-left : 26%;
 }
 
 .linksProd{
@@ -233,19 +291,12 @@ h3 {
     text-align : left;
 }
 
-.linksProd .bouton{
-    color : #ffffff;
-    text-align : center;
-}
-
 #galerie .linksProdAdmin a{
     display : inline;
     color : #ffffff;
 }
 
-.add{
-    color : #373737;
-}
+
 
 .add span{
     font-size : 3em;
@@ -288,6 +339,8 @@ h3 {
     //display : none;
 }
 
+
+
 /******************Fiche Produit***************/
 
 
@@ -315,11 +368,22 @@ h3 {
 
 #similar{
     position : absolute;
-    left : 53%;
+    height : 60%;
+    left : 55%;
     padding : 2% 2%;
-    top : 20%;
+    top : 22%;
     width : 30%;
     border-left : dotted 2px #373737;
+}
+
+#similar #galerie{
+    margin-left: 5%;
+}
+
+#similar #galerie .produit li{
+    padding: 5% 5%;
+    background : #FFD88A;
+    margin-bottom: 15%;
 }
 
 #similar .produit li{
@@ -382,26 +446,124 @@ h3 {
     top: 0;
 }
 
-/*Carousel*/
-
-.carousel { 
-    position: relative; 
-    left : 8%;
+.carousel{
+    display : block;
 }
 
-.carousel ul li { 
-    float: left; 
+.unslider-arrow{
+    display: inline;
+}
+
+.titleHome{
+    background : url('../img/sophTry.png')no-repeat;
+    background-position : 0 45%;
+    margin-right : 5%;
+}
+
+.categorie{
+    width : 22%;
+    background : #ffffff;
+    padding : 0.5em 0 0.5em 0;
+    //margin-left : 35%;
+    font-weight : normal;
+    font-size : 1.5em;
+    margin-top : 5%;
+}
+
+#galerie span{
+    font-size : 3em;
+}
+
+#loupe{
+    background : url('../../../../img/magni.png') no-repeat;
+}
+
+#footer{
+    height:15em;   /* Height of the footer */
+    
+}
+
+#content{
+    margin-top : 1%;
+    padding-bottom : 18em;
+}
+
+#footer .rappelLiens{
+    position : relative;
+    margin : 5.5% 0% 0% 5.5%;
+    border-right: solid 1px #373737;
+    width : 20%;
+    top : -15%;
+    height : 130px;
+}
+
+#footer .reseauxSociaux{
+    padding-right : 5%;
+    position : absolute;
+    left : 30%;
+    top : 25%;
+    border-right: solid 1px #373737;
+}
+
+#footer .newsLetter{
+    position : relative;
+    left : 62%;
+    margin-top : -13%;
+    width : 25%;
 }
 
 }
+/****************************************/
 
 html, body, #map-canvas, .onglet, .wrapper, .tabbed, #ficheProduit, #content{
     height: 100%;
 }
 
+#galerie .linksProd .bouton{
+    color : #ffffff;
+    text-align : center;
+}
+
+.add{
+    color : #373737;
+}
+
+#partenaires ul li{
+    display : inline;
+    margin-left: 9%;
+    margin-top : 5%;
+}
+
+#partenaires img{
+    width: 15%;
+}
+
+.produit .details{
+    text-align : left;
+    margin-left : 15%;
+    margin-bottom : 5%;
+}
+
+/*marges "elastiques" pour le responsive*/
+.wrapper {
+  margin: 0 5.555555555555555%;
+  padding: 0 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#galerie span a{
+    color: black;
+}
+
+.categorie{
+    text-align: center;
+}
+
 #map-canvas{
-    width : 500px;
-    height : 500px;
+    width : 400px;
+    height : 400px;
 }
 
 /* 
@@ -412,6 +574,14 @@ html, body, #map-canvas, .onglet, .wrapper, .tabbed, #ficheProduit, #content{
 
 html{
     height : 100%;
+}
+
+#twoway img{
+    height: auto;
+    left: 43%;
+    position: relative;
+    top: -55%;
+    width: 10%;
 }
 
 body{
@@ -425,8 +595,12 @@ body{
 
 h1{
   font-family: 'gladifiltheftegladifilthefte';
-  color : #F78F6D;
+  /*color : #F78F6D;*/
+  color : #000000;
   font-size : 46px;
+  width : 20%;
+  margin-left : 39%;
+  margin-top: -7%;
 }
 
 h2, h3, h4, h5{
@@ -548,8 +722,8 @@ select{
   margin: 0 5.555555555555555% 2% 5.555555555555555%;
   width : 80%;
   padding-bottom : 2%;
-  border-bottom : solid 1px;
   padding : 1% 3%;
+  height : 180px;
 
 }
 
@@ -592,6 +766,7 @@ select{
     font-size : 1em;
     color : #373737;
     width : 100%;
+    font-weight : 400;
 }
 
 #mainMenu ul>li>ul{
@@ -654,16 +829,11 @@ select{
     color : red;
 }
 
-#galerie span{
-    font-size : 3em;
-}
-
 
 #loupe{
     margin-top : 2%;
     padding : 0 2%;
-    background : url('../../../../img/magni.png') no-repeat;
-    background-position: 0% -4%;
+    
 }
 
 #loupe:hover{
@@ -696,7 +866,7 @@ select{
     padding : 0.2% 0.7%;
 }
 
-.tripleSearch input[type=text], select, label{
+.tripleSearch input[type=text], .tripleSearch select, .tripleSearch label{
     width : 15%;
     display : inline;
     margin : 0 1%;
@@ -707,16 +877,37 @@ select{
     color : #373737;
 }
 
-/*Carousel*/
+/*Carousel
 
+Carousel
 
 .carousel { 
-    overflow: auto;
-    width : 1290px;
+    position: relative; 
+    right : -12%;
+}
+
+.carousel ul li { 
+    float: left; 
+}
+
+.carousel { 
+    overflow: hidden;
+    width : 80%;
+    height : auto;
+}
+
+.carousel img{
+    width : 100%;
+    height : auto;
 }
 .carousel li { 
     list-style: none; 
-}
+}*/
+
+.carousel { position: relative; overflow: auto;}
+    .carousel li { list-style: none; }
+        .carousel ul li { float: left; }
+        .carousel ul{padding: 0;}
 
 
 .unslider-arrow.prev, .unslider-arrow.next{
@@ -762,21 +953,6 @@ select{
     clear : both;
     padding: 5% 5%;
     margin-bottom : 2%;
-}
-
-.titleHome{
-    background : url('../img/sophTry.png')no-repeat;
-    background-position : 0 45%;
-    margin-right : 5%;
-}
-
-.categorie{
-    width : 22%;
-    background : #ffffff;
-    padding : 0.5em 0 0.5em 0;
-    //margin-left : 35%;
-    font-weight : normal;
-    font-size : 1.5em;
 }
 
 h4 a{
@@ -836,7 +1012,7 @@ h4 a{
 
 .siteForms input, .siteForms select{
     margin : 2% 33%;
-    width : 30%;
+    width : 35%;
 }
 
 .siteForms input[type=file]{
@@ -955,9 +1131,7 @@ h4 a{
    position:relative;
 }
 
-#content{
-    padding-bottom : 18em;
-}
+
 
 #footer {
    left : 0%;
@@ -965,8 +1139,11 @@ h4 a{
    position:absolute;
    bottom:0;
    width:100%;
-   height:15em;   /* Height of the footer */
    background:#EBE1B7;
+}
+
+select{
+    width : 29%;
 }
 
 #footer ul li{
@@ -977,28 +1154,11 @@ h4 a{
     color : #373737;
 }
 
-#footer .rappelLiens{
-    position : relative;
-    margin : 5.5% 0% 0% 5.5%;
-    border-right: solid 1px #373737;
-    width : 20%;
-    top : -15%;
+#footer .newsLetter label{
+    margin-left: 10%;
 }
 
-#footer .reseauxSociaux{
-    padding-right : 5%;
-    position : absolute;
-    left : 30%;
-    top : 30%;
-    border-right: solid 1px #373737;
-}
 
-#footer .newsLetter{
-    position : relative;
-    left : 60%;
-    margin-top : -7%;
-    width : 25%;
-}
 
 .newsLetter input[type=checkbox]{
     float : left;
@@ -1058,7 +1218,7 @@ h4 a{
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(200,200,200,0.5);
   /*background: url("../img/tumblr_static_1375671294245.gif") repeat scroll center top;*/
 }
 
@@ -1069,4 +1229,8 @@ h4 a{
   height: 100%;
   width: 100%;
   background: url("../img/tumblr_static_1375671294245.gif") repeat scroll center top;
+}
+
+.town{
+    width: 15%;
 }

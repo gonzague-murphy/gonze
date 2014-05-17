@@ -23,7 +23,7 @@ class UserSessionHandler{
             session_start();
             session_regenerate_id(true);
             $_SESSION["expired"] = "yes";
-            header("Location:controller=MembreController&action=loginDisplay"); // Redirect to Login Page
+            header("Location:?controller=MembreController&action=loginDisplay"); // Redirect to Login Page
             } 
         else {
             $_SESSION['session_start_time']=time();

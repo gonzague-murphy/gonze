@@ -35,6 +35,7 @@ require_once("footer.php");
     </div><!--fin de la div #menu -->
     <div id = "twoway">
         <div id='loupe'>&nbsp;&nbsp;&nbsp;Recherche</div>
+        <img src='../src/Backoffice/Views/img/logo.png' alt='logoLoki' />
         <a href="?controller=DefaultController&action=indexDisplay"><h1>LokiSalle</h1></a>
         <p>Location de salles partout en France en 2 clics !</p>
         <?php makeUserMenu();?>

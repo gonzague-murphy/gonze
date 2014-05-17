@@ -66,7 +66,7 @@ class Controller{
     public function clean(&$args){
         foreach($args as &$data){
             if(!is_array($data)){
-                  $data = \htmlentities($data, ENT_QUOTES);
+                  $data = \htmlentities($data, ENT_NOQUOTES, "UTF-8");
             }
             else{
 //on rapelle la fonction tant que tout l'array n'y est pas passé
@@ -89,7 +89,7 @@ class Controller{
                 $newValue  = trim($value);
             }
             if(empty($newValue)){
-                $errors[] = "<div class='error'>Le champ ".$key." est obligatoire</div>";
+                $errors[] = "<div class='error'>Le champ ".ucfirst($key)." est obligatoire</div>";
                 //echo $this->msg;
                 
             }    

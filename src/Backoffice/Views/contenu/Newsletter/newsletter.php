@@ -4,5 +4,5 @@
     <input type='text' name='sujet' value='<?php if(isset($_POST['sujet'])) echo $_POST['sujet'];?>' />
     <label>Message</label>
     <textarea name='messageNewsletter' id="messageNewsletter" class="ckeditor"></textarea>
-    <input type='submit' value='Envoyer la Newsletter' />
+    <input type='submit' value='Envoyer' />
 </form>

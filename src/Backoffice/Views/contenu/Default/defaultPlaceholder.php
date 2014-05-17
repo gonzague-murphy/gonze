@@ -56,5 +56,11 @@ if(isset($msg)){
     <div class="titleHome">
     <h3 class="categorie">Ils nous ont fait confiance</h3>
     </div>
+    <ul>
+        <li><img src='../src/Backoffice/Views/img/icons/entreprise1.png' alt='partenaire1' /></li>
+        <li><img src='../src/Backoffice/Views/img/icons/entreprise4.jpg' alt='partenaire4' /></li>
+        <li><img src='../src/Backoffice/Views/img/icons/entrprise2.jpg' alt='partenaire2' /></li>
+        <li><img src='../src/Backoffice/Views/img/icons/entreprise3.jpg' alt='partenaire3' /></li>
+    </ul>
 </div>
 

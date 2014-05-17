@@ -128,7 +128,7 @@ var closeMe = function(){
 };
 
 var colorBoxLogin = function(){
-    $('a.flyLogin').colorbox({iframe : true, href:"?controller=MembreController&action=justLogin", height : "335px", width : "315px", scrolling : false, left: "496px", onClosed:function(){ 
+    $('a.flyLogin').colorbox({iframe : true, href:"?controller=MembreController&action=justLogin", height : "335px", width : "315px", scrolling : false, left: "33%", onClosed:function(){ 
             location.reload(true); 
         }, onOpen : function(){
             $('#colorbox,#cboxOverlay,#cboxWrapper').css('z-index', '4000');
@@ -142,7 +142,7 @@ var colorBoxLogin = function(){
         iframe : true, 
         href:"?controller=MembreController&action=justSignUp", 
         scrolling : true, 
-        left: "496px", 
+        left: "30%", 
         top : "7%",
         height : "865px",
         width : "315px",
@@ -166,7 +166,10 @@ var searchForm = function(){
 var carouselArrows = function(){
     var unslider = $('.carousel').unslider({
         speed: 500,          
-        delay: 3000
+        delay: 3000,
+        keys: true,
+        fluid: true,
+        dots: true 
     });
     
     $('.unslider-arrow').click(function() {
