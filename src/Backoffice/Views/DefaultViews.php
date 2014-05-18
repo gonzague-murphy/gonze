@@ -71,5 +71,11 @@ class DefaultViews extends Views{
         ));
     }
     
+    public function displaySupport(){
+        $this->render('template_accueil.php', 'support.php', array(
+            'title'=>'Support'
+        ));
+    }
+    
 }
 

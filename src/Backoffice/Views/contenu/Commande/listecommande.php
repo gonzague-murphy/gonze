@@ -16,6 +16,8 @@ foreach($years as $key=>$value){
        <li>Montant</li>
     </ul>-->
 <?php
+/*var_dump($detail);
+var_dump($commandes);*/
 $i =0;
     foreach($commandes as $key=>$value){
         echo "<ul class='commandeAdmin'>";
@@ -27,6 +29,7 @@ $i =0;
             echo "<li>N° du client : Membre supprimé    </li>";
         }
         echo "<li>Montant : ".$value->getMontant()." €    </li>";
+        
         echo "<li class='fullDetails'>+Details</li>";
         foreach($detail as $unit=>$data){
             foreach($data as $object=>$prop){
@@ -40,7 +43,12 @@ $i =0;
                     echo "<tr>";
                     echo "<td>".$prop->id_details_commande."</td>";
                     echo "<td>".$prop->id_commande."</td>";
-                    echo "<td>".$prop->id_produit."</td>";
+                    if(!is_null($prop->id_produit)){
+                        echo "<td>".$prop->id_produit."</td>";
+                    }
+                    else{
+                        echo "<td>Ce produit a été supprimé</td>";
+                    }
                     echo "</tr>";
                     echo "</table>";
                 }

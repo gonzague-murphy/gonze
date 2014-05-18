@@ -12,7 +12,7 @@ echo "<nav class='main_menu' id='mainMenu'>";
     }
     echo "<li><a href='?controller=ProduitController&action=displaySalleHasProductMembre'>NOS SALLES</a></li>";
     echo "<li><a href='?controller=DefaultController&action=displayAbout'>QUI SOMMES NOUS?</a></li>";
-    echo "<li><a href='#'>SUPPORT</a></li>";
+    echo "<li><a href='?controller=DefaultController&action=support'>SUPPORT</a></li>";
     echo "<li><a href='?controller=DefaultController&action=contactForm'>CONTACT</a></li>";
     echo "</ul>";
     echo "</nav>";

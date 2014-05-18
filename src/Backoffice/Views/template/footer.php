@@ -4,7 +4,7 @@ function makeFooter(){
     echo "<div id='footer'>";
     echo "<div>";
     echo "<ul class='rappelLiens'>";
-    echo "<li><a href=''>Contact</a></li>";
+    echo "<li><a href='?controller=DefaultController&action=contactForm'>Contact</a></li>";
     echo "<li><a href='?controller=DefaultController&action=displayCgv'>CGV</a></li>";
     echo "<li><a href='?controller=DefaultController&action=mentionLegales'>Mentions Légales</a></li>";
     echo "</ul>";

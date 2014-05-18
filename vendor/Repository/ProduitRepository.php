@@ -152,7 +152,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function findSimilar($city, $id){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart, p.etat FROM salle s INNER JOIN  produit p ON s.id_salle=p.id_salle WHERE s.ville='$city' AND p.id_produit !=$id AND p.etat!=1;");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart, p.etat FROM salle s INNER JOIN  produit p ON s.id_salle=p.id_salle WHERE s.ville='$city' AND p.id_produit !=$id AND p.etat!=1 ORDER BY p.date_arrivee DESC LIMIT 0,2;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
@@ -164,7 +164,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function mainSearchOne($mois, $annee){
-         $query = $this->getDb()->prepare("SELECT id_produit FROM produit WHERE date_arrivee LIKE '%$annee-$mois%';");
+         $query = $this->getDb()->prepare("SELECT id_produit FROM produit WHERE date_arrivee LIKE '%$annee-$mois%' AND etat=0;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          return $result = $query->fetchAll();

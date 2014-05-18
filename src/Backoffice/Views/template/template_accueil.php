@@ -11,7 +11,7 @@ require_once("footer.php");
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<title><?php echo "Lokisalle | ".$title;?></title>
-                <link rel="icon" type="image/png" href="../src/Backoffice/Views/img/key.ico" />
+                <link rel="icon" type="image/png" href="../src/Backoffice/Views/img/logo.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/style.css"/>
 		<link rel = "stylesheet" href = "../src/Backoffice/Views/css/jquery.datetimepicker.css"/>

@@ -33,7 +33,7 @@ if(isset($msg) && is_array($msg)){
        
         <label>Adresse :</label>
             <input type="text" name="adresse" value="<?php if(isset($_POST['adresse'])) echo $_POST['adresse']; ?>"/>
-        
+            <span>*Tous les champs sont obligatoires</span>
             <input type="submit" id="submit" name="submit" value="S'inscrire" />
     </form>
 </div>

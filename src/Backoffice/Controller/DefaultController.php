@@ -113,6 +113,12 @@ class DefaultController extends Controller{
     public function unknownPage(){
         $this->view->noSuchPage();
     }
+/*
+ * Public function support
+ */
+    public function support(){
+       $this->view->displaySupport();
+    }
     
 /*
  * Error 404

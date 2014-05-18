@@ -8,3 +8,4 @@ ckeditor/
 
 ###.idea####
 .idea/
+/src/BackOffice/Controller/Config.php

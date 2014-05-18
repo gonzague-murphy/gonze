@@ -48,11 +48,18 @@ class CommandeController extends Controller{
         $prodCont->updateAfterOrder();
         $idCommande = $this->getRepository('Commande')->addOrder($this->arrayPost);
         $this->updateDetails($idCommande);
-        $this->view->displayFicheDetail($this->arrayPost);
         unset($_SESSION['panier']);
         PanierSessionHandler::initializeCart();
+        header('location:?controller=CommandeController&action=displayDetails');
         exit();
     } 
+    
+/*
+ * Redirection après order
+ */
+    public function displayDetails(){
+        $this->view->displayFicheDetail();
+    }
     
 /*
  * Add to details_commande

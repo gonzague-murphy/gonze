@@ -147,9 +147,7 @@ pas avoir à la "défaire" ensuite pour les resolutions mobiles*/
     .categorie{
         margin-top : 15%;
     }
-    .carousel{
-        display : none;
-    }
+    
     
     #content{
        padding-bottom : 45em;
@@ -183,14 +181,11 @@ pas avoir à la "défaire" ensuite pour les resolutions mobiles*/
     #twoway p{
         display : none;
     }
-}
-
-/* @media screen and (min-width: 1392px) */
-@media screen and (min-width: 85em) {
     .carousel{
-        margin-left: 7%;
+        display : none;
     }
 }
+
 
 /* @media screen and (min-width: 720px) */
 @media screen and (min-width: 45em) {
@@ -446,10 +441,6 @@ h3 {
     top: 0;
 }
 
-.carousel{
-    display : block;
-}
-
 .unslider-arrow{
     display: inline;
 }
@@ -511,6 +502,21 @@ h3 {
     margin-top : -13%;
     width : 25%;
 }
+.carousel{
+    display : block;
+}
+
+.carousel { position: relative; overflow: auto;display : block;margin-left: 2%;}
+    .carousel li { list-style: none; }
+        .carousel ul li { float: left; }
+        .carousel ul{padding: 0;}
+
+
+.unslider-arrow.prev, .unslider-arrow.next{
+    text-decoration: none;
+    color : black;
+}
+
 
 }
 /****************************************/
@@ -877,43 +883,8 @@ select{
     color : #373737;
 }
 
-/*Carousel
-
-Carousel
-
-.carousel { 
-    position: relative; 
-    right : -12%;
-}
-
-.carousel ul li { 
-    float: left; 
-}
-
-.carousel { 
-    overflow: hidden;
-    width : 80%;
-    height : auto;
-}
-
-.carousel img{
-    width : 100%;
-    height : auto;
-}
-.carousel li { 
-    list-style: none; 
-}*/
-
-.carousel { position: relative; overflow: auto;}
-    .carousel li { list-style: none; }
-        .carousel ul li { float: left; }
-        .carousel ul{padding: 0;}
 
 
-.unslider-arrow.prev, .unslider-arrow.next{
-    text-decoration: none;
-    color : black;
-}
 
 #stats table, #stats th, #stats td{
     border:1px solid #373737;
@@ -1234,3 +1205,13 @@ select{
 .town{
     width: 15%;
 }
+
+.intermed img{
+    width: 20%;
+}
+
+.legale span{
+    font-size: 8px;
+}
+
+
