@@ -21,7 +21,7 @@ elseif(isset($msg) && !is_array($msg)){
 <?php
 foreach($salles as $unit){
     //var_dump($unit);
-   echo '<option value="'.$unit->getIdSalle().'">'.$unit->getTitre().'</option>';
+   echo '<option value="'.$unit->getIdSalle().'">'.$unit->getTitre().'  -  '.ucfirst($unit->ville).'  -  '.$unit->capacite.' pers.</option>';
 
 }
 ?>
