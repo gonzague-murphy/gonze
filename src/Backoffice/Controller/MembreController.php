@@ -186,6 +186,7 @@ class MembreController extends Controller{
                $pwd = $this->randomPwd();
                $this->mailLostPwd($this->arrayPost['email'], $pwd);
                $this->getRepository('Membre')->updatePassword(md5($pwd), $emailExists['id_membre']);
+               $this->view->lostPwd();
             }
      }
      

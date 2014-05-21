@@ -1,4 +1,13 @@
 <?php
+if(isset($msg) && is_array($msg)){
+    foreach($msg as $key=>$value){
+        echo "<div class='error'>".$value."</div>";
+    }
+}
+
+elseif(isset($msg) && !is_array($msg)){
+    echo "<div class='error'>".$msg."</div>";
+}
 echo "<form method='post' action='?controller=SalleController&action=addSalle' enctype='multipart/form-data' class='siteForms'>";
 ?>
         <label>Pays</label>

@@ -49,6 +49,13 @@ class MembreViews extends Views{
         ));
     }
     
+    public function lostPwd(){
+        $this->render('template_accueil.php', 'thankyou.php', array(
+            'title'=>'Mot de passe oublié',
+            'msg'=>'Merci, nous vous avons envoyé un mail avec un nouveau mot de passe temporaire. Il vous est fortement conseillé d\'en changer.'
+        ));
+    }
+    
     public function updateForm($arg, $msg){
         $this->render('template_accueil.php', 'updateprofil.php', array(
             'title'=>'Modifier mes informations',

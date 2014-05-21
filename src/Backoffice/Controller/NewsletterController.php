@@ -34,6 +34,7 @@ class NewsletterController extends Controller{
         $subject = $subject;
         $message = '<html>
         <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>'.$subject.'</title>
         </head>
         <body>
@@ -44,10 +45,10 @@ class NewsletterController extends Controller{
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 
-        $headers .= 'From: "Lokisalle" <loki-salle@alwaysdata.net>' . "\r\n";
+        $headers .= 'From: "Lokisalle" <oncesbo@hotmail.fr>' . "\r\n";
 
     $mail = mail($to, $subject, $message, $headers); //marche
-    var_dump($message);
+    //var_dump($message);
     if($mail){
         return true;
     }

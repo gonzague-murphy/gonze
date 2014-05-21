@@ -93,12 +93,12 @@ var rechercheAjax = function(){
 
 var chiffreA = function(){
     var valInput = $('#annee').val();
-    $.get( "index.php?controller=CommandeController&action=CaAdd&year="+valInput, function( data ) {
+    $.get( "?controller=CommandeController&action=CaAdd&year="+valInput, function( data ) {
         $('.result').html(data);
         });
     $('#annee').change(function(){
         var valInput = $('#annee').val();
-        $.get( "index.php?controller=CommandeController&action=CaAdd&year="+valInput, function( data ) {
+        $.get( "?controller=CommandeController&action=CaAdd&year="+valInput, function( data ) {
         $('.result').html(data);
         });
     });

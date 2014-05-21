@@ -21,9 +21,10 @@ class SalleViews extends Views{
 //::::::::::FORMULAIRES:::::::::::::
 //::::::::::::::::::::::::::::::::::
     
-    public function addSalleForm(){
+    public function addSalleForm($msg){
         $this->render('template_accueil.php', 'salleformadd.php', array(
-            'title'=> 'Ajouter une salle'
+            'title'=> 'Ajouter une salle',
+            'msg'=>$msg
         ));
     }
     

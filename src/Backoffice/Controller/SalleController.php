@@ -10,13 +10,24 @@ class SalleController extends Controller{
  */    
     public function addSalle(){
         if(isset($this->arrayPost)){
-            $proto = $this->makeObjectSalle();
-            $salle = $this->sanitizePhoto($proto);
-            $queryTable = $this->getRepository('Salle');
-            $queryTable->addSalle($salle);
-            $total = $queryTable->findAll();
-            header('Location: ?controller=SalleController&action=displayForAdmin');
-            exit;
+            $this->clean($this->arrayPost);
+            $this->msg = $this->checkForEmptyFields($this->arrayPost);
+            if(empty($this->files['photo']['name'])){
+                $this->msg[] = "Le champ Photo est obligatoire";
+            }          
+            $errors = array_filter($this->msg);
+            if(empty($errors)){
+                $proto = $this->makeObjectSalle();
+                $salle = $this->sanitizePhoto($proto);
+                $queryTable = $this->getRepository('Salle');
+                $queryTable->addSalle($salle);
+                $total = $queryTable->findAll();
+                header('Location: ?controller=SalleController&action=displayForAdmin');
+                exit;
+            }
+            else{
+                $this->view->addSalleForm($errors);
+            }
         }
     }
     
@@ -185,7 +196,7 @@ class SalleController extends Controller{
  */
     
     public function displaySalleFormAdd(){
-        $this->view->addSalleForm();
+        $this->view->addSalleForm('');
     }
     
 
