@@ -47,7 +47,7 @@ class NewsletterController extends Controller{
         $headers .= 'From: "Lokisalle" <loki-salle@alwaysdata.net>' . "\r\n";
 
     $mail = mail($to, $subject, $message, $headers); //marche
-
+    var_dump($message);
     if($mail){
         return true;
     }

@@ -110,7 +110,7 @@ class ProduitRepository extends EntityRepository{
  */
      
      public function selectMostRecent(){
-         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart FROM salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat=0 ORDER BY p.id_produit DESC LIMIT 0,3;");
+         $query = $this->getDb()->prepare("SELECT s.titre, s.photo, s.ville, s.capacite, p.id_produit, p.prix, p.id_salle, p.date_arrivee, p.date_depart FROM salle s, produit p WHERE s.id_salle=p.id_salle AND p.etat=0 AND p.date_arrivee > CURDATE() ORDER BY p.id_produit DESC LIMIT 0,3;");
          $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          $result = $query->fetchAll();
@@ -165,7 +165,6 @@ class ProduitRepository extends EntityRepository{
      
      public function mainSearchOne($mois, $annee){
          $query = $this->getDb()->prepare("SELECT id_produit FROM produit WHERE date_arrivee LIKE '%$annee-$mois%' AND etat=0;");
-         $query->setFetchMode(PDO::FETCH_ASSOC);
          $query->execute();
          return $result = $query->fetchAll();
          
@@ -175,7 +174,7 @@ class ProduitRepository extends EntityRepository{
          $query = $this->getDb()->prepare("SELECT * FROM produit p INNER JOIN salle s ON p.id_salle=s.id_salle WHERE p.id_produit=$id AND s.ville LIKE '%$keyWord%';");
          $query->setfetchMode(PDO::FETCH_CLASS, "\Entity\\"."Produit");
          $query->execute();
-         return $result = $query->fetchAll(); 
+         return $result = $query->fetch(); 
      }
 /******************************************************************************************/
      

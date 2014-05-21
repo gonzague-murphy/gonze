@@ -11,30 +11,29 @@ function getMonth($inteGer){
         }
     }
 }
+//var_dump($produit);
 if(!empty($produit)){
     foreach($produit as $key=>$value){
-        if(!empty($key)){
-            foreach($value as $unit=>$data){
+        if($value instanceof Entity\Produit){
                 echo "<li>";
                 echo "<div class='details'>";
-                echo "<h4><a href='?controller=ProduitController&action=displayProductDetail&id=".$data->id_produit."'>".$data->titre."</a></h4>";
-                echo "<a href='?controller=ProduitController&action=displayProductDetail&id=".$data->id_produit."'><img src='".$data->photo."'></a><br/>";
-                echo "<div class='flaticon-ville'>".$data->ville."</div>";
-                echo "<div class='flaticon-calend'>Du ".date("d-m-Y", strtotime($data->date_arrivee))." au ".date("d-m-Y", strtotime($data->date_depart))."</div>";
-                echo "<div class='flaticon-capa'>".$data->capacite." personnes</div>";
-                echo "<div class='flaticon-euro'>".$data->prix." euros</div>";
+                echo "<h4><a href='?controller=ProduitController&action=displayProductDetail&id=".$value->id_produit."'>".$value->titre."</a></h4>";
+                echo "<a href='?controller=ProduitController&action=displayProductDetail&id=".$value->id_produit."'><img src='".$value->photo."'></a><br/>";
+                echo "<div class='flaticon-ville'>".$value->ville."</div>";
+                echo "<div class='flaticon-calend'>Du ".date("d-m-Y", strtotime($value->date_arrivee))." au ".date("d-m-Y", strtotime($value->date_depart))."</div>";
+                echo "<div class='flaticon-capa'>".$value->capacite." personnes</div>";
+                echo "<div class='flaticon-euro'>".$value->prix." euros</div>";
                 echo "</div>";
                 echo "<div class='linksProd'>";
-                echo "<span><a href='?controller=ProduitController&action=displayProductDetail&id=".$data->id_produit."'>&#10095; Voir la fiche détaillée</a>";
+                echo "<span><a href='?controller=ProduitController&action=displayProductDetail&id=".$value->id_produit."'>&#10095; Voir la fiche détaillée</a>";
                 if(isset($_SESSION['user'])){
-                    echo "<a href='?controller=CommandeController&action=addToCart&id=".$data->id_produit."' class='bouton'>Ajouter au panier</a>";
+                    echo "<a href='?controller=CommandeController&action=addToCart&id=".$value->id_produit."' class='bouton'>Ajouter au panier</a>";
                 }
                 else{
                     echo "<a href='?controller=MembreController&action=loginDisplay' class='flyLogin'>&#10095; Connectez-vous pour l'ajouter au panier</a>";
                     }
                 echo "</div>";
                 echo "</li>";
-            }
         }
     }
 }
